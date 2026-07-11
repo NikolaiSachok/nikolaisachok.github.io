@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nikolai Sachok — AI Engineer</title>
+  <meta name="description" content="AI engineer building and operating production LLM systems — multi-agent orchestration, RAG, evaluation, and guardrails." />
+  <meta name="author" content="Nikolai Sachok" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Nikolai Sachok — AI Engineer" />
+  <meta property="og:description" content="Building and operating production LLM systems — multi-agent orchestration, RAG, evaluation, and guardrails." />
+  <meta property="og:url" content="https://nikolaisachok.github.io/" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E" />
+
+  <style>
+    :root {
+      --bg: #fafaf9;
+      --bg-card: #ffffff;
+      --fg: #1c1b1a;
+      --fg-muted: #6b6864;
+      --border: #e7e5e2;
+      --accent: #b4530b;
+      --accent-soft: #fdf0e6;
+      --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.05);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #131211;
+        --bg-card: #1c1b1a;
+        --fg: #ededeb;
+        --fg-muted: #a3a09b;
+        --border: #2c2a28;
+        --accent: #f0904a;
+        --accent-soft: #2a1c11;
+        --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 5vw, 2rem) 4rem;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header { margin-bottom: 2.75rem; }
+    .name {
+      font-size: clamp(2rem, 6vw, 2.7rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0 0 .35rem;
+      line-height: 1.1;
+    }
+    .role {
+      font-size: clamp(1.05rem, 3vw, 1.2rem);
+      color: var(--accent);
+      font-weight: 600;
+      margin: 0 0 1.25rem;
+    }
+    .lead { color: var(--fg); margin: 0 0 1rem; }
+    .lead:last-child { margin-bottom: 0; }
+    .muted { color: var(--fg-muted); }
+
+    /* Section titles */
+    h2 {
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--fg-muted);
+      font-weight: 700;
+      margin: 3rem 0 1.1rem;
+    }
+
+    /* Work list */
+    .tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0; padding: 0; list-style: none; }
+    .tag {
+      font-size: .875rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid transparent;
+      padding: .3rem .7rem;
+      border-radius: 999px;
+      font-weight: 500;
+    }
+
+    /* Project cards */
+    .cards { display: grid; gap: .85rem; margin: 0; padding: 0; list-style: none; }
+    .card {
+      display: block;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.15rem 1.3rem;
+      box-shadow: var(--shadow);
+      transition: transform .15s ease, border-color .15s ease;
+      color: inherit;
+    }
+    .card:hover {
+      text-decoration: none;
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+    .card-top { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+    .card-title { font-weight: 650; font-size: 1.08rem; color: var(--fg); }
+    .card:hover .card-title { color: var(--accent); }
+    .card-host {
+      font-size: .78rem;
+      color: var(--fg-muted);
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+    .card-desc { color: var(--fg-muted); font-size: .95rem; margin: .4rem 0 0; }
+
+    /* Footer / contact */
+    footer {
+      margin-top: 3.25rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      font-size: .95rem;
+    }
+    footer a { color: var(--fg-muted); font-weight: 500; }
+    footer a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1 class="name">Nikolai Sachok</h1>
+      <p class="role">AI Engineer — production LLM systems</p>
+      <p class="lead">
+        I build and operate production LLM systems: multi-agent orchestration, RAG, evaluation,
+        and guardrails. Physicist by training, then two decades building and leading software teams —
+        500+ apps shipped, 10M+ downloads — now building AI systems hands-on.
+      </p>
+      <p class="lead muted">
+        I started out writing C++ simulations for CERN's LHC experiments, spent ~20 years building and
+        leading software teams, and in 2025 rebuilt my delivery operation around AI — running an
+        LLM-orchestrated pipeline solo, from design through release. Most of the work is the verification
+        and eval that keeps quality up at volume: <em>generation isn't the bottleneck, verification is.</em>
+      </p>
+    </header>
+
+    <h2>What I work on</h2>
+    <ul class="tags">
+      <li class="tag">Agentic systems</li>
+      <li class="tag">Multi-agent orchestration</li>
+      <li class="tag">RAG &amp; retrieval</li>
+      <li class="tag">Evaluation &amp; LLM-as-judge</li>
+      <li class="tag">Guardrails &amp; safety</li>
+      <li class="tag">MCP tooling</li>
+      <li class="tag">AI-assisted SDLC</li>
+    </ul>
+
+    <h2>Projects &amp; writing</h2>
+    <ul class="cards">
+      <li>
+        <a class="card" href="https://nikolaisachok.github.io/Strata-RAG/">
+          <div class="card-top">
+            <span class="card-title">Strata-RAG</span>
+            <span class="card-host">Strata-RAG ↗</span>
+          </div>
+          <p class="card-desc">
+            An eval-first, study-grade RAG engine over heterogeneous corpora — Qdrant + HNSW, hybrid
+            retrieval with RRF, cross-encoder re-ranking, a metadata sidecar for aggregation, and an
+            eval harness (Recall@K / nDCG / MRR + LLM-judge faithfulness) with layered injection/PII defenses.
+          </p>
+        </a>
+      </li>
+      <li>
+        <a class="card" href="https://nikolaisachok.github.io/enterprise-rag-agents-handbook/">
+          <div class="card-top">
+            <span class="card-title">Enterprise RAG &amp; Agents Handbook</span>
+            <span class="card-host">handbook ↗</span>
+          </div>
+          <p class="card-desc">
+            A practical, first-principles handbook on production RAG &amp; agentic systems — bilingual
+            (RU / EN), teaching the why and the failure modes, not just the features.
+          </p>
+        </a>
+      </li>
+      <li>
+        <a class="card" href="https://nikolaisachok.github.io/DC-plugins/">
+          <div class="card-top">
+            <span class="card-title">DC-plugins</span>
+            <span class="card-host">DC-plugins ↗</span>
+          </div>
+          <p class="card-desc">
+            Native macOS plugins for Double Commander (Objective-C, universal binaries, headless tests,
+            CI) — a small native tool taken end-to-end to a published standard.
+          </p>
+        </a>
+      </li>
+    </ul>
+
+    <footer>
+      <a href="https://github.com/NikolaiSachok">GitHub</a>
+      <a href="https://www.linkedin.com/in/nikolai-sachok/">LinkedIn</a>
+    </footer>
+  </div>
+</body>
+</html>
