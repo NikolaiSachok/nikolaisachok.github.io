@@ -141,6 +141,32 @@
     }
     footer a { color: var(--fg-muted); font-weight: 500; }
     footer a:hover { color: var(--accent); }
+
+    /* Intro video */
+    .video { margin: 0 0 .5rem; }
+    .video-frame {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      background: #000;
+    }
+    .video-facade { position: absolute; inset: 0; display: block; cursor: pointer; }
+    .video-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .play {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 68px; height: 48px; border-radius: 14px;
+      background: rgba(20, 18, 17, .72);
+      display: grid; place-items: center;
+      transition: background .15s ease, transform .15s ease;
+    }
+    .video-facade:hover .play { background: var(--accent); transform: translate(-50%, -50%) scale(1.06); }
+    .play svg { width: 26px; height: 26px; fill: #fff; margin-left: 2px; }
+    .video-cap { color: var(--fg-muted); font-size: .95rem; margin: .85rem 0 0; }
+    .video-cap strong { color: var(--fg); font-weight: 650; }
   </style>
 </head>
 <body>
@@ -160,6 +186,24 @@
         and eval that keeps quality up at volume: <em>generation isn't the bottleneck, verification is.</em>
       </p>
     </header>
+
+    <section class="video" aria-label="Intro video">
+      <div class="video-frame">
+        <a class="video-facade" href="https://www.youtube.com/watch?v=G0wu4CbFEvU"
+           data-embed="https://www.youtube-nocookie.com/embed/G0wu4CbFEvU?autoplay=1&amp;rel=0"
+           aria-label="Play: Who I am — a 5-minute intro">
+          <img src="https://i.ytimg.com/vi/G0wu4CbFEvU/maxresdefault.jpg"
+               onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/G0wu4CbFEvU/hqdefault.jpg'"
+               alt="Who I am — video intro" loading="lazy" />
+          <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        </a>
+      </div>
+      <p class="video-cap">
+        <strong>Who I am — a 5-min intro.</strong> I walk through the three questions an AI-engineering
+        screen usually opens with: ① 20 years in software, the last two on AI · ② my most recent public
+        project, Strata-RAG (retrieval + evaluation) · ③ my strongest languages and stack.
+      </p>
+    </section>
 
     <h2>What I work on</h2>
     <ul class="tags">
@@ -231,5 +275,21 @@
       <a href="https://www.linkedin.com/in/nikolai-sachok/">LinkedIn</a>
     </footer>
   </div>
+
+  <script>
+    document.querySelectorAll('.video-facade').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        var frame = a.parentNode;
+        var iframe = document.createElement('iframe');
+        iframe.src = a.dataset.embed;
+        iframe.title = 'Who I am — video intro';
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+        iframe.setAttribute('allowfullscreen', '');
+        frame.innerHTML = '';
+        frame.appendChild(iframe);
+      });
+    });
+  </script>
 </body>
 </html>
