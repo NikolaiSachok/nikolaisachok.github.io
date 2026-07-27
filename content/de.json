@@ -26,7 +26,7 @@
     "name": "Nikolai Sachok",
     "role": "AI Engineer — LLM-Systeme im Produktivbetrieb",
     "lead_1": "Ich entwickle und betreibe LLM-Systeme im Produktivbetrieb: Multi-Agent-Orchestrierung, RAG, Evaluation und Guardrails. Ich habe Physik studiert und danach zwei Jahrzehnte lang Softwareteams aufgebaut und geleitet — 500+ ausgelieferte Apps, 10M+ Downloads. Heute entwickle ich AI-Systeme selbst, direkt am Code.",
-    "lead_2": "Angefangen habe ich damit, Simulationscode in C++ für die LHC-Experimente des CERN zu schreiben. Danach habe ich ~20 Jahre lang Softwareteams aufgebaut und geleitet. 2025 habe ich dann die Abläufe, mit denen ich Software entwickle und ausliefere, von Grund auf um AI herum neu aufgebaut: Ich betreibe eine von LLMs orchestrierte Pipeline vom Entwurf bis zum Release — allein. Den größten Teil der Arbeit machen Verifikation und Evaluation aus; sie sichern die Qualität auch im großen Maßstab: <em>Nicht die Generierung ist der Engpass, sondern die Verifikation.</em>"
+    "lead_2": "Angefangen habe ich damit, Simulationscode in C++ für die LHC-Experimente des CERN zu schreiben. Danach habe ich über 20 Jahre lang Softwareteams aufgebaut und geleitet. 2025 habe ich dann die Abläufe, mit denen ich Software entwickle und ausliefere, von Grund auf um AI herum neu aufgebaut: Ich betreibe eine von LLMs orchestrierte Pipeline vom Entwurf bis zum Release — allein. Den größten Teil der Arbeit machen Verifikation und Evaluation aus; sie sichern die Qualität auch im großen Maßstab: <em>Nicht die Generierung ist der Engpass, sondern die Verifikation.</em>"
   },
 
   "video": {
