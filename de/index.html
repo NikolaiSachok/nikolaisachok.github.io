@@ -99,15 +99,15 @@
       <a href="/ru/" hreflang="ru" lang="ru" data-setlang="ru" aria-label="Русский">RU</a>
     </nav>
     <div class="notice" role="status">
-      <span class="notice-text">Diese Seite wird in der Sprache des Browsers angezeigt. <a href="/" hreflang="en" lang="en" data-setlang="en">Auf Englisch lesen</a></span>
+      <span class="notice-text">Diese Seite wird in der Sprache Ihres Browsers angezeigt. <a href="/" hreflang="en" lang="en" data-setlang="en">Auf Englisch lesen</a></span>
       <button type="button" class="notice-dismiss" aria-label="Schließen">&times;</button>
     </div>
 
     <header>
       <h1 class="name">Nikolai Sachok</h1>
       <p class="role">AI Engineer — LLM-Systeme im Produktivbetrieb</p>
-      <p class="lead">Ich entwickle und betreibe LLM-Systeme im Produktivbetrieb: die Orchestrierung von Multi-Agent-Systemen, RAG, Evaluation und Guardrails. Ich bin ausgebildeter Physiker und habe danach zwei Jahrzehnte lang Softwareteams aufgebaut und geleitet — 500+ ausgelieferte Apps, 10M+ Downloads. Heute entwickle ich AI-Systeme selbst, direkt am Code.</p>
-      <p class="lead muted">Angefangen habe ich damit, Simulationscode in C++ für die LHC-Experimente des CERN zu schreiben. Danach habe ich ~20 Jahre lang Softwareteams aufgebaut und geleitet. 2025 habe ich dann die Abläufe, mit denen ich Software entwickle und ausliefere, rund um AI neu aufgebaut: Ich betreibe eine LLM-orchestrierte Pipeline vom Entwurf bis zum Release — ganz allein. Den größten Teil der Arbeit machen Verifikation und Evaluation aus; sie halten die Qualität auch bei großen Mengen hoch: <em>Nicht die Generierung ist der Engpass, sondern die Verifikation.</em></p>
+      <p class="lead">Ich entwickle und betreibe LLM-Systeme im Produktivbetrieb: Multi-Agent-Orchestrierung, RAG, Evaluation und Guardrails. Ich habe Physik studiert und danach zwei Jahrzehnte lang Softwareteams aufgebaut und geleitet — 500+ ausgelieferte Apps, 10M+ Downloads. Heute entwickle ich AI-Systeme selbst, direkt am Code.</p>
+      <p class="lead muted">Angefangen habe ich damit, Simulationscode in C++ für die LHC-Experimente des CERN zu schreiben. Danach habe ich ~20 Jahre lang Softwareteams aufgebaut und geleitet. 2025 habe ich dann die Abläufe, mit denen ich Software entwickle und ausliefere, von Grund auf um AI herum neu aufgebaut: Ich betreibe eine von LLMs orchestrierte Pipeline vom Entwurf bis zum Release — allein. Den größten Teil der Arbeit machen Verifikation und Evaluation aus; sie sichern die Qualität auch im großen Maßstab: <em>Nicht die Generierung ist der Engpass, sondern die Verifikation.</em></p>
     </header>
 
     <section class="video" aria-label="Vorstellungsvideo">
@@ -122,7 +122,7 @@
           <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
         </a>
       </div>
-      <p class="video-cap"><strong>Wer ich bin — eine 5-minütige Einführung.</strong> Ich gehe die drei Fragen durch, mit denen ein erstes Auswahlgespräch im AI-Engineering meist beginnt: ① 20 Jahre in der Softwareentwicklung, die letzten zwei davon mit AI · ② mein jüngstes öffentliches Projekt, Strata-RAG (Retrieval + Evaluation) · ③ die Programmiersprachen, die ich am besten beherrsche, und mein Stack.</p>
+      <p class="video-cap"><strong>Wer ich bin — eine 5-minütige Einführung.</strong> Ich gehe die drei Fragen durch, mit denen ein Erstgespräch im AI-Engineering meist beginnt: ① 20 Jahre in der Softwareentwicklung, die letzten beiden davon mit AI · ② mein jüngstes öffentliches Projekt, Strata-RAG (Retrieval + Evaluation) · ③ die Programmiersprachen, die ich am besten beherrsche, und mein Stack.</p>
     </section>
 
     <h2>Woran ich arbeite</h2>
@@ -144,7 +144,7 @@
             <span class="card-title">Strata-RAG</span>
             <span class="card-host">Strata-RAG ↗</span>
           </div>
-          <p class="card-desc">Eine RAG-Engine für heterogene Korpora, die als Lernmaterial geschrieben ist und bei der die Evaluation an erster Stelle steht — Qdrant + HNSW, hybrides Retrieval mit RRF, Re-Ranking mit einem Cross-Encoder, ein Metadaten-Sidecar für Aggregationen und eine Evaluationsumgebung (Recall@K / nDCG / MRR + Prüfung der Faktentreue nach dem LLM-as-judge-Verfahren), dazu mehrschichtige Schutzmechanismen gegen Injection und die Preisgabe von PII.</p>
+          <p class="card-desc">Eine RAG-Engine für heterogene Korpora, die als Lehrmaterial geschrieben ist und bei der die Evaluation an erster Stelle steht — Qdrant + HNSW, hybrides Retrieval mit RRF, Re-Ranking mit einem Cross-Encoder, ein Metadaten-Sidecar für Aggregationen und eine Evaluationsumgebung (Recall@K / nDCG / MRR + Prüfung der Faktentreue nach dem LLM-as-judge-Verfahren), dazu mehrschichtige Schutzmechanismen gegen Injection und die Preisgabe von PII.</p>
         </a>
       </li>
       <li>
@@ -153,7 +153,7 @@
             <span class="card-title">strata-insurance-corpus</span>
             <span class="card-host">corpus ↗</span>
           </div>
-          <p class="card-desc">Ein reproduzierbarer, synthetischer Korpus aus Versicherungsdokumenten in mehreren Formaten — digital erzeugte und gescannte PDF-Dateien, Word-Dokumente, Tabellenkalkulationen und Fotos. Dazu gehört ein Evaluationsdatensatz mit Goldstandard, der sich unmittelbar aus der Konstruktion des Korpus ergibt. Gebaut, um RAG-Systeme für Dokumente an Daten zu messen, die wie Unternehmensdaten aufgebaut sind.</p>
+          <p class="card-desc">Ein reproduzierbares, synthetisches Korpus aus Versicherungsdokumenten in mehreren Formaten — digital erzeugte und gescannte PDF-Dateien, Word-Dokumente, Tabellendokumente und Fotos. Dazu gehört ein Evaluationsdatensatz mit Goldstandard, der sich unmittelbar aus dem Aufbau des Korpus ergibt. Es dient dazu, RAG-Systeme für Dokumente an Daten zu messen, die wie Unternehmensdaten strukturiert sind.</p>
         </a>
       </li>
       <li>
@@ -162,7 +162,7 @@
             <span class="card-title">Enterprise RAG &amp; Agents Handbook</span>
             <span class="card-host">handbook ↗</span>
           </div>
-          <p class="card-desc">Ein praxisnahes Handbuch zu RAG-Systemen und agentischen Systemen im Produktivbetrieb, von den Grundprinzipien her erklärt — auf Englisch, Russisch und Slowakisch. Es zeigt, warum die Dinge so funktionieren und woran sie scheitern, statt nur Funktionen aufzuzählen.</p>
+          <p class="card-desc">Ein praxisnahes Handbuch zu RAG und agentischen Systemen in Produktion, von den Grundprinzipien her aufgebaut — auf Englisch, Russisch und Slowakisch. Es erklärt, warum etwas funktioniert und woran es scheitert, statt nur Funktionen aufzuzählen.</p>
         </a>
       </li>
       <li>
@@ -171,7 +171,7 @@
             <span class="card-title">DC-plugins</span>
             <span class="card-host">DC-plugins ↗</span>
           </div>
-          <p class="card-desc">Native macOS-Plugins für Double Commander (Objective-C, Universal Binaries, headless Tests, CI) — ein kleines natives Werkzeug, vollständig umgesetzt und bis zur Veröffentlichungsreife gebracht.</p>
+          <p class="card-desc">Native macOS-Plugins für Double Commander (Objective-C, Universal Binaries, Headless-Tests, CI) — ein kleines natives Tool, vollständig umgesetzt und bis zur Veröffentlichungsreife gebracht.</p>
         </a>
       </li>
     </ul>
