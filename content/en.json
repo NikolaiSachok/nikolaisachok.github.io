@@ -25,8 +25,8 @@
   "header": {
     "name": "Nikolai Sachok",
     "role": "AI Engineer — production LLM systems",
-    "lead_1": "I build and operate production LLM systems: multi-agent orchestration, RAG, evaluation, and guardrails. Physicist by training, then two decades building and leading software teams — 500+ apps shipped, 10M+ downloads — now building AI systems hands-on.",
-    "lead_2": "I started out writing C++ simulations for CERN's LHC experiments, spent more than 20 years building and leading software teams, and in 2025 rebuilt my delivery operation around AI — running an LLM-orchestrated pipeline solo, from design through release. Most of the work is the verification and eval that keeps quality up at volume: <em>generation isn't the bottleneck, verification is.</em>"
+    "lead_1": "I build and operate production LLM systems: multi-agent orchestration, RAG, evaluation, and guardrails. Physicist by training, then two decades building software and leading engineering teams — 500+ apps shipped, 10M+ downloads — now building AI systems hands-on.",
+    "lead_2": "I started out writing C++ simulations for CERN's LHC experiments, spent more than 20 years building software and leading engineering teams, and in 2025 rebuilt my delivery operation around AI — running an LLM-orchestrated pipeline solo, from design through release. Most of the work is the verification and eval that keeps quality up at volume: <em>generation isn't the bottleneck, verification is.</em>"
   },
 
   "video": {
