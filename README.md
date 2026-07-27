@@ -1,6 +1,71 @@
 # nikolaisachok.github.io
 
-Personal landing page — served at **https://nikolaisachok.github.io/**.
+Personal landing page — served at **https://nikolaisachok.com** (GitHub Pages user site).
 
-A single, self-contained `index.html` (no build step, no dependencies). Edit it and push to `main`;
-GitHub Pages redeploys automatically.
+Four locales: **English (source, at `/`)**, German `/de/`, Slovak `/sk/`, Russian `/ru/`.
+No framework, no CDN, no dependencies — the pages are fully self-contained apart from the YouTube
+thumbnail. The only tool is a stdlib-only Python 3 script.
+
+## Layout
+
+```
+template.html        the single page skeleton — edit markup HERE, never in a generated page
+content/en.json      English copy: the source of truth for every claim on the page
+content/de.json      German   ┐
+content/sk.json      Slovak   ├─ meaning-first translations of en.json, same key structure
+content/ru.json      Russian  ┘
+assets/style.css     one shared stylesheet for all four locales
+build.py             generator (Python 3 stdlib only)
+
+index.html           GENERATED — English
+de/index.html        GENERATED
+sk/index.html        GENERATED
+ru/index.html        GENERATED
+CNAME                custom domain — do not touch
+.nojekyll            do not touch
+```
+
+The generated pages are **committed**: GitHub Pages serves this repo as-is, there is no CI step.
+
+## Rebuild
+
+```sh
+python3 build.py            # regenerate all four pages
+python3 build.py --check    # exit 1 if the committed pages are stale (no writes)
+```
+
+Then commit the changed `content/*.json` **and** the regenerated `*.html` together, and push to
+`main`. Pages redeploys automatically.
+
+## Editing rules
+
+- **Never edit `index.html` or `*/index.html` by hand** — the next build overwrites it. Change
+  `content/<lang>.json` (text) or `template.html` (markup) instead.
+- **English is the source of truth.** Change `content/en.json` first, then bring the other three in
+  line. Every factual claim on the page is verified; translations preserve claims exactly and never
+  add one.
+- Content strings are **HTML fragments**: `<em>` and `<strong>` are allowed and meaningful. Write a
+  literal `&` — the build escapes it.
+- Card **URLs** live in `build.py` (`CARD_LINKS`), not in the content files, and are matched
+  positionally to the `cards` array. `build.py` refuses to build if the counts disagree.
+- Adding a locale: add a row to `LOCALES` in `build.py` and a `content/<code>.json`. hreflang,
+  canonical, `og:locale`, the switcher and the redirect table all derive from that one row.
+
+## i18n behaviour
+
+- Each locale is a real, indexable page with its own `<html lang>`, canonical, translated `<title>`
+  / description / Open Graph tags, and the full set of `hreflang` alternates plus `x-default`
+  (pointing at the English root).
+- A visible **language switcher** (EN · DE · SK · RU) sits at the top of every page.
+- **Language detection** is JS-only and lives in a small inline `<head>` script, so it runs before
+  first paint and the served HTML is identical for crawlers:
+  1. `?lang=<code>` always wins and is stored as the visitor's preference.
+  2. A stored preference (set by `?lang=` or by clicking the switcher) wins over detection and is
+     never auto-overridden.
+  3. Otherwise `navigator.languages` is consulted **on the English root only** — opening `/de/`
+     directly is always honoured. No match, or English first, stays on English.
+  4. Redirects use `location.replace()`, so Back never bounces the visitor into a loop.
+  5. A visitor routed by detection gets a small dismissible notice in that language with a one-click
+     link back to English.
+- With JavaScript off, every page serves its full content and all four locales stay reachable
+  through the switcher. Nothing is redirected server-side and nothing is `noindex`.

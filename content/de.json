@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "title": "Nikolai Sachok — AI Engineer",
+    "description": "AI Engineer: Ich entwickle und betreibe LLM-Systeme im Produktivbetrieb — Multi-Agent-Orchestrierung, RAG, Evaluation und Guardrails.",
+    "og_title": "Nikolai Sachok — AI Engineer",
+    "og_description": "Ich entwickle und betreibe LLM-Systeme im Produktivbetrieb — Multi-Agent-Orchestrierung, RAG, Evaluation und Guardrails."
+  },
+
+  "switcher": {
+    "label": "Sprache",
+    "names": {
+      "en": "English",
+      "de": "Deutsch",
+      "sk": "Slovenčina",
+      "ru": "Русский"
+    }
+  },
+
+  "notice": {
+    "text": "Diese Seite wird in der Sprache des Browsers angezeigt.",
+    "english_link": "Auf Englisch lesen",
+    "dismiss": "Schließen"
+  },
+
+  "header": {
+    "name": "Nikolai Sachok",
+    "role": "AI Engineer — LLM-Systeme im Produktivbetrieb",
+    "lead_1": "Ich entwickle und betreibe LLM-Systeme im Produktivbetrieb: die Orchestrierung von Multi-Agent-Systemen, RAG, Evaluation und Guardrails. Ich bin ausgebildeter Physiker und habe danach zwei Jahrzehnte lang Softwareteams aufgebaut und geleitet — 500+ ausgelieferte Apps, 10M+ Downloads. Heute entwickle ich AI-Systeme selbst, direkt am Code.",
+    "lead_2": "Angefangen habe ich damit, Simulationscode in C++ für die LHC-Experimente des CERN zu schreiben. Danach habe ich ~20 Jahre lang Softwareteams aufgebaut und geleitet. 2025 habe ich dann die Abläufe, mit denen ich Software entwickle und ausliefere, rund um AI neu aufgebaut: Ich betreibe eine LLM-orchestrierte Pipeline vom Entwurf bis zum Release — ganz allein. Den größten Teil der Arbeit machen Verifikation und Evaluation aus; sie halten die Qualität auch bei großen Mengen hoch: <em>Nicht die Generierung ist der Engpass, sondern die Verifikation.</em>"
+  },
+
+  "video": {
+    "section_label": "Vorstellungsvideo",
+    "play_label": "Abspielen: Wer ich bin — eine 5-minütige Einführung",
+    "img_alt": "Wer ich bin — Vorstellungsvideo",
+    "iframe_title": "Wer ich bin — Vorstellungsvideo",
+    "caption": "<strong>Wer ich bin — eine 5-minütige Einführung.</strong> Ich gehe die drei Fragen durch, mit denen ein erstes Auswahlgespräch im AI-Engineering meist beginnt: ① 20 Jahre in der Softwareentwicklung, die letzten zwei davon mit AI · ② mein jüngstes öffentliches Projekt, Strata-RAG (Retrieval + Evaluation) · ③ die Programmiersprachen, die ich am besten beherrsche, und mein Stack."
+  },
+
+  "sections": {
+    "work": "Woran ich arbeite",
+    "projects": "Projekte & Texte"
+  },
+
+  "tags": [
+    "Agentische Systeme",
+    "Multi-Agent-Orchestrierung",
+    "RAG & Retrieval",
+    "Evaluation & LLM-as-judge",
+    "Guardrails & Sicherheit",
+    "MCP-Tooling",
+    "AI-gestützter SDLC"
+  ],
+
+  "cards": [
+    {
+      "title": "Strata-RAG",
+      "host": "Strata-RAG ↗",
+      "desc": "Eine RAG-Engine für heterogene Korpora, die als Lernmaterial geschrieben ist und bei der die Evaluation an erster Stelle steht — Qdrant + HNSW, hybrides Retrieval mit RRF, Re-Ranking mit einem Cross-Encoder, ein Metadaten-Sidecar für Aggregationen und eine Evaluationsumgebung (Recall@K / nDCG / MRR + Prüfung der Faktentreue nach dem LLM-as-judge-Verfahren), dazu mehrschichtige Schutzmechanismen gegen Injection und die Preisgabe von PII."
+    },
+    {
+      "title": "strata-insurance-corpus",
+      "host": "corpus ↗",
+      "desc": "Ein reproduzierbarer, synthetischer Korpus aus Versicherungsdokumenten in mehreren Formaten — digital erzeugte und gescannte PDF-Dateien, Word-Dokumente, Tabellenkalkulationen und Fotos. Dazu gehört ein Evaluationsdatensatz mit Goldstandard, der sich unmittelbar aus der Konstruktion des Korpus ergibt. Gebaut, um RAG-Systeme für Dokumente an Daten zu messen, die wie Unternehmensdaten aufgebaut sind."
+    },
+    {
+      "title": "Enterprise RAG & Agents Handbook",
+      "host": "handbook ↗",
+      "desc": "Ein praxisnahes Handbuch zu RAG-Systemen und agentischen Systemen im Produktivbetrieb, von den Grundprinzipien her erklärt — auf Englisch, Russisch und Slowakisch. Es zeigt, warum die Dinge so funktionieren und woran sie scheitern, statt nur Funktionen aufzuzählen."
+    },
+    {
+      "title": "DC-plugins",
+      "host": "DC-plugins ↗",
+      "desc": "Native macOS-Plugins für Double Commander (Objective-C, Universal Binaries, headless Tests, CI) — ein kleines natives Werkzeug, vollständig umgesetzt und bis zur Veröffentlichungsreife gebracht."
+    }
+  ]
+}

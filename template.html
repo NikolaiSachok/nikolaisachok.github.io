@@ -1,0 +1,103 @@
+<!doctype html>
+<!-- GENERATED FILE — do not edit. Source: template.html + content/<lang>.json. Rebuild: python3 build.py -->
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{TITLE}}</title>
+  <meta name="description" content="{{DESCRIPTION}}" />
+  <meta name="author" content="Nikolai Sachok" />
+
+  <link rel="canonical" href="{{CANONICAL}}" />
+{{HREFLANG}}
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{{OG_TITLE}}" />
+  <meta property="og:description" content="{{OG_DESCRIPTION}}" />
+  <meta property="og:url" content="{{CANONICAL}}" />
+  <meta property="og:locale" content="{{OG_LOCALE}}" />
+{{OG_LOCALE_ALT}}
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E" />
+
+  <link rel="stylesheet" href="/assets/style.css" />
+{{HEAD_SCRIPT}}
+</head>
+<body>
+  <div class="wrap">
+    <nav class="langbar" aria-label="{{SWITCHER_LABEL}}">
+{{LANGBAR}}
+    </nav>
+{{NOTICE}}
+    <header>
+      <h1 class="name">{{NAME}}</h1>
+      <p class="role">{{ROLE}}</p>
+      <p class="lead">{{LEAD_1}}</p>
+      <p class="lead muted">{{LEAD_2}}</p>
+    </header>
+
+    <section class="video" aria-label="{{VIDEO_SECTION_LABEL}}">
+      <div class="video-frame">
+        <a class="video-facade" href="https://www.youtube.com/watch?v=G0wu4CbFEvU"
+           data-embed="https://www.youtube-nocookie.com/embed/G0wu4CbFEvU?autoplay=1&amp;rel=0"
+           data-title="{{VIDEO_IFRAME_TITLE}}"
+           aria-label="{{VIDEO_PLAY_LABEL}}">
+          <img src="https://i.ytimg.com/vi/G0wu4CbFEvU/maxresdefault.jpg"
+               onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/G0wu4CbFEvU/hqdefault.jpg'"
+               alt="{{VIDEO_IMG_ALT}}" loading="lazy" />
+          <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        </a>
+      </div>
+      <p class="video-cap">{{VIDEO_CAPTION}}</p>
+    </section>
+
+    <h2>{{H2_WORK}}</h2>
+    <ul class="tags">
+{{TAGS}}
+    </ul>
+
+    <h2>{{H2_PROJECTS}}</h2>
+    <ul class="cards">
+{{CARDS}}
+    </ul>
+
+    <footer>
+      <a href="https://github.com/NikolaiSachok">GitHub</a>
+      <a href="https://www.linkedin.com/in/nikolai-sachok/">LinkedIn</a>
+      <a href="https://x.com/nsachok">X</a>
+    </footer>
+  </div>
+
+  <script>
+    document.querySelectorAll('.video-facade').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        var frame = a.parentNode;
+        var iframe = document.createElement('iframe');
+        iframe.src = a.dataset.embed;
+        iframe.title = a.dataset.title;
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+        iframe.setAttribute('allowfullscreen', '');
+        frame.innerHTML = '';
+        frame.appendChild(iframe);
+      });
+    });
+
+    /* A language chosen by hand is remembered and never auto-overridden again. */
+    document.querySelectorAll('[data-setlang]').forEach(function (a) {
+      a.addEventListener('click', function () {
+        try { localStorage.setItem('nls-lang', a.dataset.setlang); } catch (e) {}
+      });
+    });
+
+    var dismiss = document.querySelector('.notice-dismiss');
+    if (dismiss) {
+      dismiss.addEventListener('click', function () {
+        document.documentElement.removeAttribute('data-autolang');
+      });
+    }
+  </script>
+</body>
+</html>
