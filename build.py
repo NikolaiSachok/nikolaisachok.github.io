@@ -13,6 +13,7 @@ because GitHub Pages serves this repo as-is with no CI step.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
@@ -86,6 +87,23 @@ def attr(text: str) -> str:
 
 
 # --- fragment builders ------------------------------------------------------
+def style_href() -> str:
+    """`/assets/style.css?v=<content hash>` — a URL that changes when the CSS does.
+
+    The domain sits behind Cloudflare, which caches stylesheets at the edge for
+    four hours (`cache-control: max-age=14400`) while HTML passes through
+    uncached (`cf-cache-status: DYNAMIC`). Without this, a CSS-only change is
+    invisible to visitors for hours and a hard refresh cannot help them: the
+    browser re-requests the same URL and the edge answers from its copy.
+
+    Hashing the content sidesteps every cache at once, because a URL nobody has
+    requested cannot be a stale hit. It also makes `--check` catch a CSS edit
+    that was never rebuilt: the hash moves, so the committed pages go stale.
+    """
+    digest = hashlib.sha256((ROOT / "assets" / "style.css").read_bytes()).hexdigest()
+    return f"/assets/style.css?v={digest[:12]}"
+
+
 def hreflang_block(indent: str = "  ") -> str:
     lines = [
         f'{indent}<link rel="alternate" hreflang="{code}" href="{SITE}{path}" />'
@@ -288,6 +306,7 @@ def render(code: str, lang: str, og: str, path: str, template: str) -> str:
         "OG_DESCRIPTION": attr(meta["og_description"]),
         "OG_LOCALE": og,
         "OG_LOCALE_ALT": og_locale_alt(code),
+        "STYLE_HREF": style_href(),
         "HEAD_SCRIPT": head_script(code),
         "SWITCHER_LABEL": attr(data["switcher"]["label"]),
         "LANGBAR": langbar(code, data["switcher"]["names"]),
