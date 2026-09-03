@@ -72,6 +72,11 @@
       "title": "DC-plugins",
       "host": "DC-plugins ↗",
       "desc": "Natívne macOS pluginy pre Double Commander (Objective-C, univerzálne binárky, headless testy, CI) — malý natívny nástroj dotiahnutý od začiatku až do podoby vhodnej na zverejnenie."
+    },
+    {
+      "title": "Eval-First RAG: Use Separate Scores to Triage Failures",
+      "host": "dev.to ↗",
+      "desc": "Článok o tom, prečo jediné celkové skóre RAG síce odhalí pokles kvality, no nie jeho príčinu. Samostatné hodnotenie retrievalu a generovania ukáže, či retrieval našiel nesprávne podklady, alebo generátor nedodržal tie správne. Vychádza zo Strata-RAG a sprievodného korpusu."
     }
   ]
 }

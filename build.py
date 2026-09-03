@@ -41,6 +41,9 @@ CARD_LINKS = [
     "https://github.com/NikolaiSachok/strata-insurance-corpus",
     "https://nikolaisachok.com/ai-engineering-handbook/",
     "https://nikolaisachok.com/DC-plugins/",
+    # Writing links out to where the piece is canonical, never to a copy hosted
+    # here: this page indexes the work, it does not host it.
+    "https://dev.to/nsachok/eval-first-rag-use-separate-scores-to-triage-failures-33ed",
 ]
 
 REQUIRED_KEYS = {
