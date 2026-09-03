@@ -69,8 +69,25 @@ header { margin-bottom: 1.75rem; }
   letter-spacing: .02em;
   color: var(--accent);
   font-weight: 600;
-  margin: 0 0 1.15rem;
+  margin: 0 0 .4rem;
 }
+
+/* Contact links, sitting with the role so the sans "chrome" block reads as one
+   cluster before the serif body starts. Muted rather than accent-coloured: the
+   role line above is already the blue, and two blues stacked would fight. */
+.identity {
+  font-family: var(--sans);
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  margin: 0 0 1.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .1rem .5rem;
+}
+.identity a { color: var(--chrome); }
+.identity a:hover { color: var(--accent); }
+.identity .sep { color: var(--rule); user-select: none; }
 /* No measure limit of its own: .wrap already sets the column, and a narrower
    lead reads as a mistake next to the video and the entries, which use the
    full width. One measure for the whole page. */
