@@ -28,6 +28,13 @@
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E" />
 
+  <!-- Source Serif 4 sets the content, Public Sans the chrome (labels, dates).
+       Both are OFL. preconnect first so the font CSS request does not wait on a
+       fresh connection; every face has a real fallback in style.css. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@500;600;700&display=swap" />
+
   <link rel="stylesheet" href="/assets/style.css" />
   <script>
   (function () {
@@ -136,51 +143,45 @@
       <li class="tag">SDLC s podporou AI</li>
     </ul>
 
-    <h2>Projekty &amp; texty</h2>
-    <ul class="cards">
+    <h2 class="section-head">Texty</h2>
+    <ul class="entries">
       <li>
-        <a class="card" href="https://nikolaisachok.com/Strata-RAG/">
-          <div class="card-top">
-            <span class="card-title">Strata-RAG</span>
-            <span class="card-host">Strata-RAG ↗</span>
-          </div>
-          <p class="card-desc">RAG engine nad rôznorodými korpusmi, postavený okolo vyhodnocovania a napísaný tak, aby sa z neho dalo učiť — Qdrant + HNSW, hybridné vyhľadávanie s RRF, re-ranking cez cross-encoder, metadátový sidecar na agregáciu a eval harness (Recall@K / nDCG / MRR + vernosť odpovedí metódou LLM-as-judge) s viacvrstvovou ochranou proti injection a úniku PII.</p>
+        <a class="entry" href="https://dev.to/nsachok/eval-first-rag-use-separate-scores-to-triage-failures-33ed">
+          <span class="entry-title">Eval-First RAG: Use Separate Scores to Triage Failures</span>
+          <span class="entry-desc">Jediné celkové skóre síce odhalí pokles kvality, no nie jeho príčinu. Samostatné hodnotenie retrievalu a generovania ukáže, či retrieval našiel nesprávne podklady, alebo generátor nedodržal tie správne.</span>
+          <span class="entry-meta">3. septembra 2026 · dev.to · aj na Medium a LinkedIne</span>
+        </a>
+      </li>
+    </ul>
+
+    <h2 class="section-head">Projekty</h2>
+    <ul class="entries">
+      <li>
+        <a class="entry" href="https://nikolaisachok.com/Strata-RAG/">
+          <span class="entry-title">Strata-RAG</span>
+          <span class="entry-desc">RAG engine nad rôznorodými korpusmi, postavený okolo vyhodnocovania a napísaný tak, aby sa z neho dalo učiť — Qdrant + HNSW, hybridné vyhľadávanie s RRF, re-ranking cez cross-encoder, metadátový sidecar na agregáciu a eval harness (Recall@K / nDCG / MRR + vernosť odpovedí metódou LLM-as-judge) s viacvrstvovou ochranou proti injection a úniku PII.</span>
+          <span class="entry-meta">GitHub · Python</span>
         </a>
       </li>
       <li>
-        <a class="card" href="https://github.com/NikolaiSachok/strata-insurance-corpus">
-          <div class="card-top">
-            <span class="card-title">strata-insurance-corpus</span>
-            <span class="card-host">corpus ↗</span>
-          </div>
-          <p class="card-desc">Reprodukovateľný syntetický korpus poistných dokumentov vo viacerých formátoch — pôvodne digitálne aj skenované PDF, Word, tabuľky a fotografie — so zlatou vyhodnocovacou sadou, ktorá vyplýva priamo z toho, ako je korpus postavený. Vznikol na benchmarkovanie dokumentového RAG na dátach podnikového typu.</p>
+        <a class="entry" href="https://github.com/NikolaiSachok/strata-insurance-corpus">
+          <span class="entry-title">strata-insurance-corpus</span>
+          <span class="entry-desc">Reprodukovateľný syntetický korpus poistných dokumentov vo viacerých formátoch — pôvodne digitálne aj skenované PDF, Word, tabuľky a fotografie — so zlatou vyhodnocovacou sadou, ktorá vyplýva priamo z toho, ako je korpus postavený. Vznikol na benchmarkovanie dokumentového RAG na dátach podnikového typu.</span>
+          <span class="entry-meta">GitHub · Python</span>
         </a>
       </li>
       <li>
-        <a class="card" href="https://nikolaisachok.com/ai-engineering-handbook/">
-          <div class="card-top">
-            <span class="card-title">Enterprise RAG &amp; Agents Handbook</span>
-            <span class="card-host">handbook ↗</span>
-          </div>
-          <p class="card-desc">Praktická príručka o RAG a agentických systémoch v produkcii, ktorá ich vysvetľuje od základných princípov — v angličtine, ruštine a slovenčine. Učí, prečo veci fungujú a kde zlyhávajú, nielen aké majú funkcie.</p>
+        <a class="entry" href="https://nikolaisachok.com/ai-engineering-handbook/">
+          <span class="entry-title">Enterprise RAG &amp; Agents Handbook</span>
+          <span class="entry-desc">Praktická príručka o RAG a agentických systémoch v produkcii, ktorá ich vysvetľuje od základných princípov — v angličtine, ruštine a slovenčine. Učí, prečo veci fungujú a kde zlyhávajú, nielen aké majú funkcie.</span>
+          <span class="entry-meta">nikolaisachok.com · Docusaurus</span>
         </a>
       </li>
       <li>
-        <a class="card" href="https://nikolaisachok.com/DC-plugins/">
-          <div class="card-top">
-            <span class="card-title">DC-plugins</span>
-            <span class="card-host">DC-plugins ↗</span>
-          </div>
-          <p class="card-desc">Natívne macOS pluginy pre Double Commander (Objective-C, univerzálne binárky, headless testy, CI) — malý natívny nástroj dotiahnutý od začiatku až do podoby vhodnej na zverejnenie.</p>
-        </a>
-      </li>
-      <li>
-        <a class="card" href="https://dev.to/nsachok/eval-first-rag-use-separate-scores-to-triage-failures-33ed">
-          <div class="card-top">
-            <span class="card-title">Eval-First RAG: Use Separate Scores to Triage Failures</span>
-            <span class="card-host">dev.to ↗</span>
-          </div>
-          <p class="card-desc">Článok o tom, prečo jediné celkové skóre RAG síce odhalí pokles kvality, no nie jeho príčinu. Samostatné hodnotenie retrievalu a generovania ukáže, či retrieval našiel nesprávne podklady, alebo generátor nedodržal tie správne. Vychádza zo Strata-RAG a sprievodného korpusu.</p>
+        <a class="entry" href="https://nikolaisachok.com/DC-plugins/">
+          <span class="entry-title">DC-plugins</span>
+          <span class="entry-desc">Natívne macOS pluginy pre Double Commander (Objective-C, univerzálne binárky, headless testy, CI) — malý natívny nástroj dotiahnutý od začiatku až do podoby vhodnej na zverejnenie.</span>
+          <span class="entry-meta">GitHub · Objective-C</span>
         </a>
       </li>
     </ul>

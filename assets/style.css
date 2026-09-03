@@ -1,28 +1,36 @@
 /* nikolaisachok.com — shared stylesheet for all locales.
-   Edit here once; every locale picks it up. Design unchanged from the
-   original single-file index.html; the only additions are the language
-   switcher, the auto-detect notice, and multi-language layout hardening. */
+   Edit here once; every locale picks it up.
+
+   Set as a publication rather than a portfolio. The organising rule is a split
+   between CONTENT and CHROME: Source Serif 4 carries everything that is read —
+   the name, entry titles, descriptions, the lead — and Public Sans carries only
+   the furniture: section labels, dates, the language switcher, the footer. That
+   split is what separates writing from links visually, and it is why entries
+   need no card around them: grouping, a rule and a date do the work a container
+   used to do. */
 
 :root {
-  --bg: #fafaf9;
-  --bg-card: #ffffff;
-  --fg: #1c1b1a;
-  --fg-muted: #6b6864;
-  --border: #e7e5e2;
-  --accent: #b4530b;
-  --accent-soft: #fdf0e6;
-  --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.05);
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --fg-muted: #4a4a4a;
+  --chrome: #8a8a8a;        /* labels, dates, footer — never body copy */
+  --rule: #e4e4e4;          /* hairline between entries */
+  --rule-strong: #1a1a1a;   /* the rule under a section label */
+  --accent: #1a4d9e;
+  --accent-soft: #eef2fa;
+  --sans: "Public Sans", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --serif: "Source Serif 4", "Iowan Old Style", "Charter", Georgia, Cambria, "Times New Roman", serif;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #131211;
-    --bg-card: #1c1b1a;
-    --fg: #ededeb;
-    --fg-muted: #a3a09b;
-    --border: #2c2a28;
-    --accent: #f0904a;
-    --accent-soft: #2a1c11;
-    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    --bg: #121212;
+    --fg: #eceae7;
+    --fg-muted: #b4b0aa;
+    --chrome: #8c8880;
+    --rule: #2b2b2b;
+    --rule-strong: #eceae7;
+    --accent: #8fb4ee;
+    --accent-soft: #1a2333;
   }
 }
 
@@ -32,129 +40,143 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--fg);
-  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.6;
-  font-size: 17px;
+  font-family: var(--serif);
+  line-height: 1.62;
+  font-size: 18px;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 .wrap {
   max-width: 760px;
   margin: 0 auto;
-  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 5vw, 2rem) 4rem;
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.25rem, 5vw, 2rem) 4rem;
 }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 /* Header */
-header { margin-bottom: 2.75rem; }
+header { margin-bottom: 1.75rem; }
 .name {
-  font-size: clamp(2rem, 6vw, 2.7rem);
+  font-size: clamp(2.1rem, 6.5vw, 3.4rem);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  margin: 0 0 .35rem;
-  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin: 0 0 .3rem;
+  line-height: 1.05;
 }
 .role {
-  font-size: clamp(1.05rem, 3vw, 1.2rem);
+  font-family: var(--sans);
+  font-size: .95rem;
+  letter-spacing: .02em;
   color: var(--accent);
   font-weight: 600;
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.15rem;
 }
-.lead { color: var(--fg); margin: 0 0 1rem; }
+.lead { color: var(--fg); margin: 0 0 .85rem; max-width: 60ch; }
 .lead:last-child { margin-bottom: 0; }
 .muted { color: var(--fg-muted); }
 
-/* Section titles */
+/* Section labels. The heavy rule under the label is what opens a section;
+   entries below it are separated by hairlines only. */
 h2 {
-  font-size: .8rem;
+  font-family: var(--sans);
+  font-size: .7rem;
   text-transform: uppercase;
-  letter-spacing: 0.09em;
-  color: var(--fg-muted);
+  letter-spacing: .13em;
+  color: var(--chrome);
   font-weight: 700;
-  margin: 3rem 0 1.1rem;
+  margin: 2.9rem 0 .45rem;
+}
+h2.section-head {
+  padding-bottom: .45rem;
+  border-bottom: 1px solid var(--rule-strong);
+  margin-bottom: 0;
 }
 
-/* Work list */
-.tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0; padding: 0; list-style: none; }
+/* What I do — chrome, so sans; hairline outline rather than a filled pill,
+   which would reintroduce the container this design is removing. */
+.tags { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0; padding: 0; list-style: none; }
 .tag {
-  font-size: .875rem;
-  background: var(--accent-soft);
-  color: var(--accent);
-  border: 1px solid transparent;
-  padding: .3rem .7rem;
-  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: .78rem;
   font-weight: 500;
+  color: var(--fg-muted);
+  border: 1px solid var(--rule);
+  padding: .3rem .6rem;
   max-width: 100%;
 }
 
-/* Project cards */
-.cards { display: grid; gap: .85rem; margin: 0; padding: 0; list-style: none; }
-.card {
-  display: block;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.15rem 1.3rem;
-  box-shadow: var(--shadow);
-  transition: transform .15s ease, border-color .15s ease;
+/* Entries — writing and projects share this markup exactly. */
+.entries { margin: 0; padding: 0; list-style: none; }
+.entries li { border-bottom: 1px solid var(--rule); }
+.entry {
+  display: grid;
+  gap: .3rem;
+  padding: 1.15rem 0;
   color: inherit;
 }
-.card:hover {
-  text-decoration: none;
-  transform: translateY(-2px);
-  border-color: var(--accent);
+.entry:hover { text-decoration: none; }
+.entry-title {
+  font-size: 1.42rem;
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--accent);
 }
-.card-top { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
-.card-title { font-weight: 650; font-size: 1.08rem; color: var(--fg); min-width: 0; }
-.card:hover .card-title { color: var(--accent); }
-.card-host {
-  font-size: .78rem;
-  color: var(--fg-muted);
-  white-space: nowrap;
-  font-variant-numeric: tabular-nums;
+.entry:hover .entry-title { text-decoration: underline; }
+.entry-desc { color: var(--fg-muted); font-size: 1rem; }
+.entry-meta {
+  font-family: var(--sans);
+  font-size: .74rem;
+  letter-spacing: .04em;
+  color: var(--chrome);
+  margin-top: .15rem;
 }
-.card-desc { color: var(--fg-muted); font-size: .95rem; margin: .4rem 0 0; }
 
 /* Footer / contact */
 footer {
-  margin-top: 3.25rem;
-  padding-top: 1.75rem;
-  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--rule);
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
-  font-size: .95rem;
+  gap: 1.5rem;
+  font-family: var(--sans);
+  font-size: .85rem;
 }
-footer a { color: var(--fg-muted); font-weight: 500; }
+footer a { color: var(--chrome); font-weight: 600; }
 footer a:hover { color: var(--accent); }
 
-/* Intro video */
-.video { margin: 0 0 .5rem; }
+/* Intro video. Square-edged: this design has no rounded corners anywhere, so a
+   14px radius here would be the one thing that looks borrowed. */
+.video { margin: 1.9rem 0 .5rem; }
 .video-frame {
   position: relative;
   aspect-ratio: 16 / 9;
-  border-radius: 14px;
   overflow: hidden;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  background: #000;
+  background: #111111;
 }
 .video-facade { position: absolute; inset: 0; display: block; cursor: pointer; }
 .video-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .play {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: 68px; height: 48px; border-radius: 14px;
-  background: rgba(20, 18, 17, .72);
+  width: 68px; height: 48px;
+  background: rgba(255, 255, 255, .92);
   display: grid; place-items: center;
   transition: background .15s ease, transform .15s ease;
 }
 .video-facade:hover .play { background: var(--accent); transform: translate(-50%, -50%) scale(1.06); }
 .video-facade:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-.play svg { width: 26px; height: 26px; fill: #fff; margin-left: 2px; }
-.video-cap { color: var(--fg-muted); font-size: .95rem; margin: .85rem 0 0; }
-.video-cap strong { color: var(--fg); font-weight: 650; }
+.play svg { width: 26px; height: 26px; fill: #111111; margin-left: 2px; }
+.video-facade:hover .play svg { fill: #ffffff; }
+.video-cap {
+  font-family: var(--sans);
+  color: var(--chrome);
+  font-size: .74rem;
+  letter-spacing: .04em;
+  margin: .7rem 0 0;
+}
+.video-cap strong { color: var(--fg); font-weight: 600; }
 
 /* ---------------------------------------------------------------------------
    Language switcher
@@ -166,14 +188,14 @@ footer a:hover { color: var(--accent); }
   justify-content: flex-end;
   gap: .3rem;
   margin: 0 0 1.9rem;
-  font-size: .78rem;
+  font-family: var(--sans);
+  font-size: .74rem;
   font-weight: 600;
-  letter-spacing: .07em;
+  letter-spacing: .09em;
 }
 .langbar a {
-  color: var(--fg-muted);
+  color: var(--chrome);
   padding: .2rem .45rem;
-  border-radius: 7px;
   border: 1px solid transparent;
   transition: color .15s ease, background .15s ease, border-color .15s ease;
 }
@@ -189,7 +211,7 @@ footer a:hover { color: var(--accent); }
   border-color: var(--accent-soft);
   cursor: default;
 }
-.langbar .sep { color: var(--border); user-select: none; }
+.langbar .sep { color: var(--rule); user-select: none; }
 
 /* ---------------------------------------------------------------------------
    Auto-detected-language notice.
@@ -204,11 +226,11 @@ html[data-autolang] .notice {
   flex-wrap: wrap;
   gap: .35rem .75rem;
   background: var(--accent-soft);
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  border: 1px solid var(--rule);
   padding: .7rem .55rem .7rem .9rem;
   margin: 0 0 1.9rem;
-  font-size: .9rem;
+  font-family: var(--sans);
+  font-size: .85rem;
   line-height: 1.5;
   color: var(--fg-muted);
 }
@@ -220,22 +242,21 @@ html[data-autolang] .notice {
   appearance: none;
   background: none;
   border: 1px solid transparent;
-  border-radius: 7px;
-  color: var(--fg-muted);
+  color: var(--chrome);
   font: inherit;
   font-size: 1.05rem;
   line-height: 1;
   padding: .25rem .5rem;
   cursor: pointer;
 }
-.notice-dismiss:hover { color: var(--accent); border-color: var(--border); }
+.notice-dismiss:hover { color: var(--accent); border-color: var(--rule); }
 .notice-dismiss:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* ---------------------------------------------------------------------------
    Multi-language layout hardening.
-   Long compounds must never push a pill, a card title or a paragraph past its
-   container. `overflow-wrap` is inert unless a word actually overflows, so it
-   costs nothing and applies everywhere.
+   Long compounds must never push a label, an entry title or a paragraph past
+   its container. `overflow-wrap` is inert unless a word actually overflows, so
+   it costs nothing and applies everywhere.
 
    Automatic hyphenation is GERMAN ONLY. German prose is conventionally
    hyphenated and its compounds are long enough to need it; Slovak and Russian
@@ -243,9 +264,9 @@ html[data-autolang] .notice {
    `hyphenate-limit-chars` stops the browser splitting a short leading segment
    out of a technical compound ("Mul-ti-Agent-Systemen").
    --------------------------------------------------------------------------- */
-.tag, .card-title, .card-desc, .lead, .video-cap, .role, .notice { overflow-wrap: break-word; }
+.tag, .entry-title, .entry-desc, .entry-meta, .lead, .video-cap, .role, .notice { overflow-wrap: break-word; }
 html[lang="de"] .tag,
-html[lang="de"] .card-desc,
+html[lang="de"] .entry-desc,
 html[lang="de"] .lead,
 html[lang="de"] .video-cap {
   hyphens: auto;
