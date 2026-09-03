@@ -28,6 +28,13 @@
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E" />
 
+  <!-- Source Serif 4 sets the content, Public Sans the chrome (labels, dates).
+       Both are OFL. preconnect first so the font CSS request does not wait on a
+       fresh connection; every face has a real fallback in style.css. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@500;600;700&display=swap" />
+
   <link rel="stylesheet" href="/assets/style.css" />
   <script>
   (function () {
@@ -136,51 +143,45 @@
       <li class="tag">SDLC с поддержкой AI</li>
     </ul>
 
-    <h2>Проекты и публикации</h2>
-    <ul class="cards">
+    <h2 class="section-head">Публикации</h2>
+    <ul class="entries">
       <li>
-        <a class="card" href="https://nikolaisachok.com/Strata-RAG/">
-          <div class="card-top">
-            <span class="card-title">Strata-RAG</span>
-            <span class="card-host">Strata-RAG ↗</span>
-          </div>
-          <p class="card-desc">RAG-движок для разнородных корпусов, построенный вокруг оценки и написанный так, чтобы по нему можно было учиться: связка Qdrant + HNSW, гибридный поиск с алгоритмом RRF, этап re-ranking на основе cross-encoder-модели, отдельное хранилище метаданных для агрегации и контур eval с метриками Recall@K / nDCG / MRR и проверкой верности ответов методом LLM-as-judge. Защита от injection и утечек PII — многоуровневая.</p>
+        <a class="entry" href="https://dev.to/nsachok/eval-first-rag-use-separate-scores-to-triage-failures-33ed">
+          <span class="entry-title">Eval-First RAG: Use Separate Scores to Triage Failures</span>
+          <span class="entry-desc">Единая сквозная оценка показывает падение качества, но не указывает на его источник. Раздельная оценка retrieval и генерации позволяет понять, где искать причину: в неверно подобранных материалах или в ответе, вышедшем за их рамки.</span>
+          <span class="entry-meta">3 сентября 2026 · dev.to · также на Medium и LinkedIn</span>
+        </a>
+      </li>
+    </ul>
+
+    <h2 class="section-head">Проекты</h2>
+    <ul class="entries">
+      <li>
+        <a class="entry" href="https://nikolaisachok.com/Strata-RAG/">
+          <span class="entry-title">Strata-RAG</span>
+          <span class="entry-desc">RAG-движок для разнородных корпусов, построенный вокруг оценки и написанный так, чтобы по нему можно было учиться: связка Qdrant + HNSW, гибридный поиск с алгоритмом RRF, этап re-ranking на основе cross-encoder-модели, отдельное хранилище метаданных для агрегации и контур eval с метриками Recall@K / nDCG / MRR и проверкой верности ответов методом LLM-as-judge. Защита от injection и утечек PII — многоуровневая.</span>
+          <span class="entry-meta">GitHub · Python</span>
         </a>
       </li>
       <li>
-        <a class="card" href="https://github.com/NikolaiSachok/strata-insurance-corpus">
-          <div class="card-top">
-            <span class="card-title">strata-insurance-corpus</span>
-            <span class="card-host">corpus ↗</span>
-          </div>
-          <p class="card-desc">Воспроизводимый синтетический корпус страховых документов разных форматов: исходно цифровые и сканированные PDF-файлы, документы Word, электронные таблицы и фотографии. Эталонный набор для оценки задан самим способом создания корпуса. Корпус предназначен для бенчмарков документных RAG-систем на данных, устроенных как корпоративные.</p>
+        <a class="entry" href="https://github.com/NikolaiSachok/strata-insurance-corpus">
+          <span class="entry-title">strata-insurance-corpus</span>
+          <span class="entry-desc">Воспроизводимый синтетический корпус страховых документов разных форматов: исходно цифровые и сканированные PDF-файлы, документы Word, электронные таблицы и фотографии. Эталонный набор для оценки задан самим способом создания корпуса. Корпус предназначен для бенчмарков документных RAG-систем на данных, устроенных как корпоративные.</span>
+          <span class="entry-meta">GitHub · Python</span>
         </a>
       </li>
       <li>
-        <a class="card" href="https://nikolaisachok.com/ai-engineering-handbook/">
-          <div class="card-top">
-            <span class="card-title">Enterprise RAG &amp; Agents Handbook</span>
-            <span class="card-host">handbook ↗</span>
-          </div>
-          <p class="card-desc">Практическое руководство по RAG- и агентным системам в продакшене, выстроенное от первых принципов, — на английском, русском и словацком языках. Объясняет, почему системы устроены именно так и как они ломаются, а не просто перечисляет возможности.</p>
+        <a class="entry" href="https://nikolaisachok.com/ai-engineering-handbook/">
+          <span class="entry-title">Enterprise RAG &amp; Agents Handbook</span>
+          <span class="entry-desc">Практическое руководство по RAG- и агентным системам в продакшене, выстроенное от первых принципов, — на английском, русском и словацком языках. Объясняет, почему системы устроены именно так и как они ломаются, а не просто перечисляет возможности.</span>
+          <span class="entry-meta">nikolaisachok.com · Docusaurus</span>
         </a>
       </li>
       <li>
-        <a class="card" href="https://nikolaisachok.com/DC-plugins/">
-          <div class="card-top">
-            <span class="card-title">DC-plugins</span>
-            <span class="card-host">DC-plugins ↗</span>
-          </div>
-          <p class="card-desc">Нативные плагины для Double Commander под macOS: Objective-C, универсальные бинарные сборки, тесты без графического интерфейса и CI. Небольшой инструмент, который я провёл через весь цикл разработки и довёл до качества, пригодного для публикации.</p>
-        </a>
-      </li>
-      <li>
-        <a class="card" href="https://dev.to/nsachok/eval-first-rag-use-separate-scores-to-triage-failures-33ed">
-          <div class="card-top">
-            <span class="card-title">Eval-First RAG: Use Separate Scores to Triage Failures</span>
-            <span class="card-host">dev.to ↗</span>
-          </div>
-          <p class="card-desc">Статья о том, почему единая сквозная оценка RAG показывает падение качества, но не указывает на его источник. Раздельная оценка retrieval и генерации позволяет понять, где искать причину: в неверно подобранных материалах или в ответе, вышедшем за их рамки. Основана на Strata-RAG и сопутствующем корпусе.</p>
+        <a class="entry" href="https://nikolaisachok.com/DC-plugins/">
+          <span class="entry-title">DC-plugins</span>
+          <span class="entry-desc">Нативные плагины для Double Commander под macOS: Objective-C, универсальные бинарные сборки, тесты без графического интерфейса и CI. Небольшой инструмент, который я провёл через весь цикл разработки и довёл до качества, пригодного для публикации.</span>
+          <span class="entry-meta">GitHub · Objective-C</span>
         </a>
       </li>
     </ul>

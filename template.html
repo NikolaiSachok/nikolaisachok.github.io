@@ -22,6 +22,13 @@
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E" />
 
+  <!-- Source Serif 4 sets the content, Public Sans the chrome (labels, dates).
+       Both are OFL. preconnect first so the font CSS request does not wait on a
+       fresh connection; every face has a real fallback in style.css. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@500;600;700&display=swap" />
+
   <link rel="stylesheet" href="/assets/style.css" />
 {{HEAD_SCRIPT}}
 </head>
@@ -58,9 +65,14 @@
 {{TAGS}}
     </ul>
 
-    <h2>{{H2_PROJECTS}}</h2>
-    <ul class="cards">
-{{CARDS}}
+    <h2 class="section-head">{{H2_WRITING}}</h2>
+    <ul class="entries">
+{{WRITING}}
+    </ul>
+
+    <h2 class="section-head">{{H2_BUILT}}</h2>
+    <ul class="entries">
+{{BUILT}}
     </ul>
 
     <footer>

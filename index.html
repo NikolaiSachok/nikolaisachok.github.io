@@ -28,6 +28,13 @@
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E" />
 
+  <!-- Source Serif 4 sets the content, Public Sans the chrome (labels, dates).
+       Both are OFL. preconnect first so the font CSS request does not wait on a
+       fresh connection; every face has a real fallback in style.css. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@500;600;700&display=swap" />
+
   <link rel="stylesheet" href="/assets/style.css" />
   <script>
   (function () {
@@ -132,51 +139,45 @@
       <li class="tag">AI-assisted SDLC</li>
     </ul>
 
-    <h2>Projects &amp; writing</h2>
-    <ul class="cards">
+    <h2 class="section-head">Writing</h2>
+    <ul class="entries">
       <li>
-        <a class="card" href="https://nikolaisachok.com/Strata-RAG/">
-          <div class="card-top">
-            <span class="card-title">Strata-RAG</span>
-            <span class="card-host">Strata-RAG ↗</span>
-          </div>
-          <p class="card-desc">An eval-first, study-grade RAG engine over heterogeneous corpora — Qdrant + HNSW, hybrid retrieval with RRF, cross-encoder re-ranking, a metadata sidecar for aggregation, and an eval harness (Recall@K / nDCG / MRR + LLM-judge faithfulness) with layered injection/PII defenses.</p>
+        <a class="entry" href="https://dev.to/nsachok/eval-first-rag-use-separate-scores-to-triage-failures-33ed">
+          <span class="entry-title">Eval-First RAG: Use Separate Scores to Triage Failures</span>
+          <span class="entry-desc">One end-to-end score shows that answer quality moved, but not what moved it. Scoring retrieval and generation separately turns an unclear regression into a decision about where to look first.</span>
+          <span class="entry-meta">September 3, 2026 · dev.to · also on Medium and LinkedIn</span>
+        </a>
+      </li>
+    </ul>
+
+    <h2 class="section-head">Built</h2>
+    <ul class="entries">
+      <li>
+        <a class="entry" href="https://nikolaisachok.com/Strata-RAG/">
+          <span class="entry-title">Strata-RAG</span>
+          <span class="entry-desc">An eval-first, study-grade RAG engine over heterogeneous corpora — Qdrant + HNSW, hybrid retrieval with RRF, cross-encoder re-ranking, a metadata sidecar for aggregation, and an eval harness (Recall@K / nDCG / MRR + LLM-judge faithfulness) with layered injection/PII defenses.</span>
+          <span class="entry-meta">GitHub · Python</span>
         </a>
       </li>
       <li>
-        <a class="card" href="https://github.com/NikolaiSachok/strata-insurance-corpus">
-          <div class="card-top">
-            <span class="card-title">strata-insurance-corpus</span>
-            <span class="card-host">corpus ↗</span>
-          </div>
-          <p class="card-desc">A reproducible, synthetic, multi-format insurance document corpus — born-digital and scanned PDFs, Word, spreadsheets, photos — with a golden evaluation set by construction. Built to benchmark document-RAG on enterprise-shaped data.</p>
+        <a class="entry" href="https://github.com/NikolaiSachok/strata-insurance-corpus">
+          <span class="entry-title">strata-insurance-corpus</span>
+          <span class="entry-desc">A reproducible, synthetic, multi-format insurance document corpus — born-digital and scanned PDFs, Word, spreadsheets, photos — with a golden evaluation set by construction. Built to benchmark document-RAG on enterprise-shaped data.</span>
+          <span class="entry-meta">GitHub · Python</span>
         </a>
       </li>
       <li>
-        <a class="card" href="https://nikolaisachok.com/ai-engineering-handbook/">
-          <div class="card-top">
-            <span class="card-title">Enterprise RAG &amp; Agents Handbook</span>
-            <span class="card-host">handbook ↗</span>
-          </div>
-          <p class="card-desc">A practical, first-principles handbook on production RAG &amp; agentic systems — in English, Russian and Slovak, teaching the why and the failure modes, not just the features.</p>
+        <a class="entry" href="https://nikolaisachok.com/ai-engineering-handbook/">
+          <span class="entry-title">Enterprise RAG &amp; Agents Handbook</span>
+          <span class="entry-desc">A practical, first-principles handbook on production RAG &amp; agentic systems — in English, Russian and Slovak, teaching the why and the failure modes, not just the features.</span>
+          <span class="entry-meta">nikolaisachok.com · Docusaurus</span>
         </a>
       </li>
       <li>
-        <a class="card" href="https://nikolaisachok.com/DC-plugins/">
-          <div class="card-top">
-            <span class="card-title">DC-plugins</span>
-            <span class="card-host">DC-plugins ↗</span>
-          </div>
-          <p class="card-desc">Native macOS plugins for Double Commander (Objective-C, universal binaries, headless tests, CI) — a small native tool taken end-to-end to a published standard.</p>
-        </a>
-      </li>
-      <li>
-        <a class="card" href="https://dev.to/nsachok/eval-first-rag-use-separate-scores-to-triage-failures-33ed">
-          <div class="card-top">
-            <span class="card-title">Eval-First RAG: Use Separate Scores to Triage Failures</span>
-            <span class="card-host">dev.to ↗</span>
-          </div>
-          <p class="card-desc">An article on why one end-to-end RAG score shows that answer quality moved but not what moved it. Scoring retrieval and generation separately tells you whether the wrong evidence was fetched, or good evidence was not respected in the answer. Built on Strata-RAG and the companion corpus.</p>
+        <a class="entry" href="https://nikolaisachok.com/DC-plugins/">
+          <span class="entry-title">DC-plugins</span>
+          <span class="entry-desc">Native macOS plugins for Double Commander (Objective-C, universal binaries, headless tests, CI) — a small native tool taken end-to-end to a published standard.</span>
+          <span class="entry-meta">GitHub · Objective-C</span>
         </a>
       </li>
     </ul>

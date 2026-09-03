@@ -33,17 +33,25 @@ LOCALES = [
 CODES = [c for c, _, _, _ in LOCALES]
 SOURCE_LOCALE = "en"  # English is the source of truth; x-default points at it
 
-# Project links live here, not in the content files: translators never touch a
-# URL, and a link change is a one-line edit in one place. Positional match with
-# the "cards" array in every content/<lang>.json.
-CARD_LINKS = [
+# Links live here, not in the content files: translators never touch a URL, and
+# a link change is a one-line edit in one place. Each list matches its array in
+# every content/<lang>.json positionally.
+#
+# Writing and projects are two lists because they are two kinds of thing. They
+# render with identical markup and differ only by the section they sit under —
+# which is the whole design: the reader tells them apart by grouping and by the
+# date, never by a different container shape.
+WRITING_LINKS = [
+    # Always the canonical address, never a syndicated copy: this page indexes
+    # the work, it does not host or mirror it.
+    "https://dev.to/nsachok/eval-first-rag-use-separate-scores-to-triage-failures-33ed",
+]
+
+PROJECT_LINKS = [
     "https://nikolaisachok.com/Strata-RAG/",
     "https://github.com/NikolaiSachok/strata-insurance-corpus",
     "https://nikolaisachok.com/ai-engineering-handbook/",
     "https://nikolaisachok.com/DC-plugins/",
-    # Writing links out to where the piece is canonical, never to a copy hosted
-    # here: this page indexes the work, it does not host it.
-    "https://dev.to/nsachok/eval-first-rag-use-separate-scores-to-triage-failures-33ed",
 ]
 
 REQUIRED_KEYS = {
@@ -52,7 +60,7 @@ REQUIRED_KEYS = {
     "notice": ["text", "english_link", "dismiss"],
     "header": ["name", "role", "lead_1", "lead_2"],
     "video": ["section_label", "play_label", "img_alt", "iframe_title", "caption"],
-    "sections": ["work", "projects"],
+    "sections": ["work", "writing", "built"],
 }
 
 # --- escaping ---------------------------------------------------------------
@@ -134,21 +142,25 @@ def tags_block(tags: list, indent: str = "      ") -> str:
     return "\n".join(f'{indent}<li class="tag">{html(t)}</li>' for t in tags)
 
 
-def cards_block(cards: list, indent: str = "      ") -> str:
-    if len(cards) != len(CARD_LINKS):
+def entries_block(items: list, links: list, name: str, indent: str = "      ") -> str:
+    """One renderer for both lists — writing and projects share their markup.
+
+    The reader separates them by which section they sit under and by the meta
+    line, not by a different container: that is the point of the design. Giving
+    each list its own markup would let the two drift apart again.
+    """
+    if len(items) != len(links):
         raise SystemExit(
-            f"content has {len(cards)} cards but build.py defines {len(CARD_LINKS)} links"
+            f"content has {len(items)} '{name}' entries but build.py defines {len(links)} links"
         )
     out = []
-    for card, href in zip(cards, CARD_LINKS):
+    for item, href in zip(items, links):
         out.append(
             f"{indent}<li>\n"
-            f'{indent}  <a class="card" href="{href}">\n'
-            f'{indent}    <div class="card-top">\n'
-            f'{indent}      <span class="card-title">{html(card["title"])}</span>\n'
-            f'{indent}      <span class="card-host">{html(card["host"])}</span>\n'
-            f"{indent}    </div>\n"
-            f'{indent}    <p class="card-desc">{html(card["desc"])}</p>\n'
+            f'{indent}  <a class="entry" href="{href}">\n'
+            f'{indent}    <span class="entry-title">{html(item["title"])}</span>\n'
+            f'{indent}    <span class="entry-desc">{html(item["desc"])}</span>\n'
+            f'{indent}    <span class="entry-meta">{html(item["meta"])}</span>\n'
             f"{indent}  </a>\n"
             f"{indent}</li>"
         )
@@ -243,10 +255,22 @@ def validate(code: str, data: dict) -> None:
         for key in keys:
             if key not in data[section]:
                 raise SystemExit(f"content/{code}.json: missing '{section}.{key}'")
-    for name, expect in (("tags", 7), ("cards", len(CARD_LINKS))):
+    for name, expect in (
+        ("tags", 7),
+        ("writing", len(WRITING_LINKS)),
+        ("cards", len(PROJECT_LINKS)),
+    ):
         got = len(data.get(name, []))
         if got != expect:
             raise SystemExit(f"content/{code}.json: '{name}' has {got} items, expected {expect}")
+    # Every entry carries a meta line. A writing entry's date lives there as a
+    # locale-formatted string rather than being computed: only the translator
+    # knows how a date is written in their language.
+    for name in ("writing", "cards"):
+        for i, item in enumerate(data.get(name, [])):
+            for key in ("title", "desc", "meta"):
+                if key not in item:
+                    raise SystemExit(f"content/{code}.json: '{name}[{i}]' is missing '{key}'")
 
 
 def render(code: str, lang: str, og: str, path: str, template: str) -> str:
@@ -278,9 +302,11 @@ def render(code: str, lang: str, og: str, path: str, template: str) -> str:
         "VIDEO_IMG_ALT": attr(video["img_alt"]),
         "VIDEO_CAPTION": html(video["caption"]),
         "H2_WORK": html(sections["work"]),
-        "H2_PROJECTS": html(sections["projects"]),
+        "H2_WRITING": html(sections["writing"]),
+        "H2_BUILT": html(sections["built"]),
         "TAGS": tags_block(data["tags"]),
-        "CARDS": cards_block(data["cards"]),
+        "WRITING": entries_block(data["writing"], WRITING_LINKS, "writing"),
+        "BUILT": entries_block(data["cards"], PROJECT_LINKS, "cards"),
     }
 
     out = template
