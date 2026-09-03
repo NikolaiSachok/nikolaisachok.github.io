@@ -72,6 +72,11 @@
       "title": "DC-plugins",
       "host": "DC-plugins ↗",
       "desc": "Native macOS plugins for Double Commander (Objective-C, universal binaries, headless tests, CI) — a small native tool taken end-to-end to a published standard."
+    },
+    {
+      "title": "Eval-First RAG: Use Separate Scores to Triage Failures",
+      "host": "dev.to ↗",
+      "desc": "An article on why one end-to-end RAG score shows that answer quality moved but not what moved it. Scoring retrieval and generation separately tells you whether the wrong evidence was fetched, or good evidence was not respected in the answer. Built on Strata-RAG and the companion corpus."
     }
   ]
 }
