@@ -415,19 +415,22 @@ html[lang="de"] .video-cap {
 }
 
 /* ---------------------------------------------------------------------------
-   Case pages (/work/<slug>/) — the decision and method record for one project.
+   Case pages (/work/<slug>/) — one project, written as an article.
 
-   Same publication setting as the home page and the same content/chrome split;
-   what is new is that every record carries a GRADE, and the grade is the point
-   of the page rather than an ornament on it. So the grades get the only piece
-   of colour hierarchy in the design: the better-evidenced a claim is, the
-   stronger the colour that announces it. A reader scanning the left edge sees
-   the strength of the evidence before reading a word of the claim.
+   These began as a two-band record: decisions and lessons, each entry carrying
+   a grade. It was accurate and it read like a reference table, which is the one
+   thing a page nobody has to visit cannot afford to be. The record now lives
+   next to the code, where somebody evaluating the implementation actually is,
+   and the page carries prose.
+
+   Same content/chrome split as the home page — Source Serif for what is read,
+   Public Sans for the furniture — so a reader arriving from the index does not
+   feel handed to a different site.
    --------------------------------------------------------------------------- */
 
 /* Sits where the language switcher sits on the home page, so the theme control
-   does not move between pages. No arrow: this is a masthead return to the
-   publication, not a step back through a hierarchy. */
+   does not move between pages. No arrow: a masthead return to the publication,
+   not a step back through a hierarchy. */
 .crumb {
   margin: 0;
   font-family: var(--sans);
@@ -448,77 +451,48 @@ html[lang="de"] .video-cap {
   color: var(--chrome);
   margin: 0 0 .5rem;
 }
-/* A shade smaller than the home page's name: there the h1 is the masthead, here
-   it is an article title under one. */
-.case-name { font-size: clamp(1.9rem, 5.5vw, 2.9rem); }
+/* A shade smaller than the home page's name: there the h1 is the masthead,
+   here it is an article title under one. */
+.case-name { font-size: clamp(1.9rem, 5.5vw, 2.9rem); margin-bottom: .35rem; }
 
-.band-note {
-  font-family: var(--sans);
-  font-size: .88rem;
-  line-height: 1.6;
+/* Headline plus deck. The name is the identity a reader arrives looking for and
+   makes a poor promise; the deck carries the claim. Set in the serif, because
+   it is read rather than scanned — the one line of chrome-position text on
+   either page that belongs to the content voice. */
+.deck {
+  font-size: 1.32rem;
+  line-height: 1.35;
   color: var(--fg-muted);
-  margin: .9rem 0 0;
+  margin: 0 0 .6rem;
 }
 
-.records { margin: 0; padding: 0; list-style: none; }
-.record { border-bottom: 1px solid var(--rule); padding: 1.6rem 0; }
-.record:last-child { border-bottom: 0; }
-
-/* The grade. An uppercase micro-label in the chrome sans, set as an editorial
-   eyebrow above the title — deliberately not a pill or a badge, because this
-   design has no containers anywhere and a boxed chip would be the one piece of
-   borrowed furniture on the page. */
-.grade {
-  font-family: var(--sans);
-  font-size: .66rem;
-  text-transform: uppercase;
-  letter-spacing: .14em;
-  font-weight: 700;
-  margin: 0 0 .4rem;
-}
-.grade-measured { color: var(--accent); }
-.grade-verified { color: var(--fg-muted); }
-.grade-reasoned { color: var(--chrome); }
-
-.record-title {
-  font-size: 1.3rem;
-  line-height: 1.32;
-  font-weight: 600;
-  letter-spacing: -0.005em;
-  margin: 0 0 .55rem;
-}
-.record-body { margin: 0; color: var(--fg-muted); }
-
-/* Run-in labels, the reference-book convention: the label starts the paragraph
-   rather than occupying a column of its own. A two-column grid would have to
-   size itself to "Choose differently when", which would leave most rows mostly
-   empty and would collapse on a phone anyway. */
-.facets { margin: .85rem 0 0; }
-.facets div + div { margin-top: .45rem; }
-.facets dt,
-.facets dd { display: inline; margin: 0; }
-.facets dt {
-  font-family: var(--sans);
-  font-size: .7rem;
-  text-transform: uppercase;
-  letter-spacing: .11em;
-  font-weight: 700;
-  color: var(--chrome);
-}
-.facets dt::after { content: " "; }
-.facets dd { color: var(--fg-muted); font-size: .96rem; }
-
-/* The sentence that matters most in the record — the takeaway on a method
-   entry, the honesty caveat on a decision. A single hairline on the leading
-   edge is the quotation convention this design already uses for rules, and it
-   marks the line without boxing it. Set in the full text colour, not muted:
-   everything above it is context for this. */
-.record-rule {
-  margin: .95rem 0 0;
-  padding-left: .95rem;
-  border-left: 2px solid var(--accent);
+.article { margin-top: 2.2rem; }
+.article p {
+  margin: 0 0 1.15rem;
   color: var(--fg);
-  font-size: .98rem;
 }
+/* Article subheads are STATEMENTS, so they are set in the reading face, not in
+   the chrome sans. The home page's .section-head — 0.7rem uppercase, .13em
+   tracking, a heavy rule under it — is a category label, correct for "Writing"
+   and actively hard to read once a heading is a ten-word sentence. Deliberately
+   not reused here; these carry no class at all. */
+.article h2 {
+  font-family: var(--serif);
+  font-size: 1.22rem;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  color: var(--fg);
+  margin: 2.5rem 0 .7rem;
+}
+.article strong { font-weight: 700; }
+.article code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: .88em;
+  background: var(--accent-soft);
+  padding: .08em .3em;
+}
+.article a { text-decoration: underline; text-underline-offset: .13em; }
 
-.record-title, .record-body, .record-rule, .band-note, .facets dd { overflow-wrap: break-word; }
+.deck, .article p, .article h2 { overflow-wrap: break-word; }

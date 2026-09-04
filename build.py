@@ -75,10 +75,6 @@ CASES = [
 ]
 CASE_ROOT = "work"
 
-# Grades a record may carry. The vocabulary is closed on purpose: an entry that
-# cannot say how strongly it is evidenced does not belong on the page, and a
-# free-text grade would drift into adjectives within two edits.
-GRADES = ("measured", "verified", "reasoned")
 
 REQUIRED_KEYS = {
     "meta": ["title", "description", "og_title", "og_description"],
@@ -278,62 +274,6 @@ def project_links_block(links: list, indent: str = "        ") -> str:
     return "\n".join(parts)
 
 
-def records_block(records: list, indent: str = "      ") -> str:
-    """One renderer for both bands — decisions and lessons share their markup.
-
-    The same reasoning as `entries_block` on the home page: the reader tells the
-    two apart by which band they sit in, not by a different container. A record
-    is a grade, a title, a body, optionally some labelled facets, and optionally
-    a closing rule. Decisions use the facets; lessons use the rule; either may
-    use both, and nothing here cares which band it is rendering.
-    """
-    out = []
-    for record in records:
-        parts = [
-            f"{indent}<li class=\"record\">",
-            f'{indent}  <p class="grade grade-{record["grade"]}">{html(record["grade"])}</p>',
-            f'{indent}  <h3 class="record-title">{html(record["title"])}</h3>',
-            f'{indent}  <p class="record-body">{html(record["body"])}</p>',
-        ]
-        facets = record.get("facets", [])
-        if facets:
-            parts.append(f'{indent}  <dl class="facets">')
-            for facet in facets:
-                parts.append(
-                    f"{indent}    <div>"
-                    f'<dt>{html(facet["label"])}</dt>'
-                    f'<dd>{html(facet["text"])}</dd>'
-                    f"</div>"
-                )
-            parts.append(f"{indent}  </dl>")
-        if record.get("rule"):
-            parts.append(f'{indent}  <p class="record-rule">{html(record["rule"])}</p>')
-        parts.append(f"{indent}</li>")
-        out.append("\n".join(parts))
-    return "\n".join(out)
-
-
-def bands_block(bands: list, indent: str = "    ") -> str:
-    """A band is a labelled section of records with a note under the label.
-
-    The note is not decoration: on the lessons band it defines what the grades
-    mean, which is the one thing a reader needs before the grades can carry any
-    weight at all.
-    """
-    out = []
-    for band in bands:
-        out.append(
-            f'{indent}<section class="band" id="{band["id"]}">\n'
-            f'{indent}  <h2 class="section-head">{html(band["label"])}</h2>\n'
-            f'{indent}  <p class="band-note">{html(band["note"])}</p>\n'
-            f'{indent}  <ol class="records">\n'
-            f"{records_block(band['records'], indent + '    ')}\n"
-            f"{indent}  </ol>\n"
-            f"{indent}</section>"
-        )
-    return "\n\n".join(out)
-
-
 def head_script(current: str, indent: str = "  ") -> str:
     """Language detection / preference routing. Inline and synchronous so it
     runs before first paint — no flash of the wrong language, no flash of the
@@ -426,6 +366,27 @@ def head_script(current: str, indent: str = "  ") -> str:
     return f"{indent}<script>\n{body}\n{indent}</script>"
 
 
+def body_block(blocks: list, indent: str = "      ") -> str:
+    """The article body: headings and paragraphs, nothing else.
+
+    Deliberately not a markdown renderer. The source article is converted to
+    these blocks once, on the way in, so the site keeps its no-dependency rule
+    and the page cannot acquire structures the stylesheet has never seen.
+    Inline emphasis, code and links arrive as HTML fragments, which is what the
+    content files have always carried.
+
+    An h2 here takes no class, so it does NOT pick up the home page's
+    .section-head: that rule sets a one-word category label in 0.7rem uppercase
+    sans, which is right for "Writing" and unreadable for a ten-word sentence.
+    An article subhead is a statement and is set as one.
+    """
+    out = []
+    for block in blocks:
+        tag = block["type"]
+        out.append(f'{indent}<{tag}>{html(block["text"])}</{tag}>')
+    return "\n".join(out)
+
+
 def case_head_script(indent: str = "  ") -> str:
     """Theme only — no language routing.
 
@@ -454,50 +415,38 @@ def case_head_script(indent: str = "  ") -> str:
 
 # --- page assembly ----------------------------------------------------------
 def validate_case(slug: str, data: dict) -> None:
-    """A case file is checked as strictly as a locale file.
-
-    The grade check is the one that matters: the page argues that a claim
-    carries how strongly it is evidenced, so an ungraded or creatively-graded
-    record would quietly contradict the thing the page is for.
-    """
+    """A case file is checked as strictly as a locale file."""
     where = f"content/cases/{slug}.json"
     for section, keys in (
         ("meta", ("title", "description", "og_title", "og_description")),
-        ("project", ("name", "role", "links")),
+        ("project", ("name", "deck", "role", "links")),
     ):
         if section not in data:
             raise SystemExit(f"{where}: missing section '{section}'")
         for key in keys:
             if key not in data[section]:
                 raise SystemExit(f"{where}: missing '{section}.{key}'")
-    for key in ("kicker", "lead_1", "lead_2", "bands"):
+    for key in ("kicker", "body"):
         if key not in data:
             raise SystemExit(f"{where}: missing '{key}'")
     for i, link in enumerate(data["project"]["links"]):
         for key in ("label", "href"):
             if key not in link:
                 raise SystemExit(f"{where}: 'project.links[{i}]' is missing '{key}'")
-    if not data["bands"]:
-        raise SystemExit(f"{where}: 'bands' is empty")
-    for b, band in enumerate(data["bands"]):
-        for key in ("id", "label", "note", "records"):
-            if key not in band:
-                raise SystemExit(f"{where}: 'bands[{b}]' is missing '{key}'")
-        if not band["records"]:
-            raise SystemExit(f"{where}: 'bands[{b}]' ({band['id']}) has no records")
-        for r, record in enumerate(band["records"]):
-            at = f"{where}: 'bands[{b}].records[{r}]'"
-            for key in ("grade", "title", "body"):
-                if key not in record:
-                    raise SystemExit(f"{at} is missing '{key}'")
-            if record["grade"] not in GRADES:
-                raise SystemExit(
-                    f"{at} has grade '{record['grade']}', expected one of {list(GRADES)}"
-                )
-            for f, facet in enumerate(record.get("facets", [])):
-                for key in ("label", "text"):
-                    if key not in facet:
-                        raise SystemExit(f"{at} 'facets[{f}]' is missing '{key}'")
+    if not data["body"]:
+        raise SystemExit(f"{where}: 'body' is empty")
+    for i, block in enumerate(data["body"]):
+        for key in ("type", "text"):
+            if key not in block:
+                raise SystemExit(f"{where}: 'body[{i}]' is missing '{key}'")
+        if block["type"] not in ("h2", "p"):
+            raise SystemExit(
+                f"{where}: 'body[{i}]' has type '{block['type']}', expected 'h2' or 'p'"
+            )
+        # An unbalanced fragment silently eats the rest of the page, and the
+        # article legitimately contains angle brackets inside code spans.
+        if block["text"].count("<") != block["text"].count(">"):
+            raise SystemExit(f"{where}: 'body[{i}]' has unbalanced angle brackets")
 
 
 def render_case(slug: str, template: str) -> str:
@@ -522,11 +471,10 @@ def render_case(slug: str, template: str) -> str:
         "THEMEBAR": themebar(theme_names, theme_label),
         "KICKER": html(data["kicker"]),
         "PROJECT_NAME": html(project["name"]),
+        "PROJECT_DECK": html(project["deck"]),
         "PROJECT_ROLE": html(project["role"]),
         "PROJECT_LINKS": project_links_block(project["links"]),
-        "LEAD_1": html(data["lead_1"]),
-        "LEAD_2": html(data["lead_2"]),
-        "BANDS": bands_block(data["bands"]),
+        "BODY": body_block(data["body"]),
     }
 
     out = template
