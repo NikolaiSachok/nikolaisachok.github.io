@@ -54,27 +54,10 @@ WRITING_LINKS = [
 ]
 
 PROJECT_LINKS = [
-    # Root-relative because this one is a page of THIS site, not a sibling
-    # project site: the hub keeps the reader, and the case page hands off to the
-    # repository. Every other link here leaves for somewhere the work lives.
-    "/work/strata-rag/",
+    "https://nikolaisachok.com/Strata-RAG/",
     "https://github.com/NikolaiSachok/strata-insurance-corpus",
     "https://nikolaisachok.com/DC-plugins/",
 ]
-
-# --- case pages -------------------------------------------------------------
-# Long-form records for one project: what was decided, and what the work taught.
-# ENGLISH ONLY, deliberately. The home page is localised because it is the front
-# door and a visitor should meet it in their own language; a decision record is
-# read by engineers evaluating the work, in English, and translating it would
-# multiply every future edit by four for no reader. The handbook already
-# established that locale scope is per artifact rather than per site.
-CASES = [
-    # slug (also the path under /work/)
-    "strata-rag",
-]
-CASE_ROOT = "work"
-
 
 REQUIRED_KEYS = {
     "meta": ["title", "description", "og_title", "og_description"],
@@ -259,21 +242,6 @@ def entries_block(items: list, links: list, name: str, indent: str = "      ") -
     return "\n".join(out)
 
 
-def project_links_block(links: list, indent: str = "        ") -> str:
-    """The case page's outbound links, in the header's contact-link shape.
-
-    Same markup and separators as the home page's identity line, because they do
-    the same job in the same position: a small chrome cluster that says where to
-    go next before the reading starts.
-    """
-    parts = []
-    for i, link in enumerate(links):
-        if i:
-            parts.append(f'{indent}<span class="sep" aria-hidden="true">·</span>')
-        parts.append(f'{indent}<a href="{link["href"]}">{html(link["label"])}</a>')
-    return "\n".join(parts)
-
-
 def head_script(current: str, indent: str = "  ") -> str:
     """Language detection / preference routing. Inline and synchronous so it
     runs before first paint — no flash of the wrong language, no flash of the
@@ -366,126 +334,7 @@ def head_script(current: str, indent: str = "  ") -> str:
     return f"{indent}<script>\n{body}\n{indent}</script>"
 
 
-def body_block(blocks: list, indent: str = "      ") -> str:
-    """The article body: headings and paragraphs, nothing else.
-
-    Deliberately not a markdown renderer. The source article is converted to
-    these blocks once, on the way in, so the site keeps its no-dependency rule
-    and the page cannot acquire structures the stylesheet has never seen.
-    Inline emphasis, code and links arrive as HTML fragments, which is what the
-    content files have always carried.
-
-    An h2 here takes no class, so it does NOT pick up the home page's
-    .section-head: that rule sets a one-word category label in 0.7rem uppercase
-    sans, which is right for "Writing" and unreadable for a ten-word sentence.
-    An article subhead is a statement and is set as one.
-    """
-    out = []
-    for block in blocks:
-        tag = block["type"]
-        out.append(f'{indent}<{tag}>{html(block["text"])}</{tag}>')
-    return "\n".join(out)
-
-
-def case_head_script(indent: str = "  ") -> str:
-    """Theme only — no language routing.
-
-    The home page's head script may redirect a visitor to their own locale. A
-    case page has one locale, so the same script would either do nothing or,
-    worse, bounce a reader off the page they asked for and onto a localised home
-    page. What remains is the part that must still run before first paint:
-    applying a stored theme so the page never flashes the other palette, and
-    setting data-js so the theme control exists only where it can work.
-    """
-    body = """
-(function () {
-  try {
-    var theme = null;
-    try { theme = window.localStorage.getItem('nls-theme'); } catch (e) {}
-    if (theme === 'light' || theme === 'dark') {
-      document.documentElement.setAttribute('data-theme', theme);
-    }
-    document.documentElement.setAttribute('data-js', '');
-  } catch (e) {}
-})();
-"""
-    body = "\n".join(indent + line if line else "" for line in body.strip("\n").split("\n"))
-    return f"{indent}<script>\n{body}\n{indent}</script>"
-
-
 # --- page assembly ----------------------------------------------------------
-def validate_case(slug: str, data: dict) -> None:
-    """A case file is checked as strictly as a locale file."""
-    where = f"content/cases/{slug}.json"
-    for section, keys in (
-        ("meta", ("title", "description", "og_title", "og_description")),
-        ("project", ("name", "deck", "role", "links")),
-    ):
-        if section not in data:
-            raise SystemExit(f"{where}: missing section '{section}'")
-        for key in keys:
-            if key not in data[section]:
-                raise SystemExit(f"{where}: missing '{section}.{key}'")
-    for key in ("kicker", "body"):
-        if key not in data:
-            raise SystemExit(f"{where}: missing '{key}'")
-    for i, link in enumerate(data["project"]["links"]):
-        for key in ("label", "href"):
-            if key not in link:
-                raise SystemExit(f"{where}: 'project.links[{i}]' is missing '{key}'")
-    if not data["body"]:
-        raise SystemExit(f"{where}: 'body' is empty")
-    for i, block in enumerate(data["body"]):
-        for key in ("type", "text"):
-            if key not in block:
-                raise SystemExit(f"{where}: 'body[{i}]' is missing '{key}'")
-        if block["type"] not in ("h2", "p"):
-            raise SystemExit(
-                f"{where}: 'body[{i}]' has type '{block['type']}', expected 'h2' or 'p'"
-            )
-        # An unbalanced fragment silently eats the rest of the page, and the
-        # article legitimately contains angle brackets inside code spans.
-        if block["text"].count("<") != block["text"].count(">"):
-            raise SystemExit(f"{where}: 'body[{i}]' has unbalanced angle brackets")
-
-
-def render_case(slug: str, template: str) -> str:
-    data = json.loads((ROOT / "content" / "cases" / f"{slug}.json").read_text(encoding="utf-8"))
-    validate_case(slug, data)
-    meta, project = data["meta"], data["project"]
-
-    # The theme control's labels are not localised here the way they are on the
-    # home page: this page is English, so it takes the English words directly.
-    theme_names = {"light": "Light", "dark": "Dark", "auto": "Auto"}
-    theme_label = "Colour theme"
-
-    subs = {
-        "TITLE": html(meta["title"]),
-        "DESCRIPTION": attr(meta["description"]),
-        "CANONICAL": f"{SITE}/{CASE_ROOT}/{slug}/",
-        "OG_TITLE": attr(meta["og_title"]),
-        "OG_DESCRIPTION": attr(meta["og_description"]),
-        "STYLE_HREF": style_href(),
-        "HEAD_SCRIPT": case_head_script(),
-        "THEME_LABEL": attr(theme_label),
-        "THEMEBAR": themebar(theme_names, theme_label),
-        "KICKER": html(data["kicker"]),
-        "PROJECT_NAME": html(project["name"]),
-        "PROJECT_DECK": html(project["deck"]),
-        "PROJECT_ROLE": html(project["role"]),
-        "PROJECT_LINKS": project_links_block(project["links"]),
-        "BODY": body_block(data["body"]),
-    }
-
-    out = template
-    for key, value in subs.items():
-        out = out.replace("{{%s}}" % key, value)
-    left = re.findall(r"\{\{[A-Z_]+\}\}", out)
-    if left:
-        raise SystemExit(f"case {slug}: unsubstituted placeholders {sorted(set(left))}")
-    return out
-
-
 def validate(code: str, data: dict) -> None:
     for section, keys in REQUIRED_KEYS.items():
         if section not in data:
@@ -567,25 +416,10 @@ def render(code: str, lang: str, og: str, path: str, template: str) -> str:
 def main() -> int:
     check = "--check" in sys.argv[1:]
     template = (ROOT / "template.html").read_text(encoding="utf-8")
-    case_template = (ROOT / "case.html").read_text(encoding="utf-8")
     stale = []
-
-    pages = [
-        (
-            ROOT / "index.html" if path == "/" else ROOT / path.strip("/") / "index.html",
-            lambda code=code, lang=lang, og=og, path=path: render(code, lang, og, path, template),
-        )
-        for code, lang, og, path in LOCALES
-    ] + [
-        (
-            ROOT / CASE_ROOT / slug / "index.html",
-            lambda slug=slug: render_case(slug, case_template),
-        )
-        for slug in CASES
-    ]
-
-    for target, build in pages:
-        page = build()
+    for code, lang, og, path in LOCALES:
+        page = render(code, lang, og, path, template)
+        target = ROOT / "index.html" if path == "/" else ROOT / path.strip("/") / "index.html"
         if check:
             current = target.read_text(encoding="utf-8") if target.exists() else None
             if current != page:

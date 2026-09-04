@@ -97,6 +97,6 @@ and structural leaks — a neutral-sounding field name or data model that still 
 domain — belongs to a separate private audit run before publishing content-bearing changes.
 
 **`build.py --check`** — the generated pages are committed, because GitHub Pages serves this repo
-as-is with no build step. So editing `content/`, `template.html`, `case.html` or the stylesheet
+as-is with no build step. So editing `content/`, `template.html` or the stylesheet
 without rebuilding ships a page that no longer matches its own source, silently, for as long as
 nobody looks. This fails the build instead.
