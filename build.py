@@ -137,23 +137,45 @@ def langbar(current: str, names: dict, indent: str = "      ") -> str:
     return "\n".join(parts)
 
 
-def themebar(names: dict, indent: str = "      ") -> str:
-    """Light / Dark / Auto, as buttons.
+# Stroke icons on one 24-unit grid, one visual style, sized and coloured by CSS.
+# All three ship in the markup and CSS reveals whichever matches the current
+# data-theme — so the glyph is correct at first paint, with no script to swap it
+# and no flash of the wrong one. The half-filled disc is the conventional
+# "follows the system" mark.
+THEME_ICONS = {
+    "light": (
+        '<circle cx="12" cy="12" r="4" />'
+        '<path d="M12 2v2M12 20v2M2 12h2M20 12h2'
+        'M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />'
+    ),
+    "dark": '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />',
+    "auto": '<circle cx="12" cy="12" r="9" /><path class="icon-fill" d="M12 3a9 9 0 0 0 0 18z" />',
+}
 
-    Buttons rather than links because these are actions, not destinations, and
-    aria-pressed is the honest state for a choice that is either on or off. The
-    pressed one is set by script on load, since only the browser knows what is
-    stored. Order puts Auto last: it is the default, so it reads as the way back
-    rather than as the first thing to pick.
+
+def themebar(names: dict, label: str, indent: str = "      ") -> str:
+    """One button that cycles auto -> light -> dark -> auto.
+
+    A single control instead of three: three uppercase words beside four
+    language codes made the bar heavier than the name below it.
+
+    The cost of cycling is that the other states are not visible, so the label
+    carries the weight — title for a hover tooltip, aria-label for assistive
+    tech, both naming the CURRENT state and both localised. The translated words
+    stay useful here; an icon alone would have thrown them away.
     """
-    parts = []
-    for i, key in enumerate(("light", "dark", "auto")):
-        if i:
-            parts.append(f'{indent}<span class="sep" aria-hidden="true">·</span>')
-        parts.append(
-            f'{indent}<button type="button" data-settheme="{key}">{html(names[key])}</button>'
-        )
-    return "\n".join(parts)
+    svgs = "\n".join(
+        f'{indent}  <svg class="icon-{key}" viewBox="0 0 24 24" aria-hidden="true">{paths}</svg>'
+        for key, paths in THEME_ICONS.items()
+    )
+    data = " ".join(f'data-name-{key}="{attr(names[key])}"' for key in THEME_ICONS)
+    return (
+        f'{indent}<button type="button" id="theme-toggle" data-label="{attr(label)}" {data}\n'
+        f'{indent}        title="{attr(label)}: {attr(names["auto"])}"\n'
+        f'{indent}        aria-label="{attr(label)}: {attr(names["auto"])}">\n'
+        f"{svgs}\n"
+        f"{indent}</button>"
+    )
 
 
 def notice_block(current: str, notice: dict, indent: str = "    ") -> str:
@@ -359,7 +381,7 @@ def render(code: str, lang: str, og: str, path: str, template: str) -> str:
         "SWITCHER_LABEL": attr(data["switcher"]["label"]),
         "LANGBAR": langbar(code, data["switcher"]["names"]),
         "THEME_LABEL": attr(data["theme"]["label"]),
-        "THEMEBAR": themebar(data["theme"]["names"]),
+        "THEMEBAR": themebar(data["theme"]["names"], data["theme"]["label"]),
         "NOTICE": notice_block(code, data["notice"]),
         "NAME": html(data["header"]["name"]),
         "ROLE": html(data["header"]["role"]),

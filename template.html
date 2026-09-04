@@ -122,36 +122,45 @@
       });
     });
 
-    /* Theme. "auto" is the absence of a choice, not a third stored value: it
-       clears the key and the attribute so the stylesheet goes back to following
-       prefers-color-scheme. The head script has already applied any stored
-       choice before paint; this only records changes and marks the active one. */
-    (function () {
-      var buttons = document.querySelectorAll('[data-settheme]');
-      if (!buttons.length) return;
+    /* Theme. One button cycling auto -> light -> dark -> auto.
 
-      function paint() {
-        var current = document.documentElement.getAttribute('data-theme') || 'auto';
-        buttons.forEach(function (b) {
-          b.setAttribute('aria-pressed', String(b.dataset.settheme === current));
-        });
+       "auto" is the ABSENCE of a choice, not a third stored value: it clears the
+       key and the attribute, so the stylesheet goes back to following
+       prefers-color-scheme. The head script has already applied any stored
+       choice before paint, and CSS picks the matching glyph off the same
+       attribute, so this only records the change and keeps the label honest
+       about which state you are now in — the thing a cycling control otherwise
+       leaves you guessing at. */
+    (function () {
+      var button = document.getElementById('theme-toggle');
+      if (!button) return;
+
+      var ORDER = ['auto', 'light', 'dark'];
+
+      function current() {
+        return document.documentElement.getAttribute('data-theme') || 'auto';
       }
 
-      buttons.forEach(function (b) {
-        b.addEventListener('click', function () {
-          var choice = b.dataset.settheme;
-          if (choice === 'auto') {
-            document.documentElement.removeAttribute('data-theme');
-            try { localStorage.removeItem('nls-theme'); } catch (e) {}
-          } else {
-            document.documentElement.setAttribute('data-theme', choice);
-            try { localStorage.setItem('nls-theme', choice); } catch (e) {}
-          }
-          paint();
-        });
+      function label() {
+        var name = button.dataset['name' + current().charAt(0).toUpperCase() + current().slice(1)];
+        var text = button.dataset.label + ': ' + name;
+        button.setAttribute('title', text);
+        button.setAttribute('aria-label', text);
+      }
+
+      button.addEventListener('click', function () {
+        var next = ORDER[(ORDER.indexOf(current()) + 1) % ORDER.length];
+        if (next === 'auto') {
+          document.documentElement.removeAttribute('data-theme');
+          try { localStorage.removeItem('nls-theme'); } catch (e) {}
+        } else {
+          document.documentElement.setAttribute('data-theme', next);
+          try { localStorage.setItem('nls-theme', next); } catch (e) {}
+        }
+        label();
       });
 
-      paint();
+      label();
     })();
 
     var dismiss = document.querySelector('.notice-dismiss');

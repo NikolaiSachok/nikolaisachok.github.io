@@ -272,38 +272,42 @@ footer a:hover { color: var(--accent); }
    scripting off the page still follows the system setting, which is the right
    fallback and needs no control. */
 .themebar { display: none; }
-html[data-js] .themebar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: .3rem;
-  font-family: var(--sans);
-  font-size: .74rem;
-  font-weight: 600;
-  letter-spacing: .09em;
-  text-transform: uppercase;
-}
+html[data-js] .themebar { display: flex; align-items: center; }
 .themebar button {
   appearance: none;
   background: none;
   border: 1px solid transparent;
   color: var(--chrome);
-  font: inherit;
-  letter-spacing: inherit;
-  text-transform: inherit;
-  padding: .2rem .45rem;
+  /* 32px square: comfortably over the 24px WCAG 2.5.8 minimum without making a
+     utility control heavier than the language codes it sits beside. */
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  padding: 0;
   cursor: pointer;
   transition: color .15s ease, background .15s ease, border-color .15s ease;
 }
 .themebar button:hover { color: var(--accent); background: var(--accent-soft); }
 .themebar button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.themebar button[aria-pressed="true"] {
-  color: var(--accent);
-  background: var(--accent-soft);
-  border-color: var(--accent-soft);
-  cursor: default;
+
+/* All three glyphs are in the markup; the one matching the current state is the
+   one shown. Driven by the same attribute the head script sets before paint, so
+   the icon is right on the first frame and no script swaps it afterwards. */
+.themebar svg {
+  width: 18px;
+  height: 18px;
+  display: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
-.themebar .sep { color: var(--rule); user-select: none; }
+.themebar svg .icon-fill { fill: currentColor; stroke: none; }
+html:not([data-theme]) .themebar .icon-auto,
+html[data-theme="light"] .themebar .icon-light,
+html[data-theme="dark"] .themebar .icon-dark { display: block; }
 
 /* ---------------------------------------------------------------------------
    Language switcher
