@@ -70,7 +70,7 @@
     {
       "title": "Strata-RAG",
       "desc": "Eine RAG-Engine für heterogene Korpora, die als Lehrmaterial geschrieben ist und bei der die Evaluation an erster Stelle steht — Qdrant + HNSW, hybrides Retrieval mit RRF, Re-Ranking mit einem Cross-Encoder, ein Metadaten-Sidecar für Aggregationen und eine Evaluationsumgebung (Recall@K / nDCG / MRR + Prüfung der Faktentreue nach dem LLM-as-judge-Verfahren), dazu mehrschichtige Schutzmechanismen gegen Injection und die Preisgabe von PII.",
-      "meta": "Fallstudie · auf Englisch · Python"
+      "meta": "GitHub · Python"
     },
     {
       "title": "strata-insurance-corpus",

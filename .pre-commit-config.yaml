@@ -33,9 +33,9 @@ repos:
         always_run: true
 
       # The generated pages are committed, because GitHub Pages serves this repo
-      # as-is with no build step. So an edit to content/, template.html,
-      # case.html or the stylesheet that is not followed by a rebuild ships a
-      # page that does not match its own source — silently, and for as long as
+      # as-is with no build step. So an edit to content/, template.html or
+      # the stylesheet that is not followed by a rebuild ships a page that
+      # does not match its own source — silently, and for as long as
       # nobody looks. This is the check that catches it.
       - id: build-check
         name: build.py --check (generated pages match their source)
