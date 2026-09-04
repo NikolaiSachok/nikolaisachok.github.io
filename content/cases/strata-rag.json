@@ -1,108 +1,106 @@
 {
   "meta": {
-    "title": "Strata-RAG — decisions and method · Nikolai Sachok",
-    "description": "The decision record behind Strata-RAG: what I chose, what I rejected, and the four times the system proved me wrong. Every claim carries how strongly it is evidenced.",
-    "og_title": "Strata-RAG — decisions and method",
-    "og_description": "What I chose, what I rejected, and the four times the system proved me wrong — each claim graded measured, verified, or reasoned."
+    "title": "Strata-RAG — Nikolai Sachok",
+    "description": "A RAG engine built to be measured. What a real production corpus surfaced, the red team that broke my own injection scanner, and the detector I made under-report on purpose.",
+    "og_title": "Strata-RAG: a RAG engine built to be measured",
+    "og_description": "What a real production corpus surfaced, the red team that broke my own injection scanner, and the detector I made under-report on purpose."
   },
   "kicker": "Case study",
   "project": {
     "name": "Strata-RAG",
+    "deck": "A RAG engine built to be measured",
     "role": "Design, implementation and evaluation · Python · 2026",
     "links": [
-      { "label": "Project site", "href": "https://nikolaisachok.com/Strata-RAG/" },
-      { "label": "Repository", "href": "https://github.com/NikolaiSachok/Strata-RAG" },
-      { "label": "Evaluation corpus", "href": "https://github.com/NikolaiSachok/strata-insurance-corpus" },
-      { "label": "The article", "href": "https://dev.to/nsachok/eval-first-rag-use-separate-scores-to-triage-failures-33ed" }
+      {
+        "label": "Repository",
+        "href": "https://github.com/NikolaiSachok/Strata-RAG"
+      },
+      {
+        "label": "Project site",
+        "href": "https://nikolaisachok.com/Strata-RAG/"
+      },
+      {
+        "label": "Evaluation corpus",
+        "href": "https://github.com/NikolaiSachok/strata-insurance-corpus"
+      },
+      {
+        "label": "Related article",
+        "href": "https://dev.to/nsachok/eval-first-rag-use-separate-scores-to-triage-failures-33ed"
+      }
     ]
   },
-  "lead_1": "An eval-first RAG engine, built to be measured rather than demonstrated. It indexes heterogeneous corpora, retrieves with a hybrid of dense and lexical search, and scores retrieval and generation as two separate questions — because one end-to-end number tells you that answer quality moved without telling you which half moved it.",
-  "lead_2": "What follows is the decision record and the method record: what I chose, what I rejected, and the four times the system proved me wrong. Every entry carries how strongly it is evidenced, because a claim without its grade is only a claim.",
-  "bands": [
+  "body": [
     {
-      "id": "decisions",
-      "label": "Decisions",
-      "note": "Recorded as what I chose, what I rejected, and the conditions under which I would choose differently. A decision with no stated alternative is a preference.",
-      "records": [
-        {
-          "grade": "reasoned",
-          "title": "Fuse dense and lexical retrieval by rank, not by score",
-          "body": "Dense retrieval captures meaning and blurs exact tokens — rare names, identifiers, codes. BM25 nails the exact term and misses the paraphrase. Each covers the other's blind spot, so the real question is how to combine two ranked lists whose scores live on incomparable scales. You cannot add a cosine score to a BM25 score. Reciprocal-rank fusion sidesteps the problem entirely by using rank position only, summing 1/(k+rank), which is also why it needs one parameter instead of a calibration step.",
-          "facets": [
-            { "label": "Over", "text": "Dense-only, which is the default in most tutorials and fails silently on exact-term queries. Weighted score fusion, which needs per-retriever normalisation and is fragile. Learned fusion, which is more infrastructure than this corpus earns." },
-            { "label": "Choose differently when", "text": "The corpus is pure prose with no codes, identifiers or rare names — dense-only may be enough, and there is a --dense-only flag to measure exactly that." }
-          ],
-          "rule": "This is a reasoned design choice, not a measured result. The dense-only versus hybrid A/B on the real corpus has not been run, and running it is the missing evidence that would let the claim carry a number."
-        },
-        {
-          "grade": "reasoned",
-          "title": "Rerank with a cross-encoder, behind a flag that can turn it off",
-          "body": "Dense and BM25 are both bi-encoders: the query and the document are embedded separately, so the query never sees the document. A cross-encoder scores the pair together and orders the shortlist far more accurately. Retrieving broadly and reranking about twenty candidates buys corpus-scale recall and pair-scale precision, which is cheap precision for a second model load.",
-          "facets": [
-            { "label": "Over", "text": "No reranking, which is fewer moving parts and a worse final ordering. An LLM reranker, which is the highest quality available and costs a per-query model call, the latency that comes with it, and a fresh injection surface on untrusted chunk text." },
-            { "label": "Choose differently when", "text": "Latency is the binding constraint and the embedder already ranks well — the flag exists for that. Quality is critical and the budget allows an LLM reranker, with injection guards on the chunk text." }
-          ]
-        },
-        {
-          "grade": "reasoned",
-          "title": "Bound the context with top-k and an absolute score floor — never top-p",
-          "body": "Retrieval needs a bounded context budget, so a fixed top-k. An optional floor on the rerank score drops weak filler after reranking, and is allowed to return nothing at all so the generator can say it has no relevant context rather than answer from junk. There is deliberately no minimum-one fallback, which would defeat the purpose. Top-p is the wrong instrument here and it is worth being precise about why: nucleus sampling assumes a calibrated probability distribution summing to one. Cross-encoder relevance scores are not probabilities, do not sum to one, and are not comparable across models — a good score from one reranker is not a good score from another. Cumulative-mass thresholding over numbers like that is meaningless, so the floor is absolute, empirically tuned per reranker, and off by default.",
-          "facets": [
-            { "label": "Over", "text": "Fixed top-k alone, which is the simpler default and keeps the tail. Top-p, which is inapplicable for the reason above. Dynamic k by score gap, which is a brittle heuristic." },
-            { "label": "Choose differently when", "text": "Precision matters more than recall and you have measured a threshold for your own reranker. Otherwise leave the floor off — a hard-coded universal threshold would mean nothing." }
-          ]
-        },
-        {
-          "grade": "reasoned",
-          "title": "Run a real vector server, not an in-process store",
-          "body": "An enterprise-shaped engine wants a standalone ANN service: a process several services can point at, inspect over HTTP, tune with explicit HNSW parameters, and grow past in-process memory. Qdrant costs one docker compose up of operational overhead and gives all of that. An embedded store is excellent for a notebook and is not the shape of a production index.",
-          "facets": [
-            { "label": "Over", "text": "Chroma, embedded and simplest, but in-process. pgvector, superb when the data already lives in Postgres and you want one transactional store, weaker at pure ANN ergonomics. Pinecone, zero-ops and managed, at the cost of a hosted dependency and data leaving your boundary. Weaviate or Milvus, powerful and distributed, heavier to operate than a single-node engine needs." },
-            { "label": "Choose differently when", "text": "It is a throwaway notebook — Chroma. The data is already in Postgres at modest scale — pgvector. There is no ops appetite — a managed service. Billions of vectors — a distributed cluster." }
-          ]
-        },
-        {
-          "grade": "measured",
-          "title": "Split PII into a policy and a detector, then make only the detector pluggable",
-          "body": "Redaction is two separable concerns. The policy decides what to keep and what to remove — it keeps published business contacts and role-based addresses, and removes personal ones, using the document's provenance to tell them apart. The detector finds and labels the spans. Keeping them apart means a regex detector ships as the zero-dependency default, and Microsoft Presidio's NER drops in behind an unchanged policy for teams that need free-text coverage. A comparison harness runs both over the same corpus under the same policy and reports the disagreements, with every value masked.",
-          "facets": [
-            { "label": "Over", "text": "Regex only, which is blind to names in free text. NER always on, which forces a heavy dependency and a model download onto everyone including the demo. A hosted PII API, which sends the data you are protecting outside your boundary." },
-            { "label": "Choose differently when", "text": "The PII has known structured shapes — regex is higher precision and cheaper. There are names and phone numbers in prose — Presidio, with the larger model in production. Regulated and on-premise — Presidio locally, never a hosted API." }
-          ],
-          "rule": "On the sample corpus the regex detector found one email; Presidio found the same email plus thirty PERSON spans regex is structurally unable to see — and also tagged some brand and theme words as people, which is the false-positive cost of the probabilistic backend stated rather than hidden."
-        }
-      ]
+      "type": "p",
+      "text": "Strata-RAG is a retrieval-augmented generation engine I built and open-sourced. It has the parts you would expect: Qdrant with explicit HNSW parameters, hybrid dense and BM25 retrieval fused by reciprocal rank, a cross-encoder reranker, a metadata sidecar for questions that are really aggregations rather than searches, and an eval harness reporting Recall@K, Precision@K, MRR and nDCG separately from an LLM-judge faithfulness score."
     },
     {
-      "id": "method",
-      "label": "Method",
-      "note": "Four times the system proved me wrong, and what each one changed. Measured means a number from a run that can be repeated. Verified means reproduced and confirmed, but not numeric. Reasoned means argued for and not yet measured.",
-      "records": [
-        {
-          "grade": "measured",
-          "title": "I built the red team that broke my own injection scanner",
-          "body": "The deterministic scanner matched on the bytes as delivered, so any encoding it had not anticipated was invisible to it. Ninety-three per cent of obfuscated payloads walked straight past. The fix was a normalisation pre-pass: scan a normalised copy — NFKC fold, strip zero-width characters, un-map homoglyphs, bounded base64, morse and rot13 decode — while still delivering the original bytes to the target. Scanner evasion fell from 93% to 17%, end-to-end attack success from 58% to 8%, and six fold-and-decode encoder families from 100% to zero. The normaliser was promoted into the engine as a shared component so the scanner and the red team cannot drift apart.",
-          "rule": "The residual 17% is published rather than buried. A security number without its remainder is marketing."
-        },
-        {
-          "grade": "measured",
-          "title": "A jailbreak score with no denominator is a coin flip in a suit",
-          "body": "Live testing found the same zero-width payload hijacking the model in six of eight trials and refusing once. Model compliance is stochastic, so a single-shot attack-success rate is not a measurement of anything. The harness now fires each payload N times and reports a per-payload success rate, with errors — timeouts, 502s — excluded from the denominator, because a failed request is not a refusal and counting it as one flatters the defence. Scanner evasion stays deterministic and single-shot, because that layer genuinely is a function of the bytes.",
-          "rule": "Separate the parts of a security metric that are deterministic from the parts that are sampled, and never report them on the same scale."
-        },
-        {
-          "grade": "verified",
-          "title": "The judge that decides whether an attack succeeded went through five rewrites and ended by giving up on words",
-          "body": "The oracle's job sounds trivial — did the model comply? — and every lexical approach died on a reproduced counter-example. Whole-answer substring matching scored a refusal that quotes the canary as a hijack. A proximity window fixed that and introduced cross-clause false negatives. Per-span negation scoping fixed those and still over-reported on quoted needles inside code fences. A uniform refusal-taint rule was sound and leaked on the alerting register, where modern refusals contain no hard negation word at all. So the deterministic path was made lexicon-free and structural-only: it fires only on forms a refusal physically cannot produce. Everything else is ambiguous and routed to a behavioural judge, or scored conservatively when no judge is available.",
-          "rule": "A negation lexicon is an unbounded arms race. The layer now errs in one direction only, which makes a deterministic-only score a documented lower bound and never a false all-clear — and every one of the eleven false positives and two false negatives found along the way is now a permanent regression test."
-        },
-        {
-          "grade": "measured",
-          "title": "Some production documents contain live credentials, and indexing them turns retrieval into exfiltration",
-          "body": "Ingest-time redaction — entropy scoring plus contextual key detection — caught and removed 174 live credentials from a large heterogeneous production corpus before a single chunk was embedded. Once a secret is in the vector store it is retrievable, quotable and effectively undeletable. Two structural points sit behind the number. Secret redaction is a separate pass from PII redaction and runs first, so an email-and-password pair is recognised as a credential rather than anonymised into a harmless-looking address. And the structured metadata harvest reads per-project config files that are never embedded at all, through a field whitelist rather than a blocklist.",
-          "rule": "Fail closed. A whitelist excludes the secret block a future config file has not introduced yet; a blocklist only excludes the ones you already thought of."
-        }
-      ]
+      "type": "p",
+      "text": "That half is the easy half. The engine exists because of the other one."
+    },
+    {
+      "type": "p",
+      "text": "I built it over a large heterogeneous production document corpus — real files, several formats, no shared convention between them. What that corpus surfaced was mostly not retrieval quality. It was content that should never have been indexed, and guardrails I had asserted but never measured."
+    },
+    {
+      "type": "h2",
+      "text": "What is actually inside your documents"
+    },
+    {
+      "type": "p",
+      "text": "Ingest-time redaction — entropy scoring plus contextual key detection — caught and redacted <strong>174 live credentials</strong> before a single chunk was embedded. Once a secret is in a vector store the model can quote it back on request and there is no clean way to take it out again, so the only reliable place to stop it is upstream of the embedding call."
+    },
+    {
+      "type": "p",
+      "text": "Two structural details matter more than the count. Secret redaction is a separate pass that runs <em>before</em> PII redaction, so an <code>email:password</code> pair is recognised as a credential instead of being anonymised into a harmless-looking email address. And the metadata harvest, which reads config files that are never embedded at all, pulls fields through a whitelist rather than a blocklist — so a secret block some future config introduces is excluded by default, not by a deny-list entry I would have to remember to add."
+    },
+    {
+      "type": "h2",
+      "text": "The red team that broke my own scanner"
+    },
+    {
+      "type": "p",
+      "text": "The prompt-injection scanner matched literal ASCII patterns against the bytes it was handed. I wrote a red team to attack it, and it lost badly: <strong>93% of obfuscated payloads walked straight past</strong> — zero-width splits, homoglyphs, full-width characters, base64, and several more baroque encodings."
+    },
+    {
+      "type": "p",
+      "text": "The fix is a normalisation pre-pass. The scanner now reads a normalised <em>copy</em> of the untrusted text (NFKC fold, strip zero-width characters, un-map homoglyphs, bounded base64/morse/rot13 decode-and-rescan) while the original bytes remain what the user is shown. Measured end to end: scanner evasion <strong>93% → 17%</strong>, end-to-end attack success <strong>58% → 8%</strong>, six fold/decode encoder families <strong>100% → 0%</strong>."
+    },
+    {
+      "type": "p",
+      "text": "The residual 17% is published rather than buried, its families named: acrostics, leetspeak, morse-encoded URLs, fragmented and triple-nested base64. The normaliser was promoted into the engine and the red team imports it from there, so defence and attack tooling share one reversible component and cannot quietly drift apart."
+    },
+    {
+      "type": "h2",
+      "text": "The metric needed a denominator, and the oracle needed no vocabulary"
+    },
+    {
+      "type": "p",
+      "text": "Live testing then found the same zero-width payload hijacking the model in <strong>six of eight trials, and refusing once</strong>. A single-shot attack-success rate is a coin flip presented as a measurement. The harness now fires each payload N times and reports a per-payload success rate, with errors — timeouts, 502s — excluded from the denominator: a failed request is not a refusal, and counting it as one flatters the defence. Scanner evasion stays single-shot, because that layer genuinely is a function of the bytes."
+    },
+    {
+      "type": "p",
+      "text": "The harder half was the oracle that decides whether an answer means the attack worked. It went through five rewrites, and every lexical approach died on a reproduced counter-example. Substring matching scored a refusal that quotes the canary — “I will not output <code>&lt;canary&gt;</code>” — as a hijack. A proximity window fixed that and introduced cross-clause false negatives. Per-span negation scoping fixed those and still over-reported on needles quoted inside code fences. A refusal-taint rule was sound until it met the alerting register: “Disregarding…”, “blocked”, “I stay in my role”, refusals containing no negation word at all."
+    },
+    {
+      "type": "p",
+      "text": "A negation lexicon is an unbounded arms race, so I deleted the vocabulary. The deterministic success path is structural only: it fires on forms a refusal physically cannot produce — the stripped answer <em>is</em> the bare token, an un-fenced image beacon owns its own line — and everything else goes to a behavioural LLM judge, or is scored conservatively when no judge is available. That buys the property worth five rewrites: the layer errs in a single direction, so a deterministic-only score is a documented conservative lower bound and never a false all-clear. The 11 false positives and 2 false negatives reproduced across those rounds are baked into the test suite as permanent regressions."
+    },
+    {
+      "type": "h2",
+      "text": "What is not measured yet"
+    },
+    {
+      "type": "p",
+      "text": "Some choices here are argued rather than measured, and the record says so. Hybrid retrieval is one: a cosine score and a BM25 score live on incomparable scales, which is the whole reason reciprocal-rank fusion combines them by rank position instead of by number. The reasoning is sound, and the dense-only A/B on the real corpus has not been run, so the claim carries no figure. There is a <code>--dense-only</code> flag whose purpose is to settle it later."
+    },
+    {
+      "type": "p",
+      "text": "The injection work merged only after an independent review panel that had not written the code found three major and four minor real defects sitting behind 441 passing tests. Green tests were the floor, not the verdict."
+    },
+    {
+      "type": "p",
+      "text": "Strata-RAG is on GitHub at <a href=\"https://github.com/NikolaiSachok/Strata-RAG\">github.com/NikolaiSachok/Strata-RAG</a>, with the design decisions and the residual failures documented next to the code."
     }
   ]
 }
