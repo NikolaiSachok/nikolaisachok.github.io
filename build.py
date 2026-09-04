@@ -157,7 +157,18 @@ def notice_block(current: str, notice: dict, indent: str = "    ") -> str:
 
 
 def tags_block(tags: list, indent: str = "      ") -> str:
-    return "\n".join(f'{indent}<li class="tag">{html(t)}</li>' for t in tags)
+    """One dot-separated line rather than a row of boxes.
+
+    The separator lives INSIDE the <li> because only <li> may be a child of
+    <ul>, and the list is worth keeping: a screen reader announcing "list, 7
+    items" is more use than a paragraph. It is aria-hidden, like the separators
+    in the language bar and the header contact links — same house pattern.
+    """
+    out = []
+    for i, tag in enumerate(tags):
+        sep = "" if i == 0 else '<span class="sep" aria-hidden="true">·</span>'
+        out.append(f'{indent}<li class="tag">{sep}{html(tag)}</li>')
+    return "\n".join(out)
 
 
 def entries_block(items: list, links: list, name: str, indent: str = "      ") -> str:

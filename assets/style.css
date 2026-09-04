@@ -112,18 +112,25 @@ h2.section-head {
   margin-bottom: 0;
 }
 
-/* What I do — chrome, so sans; hairline outline rather than a filled pill,
-   which would reintroduce the container this design is removing. */
-.tags { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0; padding: 0; list-style: none; }
-.tag {
+/* What I work on — one dot-separated line in the chrome sans, not a row of
+   boxes. Outlined chips were the last piece of portfolio furniture left on a
+   page that has no containers anywhere else, and they cost three rows of height
+   between the video and the writing. Set as a line, the same terms scan just as
+   fast and read as a masthead subject line. */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .15rem .55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
   font-family: var(--sans);
-  font-size: .78rem;
+  font-size: .85rem;
   font-weight: 500;
-  color: var(--fg-muted);
-  border: 1px solid var(--rule);
-  padding: .3rem .6rem;
-  max-width: 100%;
+  line-height: 1.7;
 }
+.tag { color: var(--fg-muted); max-width: 100%; }
+.tag .sep { color: var(--rule); margin-right: .55rem; user-select: none; }
 
 /* Entries — writing and projects share this markup exactly. */
 .entries { margin: 0; padding: 0; list-style: none; }
