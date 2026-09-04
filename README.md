@@ -69,3 +69,34 @@ Then commit the changed `content/*.json` **and** the regenerated `*.html` togeth
      link back to English.
 - With JavaScript off, every page serves its full content and all four locales stay reachable
   through the switcher. Nothing is redirected server-side and nothing is `noindex`.
+
+## Gates
+
+Two deterministic checks guard every change. They run in CI on every push and pull request
+(`.github/workflows/checks.yml`), and locally as pre-commit hooks once installed:
+
+```sh
+pip install pre-commit && pre-commit install    # once
+pre-commit run --all-files                      # on demand
+```
+
+**`scripts/leak-check.sh`** — the leak guard. Local user paths, hardcoded secrets and API keys,
+private-key blocks, database credential URLs, non-example email addresses, the markers people leave in
+a file to stop it shipping, `.DS_Store`, and **image metadata** (GPS, device serial, owner name, and
+the description fields where
+a screenshot records what it was captured from — a picture carries more than it shows).
+
+It takes the staged diff by default and a path when given one, so the hook checks what you are about
+to commit and CI checks the whole tree. The image pass needs `exiftool`; where it is missing the pass
+**skips loudly** rather than passing silently, because a gate that quietly does not run is worse than
+no gate — it is trusted.
+
+It contains **no domain wordlist and never will**: a checker that enumerates sensitive terms is
+itself a disclosure of them. This is the cheap deterministic layer only. Judgement about indirect
+and structural leaks — a neutral-sounding field name or data model that still encodes a private
+domain — belongs to a separate private audit run before publishing content-bearing changes.
+
+**`build.py --check`** — the generated pages are committed, because GitHub Pages serves this repo
+as-is with no build step. So editing `content/`, `template.html`, `case.html` or the stylesheet
+without rebuilding ships a page that no longer matches its own source, silently, for as long as
+nobody looks. This fails the build instead.
