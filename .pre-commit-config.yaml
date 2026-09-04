@@ -1,0 +1,45 @@
+# Local commit-time gates. Install once:
+#   pip install pre-commit && pre-commit install
+# Run on demand over everything:
+#   pre-commit run --all-files
+#
+# This is the fast offline layer and it only runs once installed, so CI runs the
+# same checks on every push — that one cannot be skipped. The private
+# domain-audit layer (the audit-repo-for-leaks skill) is not wired here: it needs
+# a model and the private policy pack, and it runs before pushing
+# content-bearing changes.
+
+repos:
+  # --- stock hygiene hooks ---------------------------------------------------
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-merge-conflict
+      - id: check-json
+      - id: detect-private-key
+
+  # --- the deterministic leak hard-gate --------------------------------------
+  - repo: local
+    hooks:
+      - id: leak-check
+        name: leak-check (deterministic generic leak guard)
+        entry: scripts/leak-check.sh
+        language: script
+        # No `files:` filter — the script reads the staged diff itself and
+        # applies its own exclusions.
+        pass_filenames: false
+        always_run: true
+
+      # The generated pages are committed, because GitHub Pages serves this repo
+      # as-is with no build step. So an edit to content/, template.html,
+      # case.html or the stylesheet that is not followed by a rebuild ships a
+      # page that does not match its own source — silently, and for as long as
+      # nobody looks. This is the check that catches it.
+      - id: build-check
+        name: build.py --check (generated pages match their source)
+        entry: python3 build.py --check
+        language: system
+        pass_filenames: false
+        always_run: true

@@ -1,0 +1,43 @@
+# The gate that cannot be skipped.
+#
+# The pre-commit hooks run the same two checks locally, but only once someone
+# has installed pre-commit — and a gate that depends on a local install is a
+# gate that is not there on the machine that forgot. This workflow is the
+# always-on copy.
+#
+# It deliberately scans the WHOLE tree rather than the diff: a leak introduced
+# before this gate existed would never appear in a later diff, and this repo is
+# small enough that scanning all of it costs nothing.
+
+name: checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # exiftool is what the image-metadata pass needs. Installing it here means
+      # that pass actually runs in CI instead of skipping with a warning, which
+      # matters as soon as this repo carries a screenshot.
+      - name: Install exiftool
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq libimage-exiftool-perl
+
+      - name: Leak check (whole tree)
+        run: ./scripts/leak-check.sh .
+
+      # The generated pages are committed because GitHub Pages serves this repo
+      # as-is. This fails if index.html and the locale pages do not match what
+      # build.py would produce from the current sources — the "edited the
+      # content, forgot to rebuild" failure, which is invisible otherwise.
+      - name: Generated pages are up to date
+        run: python3 build.py --check
