@@ -56,6 +56,11 @@
   ],
   "writing": [
     {
+      "title": "Enterprise RAG & Agents Handbook",
+      "desc": "Ein praxisnahes Handbuch zu RAG und agentischen Systemen in Produktion, von den Grundprinzipien her aufgebaut. Es erklärt, warum etwas funktioniert und woran es scheitert, statt nur Funktionen aufzuzählen.",
+      "meta": "Seit Juli 2026 · Drei Kurse, mehrere Sprachen"
+    },
+    {
       "title": "Eval-First RAG: Use Separate Scores to Triage Failures",
       "desc": "Ein einziger End-to-End-Score zeigt zwar einen Qualitätsverlust, aber nicht dessen Ursache. Getrennte Bewertungen von Retrieval und Generierung zeigen, ob falsche Belege abgerufen oder gute Belege bei der Antwort nicht eingehalten wurden.",
       "meta": "3. September 2026 · dev.to · auch auf Medium und LinkedIn"
@@ -71,11 +76,6 @@
       "title": "strata-insurance-corpus",
       "desc": "Ein reproduzierbares, synthetisches Korpus aus Versicherungsdokumenten in mehreren Formaten — digital erzeugte und gescannte PDF-Dateien, Word-Dokumente, Tabellendokumente und Fotos. Dazu gehört ein Evaluationsdatensatz mit Goldstandard, der sich unmittelbar aus dem Aufbau des Korpus ergibt. Es dient dazu, RAG-Systeme für Dokumente an Daten zu messen, die wie Unternehmensdaten strukturiert sind.",
       "meta": "GitHub · Python"
-    },
-    {
-      "title": "Enterprise RAG & Agents Handbook",
-      "desc": "Ein praxisnahes Handbuch zu RAG und agentischen Systemen in Produktion, von den Grundprinzipien her aufgebaut — auf Englisch, Russisch und Slowakisch. Es erklärt, warum etwas funktioniert und woran es scheitert, statt nur Funktionen aufzuzählen.",
-      "meta": "nikolaisachok.com · Docusaurus"
     },
     {
       "title": "DC-plugins",

@@ -43,6 +43,11 @@ SOURCE_LOCALE = "en"  # English is the source of truth; x-default points at it
 # which is the whole design: the reader tells them apart by grouping and by the
 # date, never by a different container shape.
 WRITING_LINKS = [
+    # Standing work first, dated pieces after — the ordinary shape of a
+    # publication index. The handbook lives here rather than under projects
+    # because it is prose; with it moved, PROJECT_LINKS is three repositories
+    # and the English label "Built" no longer has to stretch over a docs site.
+    "https://nikolaisachok.com/ai-engineering-handbook/",
     # Always the canonical address, never a syndicated copy: this page indexes
     # the work, it does not host or mirror it.
     "https://dev.to/nsachok/eval-first-rag-use-separate-scores-to-triage-failures-33ed",
@@ -51,7 +56,6 @@ WRITING_LINKS = [
 PROJECT_LINKS = [
     "https://nikolaisachok.com/Strata-RAG/",
     "https://github.com/NikolaiSachok/strata-insurance-corpus",
-    "https://nikolaisachok.com/ai-engineering-handbook/",
     "https://nikolaisachok.com/DC-plugins/",
 ]
 
