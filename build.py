@@ -58,6 +58,7 @@ PROJECT_LINKS = [
 REQUIRED_KEYS = {
     "meta": ["title", "description", "og_title", "og_description"],
     "switcher": ["label", "names"],
+    "theme": ["label", "names"],
     "notice": ["text", "english_link", "dismiss"],
     "header": ["name", "role", "lead_1", "lead_2"],
     "video": ["section_label", "play_label", "img_alt", "iframe_title", "caption"],
@@ -132,6 +133,25 @@ def langbar(current: str, names: dict, indent: str = "      ") -> str:
         parts.append(
             f'{indent}<a href="{path}" hreflang="{lang}" lang="{lang}" '
             f'data-setlang="{code}" aria-label="{label}"{mark}>{code.upper()}</a>'
+        )
+    return "\n".join(parts)
+
+
+def themebar(names: dict, indent: str = "      ") -> str:
+    """Light / Dark / Auto, as buttons.
+
+    Buttons rather than links because these are actions, not destinations, and
+    aria-pressed is the honest state for a choice that is either on or off. The
+    pressed one is set by script on load, since only the browser knows what is
+    stored. Order puts Auto last: it is the default, so it reads as the way back
+    rather than as the first thing to pick.
+    """
+    parts = []
+    for i, key in enumerate(("light", "dark", "auto")):
+        if i:
+            parts.append(f'{indent}<span class="sep" aria-hidden="true">·</span>')
+        parts.append(
+            f'{indent}<button type="button" data-settheme="{key}">{html(names[key])}</button>'
         )
     return "\n".join(parts)
 
@@ -217,6 +237,18 @@ def head_script(current: str, indent: str = "  ") -> str:
   try {
     var store = null;
     try { store = window.localStorage; } catch (e) {}
+
+    /* Theme first, and before any redirect below can return: an explicit choice
+       has to be on <html> before first paint, or the page flashes the other
+       palette. No stored choice means no attribute, which leaves the stylesheet
+       following prefers-color-scheme. data-js reveals the control, which would
+       otherwise be a dead button for anyone without scripting. */
+    var theme = null;
+    if (store) { try { theme = store.getItem('nls-theme'); } catch (e) {} }
+    if (theme === 'light' || theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+    document.documentElement.setAttribute('data-js', '');
     var params = new URLSearchParams(location.search);
     var forced = (params.get('lang') || '').toLowerCase().split('-')[0];
     var target = null, auto = false;
@@ -284,6 +316,11 @@ def validate(code: str, data: dict) -> None:
         for key in keys:
             if key not in data[section]:
                 raise SystemExit(f"content/{code}.json: missing '{section}.{key}'")
+    # themebar() indexes these directly, so a missing one should fail here with
+    # a useful message rather than as a KeyError mid-render.
+    for key in ("light", "dark", "auto"):
+        if key not in data["theme"]["names"]:
+            raise SystemExit(f"content/{code}.json: missing 'theme.names.{key}'")
     for name, expect in (
         ("tags", 7),
         ("writing", len(WRITING_LINKS)),
@@ -321,6 +358,8 @@ def render(code: str, lang: str, og: str, path: str, template: str) -> str:
         "HEAD_SCRIPT": head_script(code),
         "SWITCHER_LABEL": attr(data["switcher"]["label"]),
         "LANGBAR": langbar(code, data["switcher"]["names"]),
+        "THEME_LABEL": attr(data["theme"]["label"]),
+        "THEMEBAR": themebar(data["theme"]["names"]),
         "NOTICE": notice_block(code, data["notice"]),
         "NAME": html(data["header"]["name"]),
         "ROLE": html(data["header"]["role"]),

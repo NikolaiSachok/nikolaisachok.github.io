@@ -37,9 +37,14 @@
 </head>
 <body>
   <div class="wrap">
-    <nav class="langbar" aria-label="{{SWITCHER_LABEL}}">
+    <div class="topbar">
+      <nav class="themebar" aria-label="{{THEME_LABEL}}">
+{{THEMEBAR}}
+      </nav>
+      <nav class="langbar" aria-label="{{SWITCHER_LABEL}}">
 {{LANGBAR}}
-    </nav>
+      </nav>
+    </div>
 {{NOTICE}}
     <header>
       <h1 class="name">{{NAME}}</h1>
@@ -116,6 +121,38 @@
         try { localStorage.setItem('nls-lang', a.dataset.setlang); } catch (e) {}
       });
     });
+
+    /* Theme. "auto" is the absence of a choice, not a third stored value: it
+       clears the key and the attribute so the stylesheet goes back to following
+       prefers-color-scheme. The head script has already applied any stored
+       choice before paint; this only records changes and marks the active one. */
+    (function () {
+      var buttons = document.querySelectorAll('[data-settheme]');
+      if (!buttons.length) return;
+
+      function paint() {
+        var current = document.documentElement.getAttribute('data-theme') || 'auto';
+        buttons.forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b.dataset.settheme === current));
+        });
+      }
+
+      buttons.forEach(function (b) {
+        b.addEventListener('click', function () {
+          var choice = b.dataset.settheme;
+          if (choice === 'auto') {
+            document.documentElement.removeAttribute('data-theme');
+            try { localStorage.removeItem('nls-theme'); } catch (e) {}
+          } else {
+            document.documentElement.setAttribute('data-theme', choice);
+            try { localStorage.setItem('nls-theme', choice); } catch (e) {}
+          }
+          paint();
+        });
+      });
+
+      paint();
+    })();
 
     var dismiss = document.querySelector('.notice-dismiss');
     if (dismiss) {

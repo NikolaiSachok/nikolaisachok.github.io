@@ -38,7 +38,7 @@
   <!-- Content-hashed by build.py: the domain is behind Cloudflare, which holds
        stylesheets at the edge for four hours. A changing URL is the only thing
        a visitor's hard refresh can actually get past. -->
-  <link rel="stylesheet" href="/assets/style.css?v=ad002a2f84c5" />
+  <link rel="stylesheet" href="/assets/style.css?v=46ac88013f21" />
   <script>
   (function () {
     var HERE = 'ru';
@@ -46,6 +46,18 @@
     try {
       var store = null;
       try { store = window.localStorage; } catch (e) {}
+
+      /* Theme first, and before any redirect below can return: an explicit choice
+         has to be on <html> before first paint, or the page flashes the other
+         palette. No stored choice means no attribute, which leaves the stylesheet
+         following prefers-color-scheme. data-js reveals the control, which would
+         otherwise be a dead button for anyone without scripting. */
+      var theme = null;
+      if (store) { try { theme = store.getItem('nls-theme'); } catch (e) {} }
+      if (theme === 'light' || theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+      document.documentElement.setAttribute('data-js', '');
       var params = new URLSearchParams(location.search);
       var forced = (params.get('lang') || '').toLowerCase().split('-')[0];
       var target = null, auto = false;
@@ -99,7 +111,15 @@
 </head>
 <body>
   <div class="wrap">
-    <nav class="langbar" aria-label="Язык">
+    <div class="topbar">
+      <nav class="themebar" aria-label="Цветовая тема">
+      <button type="button" data-settheme="light">Светлая</button>
+      <span class="sep" aria-hidden="true">·</span>
+      <button type="button" data-settheme="dark">Тёмная</button>
+      <span class="sep" aria-hidden="true">·</span>
+      <button type="button" data-settheme="auto">Авто</button>
+      </nav>
+      <nav class="langbar" aria-label="Язык">
       <a href="/" hreflang="en" lang="en" data-setlang="en" aria-label="English">EN</a>
       <span class="sep" aria-hidden="true">·</span>
       <a href="/de/" hreflang="de" lang="de" data-setlang="de" aria-label="Deutsch">DE</a>
@@ -107,7 +127,8 @@
       <a href="/sk/" hreflang="sk" lang="sk" data-setlang="sk" aria-label="Slovenčina">SK</a>
       <span class="sep" aria-hidden="true">·</span>
       <a href="/ru/" hreflang="ru" lang="ru" data-setlang="ru" aria-label="Русский" aria-current="page">RU</a>
-    </nav>
+      </nav>
+    </div>
     <div class="notice" role="status">
       <span class="notice-text">Язык страницы выбран по настройкам браузера. <a href="/" hreflang="en" lang="en" data-setlang="en">Читать на английском</a></span>
       <button type="button" class="notice-dismiss" aria-label="Закрыть">&times;</button>
@@ -227,6 +248,38 @@
         try { localStorage.setItem('nls-lang', a.dataset.setlang); } catch (e) {}
       });
     });
+
+    /* Theme. "auto" is the absence of a choice, not a third stored value: it
+       clears the key and the attribute so the stylesheet goes back to following
+       prefers-color-scheme. The head script has already applied any stored
+       choice before paint; this only records changes and marks the active one. */
+    (function () {
+      var buttons = document.querySelectorAll('[data-settheme]');
+      if (!buttons.length) return;
+
+      function paint() {
+        var current = document.documentElement.getAttribute('data-theme') || 'auto';
+        buttons.forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b.dataset.settheme === current));
+        });
+      }
+
+      buttons.forEach(function (b) {
+        b.addEventListener('click', function () {
+          var choice = b.dataset.settheme;
+          if (choice === 'auto') {
+            document.documentElement.removeAttribute('data-theme');
+            try { localStorage.removeItem('nls-theme'); } catch (e) {}
+          } else {
+            document.documentElement.setAttribute('data-theme', choice);
+            try { localStorage.setItem('nls-theme', choice); } catch (e) {}
+          }
+          paint();
+        });
+      });
+
+      paint();
+    })();
 
     var dismiss = document.querySelector('.notice-dismiss');
     if (dismiss) {
