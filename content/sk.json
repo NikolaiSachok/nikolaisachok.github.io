@@ -14,6 +14,14 @@
       "ru": "Русский"
     }
   },
+  "theme": {
+    "label": "Farebná schéma",
+    "names": {
+      "light": "Svetlá",
+      "dark": "Tmavá",
+      "auto": "Auto"
+    }
+  },
   "notice": {
     "text": "Táto stránka sa zobrazuje v jazyku nastavenom v prehliadači.",
     "english_link": "Čítať po anglicky",

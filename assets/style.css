@@ -9,29 +9,74 @@
    need no card around them: grouping, a rule and a date do the work a container
    used to do. */
 
+/* Theme in three states. Each palette's values are written ONCE, as --light-*
+   and --dark-*, then assigned by the rules below — so changing a colour is one
+   edit, not two that can drift apart.
+
+   The states, in priority order:
+     1. data-theme="light" | "dark" on <html> — an explicit choice, stored in
+        localStorage and applied by the head script before first paint.
+     2. no attribute + prefers-color-scheme — the visitor's system setting.
+     3. no attribute, no preference, or no JavaScript — light.
+   The :not([data-theme="light"]) guard is what lets a visitor on a dark system
+   choose light and keep it. */
 :root {
-  --bg: #ffffff;
-  --fg: #1a1a1a;
-  --fg-muted: #4a4a4a;
-  --chrome: #8a8a8a;        /* labels, dates, footer — never body copy */
-  --rule: #e4e4e4;          /* hairline between entries */
-  --rule-strong: #1a1a1a;   /* the rule under a section label */
-  --accent: #1a4d9e;
-  --accent-soft: #eef2fa;
+  --light-bg: #ffffff;
+  --light-fg: #1a1a1a;
+  --light-fg-muted: #4a4a4a;
+  --light-chrome: #8a8a8a;        /* labels, dates, footer — never body copy */
+  --light-rule: #e4e4e4;          /* hairline between entries */
+  --light-rule-strong: #1a1a1a;   /* the rule under a section label */
+  --light-accent: #1a4d9e;
+  --light-accent-soft: #eef2fa;
+
+  --dark-bg: #121212;
+  --dark-fg: #eceae7;
+  --dark-fg-muted: #b4b0aa;
+  --dark-chrome: #8c8880;
+  --dark-rule: #2b2b2b;
+  --dark-rule-strong: #eceae7;
+  --dark-accent: #8fb4ee;
+  --dark-accent-soft: #1a2333;
+
+  --bg: var(--light-bg);
+  --fg: var(--light-fg);
+  --fg-muted: var(--light-fg-muted);
+  --chrome: var(--light-chrome);
+  --rule: var(--light-rule);
+  --rule-strong: var(--light-rule-strong);
+  --accent: var(--light-accent);
+  --accent-soft: var(--light-accent-soft);
+  color-scheme: light;
+
   --sans: "Public Sans", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   --serif: "Source Serif 4", "Iowan Old Style", "Charter", Georgia, Cambria, "Times New Roman", serif;
 }
+
 @media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #121212;
-    --fg: #eceae7;
-    --fg-muted: #b4b0aa;
-    --chrome: #8c8880;
-    --rule: #2b2b2b;
-    --rule-strong: #eceae7;
-    --accent: #8fb4ee;
-    --accent-soft: #1a2333;
+  :root:not([data-theme="light"]) {
+    --bg: var(--dark-bg);
+    --fg: var(--dark-fg);
+    --fg-muted: var(--dark-fg-muted);
+    --chrome: var(--dark-chrome);
+    --rule: var(--dark-rule);
+    --rule-strong: var(--dark-rule-strong);
+    --accent: var(--dark-accent);
+    --accent-soft: var(--dark-accent-soft);
+    color-scheme: dark;
   }
+}
+
+:root[data-theme="dark"] {
+  --bg: var(--dark-bg);
+  --fg: var(--dark-fg);
+  --fg-muted: var(--dark-fg-muted);
+  --chrome: var(--dark-chrome);
+  --rule: var(--dark-rule);
+  --rule-strong: var(--dark-rule-strong);
+  --accent: var(--dark-accent);
+  --accent-soft: var(--dark-accent-soft);
+  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -208,6 +253,57 @@ footer a:hover { color: var(--accent); }
   margin: .7rem 0 0;
 }
 .video-cap strong { color: var(--fg); font-weight: 600; }
+
+/* ---------------------------------------------------------------------------
+   Top bar: theme on the left, language on the right. The language switcher sat
+   alone and right-aligned, so the row already had the space.
+   --------------------------------------------------------------------------- */
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .6rem 1.25rem;
+  margin: 0 0 1.9rem;
+}
+.topbar .langbar { margin: 0; }
+/* The theme control does nothing without JavaScript, so it does not exist
+   without JavaScript: the head script sets data-js on <html> before paint. With
+   scripting off the page still follows the system setting, which is the right
+   fallback and needs no control. */
+.themebar { display: none; }
+html[data-js] .themebar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .3rem;
+  font-family: var(--sans);
+  font-size: .74rem;
+  font-weight: 600;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+.themebar button {
+  appearance: none;
+  background: none;
+  border: 1px solid transparent;
+  color: var(--chrome);
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  padding: .2rem .45rem;
+  cursor: pointer;
+  transition: color .15s ease, background .15s ease, border-color .15s ease;
+}
+.themebar button:hover { color: var(--accent); background: var(--accent-soft); }
+.themebar button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.themebar button[aria-pressed="true"] {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-color: var(--accent-soft);
+  cursor: default;
+}
+.themebar .sep { color: var(--rule); user-select: none; }
 
 /* ---------------------------------------------------------------------------
    Language switcher
