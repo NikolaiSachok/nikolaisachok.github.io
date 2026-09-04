@@ -70,7 +70,7 @@
     {
       "title": "Strata-RAG",
       "desc": "RAG engine nad rôznorodými korpusmi, postavený okolo vyhodnocovania a napísaný tak, aby sa z neho dalo učiť — Qdrant + HNSW, hybridné vyhľadávanie s RRF, re-ranking cez cross-encoder, metadátový sidecar na agregáciu a eval harness (Recall@K / nDCG / MRR + vernosť odpovedí metódou LLM-as-judge) s viacvrstvovou ochranou proti injection a úniku PII.",
-      "meta": "GitHub · Python"
+      "meta": "Prípadová štúdia · po anglicky · Python"
     },
     {
       "title": "strata-insurance-corpus",

@@ -54,10 +54,31 @@ WRITING_LINKS = [
 ]
 
 PROJECT_LINKS = [
-    "https://nikolaisachok.com/Strata-RAG/",
+    # Root-relative because this one is a page of THIS site, not a sibling
+    # project site: the hub keeps the reader, and the case page hands off to the
+    # repository. Every other link here leaves for somewhere the work lives.
+    "/work/strata-rag/",
     "https://github.com/NikolaiSachok/strata-insurance-corpus",
     "https://nikolaisachok.com/DC-plugins/",
 ]
+
+# --- case pages -------------------------------------------------------------
+# Long-form records for one project: what was decided, and what the work taught.
+# ENGLISH ONLY, deliberately. The home page is localised because it is the front
+# door and a visitor should meet it in their own language; a decision record is
+# read by engineers evaluating the work, in English, and translating it would
+# multiply every future edit by four for no reader. The handbook already
+# established that locale scope is per artifact rather than per site.
+CASES = [
+    # slug (also the path under /work/)
+    "strata-rag",
+]
+CASE_ROOT = "work"
+
+# Grades a record may carry. The vocabulary is closed on purpose: an entry that
+# cannot say how strongly it is evidenced does not belong on the page, and a
+# free-text grade would drift into adjectives within two edits.
+GRADES = ("measured", "verified", "reasoned")
 
 REQUIRED_KEYS = {
     "meta": ["title", "description", "og_title", "og_description"],
@@ -242,6 +263,77 @@ def entries_block(items: list, links: list, name: str, indent: str = "      ") -
     return "\n".join(out)
 
 
+def project_links_block(links: list, indent: str = "        ") -> str:
+    """The case page's outbound links, in the header's contact-link shape.
+
+    Same markup and separators as the home page's identity line, because they do
+    the same job in the same position: a small chrome cluster that says where to
+    go next before the reading starts.
+    """
+    parts = []
+    for i, link in enumerate(links):
+        if i:
+            parts.append(f'{indent}<span class="sep" aria-hidden="true">·</span>')
+        parts.append(f'{indent}<a href="{link["href"]}">{html(link["label"])}</a>')
+    return "\n".join(parts)
+
+
+def records_block(records: list, indent: str = "      ") -> str:
+    """One renderer for both bands — decisions and lessons share their markup.
+
+    The same reasoning as `entries_block` on the home page: the reader tells the
+    two apart by which band they sit in, not by a different container. A record
+    is a grade, a title, a body, optionally some labelled facets, and optionally
+    a closing rule. Decisions use the facets; lessons use the rule; either may
+    use both, and nothing here cares which band it is rendering.
+    """
+    out = []
+    for record in records:
+        parts = [
+            f"{indent}<li class=\"record\">",
+            f'{indent}  <p class="grade grade-{record["grade"]}">{html(record["grade"])}</p>',
+            f'{indent}  <h3 class="record-title">{html(record["title"])}</h3>',
+            f'{indent}  <p class="record-body">{html(record["body"])}</p>',
+        ]
+        facets = record.get("facets", [])
+        if facets:
+            parts.append(f'{indent}  <dl class="facets">')
+            for facet in facets:
+                parts.append(
+                    f"{indent}    <div>"
+                    f'<dt>{html(facet["label"])}</dt>'
+                    f'<dd>{html(facet["text"])}</dd>'
+                    f"</div>"
+                )
+            parts.append(f"{indent}  </dl>")
+        if record.get("rule"):
+            parts.append(f'{indent}  <p class="record-rule">{html(record["rule"])}</p>')
+        parts.append(f"{indent}</li>")
+        out.append("\n".join(parts))
+    return "\n".join(out)
+
+
+def bands_block(bands: list, indent: str = "    ") -> str:
+    """A band is a labelled section of records with a note under the label.
+
+    The note is not decoration: on the lessons band it defines what the grades
+    mean, which is the one thing a reader needs before the grades can carry any
+    weight at all.
+    """
+    out = []
+    for band in bands:
+        out.append(
+            f'{indent}<section class="band" id="{band["id"]}">\n'
+            f'{indent}  <h2 class="section-head">{html(band["label"])}</h2>\n'
+            f'{indent}  <p class="band-note">{html(band["note"])}</p>\n'
+            f'{indent}  <ol class="records">\n'
+            f"{records_block(band['records'], indent + '    ')}\n"
+            f"{indent}  </ol>\n"
+            f"{indent}</section>"
+        )
+    return "\n\n".join(out)
+
+
 def head_script(current: str, indent: str = "  ") -> str:
     """Language detection / preference routing. Inline and synchronous so it
     runs before first paint — no flash of the wrong language, no flash of the
@@ -334,7 +426,118 @@ def head_script(current: str, indent: str = "  ") -> str:
     return f"{indent}<script>\n{body}\n{indent}</script>"
 
 
+def case_head_script(indent: str = "  ") -> str:
+    """Theme only — no language routing.
+
+    The home page's head script may redirect a visitor to their own locale. A
+    case page has one locale, so the same script would either do nothing or,
+    worse, bounce a reader off the page they asked for and onto a localised home
+    page. What remains is the part that must still run before first paint:
+    applying a stored theme so the page never flashes the other palette, and
+    setting data-js so the theme control exists only where it can work.
+    """
+    body = """
+(function () {
+  try {
+    var theme = null;
+    try { theme = window.localStorage.getItem('nls-theme'); } catch (e) {}
+    if (theme === 'light' || theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+    document.documentElement.setAttribute('data-js', '');
+  } catch (e) {}
+})();
+"""
+    body = "\n".join(indent + line if line else "" for line in body.strip("\n").split("\n"))
+    return f"{indent}<script>\n{body}\n{indent}</script>"
+
+
 # --- page assembly ----------------------------------------------------------
+def validate_case(slug: str, data: dict) -> None:
+    """A case file is checked as strictly as a locale file.
+
+    The grade check is the one that matters: the page argues that a claim
+    carries how strongly it is evidenced, so an ungraded or creatively-graded
+    record would quietly contradict the thing the page is for.
+    """
+    where = f"content/cases/{slug}.json"
+    for section, keys in (
+        ("meta", ("title", "description", "og_title", "og_description")),
+        ("project", ("name", "role", "links")),
+    ):
+        if section not in data:
+            raise SystemExit(f"{where}: missing section '{section}'")
+        for key in keys:
+            if key not in data[section]:
+                raise SystemExit(f"{where}: missing '{section}.{key}'")
+    for key in ("kicker", "lead_1", "lead_2", "bands"):
+        if key not in data:
+            raise SystemExit(f"{where}: missing '{key}'")
+    for i, link in enumerate(data["project"]["links"]):
+        for key in ("label", "href"):
+            if key not in link:
+                raise SystemExit(f"{where}: 'project.links[{i}]' is missing '{key}'")
+    if not data["bands"]:
+        raise SystemExit(f"{where}: 'bands' is empty")
+    for b, band in enumerate(data["bands"]):
+        for key in ("id", "label", "note", "records"):
+            if key not in band:
+                raise SystemExit(f"{where}: 'bands[{b}]' is missing '{key}'")
+        if not band["records"]:
+            raise SystemExit(f"{where}: 'bands[{b}]' ({band['id']}) has no records")
+        for r, record in enumerate(band["records"]):
+            at = f"{where}: 'bands[{b}].records[{r}]'"
+            for key in ("grade", "title", "body"):
+                if key not in record:
+                    raise SystemExit(f"{at} is missing '{key}'")
+            if record["grade"] not in GRADES:
+                raise SystemExit(
+                    f"{at} has grade '{record['grade']}', expected one of {list(GRADES)}"
+                )
+            for f, facet in enumerate(record.get("facets", [])):
+                for key in ("label", "text"):
+                    if key not in facet:
+                        raise SystemExit(f"{at} 'facets[{f}]' is missing '{key}'")
+
+
+def render_case(slug: str, template: str) -> str:
+    data = json.loads((ROOT / "content" / "cases" / f"{slug}.json").read_text(encoding="utf-8"))
+    validate_case(slug, data)
+    meta, project = data["meta"], data["project"]
+
+    # The theme control's labels are not localised here the way they are on the
+    # home page: this page is English, so it takes the English words directly.
+    theme_names = {"light": "Light", "dark": "Dark", "auto": "Auto"}
+    theme_label = "Colour theme"
+
+    subs = {
+        "TITLE": html(meta["title"]),
+        "DESCRIPTION": attr(meta["description"]),
+        "CANONICAL": f"{SITE}/{CASE_ROOT}/{slug}/",
+        "OG_TITLE": attr(meta["og_title"]),
+        "OG_DESCRIPTION": attr(meta["og_description"]),
+        "STYLE_HREF": style_href(),
+        "HEAD_SCRIPT": case_head_script(),
+        "THEME_LABEL": attr(theme_label),
+        "THEMEBAR": themebar(theme_names, theme_label),
+        "KICKER": html(data["kicker"]),
+        "PROJECT_NAME": html(project["name"]),
+        "PROJECT_ROLE": html(project["role"]),
+        "PROJECT_LINKS": project_links_block(project["links"]),
+        "LEAD_1": html(data["lead_1"]),
+        "LEAD_2": html(data["lead_2"]),
+        "BANDS": bands_block(data["bands"]),
+    }
+
+    out = template
+    for key, value in subs.items():
+        out = out.replace("{{%s}}" % key, value)
+    left = re.findall(r"\{\{[A-Z_]+\}\}", out)
+    if left:
+        raise SystemExit(f"case {slug}: unsubstituted placeholders {sorted(set(left))}")
+    return out
+
+
 def validate(code: str, data: dict) -> None:
     for section, keys in REQUIRED_KEYS.items():
         if section not in data:
@@ -416,10 +619,25 @@ def render(code: str, lang: str, og: str, path: str, template: str) -> str:
 def main() -> int:
     check = "--check" in sys.argv[1:]
     template = (ROOT / "template.html").read_text(encoding="utf-8")
+    case_template = (ROOT / "case.html").read_text(encoding="utf-8")
     stale = []
-    for code, lang, og, path in LOCALES:
-        page = render(code, lang, og, path, template)
-        target = ROOT / "index.html" if path == "/" else ROOT / path.strip("/") / "index.html"
+
+    pages = [
+        (
+            ROOT / "index.html" if path == "/" else ROOT / path.strip("/") / "index.html",
+            lambda code=code, lang=lang, og=og, path=path: render(code, lang, og, path, template),
+        )
+        for code, lang, og, path in LOCALES
+    ] + [
+        (
+            ROOT / CASE_ROOT / slug / "index.html",
+            lambda slug=slug: render_case(slug, case_template),
+        )
+        for slug in CASES
+    ]
+
+    for target, build in pages:
+        page = build()
         if check:
             current = target.read_text(encoding="utf-8") if target.exists() else None
             if current != page:
