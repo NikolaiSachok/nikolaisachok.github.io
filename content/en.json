@@ -70,7 +70,7 @@
     {
       "title": "Strata-RAG",
       "desc": "An eval-first, study-grade RAG engine over heterogeneous corpora — Qdrant + HNSW, hybrid retrieval with RRF, cross-encoder re-ranking, a metadata sidecar for aggregation, and an eval harness (Recall@K / nDCG / MRR + LLM-judge faithfulness) with layered injection/PII defenses.",
-      "meta": "GitHub · Python"
+      "meta": "Case study · English · Python"
     },
     {
       "title": "strata-insurance-corpus",
