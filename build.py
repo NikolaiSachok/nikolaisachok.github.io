@@ -49,7 +49,8 @@ WRITING_LINKS = [
     # and the English label "Built" no longer has to stretch over a docs site.
     "https://nikolaisachok.com/ai-engineering-handbook/",
     # Always the canonical address, never a syndicated copy: this page indexes
-    # the work, it does not host or mirror it.
+    # the work, it does not host or mirror it. Dated pieces run newest-first.
+    "https://dev.to/nsachok/i-asked-a-frontier-llm-to-recover-secrets-from-my-decompiled-build-1ojb",
     "https://dev.to/nsachok/eval-first-rag-use-separate-scores-to-triage-failures-33ed",
 ]
 

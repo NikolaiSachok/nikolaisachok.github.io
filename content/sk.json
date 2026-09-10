@@ -61,6 +61,11 @@
       "meta": "Od júla 2026 · Tri kurzy, viacero jazykov"
     },
     {
+      "title": "I Asked a Frontier LLM to Recover Secrets from My Decompiled Build",
+      "desc": "Vlastná obfuskácia môže vyzerať dobre, no o náročnosti jej prelomenia to nič nehovorí, keďže už viete, kde čo je. Špičkovému LLM som dal dekompilovaný program, aby bez predchádzajúcich znalostí skúsil odhaliť tajomstvá, a vyšetrovanie som viedol ako súdne konanie s obžalobou a obhajobou, aby sa výsledku dalo veriť.",
+      "meta": "11. septembra 2026 · dev.to · aj na Medium a LinkedIne"
+    },
+    {
       "title": "Eval-First RAG: Use Separate Scores to Triage Failures",
       "desc": "Jediné celkové skóre síce odhalí pokles kvality, no nie jeho príčinu. Samostatné hodnotenie retrievalu a generovania ukáže, či retrieval našiel nesprávne podklady, alebo generátor nedodržal tie správne.",
       "meta": "3. septembra 2026 · dev.to · aj na Medium a LinkedIne"
