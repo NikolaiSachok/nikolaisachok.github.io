@@ -61,6 +61,11 @@
       "meta": "Seit Juli 2026 · Drei Kurse, mehrere Sprachen"
     },
     {
+      "title": "I Asked a Frontier LLM to Recover Secrets from My Decompiled Build",
+      "desc": "Die eigene Verschleierung wirkt überzeugend, doch das sagt wenig über ihre Widerstandsfähigkeit aus, wenn man bereits alle Verstecke kennt. Ich ließ ein führendes LLM ohne Vorwissen nach Geheimnissen in einem dekompilierten Programm suchen und organisierte die Untersuchung als Gerichtsverfahren mit Anklage und Verteidigung, um das Ergebnis abzusichern.",
+      "meta": "11. September 2026 · dev.to · auch auf Medium und LinkedIn"
+    },
+    {
       "title": "Eval-First RAG: Use Separate Scores to Triage Failures",
       "desc": "Ein einziger End-to-End-Score zeigt zwar einen Qualitätsverlust, aber nicht dessen Ursache. Getrennte Bewertungen von Retrieval und Generierung zeigen, ob falsche Belege abgerufen oder gute Belege bei der Antwort nicht eingehalten wurden.",
       "meta": "3. September 2026 · dev.to · auch auf Medium und LinkedIn"

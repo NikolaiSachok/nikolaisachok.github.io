@@ -61,6 +61,11 @@
       "meta": "Since July 2026 · Three courses, several languages"
     },
     {
+      "title": "I Asked a Frontier LLM to Recover Secrets from My Decompiled Build",
+      "desc": "You can tell your own obfuscation looks fine, but that says nothing about how hard it is to break, because you already know where everything is. I gave a frontier LLM a decompiled build and had it try to recover the secrets blind, with the investigation run as an adversarial court so the result could be trusted.",
+      "meta": "September 11, 2026 · dev.to · also on Medium and LinkedIn"
+    },
+    {
       "title": "Eval-First RAG: Use Separate Scores to Triage Failures",
       "desc": "One end-to-end score shows that answer quality moved, but not what moved it. Scoring retrieval and generation separately turns an unclear regression into a decision about where to look first.",
       "meta": "September 3, 2026 · dev.to · also on Medium and LinkedIn"
