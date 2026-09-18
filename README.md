@@ -21,6 +21,8 @@ index.html           GENERATED — English
 de/index.html        GENERATED
 sk/index.html        GENERATED
 ru/index.html        GENERATED
+
+b2b-salary/index.html  HAND-AUTHORED, standalone — see "The B2B ↔ salary page"
 CNAME                custom domain — do not touch
 .nojekyll            do not touch
 ```
@@ -40,7 +42,8 @@ Then commit the changed `content/*.json` **and** the regenerated `*.html` togeth
 ## Editing rules
 
 - **Never edit `index.html` or `*/index.html` by hand** — the next build overwrites it. Change
-  `content/<lang>.json` (text) or `template.html` (markup) instead.
+  `content/<lang>.json` (text) or `template.html` (markup) instead. (`b2b-salary/index.html` is the
+  one exception: the generator does not know about it, so it is edited directly.)
 - **English is the source of truth.** Change `content/en.json` first, then bring the other three in
   line. Every factual claim on the page is verified; translations preserve claims exactly and never
   add one.
@@ -50,6 +53,38 @@ Then commit the changed `content/*.json` **and** the regenerated `*.html` togeth
   positionally to the `cards` array. `build.py` refuses to build if the counts disagree.
 - Adding a locale: add a row to `LOCALES` in `build.py` and a `content/<code>.json`. hreflang,
   canonical, `og:locale`, the switcher and the redirect table all derive from that one row.
+
+## The B2B ↔ salary page
+
+`b2b-salary/` — an interactive model converting a Slovak `živnosť`/B2B rate into the equivalent
+employee gross salary (fiscal year 2026), with the legislation it derives from. A reference to send
+someone who asks for the salary equivalent of a day rate.
+
+**It is not in the site navigation** — not in the writing or projects index, and no page links to
+it. The landing page is an index of the work, and this is a reference, so it is reached by its
+address rather than by browsing. It is not *hidden*, though, and nothing here should be built on the
+assumption that it is: the page is indexable, this README names it, and both are public. Adding it
+to the navigation is a one-line change in `template.html`.
+
+It is **standalone by design**: `build.py` does not know about it, and it carries its own copy
+(EN/SK, in a `T` map at the top of its script), its own palette and its own chrome. It is not part
+of the four-locale system — a Slovak tax model has two audiences, not four — so folding it into the
+generator would mean a second template and four content files for a page nobody navigates to.
+
+Two things it *does* share with the rest of the site, because a visitor crossing between them should
+not notice a seam:
+
+- **`localStorage` keys `nls-theme` and `nls-lang`.** A theme or language chosen on the landing page
+  is still in force here, and vice versa. The page has two locales and the site has four, so only
+  `en`/`sk` can be written from here; a stored `de`/`ru` reads as English.
+- **The three-state theme contract** — `data-theme="light"|"dark"` on `<html>` is an explicit
+  choice, no attribute means follow `prefers-color-scheme`, and a head script applies the stored
+  value before first paint. Its palette follows `assets/style.css`: every colour is written once as
+  `--light-*` / `--dark-*` and the rules only re-point the working tokens, so the two themes cannot
+  drift apart.
+
+Both ways back to the site (the top bar and the footer) point at the locale being read — `/` in
+English, `/sk/` in Slovak — which the site's own router honours as a direct request.
 
 ## i18n behaviour
 
