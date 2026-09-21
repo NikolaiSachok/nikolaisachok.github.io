@@ -56,6 +56,7 @@ WRITING_LINKS = [
 
 PROJECT_LINKS = [
     "https://nikolaisachok.com/Strata-RAG/",
+    "https://github.com/NikolaiSachok/redmine",
     "https://github.com/NikolaiSachok/strata-insurance-corpus",
     "https://nikolaisachok.com/DC-plugins/",
 ]
