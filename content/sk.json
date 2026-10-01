@@ -109,12 +109,12 @@
       "details": "Multi-agent pipeline pokrývajúca dizajn, kód, materiály do storeov a promo weby; routovanie modelov podľa úlohy medzi Claude, Gemini a OpenAI; audity LLM-as-judge podľa rubriky závažnosti. Navrhol som jej platformu v Google Cloud (Gemini a Claude na Vertex AI, Cloud Run, IAP, Secret Manager, Cloud Logging) a multimodálne textové a obrazové vyhľadávanie v katalógu firmy s 2 000+ aplikáciami. Platenú low-code administrátorskú platformu som nahradil interným dashboardom. Počas posledného týždňa: 10 produkčných aplikácií za 3–4 dni oproti stagnácii tímu na približne 8 aplikáciách týždenne, pri nákladoch na modelové API približne $6 na aplikáciu."
     },
     {
-      "kicker": "Tá istá spoločnosť · 2020–2024",
-      "title": "Nová distribúcia pre portfólio 200 aplikácií",
-      "problem": "Mal som na starosti približne 200 mobilných aplikácií od začiatku do konca a s vlastníkmi biznisu som pracoval na rozpočtoch a ROI, aby portfólio zostalo ziskové.",
-      "did": "Z vlastnej iniciatívy som otestoval dva ďalšie obchody s aplikáciami, priniesol výsledky vedeniu a po jeho schválení zabezpečil celé uvedenie.",
-      "result": "Dva nové distribučné kanály vydané z rovnakého zdrojového kódu ako všetko ostatné.",
-      "details": "Huawei AppGallery a Samsung Galaxy Store popri Google Play, Amazon a Xiaomi: päť obchodov z jedného zdrojového kódu pre Android so samostatnými buildmi pre každý obchod. Spoločná šablóna aplikácie znovu využila 80–90 % kódu."
+      "kicker": "Vlastný výskum a vývoj · 2026",
+      "title": "Štyri neznáme problémy, štyri fungujúce systémy",
+      "problem": "Tvorba videí bola pre mňa novou oblasťou: animácia, spracovanie zvuku, renderovanie a práca s hlasom.",
+      "did": "Každý problém som najprv zmeral a až potom som nasmeroval AI agentov, aby vytvorili systémy opreté o testy a kontrolné body pri revízii.",
+      "result": "Štyri fungujúce produkčné systémy, každý vytvorený za deväť dní až dva mesiace, s epizódami publikovanými na dvoch YouTube kanáloch.",
+      "details": "Desktopová aplikácia, ktorá zo zvukovej nahrávky vytvorí animované video reagujúce na zvuk (analýza zvuku, GLSL shadery, deterministický export cez ffmpeg). Kreslená spravodajská relácia, v ktorej sa každá snímka vykresľuje z kódu: vektorová grafika v Pythone, kostrová animácia generovaná kódom a fakticky overené scenáre; 6-minútová epizóda sa vykreslí za menej než 8 minút. Séria cvičení s komentárom: paralelné vykresľovanie po snímkach je približne 3,5× rýchlejšie než sériové a komentár je zosúladený so scenárom bez naťahovania hlasu. Pipeline od scenára po video s animovaným 3D moderátorom vykresleným v Unity, ktorého pohyb bol kalibrovaný podľa nahratých záberov. Každý projekt mal číslovaný denník rozhodnutí so 70 až 200+ záznamami."
     },
     {
       "kicker": "Enterprise a open source",
@@ -123,6 +123,14 @@
       "did": "Štyri roky podpory enterprise systémov tretej úrovne a naposledy bezpečnostná funkcia v 20-ročnej Rails aplikácii na stacku, ktorý som nikdy nepoužil.",
       "result": "V Rails aplikácii bolo existujúce správanie pokryté testami ešte pred prvou zmenou a každú zmenu skontroloval reviewer, ktorý ju nenapísal.",
       "details": "2006–2010 v EPAM: rozsiahly program Thomson Reuters, kde som bol v tíme údržby; s inžiniermi klienta som diagnostikoval produkčné zlyhania, počas zmeny schémy migroval živú databázu a koordinoval nasadenia. 2026: personal access tokens pre Redmine 6.1.2 (Ruby on Rails), funkcia vytvorená pomocou code maps, subagentov na implementáciu zmien a päťosového verifikačného gate: 39 problémov, 75 zaznamenaných útokov, 4 674 riadkov testov a úplný záznam procesu zverejnený pri kóde."
+    },
+    {
+      "kicker": "Spoločnosť s mobilnými aplikáciami · 2020–2024",
+      "title": "Nová distribúcia pre portfólio 200 aplikácií",
+      "problem": "Mal som na starosti približne 200 mobilných aplikácií od začiatku do konca a s vlastníkmi biznisu som pracoval na rozpočtoch a ROI, aby portfólio zostalo ziskové.",
+      "did": "Z vlastnej iniciatívy som otestoval dva ďalšie obchody s aplikáciami, priniesol výsledky vedeniu a po jeho schválení zabezpečil celé uvedenie.",
+      "result": "Dva nové distribučné kanály vydané z rovnakého zdrojového kódu ako všetko ostatné.",
+      "details": "Huawei AppGallery a Samsung Galaxy Store popri Google Play, Amazon a Xiaomi: päť obchodov z jedného zdrojového kódu pre Android so samostatnými buildmi pre každý obchod. Spoločná šablóna aplikácie znovu využila 80–90 % kódu."
     }
   ],
   "process": [

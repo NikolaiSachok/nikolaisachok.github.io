@@ -109,12 +109,12 @@
       "details": "Multi-agent pipeline covering design, code, store assets and promo websites; model routing by task across Claude, Gemini and OpenAI; LLM-as-judge audits on a severity rubric. Architected its Google Cloud platform (Gemini and Claude on Vertex AI, Cloud Run, IAP, Secret Manager, Cloud Logging) and multimodal text-and-image search over the company's catalogue of 2,000+ apps. Replaced a paid low-code admin platform with an in-house dashboard. In my last week: 10 production apps in 3–4 days against the team's plateau of about 8 a week, at about $6 per app in model APIs."
     },
     {
-      "kicker": "Same company · 2020–2024",
-      "title": "New distribution for a 200-app portfolio",
-      "problem": "I owned a portfolio of about 200 mobile apps end to end and worked with the business owners on budgets and ROI to keep it profitable.",
-      "did": "On my own initiative I tested two additional app stores, brought the numbers to the business and, once it approved, ran the full launch.",
-      "result": "Two new distribution channels, released from the same codebase as everything else.",
-      "details": "Huawei AppGallery and Samsung Galaxy Store, next to Google Play, Amazon and Xiaomi: five stores from one Android codebase with per-store builds. A shared app template reused 80–90% of the code."
+      "kicker": "Personal R&D · 2026",
+      "title": "Four unfamiliar problems, four working systems",
+      "problem": "Video production was new territory for me: animation, audio processing, rendering and voice.",
+      "did": "I measured each problem before building anything, then directed AI coding agents to build the systems behind tests and review gates.",
+      "result": "Four working production systems, built in nine days to two months each, with episodes published on two YouTube channels.",
+      "details": "A desktop app that turns a sound recording into an audio-reactive animated video (audio analysis, GLSL shaders, a deterministic export through ffmpeg). A cartoon news show where every frame is rendered from code: Python vector art, code-generated skeletal animation and fact-checked scripts; a 6-minute episode renders in under 8 minutes. A narrated exercise series: parallel frame-by-frame rendering about 3.5× faster than serial, and narration aligned to the script without stretching the voice. A script-to-video pipeline with an animated 3D presenter rendered in Unity, its motion calibrated against recorded footage. Each project kept a numbered decision log of 70 to 200+ records."
     },
     {
       "kicker": "Enterprise and open source",
@@ -123,6 +123,14 @@
       "did": "Four years of third-line support on enterprise systems, and recently a security feature in a 20-year-old Rails application on a stack I had never used.",
       "result": "On the Rails application, existing behaviour was pinned by tests before the first change, and every change was checked by a reviewer that did not write it.",
       "details": "2006–2010 at EPAM: on the maintenance team of a large Thomson Reuters programme I diagnosed production failures with the client's engineers, migrated a live database while changing its schema, and coordinated deployments. 2026: personal access tokens for Redmine 6.1.2 (Ruby on Rails), built with code maps, implementing subagents and a five-axis verification gate: 39 issues, 75 recorded attacks, 4,674 lines of tests, with the full process record published next to the code."
+    },
+    {
+      "kicker": "Mobile-app company · 2020–2024",
+      "title": "New distribution for a 200-app portfolio",
+      "problem": "I owned a portfolio of about 200 mobile apps end to end and worked with the business owners on budgets and ROI to keep it profitable.",
+      "did": "On my own initiative I tested two additional app stores, brought the numbers to the business and, once it approved, ran the full launch.",
+      "result": "Two new distribution channels, released from the same codebase as everything else.",
+      "details": "Huawei AppGallery and Samsung Galaxy Store, next to Google Play, Amazon and Xiaomi: five stores from one Android codebase with per-store builds. A shared app template reused 80–90% of the code."
     }
   ],
   "process": [
