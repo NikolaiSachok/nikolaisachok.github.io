@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nikolai Sachok — Lead AI Engineer</title>
-  <meta name="description" content="Lead AI engineer for production LLM systems: multi-agent orchestration, RAG, evaluation and guardrails. More than 20 years building software and leading teams. Available for contract work." />
+  <meta name="description" content="Lead AI engineer: I build AI products, make LLM systems reliable, lead AI engineering in teams and take over legacy code. More than 20 years building software and leading teams. Available for contract work." />
   <meta name="author" content="Nikolai Sachok" />
 
   <link rel="canonical" href="https://nikolaisachok.com/" />
@@ -40,7 +40,7 @@
   <!-- Content-hashed by build.py: the domain is behind Cloudflare, which holds
        stylesheets at the edge for four hours. A changing URL is the only thing
        a visitor's hard refresh can actually get past. -->
-  <link rel="stylesheet" href="/assets/style.css?v=e4412d0ff108" />
+  <link rel="stylesheet" href="/assets/style.css?v=3124ca726538" />
   <script>
   (function () {
     var HERE = 'en';
@@ -146,7 +146,7 @@
       </div>
       <div class="hero-body">
         <p class="headline">I build AI systems that do measurable work in production, and I own them end to end.</p>
-        <p class="lead">I've spent more than 20 years building software and leading teams, as a founder, an interim COO and a lead engineer. Most recently I built a multi-agent LLM pipeline that replaced the output of a 12-person team. I work with the people who own the business problem, not just the ticket.</p>
+        <p class="lead">More than 20 years of building software and leading teams, as a founder, an interim COO and a lead engineer. I work with the people who own the business problem, not just the ticket.</p>
         <div class="actions">
           <!-- The address is never in the markup: the script assembles it on load,
                so a scraper reading HTML finds only the LinkedIn fallback. -->
@@ -168,73 +168,91 @@
     </header>
 
     <ul class="proof">
-      <li><span class="proof-num">20+</span><span class="proof-label">years building software and leading teams</span></li>
-      <li><span class="proof-num">500+</span><span class="proof-label">apps shipped, 10M+ downloads</span></li>
-      <li><span class="proof-num">10 in 3–4 days</span><span class="proof-label">production apps shipped solo, where a 12-person team had plateaued at about 8 a week</span></li>
-      <li><span class="proof-num">~$6</span><span class="proof-label">average AI-model cost per shipped app</span></li>
+      <li><span class="proof-num">20+ years</span><span class="proof-label">building software and leading teams</span></li>
+      <li><span class="proof-num">10M+</span><span class="proof-label">downloads across 500+ apps I built and shipped</span></li>
+      <li><span class="proof-num">Teams of up to 12</span><span class="proof-label">engineers and designers led; also founder and interim COO</span></li>
+      <li><span class="proof-num">AI software factory</span><span class="proof-label">that replaced the output of a 12-person team</span></li>
     </ul>
 
     <section aria-labelledby="h-help">
       <h2 id="h-help">How I can help</h2>
+      <p class="section-lead">Your stack will never match anyone's CV exactly, so I don't sell a particular technology; I sell a solved business problem. My core is production LLM systems. Around it I rely on a method rather than a claim: map the code first, pin down what it does today with tests, then change it, with every change checked by a reviewer that did not write it. That is how I added a security feature to a 20-year-old Rails application on a stack I had never used.</p>
       <ul class="help">
         <li>
           <h3>Build an AI product or feature</h3>
-          <p>From a business goal to a feature in production: scoping, architecture, the build and an evaluation baseline, so you know it works before your users depend on it. Fixed scope, priced per deliverable.</p>
+          <p>From a business goal to a feature in production, with an evaluation baseline so you know it works before your users depend on it. Fixed scope, priced per deliverable.</p>
           <p class="fit">For founders and product teams</p>
         </li>
         <li>
           <h3>Make an LLM system reliable</h3>
-          <p>Your RAG or agent works in the demo but behaves differently in production. I find out why: separate retrieval and generation scores, a golden set, LLM-as-judge against a rubric, and checks for prompt injection and PII leaks. You get a ranked failure report and the fixes.</p>
+          <p>Your RAG or agent works in the demo and fails in production. I find out why and fix it. You get a ranked failure report and the fixes.</p>
           <p class="fit">For teams already shipping AI</p>
         </li>
         <li>
-          <h3>Lead AI engineering with your team</h3>
-          <p>A lead or staff-level engineer working inside your team on a long-term contract: architecture, delivery, a practical way to use AI in development, and direct work with product and leadership on what to build and why.</p>
+          <h3>Lead AI engineering in your team</h3>
+          <p>A lead or staff-level engineer inside your team on a long-term contract: architecture, delivery, a practical way to use AI in development, and direct work with product and leadership on what to build and why.</p>
           <p class="fit">For companies building an AI capability</p>
         </li>
+        <li>
+          <h3>Take over legacy code</h3>
+          <p>Old, critical code that nobody on the team wrote and nobody dares to touch. I map it, pin down what it does today with tests, then change it safely.</p>
+          <p class="fit">For teams with code older than the team</p>
+        </li>
       </ul>
-    </section>
-
-    <section aria-labelledby="h-cases">
-      <h2 id="h-cases">Selected work</h2>
-      <article class="case">
-        <p class="kicker">Mobile-app business · 2025–2026</p>
-        <h3>An LLM delivery pipeline that outshipped a 12-person team</h3>
-        <dl>
-          <div><dt>The situation</dt><dd>The business grew by launching new apps. The team I led, 9 engineers and 3 designers, had plateaued at about 8 apps a week, and adding people added coordination rather than output.</dd></div>
-          <div><dt>What I did</dt><dd>I designed and ran a multi-agent pipeline that covers design, code, store assets and promo websites, with model routing by task across Claude, Gemini and OpenAI, independent verification agents, LLM-as-judge audits on a severity rubric, and cost limits per session. I also architected its Google Cloud platform (Gemini and Claude on Vertex AI, Cloud Run, IAP, Secret Manager, Cloud Logging) and multimodal text-and-image search over the company's catalogue of 2,000+ apps, and replaced a paid low-code admin platform with an in-house dashboard, a build-vs-buy call that AI-assisted development made practical.</dd></div>
-          <div class="result"><dt>The result</dt><dd>In my last week I shipped 10 production apps in 3–4 days, solo, with one QA engineer checking the builds, at about $6 per app in model APIs.</dd></div>
-        </dl>
-      </article>
-      <article class="case">
-        <p class="kicker">Same business · 2020–2024</p>
-        <h3>New distribution channels for a portfolio of 200 apps</h3>
-        <dl>
-          <div><dt>The situation</dt><dd>I owned a portfolio of about 200 mobile apps end to end, from the idea through release to live operations, working with the business owners on budgets and ROI to keep it profitable.</dd></div>
-          <div><dt>What I did</dt><dd>On my own initiative I researched Huawei AppGallery and Samsung Galaxy Store, shipped test apps, measured the results and, once the business approved, ran full releases there. I proposed in-app user-acquisition campaigns in Samsung Galaxy Store and owned their technical side: attribution with Adjust and AppsFlyer, ad SDKs and campaign data.</dd></div>
-          <div class="result"><dt>The result</dt><dd>Five app stores supplied from one Android codebase with per-store builds. A shared app template made each new app mostly configuration and assets, with 80–90% of the code reused.</dd></div>
-        </dl>
-      </article>
-      <article class="case">
-        <p class="kicker">Open-source case study · 2026</p>
-        <h3>A security feature in a 20-year-old codebase, on a stack I had never used</h3>
-        <dl>
-          <div><dt>The situation</dt><dd>Personal access tokens for the REST API of Redmine 6.1.2, a Ruby on Rails application with twenty years of history.</dd></div>
-          <div><dt>What I did</dt><dd>I started with code maps, had subagents implement the changes, and re-ran a five-axis verification gate after every fix. No agent graded its own work.</dd></div>
-          <div class="result"><dt>The result</dt><dd>39 issues, 75 recorded attacks and 4,674 lines of tests. The full process record is published next to the code.</dd></div>
-        </dl>
-        <a class="case-link" href="https://github.com/NikolaiSachok/redmine">Read the case study <span aria-hidden="true">→</span></a>
-      </article>
     </section>
 
     <section aria-labelledby="h-process">
       <h2 id="h-process">How I work</h2>
       <ol class="steps">
         <li><h3>Start from the business number</h3><p>What is it worth if it works, and what does it cost when it fails? That decides the architecture and the budget, including where an LLM is the wrong tool.</p></li>
-        <li><h3>Build the evaluation first</h3><p>A golden set and a scoring rubric come before the feature, so that "better" is a number rather than an opinion.</p></li>
+        <li><h3>Build the evaluation first</h3><p>A test set and a scoring rubric come before the feature, so that "better" is a number rather than an opinion.</p></li>
         <li><h3>Verify independently</h3><p>Generation is cheap; verification is the bottleneck. Every output passes checks that the agent which produced it does not control.</p></li>
         <li><h3>Hand over something you own</h3><p>The code, the evaluation harness and the documentation stay with you, and so does the knowledge of how it works.</p></li>
       </ol>
+    </section>
+
+    <section aria-labelledby="h-cases">
+      <h2 id="h-cases">Selected work</h2>
+      <article class="case">
+        <p class="kicker">Mobile-app company · 2025–2026</p>
+        <h3>When hiring stopped adding output</h3>
+        <dl>
+          <div><dt>The situation</dt><dd>The business grew by launching new apps, and the 12-person team I led had hit a ceiling: every new hire added coordination rather than output.</dd></div>
+          <div><dt>What I did</dt><dd>I built and ran an automated software factory: AI agents that design and code the apps, each output checked by an independent verifier, with a cost limit on every run.</dd></div>
+          <div class="result"><dt>The result</dt><dd>One engineer and one QA engineer outshipped the whole team.</dd></div>
+        </dl>
+        <details class="case-more">
+          <summary>Technical details</summary>
+          <p>Multi-agent pipeline covering design, code, store assets and promo websites; model routing by task across Claude, Gemini and OpenAI; LLM-as-judge audits on a severity rubric. Architected its Google Cloud platform (Gemini and Claude on Vertex AI, Cloud Run, IAP, Secret Manager, Cloud Logging) and multimodal text-and-image search over the company's catalogue of 2,000+ apps. Replaced a paid low-code admin platform with an in-house dashboard. In my last week: 10 production apps in 3–4 days against the team's plateau of about 8 a week, at about $6 per app in model APIs.</p>
+        </details>
+      </article>
+      <article class="case">
+        <p class="kicker">Same company · 2020–2024</p>
+        <h3>New distribution for a 200-app portfolio</h3>
+        <dl>
+          <div><dt>The situation</dt><dd>I owned a portfolio of about 200 mobile apps end to end and worked with the business owners on budgets and ROI to keep it profitable.</dd></div>
+          <div><dt>What I did</dt><dd>On my own initiative I tested two additional app stores, brought the numbers to the business and, once it approved, ran the full launch.</dd></div>
+          <div class="result"><dt>The result</dt><dd>Two new distribution channels, released from the same codebase as everything else.</dd></div>
+        </dl>
+        <details class="case-more">
+          <summary>Technical details</summary>
+          <p>Huawei AppGallery and Samsung Galaxy Store, next to Google Play, Amazon and Xiaomi: five stores from one Android codebase with per-store builds. A shared app template reused 80–90% of the code.</p>
+        </details>
+      </article>
+      <article class="case">
+        <p class="kicker">Enterprise and open source</p>
+        <h3>Changing old, critical code safely</h3>
+        <dl>
+          <div><dt>The situation</dt><dd>Large codebases that nobody on the current team wrote, running in production.</dd></div>
+          <div><dt>What I did</dt><dd>Four years of third-line support on enterprise systems, and recently a security feature in a 20-year-old Rails application on a stack I had never used.</dd></div>
+          <div class="result"><dt>The result</dt><dd>On the Rails application, existing behaviour was pinned by tests before the first change, and every change was checked by a reviewer that did not write it.</dd></div>
+        </dl>
+        <details class="case-more">
+          <summary>Technical details</summary>
+          <p>2006–2010 at EPAM: on the maintenance team of a large Thomson Reuters programme I diagnosed production failures with the client's engineers, migrated a live database while changing its schema, and coordinated deployments. 2026: personal access tokens for Redmine 6.1.2 (Ruby on Rails), built with code maps, implementing subagents and a five-axis verification gate: 39 issues, 75 recorded attacks, 4,674 lines of tests, with the full process record published next to the code.</p>
+        </details>
+        <a class="case-link" href="https://github.com/NikolaiSachok/redmine">Read the case study <span aria-hidden="true">→</span></a>
+      </article>
     </section>
 
     <section aria-labelledby="h-public">
@@ -243,36 +261,36 @@
         <li>
           <a class="entry" href="https://nikolaisachok.com/ai-engineering-handbook/">
             <span class="entry-title">Enterprise RAG &amp; Agents Handbook</span>
-            <span class="entry-desc">A practical, first-principles handbook on production RAG and agentic systems, teaching the why and the failure modes rather than the features.</span>
-            <span class="entry-meta">Handbook · since July 2026 · three courses, several languages</span>
+            <span class="entry-desc">A free, practical handbook on building RAG and AI agents for production, and on how they fail.</span>
+            <span class="entry-meta">Handbook · three courses, several languages</span>
           </a>
         </li>
         <li>
           <a class="entry" href="https://nikolaisachok.com/Strata-RAG/">
             <span class="entry-title">Strata-RAG</span>
-            <span class="entry-desc">An open-source RAG engine built evaluation-first: hybrid retrieval with rank fusion, cross-encoder re-ranking, a metadata store for counting and listing questions, an evaluation harness with retrieval metrics and LLM-judge faithfulness, and layered defences against prompt injection and PII leaks.</span>
+            <span class="entry-desc">An open-source RAG engine built evaluation-first, with defences against prompt injection and data leaks.</span>
             <span class="entry-meta">GitHub · Python</span>
           </a>
         </li>
         <li>
           <a class="entry" href="https://github.com/NikolaiSachok/strata-insurance-corpus">
             <span class="entry-title">strata-insurance-corpus</span>
-            <span class="entry-desc">A reproducible, synthetic, multi-format insurance document corpus (born-digital and scanned PDFs, Word, spreadsheets, photos) with a golden evaluation set by construction. Built to benchmark document RAG on enterprise-shaped data.</span>
+            <span class="entry-desc">A synthetic insurance document set with known answers, for measuring how well a RAG system finds them.</span>
             <span class="entry-meta">GitHub · Hugging Face · Python</span>
-          </a>
-        </li>
-        <li>
-          <a class="entry" href="https://dev.to/nsachok/i-asked-a-frontier-llm-to-recover-secrets-from-my-decompiled-build-1ojb">
-            <span class="entry-title">I Asked a Frontier LLM to Recover Secrets from My Decompiled Build</span>
-            <span class="entry-desc">You cannot judge your own obfuscation, because you already know where everything is. I gave a frontier LLM the decompiled build, had it try to recover the secrets blind, and ran the investigation as an adversarial court so the result could be trusted.</span>
-            <span class="entry-meta">Article · September 11, 2026 · dev.to</span>
           </a>
         </li>
         <li>
           <a class="entry" href="https://dev.to/nsachok/eval-first-rag-use-separate-scores-to-triage-failures-33ed">
             <span class="entry-title">Eval-First RAG: Use Separate Scores to Triage Failures</span>
-            <span class="entry-desc">One end-to-end score shows that answer quality moved, but not what moved it. Scoring retrieval and generation separately turns an unclear regression into a decision about where to look first.</span>
+            <span class="entry-desc">Why one quality score hides where a RAG system broke, and how two scores show where to look.</span>
             <span class="entry-meta">Article · September 3, 2026 · dev.to</span>
+          </a>
+        </li>
+        <li>
+          <a class="entry" href="https://dev.to/nsachok/i-asked-a-frontier-llm-to-recover-secrets-from-my-decompiled-build-1ojb">
+            <span class="entry-title">I Asked a Frontier LLM to Recover Secrets from My Decompiled Build</span>
+            <span class="entry-desc">Testing my own app's protection by having an AI attack it, with other agents judging the evidence.</span>
+            <span class="entry-meta">Article · September 11, 2026 · dev.to</span>
           </a>
         </li>
       </ul>
@@ -281,7 +299,7 @@
     <section aria-labelledby="h-about" class="about">
       <h2 id="h-about">About</h2>
       <p>I'm a physicist by training. I started out writing C++ simulations for CERN's LHC experiments, then spent more than 20 years building software and leading engineering teams.</p>
-      <p>I founded a mobile games studio and grew it to a team of seven: I shipped 200+ games as lead engineer, negotiated partnerships with publishers and ad networks, and ran hiring, finances and KPIs. I was brought in as interim COO to stabilise a startup, analysing its profitability and guiding a pivot. For six years I was the lead engineer at a mobile-app company, working with the business owners on budgets and ROI and with the executive team on strategy.</p>
+      <p>I founded a mobile games studio and grew it to a team of seven, negotiating partnerships with publishers and ad networks and running hiring, finances and KPIs. I was brought in as interim COO to stabilise a startup, analysing its profitability and guiding a pivot. For six years I was the lead engineer at a mobile-app company, working with the business owners on budgets and ROI and with the executive team on strategy. I have worked remotely since 2010.</p>
       <p>In 2025 I rebuilt my own delivery around AI. The lesson I took from it: <em>generation isn't the bottleneck, verification is.</em></p>
       <h3>Core skills</h3>
       <ul class="chips">
@@ -292,6 +310,7 @@
         <li>Guardrails</li>
         <li>MCP tooling</li>
         <li>AI-assisted SDLC</li>
+        <li>Legacy code</li>
         <li>Python</li>
         <li>FastAPI</li>
         <li>Qdrant</li>

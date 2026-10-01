@@ -235,8 +235,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   margin-bottom: 1rem;
 }
 .proof li { background: var(--surface); padding: 1.2rem 1.25rem 1.3rem; display: grid; gap: .35rem; align-content: start; }
+/* The headline slot holds a number OR a short capability phrase ("Teams of up
+   to 12", "AI software factory"), so it is sized to wrap to two lines cleanly. */
 .proof-num {
-  font-size: 1.75rem;
+  font-size: 1.55rem;
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -257,8 +259,17 @@ h2 {
 }
 h3 { margin: 0; }
 
+/* A one-paragraph stance under a section heading. */
+.section-lead {
+  font-size: 1.12rem;
+  line-height: 1.55;
+  color: var(--fg);
+  max-width: 46rem;
+  margin: -.5rem 0 1.5rem;
+}
+
 /* Offers */
-.help { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.help { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .help li {
   background: var(--surface);
   border: 1px solid var(--rule);
@@ -317,6 +328,23 @@ h3 { margin: 0; }
 }
 .case .result dt { color: var(--accent); }
 .case .result dd { color: var(--fg); font-weight: 600; }
+.case-more { margin-top: 1rem; }
+.case-more summary {
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--accent);
+  width: fit-content;
+}
+.case-more summary:hover { text-decoration: underline; }
+.case-more p {
+  margin-top: .6rem;
+  font-size: .95rem;
+  color: var(--fg-muted);
+  border-left: 2px solid var(--rule);
+  padding-left: 1rem;
+}
 .case-link {
   display: inline-block;
   margin-top: 1.1rem;
@@ -461,7 +489,7 @@ footer a:hover { color: var(--accent); }
   .role { font-size: .88rem; }
   .actions .btn { flex: 1 1 auto; justify-content: center; }
   .proof li { padding: 1rem; }
-  .proof-num { font-size: 1.4rem; }
+  .proof-num { font-size: 1.25rem; }
   .case dl > div { grid-template-columns: minmax(0, 1fr); gap: .2rem; }
   .case .result { margin: .2rem -.6rem 0; padding: .75rem .6rem; }
   .steps { grid-template-columns: minmax(0, 1fr); }
