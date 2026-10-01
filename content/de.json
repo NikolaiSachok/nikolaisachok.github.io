@@ -109,12 +109,12 @@
       "details": "Multi-Agent-Pipeline für Design, Code, Store-Assets und Promo-Websites; aufgabenabhängiges Model-Routing über Claude, Gemini und OpenAI; LLM-as-judge-Prüfungen anhand einer Schweregrad-Matrix. Die Google-Cloud-Plattform (Gemini und Claude auf Vertex AI, Cloud Run, IAP, Secret Manager, Cloud Logging) sowie eine multimodale Text- und Bildsuche über den Katalog des Unternehmens mit 2.000+ Apps wurden von mir konzipiert. Eine kostenpflichtige Low-Code-Admin-Plattform habe ich durch ein internes Dashboard ersetzt. In meiner letzten Woche: 10 Produktiv-Apps in 3–4 Tagen gegenüber dem Plateau des Teams von etwa 8 pro Woche, zu etwa 6 $ Modell-API-Kosten pro App."
     },
     {
-      "kicker": "Dasselbe Unternehmen · 2020–2024",
-      "title": "Neue Distribution für ein Portfolio aus 200 Apps",
-      "problem": "Ich verantwortete ein Portfolio von etwa 200 Mobile Apps durchgängig — von der Idee über den Release bis zum laufenden Betrieb. Mit den Geschäftsverantwortlichen arbeitete ich an Budgets und ROI, damit das Portfolio profitabel blieb.",
-      "did": "Aus eigener Initiative testete ich zwei weitere App Stores, legte die Zahlen dem Unternehmen vor und führte nach dessen Zustimmung den vollständigen Launch durch.",
-      "result": "Zwei neue Distributionskanäle, veröffentlicht aus derselben Codebasis wie alles andere.",
-      "details": "Huawei AppGallery und Samsung Galaxy Store neben Google Play, Amazon und Xiaomi: fünf Stores aus einer Android-Codebasis mit Store-spezifischen Builds. Ein gemeinsames App-Template verwendete 80–90 % des Codes wieder."
+      "kicker": "Eigene F&E-Projekte · 2026",
+      "title": "Vier ungewohnte Probleme, vier funktionierende Systeme",
+      "problem": "Videoproduktion war für mich Neuland: Animation, Audiobearbeitung, Rendering und Stimme.",
+      "did": "Ich habe jedes Problem gemessen, bevor ich etwas gebaut habe, und dann AI-Coding-Agenten angewiesen, die Systeme auf Grundlage von Tests und Review-Gates zu bauen.",
+      "result": "Vier funktionierende Produktionssysteme, jeweils in einem Zeitraum von neun Tagen bis zwei Monaten gebaut, mit Episoden, die auf zwei YouTube-Kanälen veröffentlicht wurden.",
+      "details": "Eine Desktop-App, die eine Tonaufnahme in ein audioreaktives animiertes Video verwandelt (Audioanalyse, GLSL-Shader, deterministischer Export mit ffmpeg). Eine Cartoon-Nachrichtensendung, in der jedes Bild aus Code gerendert wird: Vektorgrafik mit Python, per Code erzeugte Skelettanimation und faktengeprüfte Skripte; eine 6-minütige Episode wird in unter 8 Minuten gerendert. Eine moderierte Übungsserie: paralleles Rendering Bild für Bild, etwa 3,5× schneller als die serielle Variante, und eine an das Skript angepasste Moderation, ohne die Stimme zu dehnen. Eine Script-to-Video-Pipeline mit einem animierten 3D-Moderator, der in Unity gerendert wird; seine Bewegungen wurden an aufgezeichnetem Videomaterial kalibriert. Für jedes Projekt wurde ein nummeriertes Entscheidungsprotokoll mit 70 bis 200+ Einträgen geführt."
     },
     {
       "kicker": "Enterprise und Open Source",
@@ -123,6 +123,14 @@
       "did": "Vier Jahre Third-Level-Support für Enterprise-Systeme und zuletzt ein Security-Feature in einer 20 Jahre alten Rails-Anwendung auf einem Stack, den ich noch nie verwendet hatte.",
       "result": "In der Rails-Anwendung wurde das bestehende Verhalten vor der ersten Änderung durch Tests festgehalten, und jede Änderung wurde von einem Reviewer geprüft, der sie nicht geschrieben hatte.",
       "details": "2006–2010 bei EPAM: ein großes Thomson-Reuters-Programm, in dem ich Teil des Maintenance-Teams war — Produktionsfehler diagnostiziert mit den Engineers des Kunden, eine laufende Datenbank bei gleichzeitiger Änderung ihres Schemas migriert und Deployments koordiniert. 2026: Personal Access Tokens für Redmine 6.1.2 (Ruby on Rails), mit Code-Maps und implementierenden Subagents erstellt, plus ein Verifikations-Gate mit fünf Prüfachsen: 39 Issues, 75 protokollierte Angriffe, 4.674 Zeilen Tests; die vollständige Aufzeichnung des Prozesses ist neben dem Code veröffentlicht."
+    },
+    {
+      "kicker": "Mobile-App-Unternehmen · 2020–2024",
+      "title": "Neue Distribution für ein Portfolio aus 200 Apps",
+      "problem": "Ich verantwortete ein Portfolio von etwa 200 Mobile Apps durchgängig — von der Idee über den Release bis zum laufenden Betrieb. Mit den Geschäftsverantwortlichen arbeitete ich an Budgets und ROI, damit das Portfolio profitabel blieb.",
+      "did": "Aus eigener Initiative testete ich zwei weitere App Stores, legte die Zahlen dem Unternehmen vor und führte nach dessen Zustimmung den vollständigen Launch durch.",
+      "result": "Zwei neue Distributionskanäle, veröffentlicht aus derselben Codebasis wie alles andere.",
+      "details": "Huawei AppGallery und Samsung Galaxy Store neben Google Play, Amazon und Xiaomi: fünf Stores aus einer Android-Codebasis mit Store-spezifischen Builds. Ein gemeinsames App-Template verwendete 80–90 % des Codes wieder."
     }
   ],
   "process": [

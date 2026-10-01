@@ -55,6 +55,7 @@ CASE_LINKS = [
     None,
     None,
     "https://github.com/NikolaiSachok/redmine",
+    None,
 ]
 
 # Fixed shape of the page: the layout is designed around these counts, so a
