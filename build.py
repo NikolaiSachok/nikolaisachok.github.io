@@ -38,37 +38,41 @@ SOURCE_LOCALE = "en"  # English is the source of truth; x-default points at it
 # a link change is a one-line edit in one place. Each list matches its array in
 # every content/<lang>.json positionally.
 #
-# Writing and projects are two lists because they are two kinds of thing. They
-# render with identical markup and differ only by the section they sit under —
-# which is the whole design: the reader tells them apart by grouping and by the
-# date, never by a different container shape.
-WRITING_LINKS = [
-    # Standing work first, dated pieces after — the ordinary shape of a
-    # publication index. The handbook lives here rather than under projects
-    # because it is prose; with it moved, PROJECT_LINKS is three repositories
-    # and the English label "Built" no longer has to stretch over a docs site.
+# Open source and writing share one list: standing work first, dated articles
+# after, newest-first. Articles always link to the canonical address, never a
+# syndicated copy.
+PUBLIC_LINKS = [
     "https://nikolaisachok.com/ai-engineering-handbook/",
-    # Always the canonical address, never a syndicated copy: this page indexes
-    # the work, it does not host or mirror it. Dated pieces run newest-first.
+    "https://nikolaisachok.com/Strata-RAG/",
+    "https://github.com/NikolaiSachok/strata-insurance-corpus",
     "https://dev.to/nsachok/i-asked-a-frontier-llm-to-recover-secrets-from-my-decompiled-build-1ojb",
     "https://dev.to/nsachok/eval-first-rag-use-separate-scores-to-triage-failures-33ed",
 ]
 
-PROJECT_LINKS = [
-    "https://nikolaisachok.com/Strata-RAG/",
+# One per case study, positionally; None means the case has no public page
+# (client work stays unlinked by design).
+CASE_LINKS = [
+    None,
+    None,
     "https://github.com/NikolaiSachok/redmine",
-    "https://github.com/NikolaiSachok/strata-insurance-corpus",
-    "https://nikolaisachok.com/DC-plugins/",
 ]
+
+# Fixed shape of the page: the layout is designed around these counts, so a
+# locale that drifts from them fails the build instead of rendering lopsided.
+COUNTS = {"proof": 4, "help": 3, "cases": len(CASE_LINKS), "process": 4, "public": len(PUBLIC_LINKS)}
 
 REQUIRED_KEYS = {
     "meta": ["title", "description", "og_title", "og_description"],
     "switcher": ["label", "names"],
     "theme": ["label", "names"],
     "notice": ["text", "english_link", "dismiss"],
-    "header": ["name", "role", "lead_1", "lead_2"],
-    "video": ["section_label", "play_label", "img_alt", "iframe_title", "caption"],
-    "sections": ["work", "writing", "built"],
+    "hero": ["availability", "name", "role", "photo_alt", "headline", "lead",
+             "cta_email", "cta_video", "location"],
+    "video": ["dialog_label", "iframe_title", "close"],
+    "sections": ["help", "cases", "process", "public", "about", "skills"],
+    "labels": ["problem", "did", "result", "read"],
+    "cta": ["title", "text", "email", "linkedin"],
+    "footer": ["copy"],
 }
 
 # --- escaping ---------------------------------------------------------------
@@ -204,32 +208,70 @@ def notice_block(current: str, notice: dict, indent: str = "    ") -> str:
     )
 
 
-def tags_block(tags: list, indent: str = "      ") -> str:
-    """One dot-separated line rather than a row of boxes.
+def chips_block(items: list, indent: str = "        ") -> str:
+    """Skills as chips. Each chip is its own box, so wrapping never strands a
+    separator at the start of a line (the defect of the old dot-joined list)."""
+    return "\n".join(f'{indent}<li>{html(s)}</li>' for s in items)
 
-    The separator lives INSIDE the <li> because only <li> may be a child of
-    <ul>, and the list is worth keeping: a screen reader announcing "list, 7
-    items" is more use than a paragraph. It is aria-hidden, like the separators
-    in the language bar and the header contact links — same house pattern.
-    """
+
+def proof_block(items: list, indent: str = "      ") -> str:
+    return "\n".join(
+        f'{indent}<li><span class="proof-num">{html(p["num"])}</span>'
+        f'<span class="proof-label">{html(p["label"])}</span></li>'
+        for p in items
+    )
+
+
+def help_block(items: list, indent: str = "        ") -> str:
     out = []
-    for i, tag in enumerate(tags):
-        sep = "" if i == 0 else '<span class="sep" aria-hidden="true">·</span>'
-        out.append(f'{indent}<li class="tag">{sep}{html(tag)}</li>')
+    for h in items:
+        out.append(
+            f"{indent}<li>\n"
+            f'{indent}  <h3>{html(h["title"])}</h3>\n'
+            f'{indent}  <p>{html(h["desc"])}</p>\n'
+            f'{indent}  <p class="fit">{html(h["fit"])}</p>\n'
+            f"{indent}</li>"
+        )
     return "\n".join(out)
 
 
-def entries_block(items: list, links: list, name: str, indent: str = "      ") -> str:
-    """One renderer for both lists — writing and projects share their markup.
-
-    The reader separates them by which section they sit under and by the meta
-    line, not by a different container: that is the point of the design. Giving
-    each list its own markup would let the two drift apart again.
-    """
-    if len(items) != len(links):
-        raise SystemExit(
-            f"content has {len(items)} '{name}' entries but build.py defines {len(links)} links"
+def cases_block(items: list, labels: dict, indent: str = "      ") -> str:
+    """Each case reads problem -> what I did -> result: the shape a buyer scans
+    for, with the result row set apart so it can be found without reading."""
+    out = []
+    for case, href in zip(items, CASE_LINKS):
+        link = (
+            f'{indent}  <a class="case-link" href="{href}">{html(labels["read"])} '
+            f'<span aria-hidden="true">→</span></a>\n'
+            if href
+            else ""
         )
+        out.append(
+            f'{indent}<article class="case">\n'
+            f'{indent}  <p class="kicker">{html(case["kicker"])}</p>\n'
+            f'{indent}  <h3>{html(case["title"])}</h3>\n'
+            f'{indent}  <dl>\n'
+            f'{indent}    <div><dt>{html(labels["problem"])}</dt><dd>{html(case["problem"])}</dd></div>\n'
+            f'{indent}    <div><dt>{html(labels["did"])}</dt><dd>{html(case["did"])}</dd></div>\n'
+            f'{indent}    <div class="result"><dt>{html(labels["result"])}</dt><dd>{html(case["result"])}</dd></div>\n'
+            f"{indent}  </dl>\n"
+            f"{link}"
+            f"{indent}</article>"
+        )
+    return "\n".join(out)
+
+
+def steps_block(items: list, indent: str = "        ") -> str:
+    return "\n".join(
+        f'{indent}<li><h3>{html(s["title"])}</h3><p>{html(s["desc"])}</p></li>' for s in items
+    )
+
+
+def about_block(paras: list, indent: str = "      ") -> str:
+    return "\n".join(f"{indent}<p>{html(p)}</p>" for p in paras)
+
+
+def entries_block(items: list, links: list, indent: str = "        ") -> str:
     out = []
     for item, href in zip(items, links):
         out.append(
@@ -349,20 +391,24 @@ def validate(code: str, data: dict) -> None:
     for key in ("light", "dark", "auto"):
         if key not in data["theme"]["names"]:
             raise SystemExit(f"content/{code}.json: missing 'theme.names.{key}'")
-    for name, expect in (
-        ("tags", 7),
-        ("writing", len(WRITING_LINKS)),
-        ("cards", len(PROJECT_LINKS)),
-    ):
+    for name, expect in COUNTS.items():
         got = len(data.get(name, []))
         if got != expect:
             raise SystemExit(f"content/{code}.json: '{name}' has {got} items, expected {expect}")
-    # Every entry carries a meta line. A writing entry's date lives there as a
-    # locale-formatted string rather than being computed: only the translator
-    # knows how a date is written in their language.
-    for name in ("writing", "cards"):
-        for i, item in enumerate(data.get(name, [])):
-            for key in ("title", "desc", "meta"):
+    if not data.get("about") or not data.get("skills"):
+        raise SystemExit(f"content/{code}.json: 'about' and 'skills' must be non-empty")
+    # A date lives in an entry's meta line as a locale-formatted string rather
+    # than being computed: only the translator knows how a date is written.
+    item_keys = {
+        "proof": ("num", "label"),
+        "help": ("title", "desc", "fit"),
+        "cases": ("kicker", "title", "problem", "did", "result"),
+        "process": ("title", "desc"),
+        "public": ("title", "desc", "meta"),
+    }
+    for name, keys in item_keys.items():
+        for i, item in enumerate(data[name]):
+            for key in keys:
                 if key not in item:
                     raise SystemExit(f"content/{code}.json: '{name}[{i}]' is missing '{key}'")
 
@@ -370,7 +416,9 @@ def validate(code: str, data: dict) -> None:
 def render(code: str, lang: str, og: str, path: str, template: str) -> str:
     data = json.loads((ROOT / "content" / f"{code}.json").read_text(encoding="utf-8"))
     validate(code, data)
-    meta, video, sections = data["meta"], data["video"], data["sections"]
+    meta, video, sections, hero, cta = (
+        data["meta"], data["video"], data["sections"], data["hero"], data["cta"]
+    )
 
     subs = {
         "LANG": lang,
@@ -389,21 +437,36 @@ def render(code: str, lang: str, og: str, path: str, template: str) -> str:
         "THEME_LABEL": attr(data["theme"]["label"]),
         "THEMEBAR": themebar(data["theme"]["names"], data["theme"]["label"]),
         "NOTICE": notice_block(code, data["notice"]),
-        "NAME": html(data["header"]["name"]),
-        "ROLE": html(data["header"]["role"]),
-        "LEAD_1": html(data["header"]["lead_1"]),
-        "LEAD_2": html(data["header"]["lead_2"]),
-        "VIDEO_SECTION_LABEL": attr(video["section_label"]),
-        "VIDEO_PLAY_LABEL": attr(video["play_label"]),
+        "AVAILABILITY": html(hero["availability"]),
+        "NAME": html(hero["name"]),
+        "ROLE": html(hero["role"]),
+        "PHOTO_ALT": attr(hero["photo_alt"]),
+        "HEADLINE": html(hero["headline"]),
+        "LEAD": html(hero["lead"]),
+        "CTA_EMAIL": html(hero["cta_email"]),
+        "CTA_VIDEO": html(hero["cta_video"]),
+        "LOCATION": html(hero["location"]),
+        "VIDEO_DIALOG_LABEL": attr(video["dialog_label"]),
         "VIDEO_IFRAME_TITLE": attr(video["iframe_title"]),
-        "VIDEO_IMG_ALT": attr(video["img_alt"]),
-        "VIDEO_CAPTION": html(video["caption"]),
-        "H2_WORK": html(sections["work"]),
-        "H2_WRITING": html(sections["writing"]),
-        "H2_BUILT": html(sections["built"]),
-        "TAGS": tags_block(data["tags"]),
-        "WRITING": entries_block(data["writing"], WRITING_LINKS, "writing"),
-        "BUILT": entries_block(data["cards"], PROJECT_LINKS, "cards"),
+        "VIDEO_CLOSE": attr(video["close"]),
+        "PROOF": proof_block(data["proof"]),
+        "H2_HELP": html(sections["help"]),
+        "HELP": help_block(data["help"]),
+        "H2_CASES": html(sections["cases"]),
+        "CASES": cases_block(data["cases"], data["labels"]),
+        "H2_PROCESS": html(sections["process"]),
+        "STEPS": steps_block(data["process"]),
+        "H2_PUBLIC": html(sections["public"]),
+        "PUBLIC": entries_block(data["public"], PUBLIC_LINKS),
+        "H2_ABOUT": html(sections["about"]),
+        "ABOUT": about_block(data["about"]),
+        "H3_SKILLS": html(sections["skills"]),
+        "SKILLS": chips_block(data["skills"]),
+        "CTA_TITLE": html(cta["title"]),
+        "CTA_TEXT": html(cta["text"]),
+        "CTA_EMAIL_2": html(cta["email"]),
+        "CTA_LINKEDIN": html(cta["linkedin"]),
+        "FOOTER_COPY": html(data["footer"]["copy"]),
     }
 
     out = template

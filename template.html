@@ -12,19 +12,21 @@
 {{HREFLANG}}
 
   <!-- Open Graph / social preview -->
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="profile" />
   <meta property="og:title" content="{{OG_TITLE}}" />
   <meta property="og:description" content="{{OG_DESCRIPTION}}" />
   <meta property="og:url" content="{{CANONICAL}}" />
+  <meta property="og:image" content="https://nikolaisachok.com/assets/img/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="{{OG_LOCALE}}" />
 {{OG_LOCALE_ALT}}
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E" />
 
-  <!-- Source Serif 4 sets the content, Public Sans the chrome (labels, dates).
-       Both are OFL. preconnect first so the font CSS request does not wait on a
-       fresh connection; every face has a real fallback in style.css. -->
+  <!-- Source Serif 4 sets the content, Public Sans the chrome (labels, buttons,
+       dates). Both are OFL; every face has a real fallback in style.css. -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@500;600;700&display=swap" />
@@ -46,74 +48,146 @@
       </nav>
     </div>
 {{NOTICE}}
-    <header>
-      <h1 class="name">{{NAME}}</h1>
-      <p class="role">{{ROLE}}</p>
-      <!-- Repeated in the footer on purpose. GitHub is the proof a visitor
-           arriving from an article wants next, and the footer is ~2000px away.
-           Not translated: all three are proper nouns. -->
-      <p class="identity">
-        <a href="https://github.com/NikolaiSachok">GitHub</a>
-        <span class="sep" aria-hidden="true">·</span>
-        <a href="https://www.linkedin.com/in/nikolai-sachok/">LinkedIn</a>
-        <span class="sep" aria-hidden="true">·</span>
-        <a href="https://x.com/nsachok">X</a>
-      </p>
-      <p class="lead">{{LEAD_1}}</p>
-      <p class="lead muted">{{LEAD_2}}</p>
+    <header class="hero">
+      <img class="photo" src="/assets/img/nikolai-240.webp"
+           srcset="/assets/img/nikolai-240.webp 240w, /assets/img/nikolai-480.webp 480w"
+           sizes="(max-width: 640px) 96px, 148px"
+           width="148" height="148" alt="{{PHOTO_ALT}}" />
+      <div class="hero-id">
+        <p class="availability"><span class="dot" aria-hidden="true"></span>{{AVAILABILITY}}</p>
+        <h1 class="name">{{NAME}}</h1>
+        <p class="role">{{ROLE}}</p>
+      </div>
+      <div class="hero-body">
+        <p class="headline">{{HEADLINE}}</p>
+        <p class="lead">{{LEAD}}</p>
+        <div class="actions">
+          <!-- The address is never in the markup: the script assembles it on load,
+               so a scraper reading HTML finds only the LinkedIn fallback. -->
+          <a class="btn btn-primary" data-mail href="https://www.linkedin.com/in/nikolai-sachok/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>{{CTA_EMAIL}}</a>
+          <button type="button" class="btn btn-ghost" data-open-video>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path class="fill" d="M8 5v14l11-7z" /></svg>{{CTA_VIDEO}}</button>
+        </div>
+        <p class="meta-line">
+          <span>{{LOCATION}}</span>
+          <span class="mail-addr" hidden></span>
+        </p>
+        <p class="social">
+          <a href="https://www.linkedin.com/in/nikolai-sachok/">LinkedIn</a>
+          <a href="https://github.com/NikolaiSachok">GitHub</a>
+          <a href="https://x.com/nsachok">X</a>
+        </p>
+      </div>
     </header>
 
-    <section class="video" aria-label="{{VIDEO_SECTION_LABEL}}">
-      <div class="video-frame">
-        <a class="video-facade" href="https://www.youtube.com/watch?v=G0wu4CbFEvU"
-           data-embed="https://www.youtube-nocookie.com/embed/G0wu4CbFEvU?autoplay=1&amp;rel=0"
-           data-title="{{VIDEO_IFRAME_TITLE}}"
-           aria-label="{{VIDEO_PLAY_LABEL}}">
-          <img src="https://i.ytimg.com/vi/G0wu4CbFEvU/maxresdefault.jpg"
-               onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/G0wu4CbFEvU/hqdefault.jpg'"
-               alt="{{VIDEO_IMG_ALT}}" loading="lazy" />
-          <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-        </a>
-      </div>
-      <p class="video-cap">{{VIDEO_CAPTION}}</p>
+    <ul class="proof">
+{{PROOF}}
+    </ul>
+
+    <section aria-labelledby="h-help">
+      <h2 id="h-help">{{H2_HELP}}</h2>
+      <ul class="help">
+{{HELP}}
+      </ul>
     </section>
 
-    <h2>{{H2_WORK}}</h2>
-    <ul class="tags">
-{{TAGS}}
-    </ul>
+    <section aria-labelledby="h-cases">
+      <h2 id="h-cases">{{H2_CASES}}</h2>
+{{CASES}}
+    </section>
 
-    <h2 class="section-head">{{H2_WRITING}}</h2>
-    <ul class="entries">
-{{WRITING}}
-    </ul>
+    <section aria-labelledby="h-process">
+      <h2 id="h-process">{{H2_PROCESS}}</h2>
+      <ol class="steps">
+{{STEPS}}
+      </ol>
+    </section>
 
-    <h2 class="section-head">{{H2_BUILT}}</h2>
-    <ul class="entries">
-{{BUILT}}
-    </ul>
+    <section aria-labelledby="h-public">
+      <h2 id="h-public">{{H2_PUBLIC}}</h2>
+      <ul class="entries">
+{{PUBLIC}}
+      </ul>
+    </section>
+
+    <section aria-labelledby="h-about" class="about">
+      <h2 id="h-about">{{H2_ABOUT}}</h2>
+{{ABOUT}}
+      <h3>{{H3_SKILLS}}</h3>
+      <ul class="chips">
+{{SKILLS}}
+      </ul>
+    </section>
+
+    <section class="cta" aria-labelledby="h-cta">
+      <h2 id="h-cta">{{CTA_TITLE}}</h2>
+      <p>{{CTA_TEXT}}</p>
+      <div class="actions">
+        <a class="btn btn-invert" data-mail href="https://www.linkedin.com/in/nikolai-sachok/">{{CTA_EMAIL_2}}</a>
+        <a class="btn btn-invert-ghost" href="https://www.linkedin.com/in/nikolai-sachok/">{{CTA_LINKEDIN}}</a>
+      </div>
+      <p class="mail-addr cta-addr" hidden></p>
+    </section>
 
     <footer>
-      <a href="https://github.com/NikolaiSachok">GitHub</a>
-      <a href="https://www.linkedin.com/in/nikolai-sachok/">LinkedIn</a>
-      <a href="https://x.com/nsachok">X</a>
+      <span>{{FOOTER_COPY}}</span>
+      <span class="footer-links">
+        <a href="https://www.linkedin.com/in/nikolai-sachok/">LinkedIn</a>
+        <a href="https://github.com/NikolaiSachok">GitHub</a>
+        <a href="https://x.com/nsachok">X</a>
+      </span>
     </footer>
   </div>
 
+  <dialog class="video-dialog" aria-label="{{VIDEO_DIALOG_LABEL}}">
+    <div class="video-frame" data-embed="https://www.youtube-nocookie.com/embed/G0wu4CbFEvU?autoplay=1&amp;rel=0" data-title="{{VIDEO_IFRAME_TITLE}}"></div>
+    <form method="dialog"><button class="video-close" aria-label="{{VIDEO_CLOSE}}">&times;</button></form>
+  </dialog>
+
   <script>
-    document.querySelectorAll('.video-facade').forEach(function (a) {
-      a.addEventListener('click', function (e) {
-        e.preventDefault();
-        var frame = a.parentNode;
-        var iframe = document.createElement('iframe');
-        iframe.src = a.dataset.embed;
-        iframe.title = a.dataset.title;
-        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-        iframe.setAttribute('allowfullscreen', '');
-        frame.innerHTML = '';
-        frame.appendChild(iframe);
+    /* Email. Stored reversed and split so the address never appears in the HTML;
+       a scraper that does not run JavaScript only sees the LinkedIn fallback. */
+    (function () {
+      var addr = ['moc.kohcasialokin', 'ssenisub'].map(function (s) {
+        return s.split('').reverse().join('');
+      }).reverse().join('@');
+      document.querySelectorAll('[data-mail]').forEach(function (a) {
+        a.href = 'mailto:' + addr;
       });
-    });
+      document.querySelectorAll('.mail-addr').forEach(function (el) {
+        el.textContent = addr;
+        el.hidden = false;
+      });
+    })();
+
+    /* Intro video in a native <dialog>. The iframe is created on open and
+       destroyed on close, so nothing loads from YouTube until it is asked for
+       and closing really stops playback. Without <dialog> support, the button
+       falls back to opening YouTube. */
+    (function () {
+      var dialog = document.querySelector('.video-dialog');
+      var frame = dialog && dialog.querySelector('.video-frame');
+      document.querySelectorAll('[data-open-video]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          if (!dialog || typeof dialog.showModal !== 'function') {
+            location.href = 'https://www.youtube.com/watch?v=G0wu4CbFEvU';
+            return;
+          }
+          var iframe = document.createElement('iframe');
+          iframe.src = frame.dataset.embed;
+          iframe.title = frame.dataset.title;
+          iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+          iframe.setAttribute('allowfullscreen', '');
+          frame.appendChild(iframe);
+          dialog.showModal();
+        });
+      });
+      if (dialog) {
+        dialog.addEventListener('close', function () { frame.innerHTML = ''; });
+        dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+      }
+    })();
 
     /* A language chosen by hand is remembered and never auto-overridden again. */
     document.querySelectorAll('[data-setlang]').forEach(function (a) {
@@ -122,15 +196,9 @@
       });
     });
 
-    /* Theme. One button cycling auto -> light -> dark -> auto.
-
-       "auto" is the ABSENCE of a choice, not a third stored value: it clears the
-       key and the attribute, so the stylesheet goes back to following
-       prefers-color-scheme. The head script has already applied any stored
-       choice before paint, and CSS picks the matching glyph off the same
-       attribute, so this only records the change and keeps the label honest
-       about which state you are now in — the thing a cycling control otherwise
-       leaves you guessing at. */
+    /* Theme. One button cycling auto -> light -> dark -> auto. "auto" is the
+       ABSENCE of a choice: it clears the key and the attribute, so the
+       stylesheet goes back to following prefers-color-scheme. */
     (function () {
       var button = document.getElementById('theme-toggle');
       if (!button) return;

@@ -1,9 +1,9 @@
 {
   "meta": {
-    "title": "Nikolai Sachok — AI Engineer",
-    "description": "AI engineer building and operating production LLM systems — multi-agent orchestration, RAG, evaluation, and guardrails.",
-    "og_title": "Nikolai Sachok — AI Engineer",
-    "og_description": "Building and operating production LLM systems — multi-agent orchestration, RAG, evaluation, and guardrails."
+    "title": "Nikolai Sachok — Lead AI Engineer",
+    "description": "Lead AI engineer for production LLM systems: multi-agent orchestration, RAG, evaluation and guardrails. More than 20 years building software and leading teams. Available for contract work.",
+    "og_title": "Nikolai Sachok — Lead AI Engineer",
+    "og_description": "I build AI systems that do measurable work in production, and I own them end to end. Available for contract work."
   },
   "switcher": {
     "label": "Language",
@@ -27,70 +27,165 @@
     "english_link": "Read in English",
     "dismiss": "Dismiss"
   },
-  "header": {
+  "hero": {
+    "availability": "Available for contract work",
     "name": "Nikolai Sachok",
-    "role": "AI Engineer — production LLM systems",
-    "lead_1": "I build and operate production LLM systems: multi-agent orchestration, RAG, evaluation, and guardrails. Physicist by training, then two decades building software and leading engineering teams — 500+ apps shipped, 10M+ downloads — now building AI systems hands-on.",
-    "lead_2": "I started out writing C++ simulations for CERN's LHC experiments, spent more than 20 years building software and leading engineering teams, and in 2025 rebuilt my delivery operation around AI — running an LLM-orchestrated pipeline solo, from design through release. Most of the work is the verification and eval that keeps quality up at volume: <em>generation isn't the bottleneck, verification is.</em>"
+    "role": "Lead AI Engineer · production LLM systems",
+    "photo_alt": "Nikolai Sachok",
+    "headline": "I build AI systems that do measurable work in production, and I own them end to end.",
+    "lead": "I've spent more than 20 years building software and leading teams, as a founder, an interim COO and a lead engineer. Most recently I built a multi-agent LLM pipeline that replaced the output of a 12-person team. I work with the people who own the business problem, not just the ticket.",
+    "cta_email": "Email me",
+    "cta_video": "Watch a 5-min intro",
+    "location": "Bratislava, Slovakia (CET) · working remotely"
   },
   "video": {
-    "section_label": "Intro video",
-    "play_label": "Play: Who I am — a 5-minute intro",
-    "img_alt": "Who I am — video intro",
+    "dialog_label": "Who I am — a 5-minute intro",
     "iframe_title": "Who I am — video intro",
-    "caption": "<strong>Who I am — a 5-min intro.</strong> I walk through the three questions an AI-engineering screen usually opens with: ① 20 years in software, the last two on AI · ② my most recent public project, Strata-RAG (retrieval + evaluation) · ③ my strongest languages and stack."
+    "close": "Close"
   },
-  "sections": {
-    "work": "What I work on",
-    "writing": "Writing",
-    "built": "Built"
-  },
-  "tags": [
-    "Agentic systems",
-    "Multi-agent orchestration",
-    "RAG & retrieval",
-    "Evaluation & LLM-as-judge",
-    "Guardrails & safety",
-    "MCP tooling",
-    "AI-assisted SDLC"
+  "proof": [
+    {
+      "num": "20+",
+      "label": "years building software and leading teams"
+    },
+    {
+      "num": "500+",
+      "label": "apps shipped, 10M+ downloads"
+    },
+    {
+      "num": "10 in 3–4 days",
+      "label": "production apps shipped solo, where a 12-person team had plateaued at about 8 a week"
+    },
+    {
+      "num": "~$6",
+      "label": "average AI-model cost per shipped app"
+    }
   ],
-  "writing": [
+  "sections": {
+    "help": "How I can help",
+    "cases": "Selected work",
+    "process": "How I work",
+    "public": "Open source and writing",
+    "about": "About",
+    "skills": "Core skills"
+  },
+  "help": [
+    {
+      "title": "Build an AI product or feature",
+      "desc": "From a business goal to a feature in production: scoping, architecture, the build and an evaluation baseline, so you know it works before your users depend on it. Fixed scope, priced per deliverable.",
+      "fit": "For founders and product teams"
+    },
+    {
+      "title": "Make an LLM system reliable",
+      "desc": "Your RAG or agent works in the demo but behaves differently in production. I find out why: separate retrieval and generation scores, a golden set, LLM-as-judge against a rubric, and checks for prompt injection and PII leaks. You get a ranked failure report and the fixes.",
+      "fit": "For teams already shipping AI"
+    },
+    {
+      "title": "Lead AI engineering with your team",
+      "desc": "A lead or staff-level engineer working inside your team on a long-term contract: architecture, delivery, a practical way to use AI in development, and direct work with product and leadership on what to build and why.",
+      "fit": "For companies building an AI capability"
+    }
+  ],
+  "labels": {
+    "problem": "The situation",
+    "did": "What I did",
+    "result": "The result",
+    "read": "Read the case study"
+  },
+  "cases": [
+    {
+      "kicker": "Mobile-app business · 2025–2026",
+      "title": "An LLM delivery pipeline that outshipped a 12-person team",
+      "problem": "The business grew by launching new apps. The team I led, 9 engineers and 3 designers, had plateaued at about 8 apps a week, and adding people added coordination rather than output.",
+      "did": "I designed and ran a multi-agent pipeline that covers design, code, store assets and promo websites, with model routing by task across Claude, Gemini and OpenAI, independent verification agents, LLM-as-judge audits on a severity rubric, and cost limits per session. I also architected its Google Cloud platform (Gemini and Claude on Vertex AI, Cloud Run, IAP, Secret Manager, Cloud Logging) and multimodal text-and-image search over the company's catalogue of 2,000+ apps, and replaced a paid low-code admin platform with an in-house dashboard, a build-vs-buy call that AI-assisted development made practical.",
+      "result": "In my last week I shipped 10 production apps in 3–4 days, solo, with one QA engineer checking the builds, at about $6 per app in model APIs."
+    },
+    {
+      "kicker": "Same business · 2020–2024",
+      "title": "New distribution channels for a portfolio of 200 apps",
+      "problem": "I owned a portfolio of about 200 mobile apps end to end, from the idea through release to live operations, working with the business owners on budgets and ROI to keep it profitable.",
+      "did": "On my own initiative I researched Huawei AppGallery and Samsung Galaxy Store, shipped test apps, measured the results and, once the business approved, ran full releases there. I proposed in-app user-acquisition campaigns in Samsung Galaxy Store and owned their technical side: attribution with Adjust and AppsFlyer, ad SDKs and campaign data.",
+      "result": "Five app stores supplied from one Android codebase with per-store builds. A shared app template made each new app mostly configuration and assets, with 80–90% of the code reused."
+    },
+    {
+      "kicker": "Open-source case study · 2026",
+      "title": "A security feature in a 20-year-old codebase, on a stack I had never used",
+      "problem": "Personal access tokens for the REST API of Redmine 6.1.2, a Ruby on Rails application with twenty years of history.",
+      "did": "I started with code maps, had subagents implement the changes, and re-ran a five-axis verification gate after every fix. No agent graded its own work.",
+      "result": "39 issues, 75 recorded attacks and 4,674 lines of tests. The full process record is published next to the code."
+    }
+  ],
+  "process": [
+    {
+      "title": "Start from the business number",
+      "desc": "What is it worth if it works, and what does it cost when it fails? That decides the architecture and the budget, including where an LLM is the wrong tool."
+    },
+    {
+      "title": "Build the evaluation first",
+      "desc": "A golden set and a scoring rubric come before the feature, so that \"better\" is a number rather than an opinion."
+    },
+    {
+      "title": "Verify independently",
+      "desc": "Generation is cheap; verification is the bottleneck. Every output passes checks that the agent which produced it does not control."
+    },
+    {
+      "title": "Hand over something you own",
+      "desc": "The code, the evaluation harness and the documentation stay with you, and so does the knowledge of how it works."
+    }
+  ],
+  "public": [
     {
       "title": "Enterprise RAG & Agents Handbook",
       "desc": "A practical, first-principles handbook on production RAG and agentic systems, teaching the why and the failure modes rather than the features.",
-      "meta": "Since July 2026 · Three courses, several languages"
+      "meta": "Handbook · since July 2026 · three courses, several languages"
+    },
+    {
+      "title": "Strata-RAG",
+      "desc": "An open-source RAG engine built evaluation-first: hybrid retrieval with rank fusion, cross-encoder re-ranking, a metadata store for counting and listing questions, an evaluation harness with retrieval metrics and LLM-judge faithfulness, and layered defences against prompt injection and PII leaks.",
+      "meta": "GitHub · Python"
+    },
+    {
+      "title": "strata-insurance-corpus",
+      "desc": "A reproducible, synthetic, multi-format insurance document corpus (born-digital and scanned PDFs, Word, spreadsheets, photos) with a golden evaluation set by construction. Built to benchmark document RAG on enterprise-shaped data.",
+      "meta": "GitHub · Hugging Face · Python"
     },
     {
       "title": "I Asked a Frontier LLM to Recover Secrets from My Decompiled Build",
-      "desc": "You can tell your own obfuscation looks fine, but that says nothing about how hard it is to break, because you already know where everything is. I gave a frontier LLM a decompiled build and had it try to recover the secrets blind, with the investigation run as an adversarial court so the result could be trusted.",
-      "meta": "September 11, 2026 · dev.to · also on Medium and LinkedIn"
+      "desc": "You cannot judge your own obfuscation, because you already know where everything is. I gave a frontier LLM the decompiled build, had it try to recover the secrets blind, and ran the investigation as an adversarial court so the result could be trusted.",
+      "meta": "Article · September 11, 2026 · dev.to"
     },
     {
       "title": "Eval-First RAG: Use Separate Scores to Triage Failures",
       "desc": "One end-to-end score shows that answer quality moved, but not what moved it. Scoring retrieval and generation separately turns an unclear regression into a decision about where to look first.",
-      "meta": "September 3, 2026 · dev.to · also on Medium and LinkedIn"
+      "meta": "Article · September 3, 2026 · dev.to"
     }
   ],
-  "cards": [
-    {
-      "title": "Strata-RAG",
-      "desc": "An eval-first, study-grade RAG engine over heterogeneous corpora — Qdrant + HNSW, hybrid retrieval with RRF, cross-encoder re-ranking, a metadata sidecar for aggregation, and an eval harness (Recall@K / nDCG / MRR + LLM-judge faithfulness) with layered injection/PII defenses.",
-      "meta": "GitHub · Python"
-    },
-    {
-      "title": "Redmine personal access tokens: an AI-⁠SDLC case study",
-      "desc": "Personal access tokens for the REST API of Redmine 6.1.2, a Rails application with twenty years of history, built on a stack I had never used. Code maps first, subagents that implement, and a five-axis verification gate re-run after every fix: 39 issues, 75 recorded attacks, 4,674 lines of tests. The full process record is published next to the code.",
-      "meta": "GitHub · Ruby on Rails · Claude Code"
-    },
-    {
-      "title": "strata-insurance-corpus",
-      "desc": "A reproducible, synthetic, multi-format insurance document corpus — born-digital and scanned PDFs, Word, spreadsheets, photos — with a golden evaluation set by construction. Built to benchmark document-RAG on enterprise-shaped data.",
-      "meta": "GitHub · Python"
-    },
-    {
-      "title": "DC-plugins",
-      "desc": "Native macOS plugins for Double Commander (Objective-C, universal binaries, headless tests, CI) — a small native tool taken end-to-end to a published standard.",
-      "meta": "GitHub · Objective-C"
-    }
-  ]
+  "about": [
+    "I'm a physicist by training. I started out writing C++ simulations for CERN's LHC experiments, then spent more than 20 years building software and leading engineering teams.",
+    "I founded a mobile games studio and grew it to a team of seven: I shipped 200+ games as lead engineer, negotiated partnerships with publishers and ad networks, and ran hiring, finances and KPIs. I was brought in as interim COO to stabilise a startup, analysing its profitability and guiding a pivot. For six years I was the lead engineer at a mobile-app company, working with the business owners on budgets and ROI and with the executive team on strategy.",
+    "In 2025 I rebuilt my own delivery around AI. The lesson I took from it: <em>generation isn't the bottleneck, verification is.</em>"
+  ],
+  "skills": [
+    "Agentic systems",
+    "Multi-agent orchestration",
+    "RAG & retrieval",
+    "Evaluation & LLM-as-judge",
+    "Guardrails",
+    "MCP tooling",
+    "AI-assisted SDLC",
+    "Python",
+    "FastAPI",
+    "Qdrant",
+    "Google Cloud",
+    "Claude, Gemini & OpenAI APIs"
+  ],
+  "cta": {
+    "title": "Have an AI product to build or an LLM system to fix?",
+    "text": "Send me a few lines about the problem and the outcome you want. If AI is the wrong tool for it, I'll tell you.",
+    "email": "Email me",
+    "linkedin": "Message me on LinkedIn"
+  },
+  "footer": {
+    "copy": "© 2026 Nikolai Sachok"
+  }
 }

@@ -3,8 +3,9 @@
 Personal landing page — served at **https://nikolaisachok.com** (GitHub Pages user site).
 
 Four locales: **English (source, at `/`)**, German `/de/`, Slovak `/sk/`, Russian `/ru/`.
-No framework, no CDN, no dependencies — the pages are fully self-contained apart from the YouTube
-thumbnail. The only tool is a stdlib-only Python 3 script.
+No framework, no dependencies — the pages are self-contained apart from Google Fonts and the intro
+video, which loads from YouTube only when a visitor opens it. The only tool is a stdlib-only Python 3
+script.
 
 ## Layout
 
@@ -49,8 +50,14 @@ Then commit the changed `content/*.json` **and** the regenerated `*.html` togeth
   add one.
 - Content strings are **HTML fragments**: `<em>` and `<strong>` are allowed and meaningful. Write a
   literal `&` — the build escapes it.
-- Card **URLs** live in `build.py` (`CARD_LINKS`), not in the content files, and are matched
-  positionally to the `cards` array. `build.py` refuses to build if the counts disagree.
+- **URLs** live in `build.py` (`PUBLIC_LINKS`, `CASE_LINKS`), not in the content files, and are
+  matched positionally to the `public` and `cases` arrays. Every locale must carry the same number of
+  items per list (`COUNTS`); `build.py` refuses to build if they disagree.
+- **The contact address never appears in the markup.** The `business@` alias on this domain (Cloudflare Email
+  Routing → a private inbox) is assembled by a few lines of script in `template.html`, so an HTML
+  scraper finds only the LinkedIn fallback on the email buttons. Change it there, not in the content.
+- Images live in `assets/img/`: the portrait at 240 and 480 px (WebP) and `og.jpg`, the 1200×630
+  social preview. Strip metadata from any new image (`exiftool -all=`); the leak check enforces it.
 - Adding a locale: add a row to `LOCALES` in `build.py` and a `content/<code>.json`. hreflang,
   canonical, `og:locale`, the switcher and the redirect table all derive from that one row.
 
