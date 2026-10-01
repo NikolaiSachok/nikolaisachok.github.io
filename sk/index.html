@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nikolai Sachok — AI inžinier</title>
-  <meta name="description" content="AI inžinier: vyvíjam a prevádzkujem LLM systémy v produkcii — orchestrácia multi-agent systémov, RAG, vyhodnocovanie a guardrails." />
+  <title>Nikolai Sachok — Lead AI Engineer</title>
+  <meta name="description" content="Lead AI Engineer pre produkčné LLM systémy: orchestrácia multi-agent systémov, RAG, vyhodnocovanie a guardrails. Viac než 20 rokov vyvíjam softvér a vediem tímy. Som k dispozícii na projektovú spoluprácu." />
   <meta name="author" content="Nikolai Sachok" />
 
   <link rel="canonical" href="https://nikolaisachok.com/sk/" />
@@ -16,21 +16,23 @@
   <link rel="alternate" hreflang="x-default" href="https://nikolaisachok.com/" />
 
   <!-- Open Graph / social preview -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Nikolai Sachok — AI inžinier" />
-  <meta property="og:description" content="Vyvíjam a prevádzkujem LLM systémy v produkcii — orchestrácia multi-agent systémov, RAG, vyhodnocovanie a guardrails." />
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Nikolai Sachok — Lead AI Engineer" />
+  <meta property="og:description" content="Vyvíjam AI systémy, ktoré v produkcii prinášajú merateľné výsledky, a preberám za ne zodpovednosť od začiatku do konca. Som k dispozícii na projektovú spoluprácu." />
   <meta property="og:url" content="https://nikolaisachok.com/sk/" />
+  <meta property="og:image" content="https://nikolaisachok.com/assets/img/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="sk_SK" />
   <meta property="og:locale:alternate" content="en_US" />
   <meta property="og:locale:alternate" content="de_DE" />
   <meta property="og:locale:alternate" content="ru_RU" />
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E" />
 
-  <!-- Source Serif 4 sets the content, Public Sans the chrome (labels, dates).
-       Both are OFL. preconnect first so the font CSS request does not wait on a
-       fresh connection; every face has a real fallback in style.css. -->
+  <!-- Source Serif 4 sets the content, Public Sans the chrome (labels, buttons,
+       dates). Both are OFL; every face has a real fallback in style.css. -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@500;600;700&display=swap" />
@@ -38,7 +40,7 @@
   <!-- Content-hashed by build.py: the domain is behind Cloudflare, which holds
        stylesheets at the edge for four hours. A changing URL is the only thing
        a visitor's hard refresh can actually get past. -->
-  <link rel="stylesheet" href="/assets/style.css?v=f3d7aaa1d656" />
+  <link rel="stylesheet" href="/assets/style.css?v=e4412d0ff108" />
   <script>
   (function () {
     var HERE = 'sk';
@@ -136,127 +138,240 @@
       <button type="button" class="notice-dismiss" aria-label="Zavrieť">&times;</button>
     </div>
 
-    <header>
-      <h1 class="name">Nikolai Sachok</h1>
-      <p class="role">AI inžinier — LLM systémy v produkcii</p>
-      <!-- Repeated in the footer on purpose. GitHub is the proof a visitor
-           arriving from an article wants next, and the footer is ~2000px away.
-           Not translated: all three are proper nouns. -->
-      <p class="identity">
-        <a href="https://github.com/NikolaiSachok">GitHub</a>
-        <span class="sep" aria-hidden="true">·</span>
-        <a href="https://www.linkedin.com/in/nikolai-sachok/">LinkedIn</a>
-        <span class="sep" aria-hidden="true">·</span>
-        <a href="https://x.com/nsachok">X</a>
-      </p>
-      <p class="lead">Vyvíjam a prevádzkujem LLM systémy v produkcii: orchestrujem multi-agent systémy, staviam RAG, nastavujem vyhodnocovanie a guardrails. Vyštudoval som fyziku, potom som dve desaťročia vyvíjal softvér a viedol vývojové tímy — 500+ vydaných aplikácií, 10M+ stiahnutí — a dnes AI systémy staviam priamo v kóde.</p>
-      <p class="lead muted">Začínal som písaním simulácií v C++ pre experimenty CERNu na urýchľovači LHC, potom som vyše 20 rokov vyvíjal softvér a viedol vývojové tímy. V roku 2025 som okolo AI prestaval celý spôsob, akým softvér vyvíjam a vydávam: proces riadia LLM modely a od návrhu až po vydanie ho prevádzkujem sám. Najviac práce pripadá na overovanie a vyhodnocovanie, ktoré udržia kvalitu aj pri veľkom objeme: <em>generovanie nie je úzke miesto, overovanie áno.</em></p>
+    <header class="hero">
+      <img class="photo" src="/assets/img/nikolai-240.webp"
+           srcset="/assets/img/nikolai-240.webp 240w, /assets/img/nikolai-480.webp 480w"
+           sizes="(max-width: 640px) 96px, 148px"
+           width="148" height="148" alt="Nikolai Sachok" />
+      <div class="hero-id">
+        <p class="availability"><span class="dot" aria-hidden="true"></span>K dispozícii na projektovú spoluprácu</p>
+        <h1 class="name">Nikolai Sachok</h1>
+        <p class="role">Lead AI Engineer · produkčné LLM systémy</p>
+      </div>
+      <div class="hero-body">
+        <p class="headline">Vyvíjam AI systémy, ktoré v produkcii prinášajú merateľné výsledky, a preberám za ne zodpovednosť od začiatku do konca.</p>
+        <p class="lead">Viac než 20 rokov vyvíjam softvér a vediem tímy — ako zakladateľ, interim COO aj lead engineer. Naposledy som vytvoril multi-agent LLM pipeline, ktorá nahradila výstup 12-členného tímu. Spolupracujem s ľuďmi, ktorí zodpovedajú za obchodný problém, nie iba za ticket.</p>
+        <div class="actions">
+          <!-- The address is never in the markup: the script assembles it on load,
+               so a scraper reading HTML finds only the LinkedIn fallback. -->
+          <a class="btn btn-primary" data-mail href="https://www.linkedin.com/in/nikolai-sachok/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>Napíšte mi</a>
+          <button type="button" class="btn btn-ghost" data-open-video>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path class="fill" d="M8 5v14l11-7z" /></svg>Pozrite si 5-minútové predstavenie</button>
+        </div>
+        <p class="meta-line">
+          <span>Bratislava, Slovensko (CET) · pracujem na diaľku</span>
+          <span class="mail-addr" hidden></span>
+        </p>
+        <p class="social">
+          <a href="https://www.linkedin.com/in/nikolai-sachok/">LinkedIn</a>
+          <a href="https://github.com/NikolaiSachok">GitHub</a>
+          <a href="https://x.com/nsachok">X</a>
+        </p>
+      </div>
     </header>
 
-    <section class="video" aria-label="Úvodné video">
-      <div class="video-frame">
-        <a class="video-facade" href="https://www.youtube.com/watch?v=G0wu4CbFEvU"
-           data-embed="https://www.youtube-nocookie.com/embed/G0wu4CbFEvU?autoplay=1&amp;rel=0"
-           data-title="Kto som — úvodné video"
-           aria-label="Prehrať: Kto som — 5-minútové predstavenie">
-          <img src="https://i.ytimg.com/vi/G0wu4CbFEvU/maxresdefault.jpg"
-               onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/G0wu4CbFEvU/hqdefault.jpg'"
-               alt="Kto som — úvodné video" loading="lazy" />
-          <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-        </a>
-      </div>
-      <p class="video-cap"><strong>Kto som — 5-minútové predstavenie.</strong> Prechádzam si tri otázky, ktorými sa zvyčajne začína prvý pohovor na pozíciu AI inžiniera: ① 20 rokov vo vývoji softvéru, posledné dva v AI · ② môj najnovší verejný projekt Strata-RAG (vyhľadávanie + vyhodnocovanie) · ③ jazyky a stack, ktoré ovládam najlepšie.</p>
+    <ul class="proof">
+      <li><span class="proof-num">20+</span><span class="proof-label">rokov vývoja softvéru a vedenia tímov</span></li>
+      <li><span class="proof-num">500+</span><span class="proof-label">vydaných aplikácií, 10M+ stiahnutí</span></li>
+      <li><span class="proof-num">10 za 3–4 dni</span><span class="proof-label">produkčných aplikácií vydaných samostatne, keď 12-členný tím stagnoval na približne 8 za týždeň</span></li>
+      <li><span class="proof-num">~$6</span><span class="proof-label">priemerné náklady AI modelov na vydanú aplikáciu</span></li>
+    </ul>
+
+    <section aria-labelledby="h-help">
+      <h2 id="h-help">S čím vám pomôžem</h2>
+      <ul class="help">
+        <li>
+          <h3>Vytvorenie AI produktu alebo funkcie</h3>
+          <p>Od obchodného cieľa po funkciu v produkcii: vymedzenie rozsahu, architektúra, vývoj a základ pre vyhodnocovanie, aby ste vedeli, že riešenie funguje skôr, než sa naň spoľahnú používatelia. Pevne vymedzený rozsah, cena za výstup.</p>
+          <p class="fit">Pre zakladateľov a produktové tímy</p>
+        </li>
+        <li>
+          <h3>Spoľahlivý LLM systém</h3>
+          <p>Váš RAG alebo agent funguje v deme, no v produkcii sa správa inak. Zistím prečo: oddelím skóre retrievalu a generovania, pripravím golden set, LLM-as-judge podľa rubriky a kontroly prompt injection a únikov PII. Dostanete zoradený report zlyhaní aj opravy.</p>
+          <p class="fit">Pre tímy, ktoré už dodávajú AI</p>
+        </li>
+        <li>
+          <h3>Vedenie AI engineeringu s vaším tímom</h3>
+          <p>Lead alebo staff engineer, ktorý sa na dlhodobom kontrakte stane súčasťou vášho tímu: architektúra, delivery, praktické využitie AI pri vývoji a priama spolupráca s produktom a vedením na tom, čo vyvíjať a prečo.</p>
+          <p class="fit">Pre firmy budujúce AI kompetenciu</p>
+        </li>
+      </ul>
     </section>
 
-    <h2>Na čom pracujem</h2>
-    <ul class="tags">
-      <li class="tag">Agentické systémy</li>
-      <li class="tag"><span class="sep" aria-hidden="true">·</span>Orchestrácia multi-agent systémov</li>
-      <li class="tag"><span class="sep" aria-hidden="true">·</span>RAG &amp; vyhľadávanie</li>
-      <li class="tag"><span class="sep" aria-hidden="true">·</span>Vyhodnocovanie &amp; LLM-as-judge</li>
-      <li class="tag"><span class="sep" aria-hidden="true">·</span>Guardrails &amp; bezpečnosť</li>
-      <li class="tag"><span class="sep" aria-hidden="true">·</span>MCP nástroje</li>
-      <li class="tag"><span class="sep" aria-hidden="true">·</span>SDLC s podporou AI</li>
-    </ul>
+    <section aria-labelledby="h-cases">
+      <h2 id="h-cases">Vybrané projekty</h2>
+      <article class="case">
+        <p class="kicker">Biznis s mobilnými aplikáciami · 2025–2026</p>
+        <h3>LLM delivery pipeline, ktorá prekonala 12-členný tím</h3>
+        <dl>
+          <div><dt>Situácia</dt><dd>Biznis rástol uvádzaním nových aplikácií. Tím, ktorý som viedol — 9 inžinierov a 3 dizajnéri — sa zastavil na približne 8 aplikáciách týždenne a ďalší ľudia prinášali viac koordinácie, nie väčší výkon.</dd></div>
+          <div><dt>Čo som urobil</dt><dd>Navrhol som a prevádzkoval multi-agent pipeline pokrývajúcu dizajn, kód, materiály do storeov a promo weby, s routovaním modelov podľa úlohy medzi Claude, Gemini a OpenAI, nezávislými verifikačnými agentmi, auditmi LLM-as-judge podľa rubriky závažnosti a limitmi nákladov na session. Navrhol som aj jej platformu v Google Cloud (Gemini a Claude na Vertex AI, Cloud Run, IAP, Secret Manager, Cloud Logging) a multimodálne textové a obrazové vyhľadávanie v katalógu firmy s 2 000+ aplikáciami. Platenú low-code administrátorskú platformu som nahradil interným dashboardom — rozhodnutie „vyvinúť, či kúpiť“, ktoré umožnil až vývoj s pomocou AI.</dd></div>
+          <div class="result"><dt>Výsledok</dt><dd>Počas posledného týždňa som sám vydal 10 produkčných aplikácií za 3–4 dni, pričom buildy kontroloval jeden QA inžinier; náklady na modelové API boli približne $6 na aplikáciu.</dd></div>
+        </dl>
+      </article>
+      <article class="case">
+        <p class="kicker">Ten istý biznis · 2020–2024</p>
+        <h3>Nové distribučné kanály pre portfólio 200 aplikácií</h3>
+        <dl>
+          <div><dt>Situácia</dt><dd>Mal som na starosti približne 200 mobilných aplikácií od začiatku do konca — od nápadu cez vydanie až po prevádzku — a s vlastníkmi biznisu som pracoval na rozpočtoch a ROI, aby portfólio zostalo ziskové.</dd></div>
+          <div><dt>Čo som urobil</dt><dd>Z vlastnej iniciatívy som preskúmal Huawei AppGallery a Samsung Galaxy Store, vydal testovacie aplikácie, zmeral výsledky a po schválení biznisom tam zabezpečil plné vydania. Navrhol som kampane na získavanie používateľov priamo v Samsung Galaxy Store a zastrešil ich technickú stránku: atribúciu cez Adjust a AppsFlyer, reklamné SDK a dáta z kampaní.</dd></div>
+          <div class="result"><dt>Výsledok</dt><dd>Päť obchodov s aplikáciami obsluhoval jeden zdrojový kód pre Android so samostatným buildom pre každý obchod. Spoločná šablóna zmenila každú novú aplikáciu prevažne na konfiguráciu a grafiku, pričom sa znovu využilo 80–90 % kódu.</dd></div>
+        </dl>
+      </article>
+      <article class="case">
+        <p class="kicker">Open-source prípadová štúdia · 2026</p>
+        <h3>Bezpečnostná funkcia v 20-ročnej codebase na stacku, ktorý som nikdy nepoužil</h3>
+        <dl>
+          <div><dt>Situácia</dt><dd>Personal access tokens pre REST API Redmine 6.1.2, aplikáciu v Ruby on Rails s dvadsiatimi rokmi histórie.</dd></div>
+          <div><dt>Čo som urobil</dt><dd>Začal som code mapami, zmeny nechal implementovať subagentmi a po každej oprave znovu spustil päťosový verifikačný gate. Žiadny agent nehodnotil vlastnú prácu.</dd></div>
+          <div class="result"><dt>Výsledok</dt><dd>39 problémov, 75 zaznamenaných útokov a 4 674 riadkov testov. Úplný záznam procesu je zverejnený pri kóde.</dd></div>
+        </dl>
+        <a class="case-link" href="https://github.com/NikolaiSachok/redmine">Prečítať prípadovú štúdiu <span aria-hidden="true">→</span></a>
+      </article>
+    </section>
 
-    <h2 class="section-head">Texty</h2>
-    <ul class="entries">
-      <li>
-        <a class="entry" href="https://nikolaisachok.com/ai-engineering-handbook/">
-          <span class="entry-title">Enterprise RAG &amp; Agents Handbook</span>
-          <span class="entry-desc">Praktická príručka o RAG a agentických systémoch v produkcii, ktorá ich vysvetľuje od základných princípov. Učí, prečo veci fungujú a kde zlyhávajú, nielen aké majú funkcie.</span>
-          <span class="entry-meta">Od júla 2026 · Tri kurzy, viacero jazykov</span>
-        </a>
-      </li>
-      <li>
-        <a class="entry" href="https://dev.to/nsachok/i-asked-a-frontier-llm-to-recover-secrets-from-my-decompiled-build-1ojb">
-          <span class="entry-title">I Asked a Frontier LLM to Recover Secrets from My Decompiled Build</span>
-          <span class="entry-desc">Vlastná obfuskácia môže vyzerať dobre, no o náročnosti jej prelomenia to nič nehovorí, keďže už viete, kde čo je. Špičkovému LLM som dal dekompilovaný program, aby bez predchádzajúcich znalostí skúsil odhaliť tajomstvá, a vyšetrovanie som viedol ako súdne konanie s obžalobou a obhajobou, aby sa výsledku dalo veriť.</span>
-          <span class="entry-meta">11. septembra 2026 · dev.to · aj na Medium a LinkedIne</span>
-        </a>
-      </li>
-      <li>
-        <a class="entry" href="https://dev.to/nsachok/eval-first-rag-use-separate-scores-to-triage-failures-33ed">
-          <span class="entry-title">Eval-First RAG: Use Separate Scores to Triage Failures</span>
-          <span class="entry-desc">Jediné celkové skóre síce odhalí pokles kvality, no nie jeho príčinu. Samostatné hodnotenie retrievalu a generovania ukáže, či retrieval našiel nesprávne podklady, alebo generátor nedodržal tie správne.</span>
-          <span class="entry-meta">3. septembra 2026 · dev.to · aj na Medium a LinkedIne</span>
-        </a>
-      </li>
-    </ul>
+    <section aria-labelledby="h-process">
+      <h2 id="h-process">Ako pracujem</h2>
+      <ol class="steps">
+        <li><h3>Začínam pri obchodnej hodnote</h3><p>Akú hodnotu má riešenie, keď funguje, a čo stojí, keď zlyhá? Od toho sa odvíja architektúra aj rozpočet — vrátane situácií, v ktorých je LLM nesprávnym nástrojom.</p></li>
+        <li><h3>Najprv vytvorím vyhodnocovanie</h3><p>Golden set a skórovacia rubrika vzniknú ešte pred funkciou, aby „lepšie“ bolo číslo, nie názor.</p></li>
+        <li><h3>Overujem nezávisle</h3><p>Generovanie je lacné, overovanie je úzke miesto. Každý výstup prejde kontrolami, ktoré nemá pod kontrolou agent, ktorý ho vytvoril.</p></li>
+        <li><h3>Odovzdám vám riešenie, ktoré vlastníte</h3><p>Kód, evaluačný harness aj dokumentácia zostanú vám — rovnako ako znalosť toho, ako všetko funguje.</p></li>
+      </ol>
+    </section>
 
-    <h2 class="section-head">Projekty</h2>
-    <ul class="entries">
-      <li>
-        <a class="entry" href="https://nikolaisachok.com/Strata-RAG/">
-          <span class="entry-title">Strata-RAG</span>
-          <span class="entry-desc">RAG engine nad rôznorodými korpusmi, postavený okolo vyhodnocovania a napísaný tak, aby sa z neho dalo učiť — Qdrant + HNSW, hybridné vyhľadávanie s RRF, re-ranking cez cross-encoder, metadátový sidecar na agregáciu a eval harness (Recall@K / nDCG / MRR + vernosť odpovedí metódou LLM-as-judge) s viacvrstvovou ochranou proti injection a úniku PII.</span>
-          <span class="entry-meta">GitHub · Python</span>
-        </a>
-      </li>
-      <li>
-        <a class="entry" href="https://github.com/NikolaiSachok/redmine">
-          <span class="entry-title">Personal access tokens v Redmine: prípadová štúdia AI-⁠SDLC</span>
-          <span class="entry-desc">Personal access tokens pre REST API Redmine 6.1.2, Rails aplikácie s dvadsiatimi rokmi histórie, vytvorené na stacku, s ktorým som dovtedy nemal žiadne skúsenosti. Najprv code maps existujúcej kódovej základne od read-only agentov, potom AI subagenti pre implementáciu a päťosový verifikačný gate spúšťaný znova po každej oprave: 39 issues, 75 zaznamenaných pokusov o útok, 4 674 riadkov testov. Úplný záznam procesu je publikovaný vedľa kódu.</span>
-          <span class="entry-meta">GitHub · Ruby on Rails · Claude Code</span>
-        </a>
-      </li>
-      <li>
-        <a class="entry" href="https://github.com/NikolaiSachok/strata-insurance-corpus">
-          <span class="entry-title">strata-insurance-corpus</span>
-          <span class="entry-desc">Reprodukovateľný syntetický korpus poistných dokumentov vo viacerých formátoch — pôvodne digitálne aj skenované PDF, Word, tabuľky a fotografie — so zlatou vyhodnocovacou sadou, ktorá vyplýva priamo z toho, ako je korpus postavený. Vznikol na benchmarkovanie dokumentového RAG na dátach podnikového typu.</span>
-          <span class="entry-meta">GitHub · Python</span>
-        </a>
-      </li>
-      <li>
-        <a class="entry" href="https://nikolaisachok.com/DC-plugins/">
-          <span class="entry-title">DC-plugins</span>
-          <span class="entry-desc">Natívne macOS pluginy pre Double Commander (Objective-C, univerzálne binárky, headless testy, CI) — malý natívny nástroj dotiahnutý od začiatku až do podoby vhodnej na zverejnenie.</span>
-          <span class="entry-meta">GitHub · Objective-C</span>
-        </a>
-      </li>
-    </ul>
+    <section aria-labelledby="h-public">
+      <h2 id="h-public">Open source a texty</h2>
+      <ul class="entries">
+        <li>
+          <a class="entry" href="https://nikolaisachok.com/ai-engineering-handbook/">
+            <span class="entry-title">Enterprise RAG &amp; Agents Handbook</span>
+            <span class="entry-desc">Praktická príručka založená na prvých princípoch pre produkčný RAG a agentické systémy. Vysvetľuje, prečo fungujú a kde zlyhávajú, nie iba aké majú funkcie.</span>
+            <span class="entry-meta">Príručka · od júla 2026 · tri kurzy, viacero jazykov</span>
+          </a>
+        </li>
+        <li>
+          <a class="entry" href="https://nikolaisachok.com/Strata-RAG/">
+            <span class="entry-title">Strata-RAG</span>
+            <span class="entry-desc">Open-source RAG engine postavený od začiatku s dôrazom na vyhodnocovanie: hybridný retrieval s rank fusion, cross-encoder re-ranking, metadátové úložisko pre otázky na počítanie a výpisy, evaluačný harness s retrieval metrikami a faithfulness cez LLM-judge a viacvrstvová ochrana proti prompt injection a únikom PII.</span>
+            <span class="entry-meta">GitHub · Python</span>
+          </a>
+        </li>
+        <li>
+          <a class="entry" href="https://github.com/NikolaiSachok/strata-insurance-corpus">
+            <span class="entry-title">strata-insurance-corpus</span>
+            <span class="entry-desc">Reprodukovateľný syntetický korpus poistných dokumentov vo viacerých formátoch (digitálne vytvorené aj skenované PDF, Word, tabuľky a fotografie) so golden evaluačnou sadou vytvorenou priamo pri jeho konštrukcii. Je určený na benchmarkovanie dokumentového RAG na dátach podobných podnikovým.</span>
+            <span class="entry-meta">GitHub · Hugging Face · Python</span>
+          </a>
+        </li>
+        <li>
+          <a class="entry" href="https://dev.to/nsachok/i-asked-a-frontier-llm-to-recover-secrets-from-my-decompiled-build-1ojb">
+            <span class="entry-title">I Asked a Frontier LLM to Recover Secrets from My Decompiled Build</span>
+            <span class="entry-desc">Vlastnú obfuskáciu nedokážete posúdiť, pretože už viete, kde sa všetko nachádza. Frontier LLM som dal dekompilovaný build, nech sa naslepo pokúsi obnoviť tajomstvá, a vyšetrovanie som viedol ako kontradiktórne súdne konanie, aby sa výsledku dalo veriť.</span>
+            <span class="entry-meta">Článok · 11. septembra 2026 · dev.to</span>
+          </a>
+        </li>
+        <li>
+          <a class="entry" href="https://dev.to/nsachok/eval-first-rag-use-separate-scores-to-triage-failures-33ed">
+            <span class="entry-title">Eval-First RAG: Use Separate Scores to Triage Failures</span>
+            <span class="entry-desc">Jedno end-to-end skóre ukáže, že sa zmenila kvalita odpovedí, nie však čo ju zmenilo. Samostatné skóre retrievalu a generovania premení nejasnú regresiu na rozhodnutie, kde hľadať najskôr.</span>
+            <span class="entry-meta">Článok · 3. septembra 2026 · dev.to</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="h-about" class="about">
+      <h2 id="h-about">O mne</h2>
+      <p>Vyštudoval som fyziku. Začínal som písaním C++ simulácií pre experimenty CERNu na LHC, potom som viac než 20 rokov vyvíjal softvér a viedol engineering tímy.</p>
+      <p>Založil som štúdio mobilných hier a rozrástol ho na tím siedmich ľudí: ako lead engineer som vydal 200+ hier, vyjednával partnerstvá s vydavateľmi a reklamnými sieťami a mal na starosti nábor, financie a KPI. Ako interim COO som nastúpil do startupu, aby som ho stabilizoval, analyzoval jeho ziskovosť a viedol pivot. Šesť rokov som pôsobil ako lead engineer vo firme vyvíjajúcej mobilné aplikácie, kde som s vlastníkmi biznisu pracoval na rozpočtoch a ROI a s výkonným tímom na stratégii.</p>
+      <p>V roku 2025 som s pomocou AI nanovo postavil vlastný delivery proces. Ponaučenie, ktoré som si odniesol: <em>úzkym miestom nie je generovanie, ale overovanie.</em></p>
+      <h3>Kľúčové zručnosti</h3>
+      <ul class="chips">
+        <li>Agentické systémy</li>
+        <li>Multi-agent orchestration</li>
+        <li>RAG a retrieval</li>
+        <li>Vyhodnocovanie a LLM-as-judge</li>
+        <li>Guardrails</li>
+        <li>MCP tooling</li>
+        <li>AI-assisted SDLC</li>
+        <li>Python</li>
+        <li>FastAPI</li>
+        <li>Qdrant</li>
+        <li>Google Cloud</li>
+        <li>Claude, Gemini a OpenAI APIs</li>
+      </ul>
+    </section>
+
+    <section class="cta" aria-labelledby="h-cta">
+      <h2 id="h-cta">Máte AI produkt na vytvorenie alebo LLM systém na opravu?</h2>
+      <p>Napíšte mi pár riadkov o probléme a výsledku, ktorý chcete dosiahnuť. Ak je naň AI nesprávny nástroj, poviem vám to.</p>
+      <div class="actions">
+        <a class="btn btn-invert" data-mail href="https://www.linkedin.com/in/nikolai-sachok/">Napíšte mi</a>
+        <a class="btn btn-invert-ghost" href="https://www.linkedin.com/in/nikolai-sachok/">Napíšte mi na LinkedIn</a>
+      </div>
+      <p class="mail-addr cta-addr" hidden></p>
+    </section>
 
     <footer>
-      <a href="https://github.com/NikolaiSachok">GitHub</a>
-      <a href="https://www.linkedin.com/in/nikolai-sachok/">LinkedIn</a>
-      <a href="https://x.com/nsachok">X</a>
+      <span>© 2026 Nikolai Sachok</span>
+      <span class="footer-links">
+        <a href="https://www.linkedin.com/in/nikolai-sachok/">LinkedIn</a>
+        <a href="https://github.com/NikolaiSachok">GitHub</a>
+        <a href="https://x.com/nsachok">X</a>
+      </span>
     </footer>
   </div>
 
+  <dialog class="video-dialog" aria-label="Kto som — 5-minútové predstavenie">
+    <div class="video-frame" data-embed="https://www.youtube-nocookie.com/embed/G0wu4CbFEvU?autoplay=1&amp;rel=0" data-title="Kto som — úvodné video"></div>
+    <form method="dialog"><button class="video-close" aria-label="Zavrieť">&times;</button></form>
+  </dialog>
+
   <script>
-    document.querySelectorAll('.video-facade').forEach(function (a) {
-      a.addEventListener('click', function (e) {
-        e.preventDefault();
-        var frame = a.parentNode;
-        var iframe = document.createElement('iframe');
-        iframe.src = a.dataset.embed;
-        iframe.title = a.dataset.title;
-        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-        iframe.setAttribute('allowfullscreen', '');
-        frame.innerHTML = '';
-        frame.appendChild(iframe);
+    /* Email. Stored reversed and split so the address never appears in the HTML;
+       a scraper that does not run JavaScript only sees the LinkedIn fallback. */
+    (function () {
+      var addr = ['moc.kohcasialokin', 'ssenisub'].map(function (s) {
+        return s.split('').reverse().join('');
+      }).reverse().join('@');
+      document.querySelectorAll('[data-mail]').forEach(function (a) {
+        a.href = 'mailto:' + addr;
       });
-    });
+      document.querySelectorAll('.mail-addr').forEach(function (el) {
+        el.textContent = addr;
+        el.hidden = false;
+      });
+    })();
+
+    /* Intro video in a native <dialog>. The iframe is created on open and
+       destroyed on close, so nothing loads from YouTube until it is asked for
+       and closing really stops playback. Without <dialog> support, the button
+       falls back to opening YouTube. */
+    (function () {
+      var dialog = document.querySelector('.video-dialog');
+      var frame = dialog && dialog.querySelector('.video-frame');
+      document.querySelectorAll('[data-open-video]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          if (!dialog || typeof dialog.showModal !== 'function') {
+            location.href = 'https://www.youtube.com/watch?v=G0wu4CbFEvU';
+            return;
+          }
+          var iframe = document.createElement('iframe');
+          iframe.src = frame.dataset.embed;
+          iframe.title = frame.dataset.title;
+          iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+          iframe.setAttribute('allowfullscreen', '');
+          frame.appendChild(iframe);
+          dialog.showModal();
+        });
+      });
+      if (dialog) {
+        dialog.addEventListener('close', function () { frame.innerHTML = ''; });
+        dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+      }
+    })();
 
     /* A language chosen by hand is remembered and never auto-overridden again. */
     document.querySelectorAll('[data-setlang]').forEach(function (a) {
@@ -265,15 +380,9 @@
       });
     });
 
-    /* Theme. One button cycling auto -> light -> dark -> auto.
-
-       "auto" is the ABSENCE of a choice, not a third stored value: it clears the
-       key and the attribute, so the stylesheet goes back to following
-       prefers-color-scheme. The head script has already applied any stored
-       choice before paint, and CSS picks the matching glyph off the same
-       attribute, so this only records the change and keeps the label honest
-       about which state you are now in — the thing a cycling control otherwise
-       leaves you guessing at. */
+    /* Theme. One button cycling auto -> light -> dark -> auto. "auto" is the
+       ABSENCE of a choice: it clears the key and the attribute, so the
+       stylesheet goes back to following prefers-color-scheme. */
     (function () {
       var button = document.getElementById('theme-toggle');
       if (!button) return;

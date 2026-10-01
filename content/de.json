@@ -1,9 +1,9 @@
 {
   "meta": {
-    "title": "Nikolai Sachok — AI Engineer",
-    "description": "AI Engineer: Ich entwickle und betreibe LLM-Systeme im Produktivbetrieb — Multi-Agent-Orchestrierung, RAG, Evaluation und Guardrails.",
-    "og_title": "Nikolai Sachok — AI Engineer",
-    "og_description": "Ich entwickle und betreibe LLM-Systeme im Produktivbetrieb — Multi-Agent-Orchestrierung, RAG, Evaluation und Guardrails."
+    "title": "Nikolai Sachok — Lead AI Engineer",
+    "description": "Lead AI Engineer für produktive LLM-Systeme: Multi-Agent-Orchestrierung, RAG, Evaluation und Guardrails. Mehr als 20 Jahre Softwareentwicklung und Teamführung. Verfügbar für freiberufliche Projekte.",
+    "og_title": "Nikolai Sachok — Lead AI Engineer",
+    "og_description": "Ich entwickle AI-Systeme, die im Produktivbetrieb messbare Ergebnisse liefern, und verantworte sie durchgängig. Verfügbar für freiberufliche Projekte."
   },
   "switcher": {
     "label": "Sprache",
@@ -27,70 +27,165 @@
     "english_link": "Auf Englisch lesen",
     "dismiss": "Schließen"
   },
-  "header": {
+  "hero": {
+    "availability": "Verfügbar für freiberufliche Projekte",
     "name": "Nikolai Sachok",
-    "role": "AI Engineer — LLM-Systeme im Produktivbetrieb",
-    "lead_1": "Ich entwickle und betreibe LLM-Systeme im Produktivbetrieb: Multi-Agent-Orchestrierung, RAG, Evaluation und Guardrails. Ich habe Physik studiert und danach zwei Jahrzehnte lang Software entwickelt und Entwicklungsteams geleitet — 500+ ausgelieferte Apps, 10M+ Downloads. Heute entwickle ich AI-Systeme selbst, direkt am Code.",
-    "lead_2": "Angefangen habe ich damit, Simulationscode in C++ für die LHC-Experimente des CERN zu schreiben. Danach habe ich über 20 Jahre lang Software entwickelt und Entwicklungsteams geleitet. 2025 habe ich dann die Abläufe, mit denen ich Software entwickle und ausliefere, von Grund auf um AI herum neu aufgebaut: Ich betreibe eine von LLMs orchestrierte Pipeline vom Entwurf bis zum Release — allein. Den größten Teil der Arbeit machen Verifikation und Evaluation aus; sie sichern die Qualität auch im großen Maßstab: <em>Nicht die Generierung ist der Engpass, sondern die Verifikation.</em>"
+    "role": "Lead AI Engineer · produktive LLM-Systeme",
+    "photo_alt": "Nikolai Sachok",
+    "headline": "Ich entwickle AI-Systeme, die im Produktivbetrieb messbare Ergebnisse liefern, und verantworte sie durchgängig.",
+    "lead": "Seit mehr als 20 Jahren entwickle ich Software und führe Teams — als Gründer, Interim-COO und Lead Engineer. Zuletzt habe ich eine Multi-Agent-LLM-Pipeline gebaut, die den Output eines 12-köpfigen Teams ersetzt hat. Ich arbeite mit den Menschen, die das Geschäftsproblem verantworten, nicht nur mit dem Ticket.",
+    "cta_email": "E-Mail schreiben",
+    "cta_video": "5-Minuten-Intro ansehen",
+    "location": "Bratislava, Slowakei (CET) · remote"
   },
   "video": {
-    "section_label": "Vorstellungsvideo",
-    "play_label": "Abspielen: Wer ich bin — eine 5-minütige Einführung",
-    "img_alt": "Wer ich bin — Vorstellungsvideo",
-    "iframe_title": "Wer ich bin — Vorstellungsvideo",
-    "caption": "<strong>Wer ich bin — eine 5-minütige Einführung.</strong> Ich gehe die drei Fragen durch, mit denen ein Erstgespräch im AI-Engineering meist beginnt: ① 20 Jahre in der Softwareentwicklung, die letzten beiden davon mit AI · ② mein jüngstes öffentliches Projekt, Strata-RAG (Retrieval + Evaluation) · ③ die Programmiersprachen, die ich am besten beherrsche, und mein Stack."
+    "dialog_label": "Wer ich bin — 5-Minuten-Intro",
+    "iframe_title": "Wer ich bin — Video-Intro",
+    "close": "Schließen"
   },
+  "proof": [
+    {
+      "num": "20+",
+      "label": "Jahre Softwareentwicklung und Teamführung"
+    },
+    {
+      "num": "500+",
+      "label": "ausgelieferte Apps, 10M+ Downloads"
+    },
+    {
+      "num": "10 in 3–4 Tagen",
+      "label": "Produktiv-Apps allein ausgeliefert, nachdem ein 12-köpfiges Team bei etwa 8 pro Woche stagnierte"
+    },
+    {
+      "num": "~$6",
+      "label": "durchschnittliche AI-Modellkosten je ausgelieferter App"
+    }
+  ],
   "sections": {
-    "work": "Woran ich arbeite",
-    "writing": "Texte",
-    "built": "Projekte"
+    "help": "Wobei ich helfe",
+    "cases": "Ausgewählte Projekte",
+    "process": "Wie ich arbeite",
+    "public": "Open Source und Texte",
+    "about": "Über mich",
+    "skills": "Kernkompetenzen"
   },
-  "tags": [
+  "help": [
+    {
+      "title": "Ein AI-Produkt oder Feature bauen",
+      "desc": "Vom Geschäftsziel bis zum Feature im Produktivbetrieb: Scoping, Architektur, Umsetzung und eine Evaluations-Baseline — damit Sie wissen, dass es funktioniert, bevor Ihre Nutzer darauf angewiesen sind. Fest definierter Umfang, Preis pro Deliverable.",
+      "fit": "Für Gründer und Produktteams"
+    },
+    {
+      "title": "Ein LLM-System zuverlässig machen",
+      "desc": "Ihr RAG- oder Agentensystem funktioniert in der Demo, verhält sich im Produktivbetrieb aber anders. Ich finde heraus, warum: getrennte Scores für Retrieval und Generierung, ein golden set, LLM-as-judge anhand einer Bewertungsmatrix sowie Checks auf prompt injection und PII-Leaks. Sie erhalten einen priorisierten Fehlerbericht und die passenden Fixes.",
+      "fit": "Für Teams, die bereits AI ausliefern"
+    },
+    {
+      "title": "AI Engineering mit Ihrem Team führen",
+      "desc": "Ein Engineer auf Lead- oder Staff-Level arbeitet langfristig in Ihrem Team: an Architektur und Delivery, an einem praktikablen Einsatz von AI in der Entwicklung sowie direkt mit Produktverantwortlichen und Führungskräften an der Frage, was gebaut werden soll und warum.",
+      "fit": "Für Unternehmen im Aufbau einer AI-Kompetenz"
+    }
+  ],
+  "labels": {
+    "problem": "Die Ausgangslage",
+    "did": "Mein Beitrag",
+    "result": "Das Ergebnis",
+    "read": "Fallstudie lesen"
+  },
+  "cases": [
+    {
+      "kicker": "Mobile-App-Geschäft · 2025–2026",
+      "title": "Eine LLM-Delivery-Pipeline, die ein 12-köpfiges Team überholte",
+      "problem": "Das Geschäft wuchs durch neue Apps. Das von mir geführte Team aus 9 Engineers und 3 Designern stagnierte bei etwa 8 Apps pro Woche; mehr Personal erhöhte vor allem den Abstimmungsaufwand, nicht den Output.",
+      "did": "Ich habe eine Multi-Agent-Pipeline entworfen und betrieben, die Design, Code, Store-Assets und Promo-Websites abdeckt, mit aufgabenabhängigem Routing über Claude, Gemini und OpenAI, unabhängigen Verifikationsagenten, LLM-as-judge-Prüfungen anhand einer Schweregrad-Matrix und Kostenlimits pro Session. Außerdem habe ich die Google-Cloud-Plattform der Pipeline (Gemini und Claude auf Vertex AI, Cloud Run, IAP, Secret Manager, Cloud Logging) sowie eine multimodale Text- und Bildsuche über den Katalog des Unternehmens mit 2.000+ Apps konzipiert und eine kostenpflichtige Low-Code-Admin-Plattform durch ein internes Dashboard ersetzt — eine Build-vs-Buy-Entscheidung, die AI-gestützte Entwicklung praktikabel machte.",
+      "result": "In meiner letzten Woche habe ich allein in 3–4 Tagen 10 Produktiv-Apps ausgeliefert; ein QA Engineer prüfte die Builds. Die Modell-APIs kosteten ~$6 pro App."
+    },
+    {
+      "kicker": "Dasselbe Unternehmen · 2020–2024",
+      "title": "Neue Vertriebskanäle für ein Portfolio aus 200 Apps",
+      "problem": "Ich verantwortete ein Portfolio von etwa 200 Mobile Apps durchgängig — von der Idee über den Release bis zum laufenden Betrieb. Mit den Geschäftsverantwortlichen arbeitete ich an Budgets und ROI, damit das Portfolio profitabel blieb.",
+      "did": "Aus eigener Initiative untersuchte ich Huawei AppGallery und Samsung Galaxy Store, veröffentlichte Test-Apps, maß die Ergebnisse und führte nach der Freigabe durch das Unternehmen vollständige Releases dort durch. Für den Samsung Galaxy Store schlug ich In-App-Kampagnen zur Nutzergewinnung vor und verantwortete deren technische Umsetzung: Attribution mit Adjust und AppsFlyer, Ad-SDKs und Kampagnendaten.",
+      "result": "Fünf App Stores wurden aus einer Android-Codebasis mit Store-spezifischen Builds beliefert. Ein gemeinsames App-Template machte jede neue App weitgehend zu einer Frage von Konfiguration und Assets; 80–90 % des Codes konnten wiederverwendet werden."
+    },
+    {
+      "kicker": "Open-Source-Fallstudie · 2026",
+      "title": "Ein Security-Feature in einer 20 Jahre alten Codebasis — mit einem unbekannten Stack",
+      "problem": "Personal Access Tokens für die REST API von Redmine 6.1.2, einer Ruby-on-Rails-Anwendung mit zwanzig Jahren Geschichte.",
+      "did": "Ich begann mit Code-Maps, ließ Subagents die Änderungen implementieren und führte nach jedem Fix erneut ein Verifikations-Gate mit fünf Prüfachsen durch. Kein Agent bewertete seine eigene Arbeit.",
+      "result": "39 Issues, 75 protokollierte Angriffe und 4.674 Zeilen Tests. Die vollständige Aufzeichnung des Prozesses ist neben dem Code veröffentlicht."
+    }
+  ],
+  "process": [
+    {
+      "title": "Beim wirtschaftlichen Nutzen ansetzen",
+      "desc": "Was ist es wert, wenn es funktioniert — und was kostet ein Fehler? Davon hängen Architektur und Budget ab, einschließlich der Frage, wo ein LLM das falsche Werkzeug ist."
+    },
+    {
+      "title": "Die Evaluation zuerst bauen",
+      "desc": "Golden set und Bewertungsmatrix stehen vor dem Feature. So wird „besser“ zu einer Zahl statt zu einer Meinung."
+    },
+    {
+      "title": "Unabhängig verifizieren",
+      "desc": "Generierung ist günstig; Verifikation ist der Engpass. Jeder Output durchläuft Checks, die der erzeugende Agent nicht kontrolliert."
+    },
+    {
+      "title": "Etwas übergeben, das Sie beherrschen",
+      "desc": "Code, Evaluations-Harness und Dokumentation bleiben bei Ihnen — ebenso das Wissen darüber, wie alles funktioniert."
+    }
+  ],
+  "public": [
+    {
+      "title": "Enterprise RAG & Agents Handbook",
+      "desc": "Ein praxisnahes Handbuch zu produktiven RAG- und agentischen Systemen. Es erklärt ausgehend von den Grundprinzipien, warum etwas funktioniert und woran es scheitert — nicht nur, welche Funktionen es gibt.",
+      "meta": "Handbuch · seit Juli 2026 · 3 Kurse, mehrere Sprachen"
+    },
+    {
+      "title": "Strata-RAG",
+      "desc": "Eine Open-Source-RAG-Engine, bei der die Evaluation an erster Stelle steht: hybrides Retrieval mit Rank Fusion, Cross-Encoder-Re-Ranking, ein Metadaten-Store für Zähl- und Auflistungsfragen, ein Evaluations-Harness mit Retrieval-Metriken und Faithfulness-Prüfung per LLM-judge sowie mehrschichtige Abwehr gegen prompt injection und PII-Leaks.",
+      "meta": "GitHub · Python"
+    },
+    {
+      "title": "strata-insurance-corpus",
+      "desc": "Ein reproduzierbares, synthetisches Versicherungskorpus in mehreren Formaten (digital erzeugte und gescannte PDFs, Word-Dokumente, Tabellen und Fotos) mit einem konstruktionsbedingt goldstandardbasierten Evaluationsdatensatz. Entwickelt, um Dokumenten-RAG mit Daten in Unternehmensform zu benchmarken.",
+      "meta": "GitHub · Hugging Face · Python"
+    },
+    {
+      "title": "I Asked a Frontier LLM to Recover Secrets from My Decompiled Build",
+      "desc": "Die eigene Obfuskation lässt sich nicht zuverlässig beurteilen, weil man bereits weiß, wo alles liegt. Ich gab einem Frontier-LLM den dekompilierten Build, ließ es blind versuchen, die Geheimnisse wiederherzustellen, und führte die Untersuchung als adversariales Gerichtsverfahren durch, damit das Ergebnis belastbar ist.",
+      "meta": "Artikel · 11. September 2026 · dev.to"
+    },
+    {
+      "title": "Eval-First RAG: Use Separate Scores to Triage Failures",
+      "desc": "Ein einziger End-to-End-Score zeigt, dass sich die Antwortqualität verändert hat — aber nicht, wodurch. Getrennte Scores für Retrieval und Generierung machen aus einer unklaren Regression eine Entscheidung darüber, wo zuerst gesucht werden sollte.",
+      "meta": "Artikel · 3. September 2026 · dev.to"
+    }
+  ],
+  "about": [
+    "Ich bin ausgebildeter Physiker. Angefangen habe ich mit C++-Simulationen für die LHC-Experimente des CERN; danach habe ich mehr als 20 Jahre Software entwickelt und Engineering-Teams geführt.",
+    "Ich gründete ein Mobile-Games-Studio und baute es zu einem 7-köpfigen Team auf: Als Lead Engineer habe ich 200+ Spiele ausgeliefert, Partnerschaften mit Publishern und Werbenetzwerken verhandelt und Recruiting, Finanzen und KPIs verantwortet. Als Interim-COO wurde ich in ein Startup geholt, um es zu stabilisieren, seine Profitabilität zu analysieren und einen Pivot zu begleiten. Sechs Jahre lang war ich Lead Engineer eines Mobile-App-Unternehmens; dort arbeitete ich mit den Geschäftsverantwortlichen an Budgets und ROI sowie mit dem Executive Team an der Strategie.",
+    "2025 habe ich meine eigene Delivery rund um AI neu aufgebaut. Die wichtigste Erkenntnis daraus: <em>Nicht die Generierung ist der Engpass, sondern die Verifikation.</em>"
+  ],
+  "skills": [
     "Agentische Systeme",
     "Multi-Agent-Orchestrierung",
     "RAG & Retrieval",
     "Evaluation & LLM-as-judge",
-    "Guardrails & Sicherheit",
+    "Guardrails",
     "MCP-Tooling",
-    "AI-gestützter SDLC"
+    "AI-gestützter SDLC",
+    "Python",
+    "FastAPI",
+    "Qdrant",
+    "Google Cloud",
+    "Claude-, Gemini- und OpenAI-APIs"
   ],
-  "writing": [
-    {
-      "title": "Enterprise RAG & Agents Handbook",
-      "desc": "Ein praxisnahes Handbuch zu RAG und agentischen Systemen in Produktion, von den Grundprinzipien her aufgebaut. Es erklärt, warum etwas funktioniert und woran es scheitert, statt nur Funktionen aufzuzählen.",
-      "meta": "Seit Juli 2026 · Drei Kurse, mehrere Sprachen"
-    },
-    {
-      "title": "I Asked a Frontier LLM to Recover Secrets from My Decompiled Build",
-      "desc": "Die eigene Verschleierung wirkt überzeugend, doch das sagt wenig über ihre Widerstandsfähigkeit aus, wenn man bereits alle Verstecke kennt. Ich ließ ein führendes LLM ohne Vorwissen nach Geheimnissen in einem dekompilierten Programm suchen und organisierte die Untersuchung als Gerichtsverfahren mit Anklage und Verteidigung, um das Ergebnis abzusichern.",
-      "meta": "11. September 2026 · dev.to · auch auf Medium und LinkedIn"
-    },
-    {
-      "title": "Eval-First RAG: Use Separate Scores to Triage Failures",
-      "desc": "Ein einziger End-to-End-Score zeigt zwar einen Qualitätsverlust, aber nicht dessen Ursache. Getrennte Bewertungen von Retrieval und Generierung zeigen, ob falsche Belege abgerufen oder gute Belege bei der Antwort nicht eingehalten wurden.",
-      "meta": "3. September 2026 · dev.to · auch auf Medium und LinkedIn"
-    }
-  ],
-  "cards": [
-    {
-      "title": "Strata-RAG",
-      "desc": "Eine RAG-Engine für heterogene Korpora, die als Lehrmaterial geschrieben ist und bei der die Evaluation an erster Stelle steht — Qdrant + HNSW, hybrides Retrieval mit RRF, Re-Ranking mit einem Cross-Encoder, ein Metadaten-Sidecar für Aggregationen und eine Evaluationsumgebung (Recall@K / nDCG / MRR + Prüfung der Faktentreue nach dem LLM-as-judge-Verfahren), dazu mehrschichtige Schutzmechanismen gegen Injection und die Preisgabe von PII.",
-      "meta": "GitHub · Python"
-    },
-    {
-      "title": "Personal Access Tokens in Redmine: eine AI-⁠SDLC-Fallstudie",
-      "desc": "Personal Access Tokens für die REST API von Redmine 6.1.2, einer Rails-Anwendung mit zwanzig Jahren Geschichte, umgesetzt auf einem Stack, mit dem ich zuvor nie gearbeitet hatte. Zuerst von Read-only-Agents erstellte Code-Maps, dann AI-Subagents für die Implementierung und ein Verifikations-Gate mit fünf Prüfdimensionen, das nach jedem Fix erneut durchlaufen wurde: 39 Issues, 75 protokollierte Angriffsversuche, 4.674 Zeilen Tests. Die vollständige Aufzeichnung des Prozesses ist neben dem Code veröffentlicht.",
-      "meta": "GitHub · Ruby on Rails · Claude Code"
-    },
-    {
-      "title": "strata-insurance-corpus",
-      "desc": "Ein reproduzierbares, synthetisches Korpus aus Versicherungsdokumenten in mehreren Formaten — digital erzeugte und gescannte PDF-Dateien, Word-Dokumente, Tabellendokumente und Fotos. Dazu gehört ein Evaluationsdatensatz mit Goldstandard, der sich unmittelbar aus dem Aufbau des Korpus ergibt. Es dient dazu, RAG-Systeme für Dokumente an Daten zu messen, die wie Unternehmensdaten strukturiert sind.",
-      "meta": "GitHub · Python"
-    },
-    {
-      "title": "DC-plugins",
-      "desc": "Native macOS-Plugins für Double Commander (Objective-C, Universal Binaries, Headless-Tests, CI) — ein kleines natives Tool, vollständig umgesetzt und bis zur Veröffentlichungsreife gebracht.",
-      "meta": "GitHub · Objective-C"
-    }
-  ]
+  "cta": {
+    "title": "Sie möchten ein AI-Produkt bauen oder ein LLM-System reparieren?",
+    "text": "Schreiben Sie mir ein paar Zeilen zum Problem und zum gewünschten Ergebnis. Wenn AI dafür das falsche Werkzeug ist, sage ich es Ihnen.",
+    "email": "E-Mail schreiben",
+    "linkedin": "Nachricht auf LinkedIn"
+  },
+  "footer": {
+    "copy": "© 2026 Nikolai Sachok"
+  }
 }

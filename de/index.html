@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nikolai Sachok — AI Engineer</title>
-  <meta name="description" content="AI Engineer: Ich entwickle und betreibe LLM-Systeme im Produktivbetrieb — Multi-Agent-Orchestrierung, RAG, Evaluation und Guardrails." />
+  <title>Nikolai Sachok — Lead AI Engineer</title>
+  <meta name="description" content="Lead AI Engineer für produktive LLM-Systeme: Multi-Agent-Orchestrierung, RAG, Evaluation und Guardrails. Mehr als 20 Jahre Softwareentwicklung und Teamführung. Verfügbar für freiberufliche Projekte." />
   <meta name="author" content="Nikolai Sachok" />
 
   <link rel="canonical" href="https://nikolaisachok.com/de/" />
@@ -16,21 +16,23 @@
   <link rel="alternate" hreflang="x-default" href="https://nikolaisachok.com/" />
 
   <!-- Open Graph / social preview -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Nikolai Sachok — AI Engineer" />
-  <meta property="og:description" content="Ich entwickle und betreibe LLM-Systeme im Produktivbetrieb — Multi-Agent-Orchestrierung, RAG, Evaluation und Guardrails." />
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Nikolai Sachok — Lead AI Engineer" />
+  <meta property="og:description" content="Ich entwickle AI-Systeme, die im Produktivbetrieb messbare Ergebnisse liefern, und verantworte sie durchgängig. Verfügbar für freiberufliche Projekte." />
   <meta property="og:url" content="https://nikolaisachok.com/de/" />
+  <meta property="og:image" content="https://nikolaisachok.com/assets/img/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="de_DE" />
   <meta property="og:locale:alternate" content="en_US" />
   <meta property="og:locale:alternate" content="sk_SK" />
   <meta property="og:locale:alternate" content="ru_RU" />
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E" />
 
-  <!-- Source Serif 4 sets the content, Public Sans the chrome (labels, dates).
-       Both are OFL. preconnect first so the font CSS request does not wait on a
-       fresh connection; every face has a real fallback in style.css. -->
+  <!-- Source Serif 4 sets the content, Public Sans the chrome (labels, buttons,
+       dates). Both are OFL; every face has a real fallback in style.css. -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@500;600;700&display=swap" />
@@ -38,7 +40,7 @@
   <!-- Content-hashed by build.py: the domain is behind Cloudflare, which holds
        stylesheets at the edge for four hours. A changing URL is the only thing
        a visitor's hard refresh can actually get past. -->
-  <link rel="stylesheet" href="/assets/style.css?v=f3d7aaa1d656" />
+  <link rel="stylesheet" href="/assets/style.css?v=e4412d0ff108" />
   <script>
   (function () {
     var HERE = 'de';
@@ -136,127 +138,240 @@
       <button type="button" class="notice-dismiss" aria-label="Schließen">&times;</button>
     </div>
 
-    <header>
-      <h1 class="name">Nikolai Sachok</h1>
-      <p class="role">AI Engineer — LLM-Systeme im Produktivbetrieb</p>
-      <!-- Repeated in the footer on purpose. GitHub is the proof a visitor
-           arriving from an article wants next, and the footer is ~2000px away.
-           Not translated: all three are proper nouns. -->
-      <p class="identity">
-        <a href="https://github.com/NikolaiSachok">GitHub</a>
-        <span class="sep" aria-hidden="true">·</span>
-        <a href="https://www.linkedin.com/in/nikolai-sachok/">LinkedIn</a>
-        <span class="sep" aria-hidden="true">·</span>
-        <a href="https://x.com/nsachok">X</a>
-      </p>
-      <p class="lead">Ich entwickle und betreibe LLM-Systeme im Produktivbetrieb: Multi-Agent-Orchestrierung, RAG, Evaluation und Guardrails. Ich habe Physik studiert und danach zwei Jahrzehnte lang Software entwickelt und Entwicklungsteams geleitet — 500+ ausgelieferte Apps, 10M+ Downloads. Heute entwickle ich AI-Systeme selbst, direkt am Code.</p>
-      <p class="lead muted">Angefangen habe ich damit, Simulationscode in C++ für die LHC-Experimente des CERN zu schreiben. Danach habe ich über 20 Jahre lang Software entwickelt und Entwicklungsteams geleitet. 2025 habe ich dann die Abläufe, mit denen ich Software entwickle und ausliefere, von Grund auf um AI herum neu aufgebaut: Ich betreibe eine von LLMs orchestrierte Pipeline vom Entwurf bis zum Release — allein. Den größten Teil der Arbeit machen Verifikation und Evaluation aus; sie sichern die Qualität auch im großen Maßstab: <em>Nicht die Generierung ist der Engpass, sondern die Verifikation.</em></p>
+    <header class="hero">
+      <img class="photo" src="/assets/img/nikolai-240.webp"
+           srcset="/assets/img/nikolai-240.webp 240w, /assets/img/nikolai-480.webp 480w"
+           sizes="(max-width: 640px) 96px, 148px"
+           width="148" height="148" alt="Nikolai Sachok" />
+      <div class="hero-id">
+        <p class="availability"><span class="dot" aria-hidden="true"></span>Verfügbar für freiberufliche Projekte</p>
+        <h1 class="name">Nikolai Sachok</h1>
+        <p class="role">Lead AI Engineer · produktive LLM-Systeme</p>
+      </div>
+      <div class="hero-body">
+        <p class="headline">Ich entwickle AI-Systeme, die im Produktivbetrieb messbare Ergebnisse liefern, und verantworte sie durchgängig.</p>
+        <p class="lead">Seit mehr als 20 Jahren entwickle ich Software und führe Teams — als Gründer, Interim-COO und Lead Engineer. Zuletzt habe ich eine Multi-Agent-LLM-Pipeline gebaut, die den Output eines 12-köpfigen Teams ersetzt hat. Ich arbeite mit den Menschen, die das Geschäftsproblem verantworten, nicht nur mit dem Ticket.</p>
+        <div class="actions">
+          <!-- The address is never in the markup: the script assembles it on load,
+               so a scraper reading HTML finds only the LinkedIn fallback. -->
+          <a class="btn btn-primary" data-mail href="https://www.linkedin.com/in/nikolai-sachok/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>E-Mail schreiben</a>
+          <button type="button" class="btn btn-ghost" data-open-video>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path class="fill" d="M8 5v14l11-7z" /></svg>5-Minuten-Intro ansehen</button>
+        </div>
+        <p class="meta-line">
+          <span>Bratislava, Slowakei (CET) · remote</span>
+          <span class="mail-addr" hidden></span>
+        </p>
+        <p class="social">
+          <a href="https://www.linkedin.com/in/nikolai-sachok/">LinkedIn</a>
+          <a href="https://github.com/NikolaiSachok">GitHub</a>
+          <a href="https://x.com/nsachok">X</a>
+        </p>
+      </div>
     </header>
 
-    <section class="video" aria-label="Vorstellungsvideo">
-      <div class="video-frame">
-        <a class="video-facade" href="https://www.youtube.com/watch?v=G0wu4CbFEvU"
-           data-embed="https://www.youtube-nocookie.com/embed/G0wu4CbFEvU?autoplay=1&amp;rel=0"
-           data-title="Wer ich bin — Vorstellungsvideo"
-           aria-label="Abspielen: Wer ich bin — eine 5-minütige Einführung">
-          <img src="https://i.ytimg.com/vi/G0wu4CbFEvU/maxresdefault.jpg"
-               onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/G0wu4CbFEvU/hqdefault.jpg'"
-               alt="Wer ich bin — Vorstellungsvideo" loading="lazy" />
-          <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-        </a>
-      </div>
-      <p class="video-cap"><strong>Wer ich bin — eine 5-minütige Einführung.</strong> Ich gehe die drei Fragen durch, mit denen ein Erstgespräch im AI-Engineering meist beginnt: ① 20 Jahre in der Softwareentwicklung, die letzten beiden davon mit AI · ② mein jüngstes öffentliches Projekt, Strata-RAG (Retrieval + Evaluation) · ③ die Programmiersprachen, die ich am besten beherrsche, und mein Stack.</p>
+    <ul class="proof">
+      <li><span class="proof-num">20+</span><span class="proof-label">Jahre Softwareentwicklung und Teamführung</span></li>
+      <li><span class="proof-num">500+</span><span class="proof-label">ausgelieferte Apps, 10M+ Downloads</span></li>
+      <li><span class="proof-num">10 in 3–4 Tagen</span><span class="proof-label">Produktiv-Apps allein ausgeliefert, nachdem ein 12-köpfiges Team bei etwa 8 pro Woche stagnierte</span></li>
+      <li><span class="proof-num">~$6</span><span class="proof-label">durchschnittliche AI-Modellkosten je ausgelieferter App</span></li>
+    </ul>
+
+    <section aria-labelledby="h-help">
+      <h2 id="h-help">Wobei ich helfe</h2>
+      <ul class="help">
+        <li>
+          <h3>Ein AI-Produkt oder Feature bauen</h3>
+          <p>Vom Geschäftsziel bis zum Feature im Produktivbetrieb: Scoping, Architektur, Umsetzung und eine Evaluations-Baseline — damit Sie wissen, dass es funktioniert, bevor Ihre Nutzer darauf angewiesen sind. Fest definierter Umfang, Preis pro Deliverable.</p>
+          <p class="fit">Für Gründer und Produktteams</p>
+        </li>
+        <li>
+          <h3>Ein LLM-System zuverlässig machen</h3>
+          <p>Ihr RAG- oder Agentensystem funktioniert in der Demo, verhält sich im Produktivbetrieb aber anders. Ich finde heraus, warum: getrennte Scores für Retrieval und Generierung, ein golden set, LLM-as-judge anhand einer Bewertungsmatrix sowie Checks auf prompt injection und PII-Leaks. Sie erhalten einen priorisierten Fehlerbericht und die passenden Fixes.</p>
+          <p class="fit">Für Teams, die bereits AI ausliefern</p>
+        </li>
+        <li>
+          <h3>AI Engineering mit Ihrem Team führen</h3>
+          <p>Ein Engineer auf Lead- oder Staff-Level arbeitet langfristig in Ihrem Team: an Architektur und Delivery, an einem praktikablen Einsatz von AI in der Entwicklung sowie direkt mit Produktverantwortlichen und Führungskräften an der Frage, was gebaut werden soll und warum.</p>
+          <p class="fit">Für Unternehmen im Aufbau einer AI-Kompetenz</p>
+        </li>
+      </ul>
     </section>
 
-    <h2>Woran ich arbeite</h2>
-    <ul class="tags">
-      <li class="tag">Agentische Systeme</li>
-      <li class="tag"><span class="sep" aria-hidden="true">·</span>Multi-Agent-Orchestrierung</li>
-      <li class="tag"><span class="sep" aria-hidden="true">·</span>RAG &amp; Retrieval</li>
-      <li class="tag"><span class="sep" aria-hidden="true">·</span>Evaluation &amp; LLM-as-judge</li>
-      <li class="tag"><span class="sep" aria-hidden="true">·</span>Guardrails &amp; Sicherheit</li>
-      <li class="tag"><span class="sep" aria-hidden="true">·</span>MCP-Tooling</li>
-      <li class="tag"><span class="sep" aria-hidden="true">·</span>AI-gestützter SDLC</li>
-    </ul>
+    <section aria-labelledby="h-cases">
+      <h2 id="h-cases">Ausgewählte Projekte</h2>
+      <article class="case">
+        <p class="kicker">Mobile-App-Geschäft · 2025–2026</p>
+        <h3>Eine LLM-Delivery-Pipeline, die ein 12-köpfiges Team überholte</h3>
+        <dl>
+          <div><dt>Die Ausgangslage</dt><dd>Das Geschäft wuchs durch neue Apps. Das von mir geführte Team aus 9 Engineers und 3 Designern stagnierte bei etwa 8 Apps pro Woche; mehr Personal erhöhte vor allem den Abstimmungsaufwand, nicht den Output.</dd></div>
+          <div><dt>Mein Beitrag</dt><dd>Ich habe eine Multi-Agent-Pipeline entworfen und betrieben, die Design, Code, Store-Assets und Promo-Websites abdeckt, mit aufgabenabhängigem Routing über Claude, Gemini und OpenAI, unabhängigen Verifikationsagenten, LLM-as-judge-Prüfungen anhand einer Schweregrad-Matrix und Kostenlimits pro Session. Außerdem habe ich die Google-Cloud-Plattform der Pipeline (Gemini und Claude auf Vertex AI, Cloud Run, IAP, Secret Manager, Cloud Logging) sowie eine multimodale Text- und Bildsuche über den Katalog des Unternehmens mit 2.000+ Apps konzipiert und eine kostenpflichtige Low-Code-Admin-Plattform durch ein internes Dashboard ersetzt — eine Build-vs-Buy-Entscheidung, die AI-gestützte Entwicklung praktikabel machte.</dd></div>
+          <div class="result"><dt>Das Ergebnis</dt><dd>In meiner letzten Woche habe ich allein in 3–4 Tagen 10 Produktiv-Apps ausgeliefert; ein QA Engineer prüfte die Builds. Die Modell-APIs kosteten ~$6 pro App.</dd></div>
+        </dl>
+      </article>
+      <article class="case">
+        <p class="kicker">Dasselbe Unternehmen · 2020–2024</p>
+        <h3>Neue Vertriebskanäle für ein Portfolio aus 200 Apps</h3>
+        <dl>
+          <div><dt>Die Ausgangslage</dt><dd>Ich verantwortete ein Portfolio von etwa 200 Mobile Apps durchgängig — von der Idee über den Release bis zum laufenden Betrieb. Mit den Geschäftsverantwortlichen arbeitete ich an Budgets und ROI, damit das Portfolio profitabel blieb.</dd></div>
+          <div><dt>Mein Beitrag</dt><dd>Aus eigener Initiative untersuchte ich Huawei AppGallery und Samsung Galaxy Store, veröffentlichte Test-Apps, maß die Ergebnisse und führte nach der Freigabe durch das Unternehmen vollständige Releases dort durch. Für den Samsung Galaxy Store schlug ich In-App-Kampagnen zur Nutzergewinnung vor und verantwortete deren technische Umsetzung: Attribution mit Adjust und AppsFlyer, Ad-SDKs und Kampagnendaten.</dd></div>
+          <div class="result"><dt>Das Ergebnis</dt><dd>Fünf App Stores wurden aus einer Android-Codebasis mit Store-spezifischen Builds beliefert. Ein gemeinsames App-Template machte jede neue App weitgehend zu einer Frage von Konfiguration und Assets; 80–90 % des Codes konnten wiederverwendet werden.</dd></div>
+        </dl>
+      </article>
+      <article class="case">
+        <p class="kicker">Open-Source-Fallstudie · 2026</p>
+        <h3>Ein Security-Feature in einer 20 Jahre alten Codebasis — mit einem unbekannten Stack</h3>
+        <dl>
+          <div><dt>Die Ausgangslage</dt><dd>Personal Access Tokens für die REST API von Redmine 6.1.2, einer Ruby-on-Rails-Anwendung mit zwanzig Jahren Geschichte.</dd></div>
+          <div><dt>Mein Beitrag</dt><dd>Ich begann mit Code-Maps, ließ Subagents die Änderungen implementieren und führte nach jedem Fix erneut ein Verifikations-Gate mit fünf Prüfachsen durch. Kein Agent bewertete seine eigene Arbeit.</dd></div>
+          <div class="result"><dt>Das Ergebnis</dt><dd>39 Issues, 75 protokollierte Angriffe und 4.674 Zeilen Tests. Die vollständige Aufzeichnung des Prozesses ist neben dem Code veröffentlicht.</dd></div>
+        </dl>
+        <a class="case-link" href="https://github.com/NikolaiSachok/redmine">Fallstudie lesen <span aria-hidden="true">→</span></a>
+      </article>
+    </section>
 
-    <h2 class="section-head">Texte</h2>
-    <ul class="entries">
-      <li>
-        <a class="entry" href="https://nikolaisachok.com/ai-engineering-handbook/">
-          <span class="entry-title">Enterprise RAG &amp; Agents Handbook</span>
-          <span class="entry-desc">Ein praxisnahes Handbuch zu RAG und agentischen Systemen in Produktion, von den Grundprinzipien her aufgebaut. Es erklärt, warum etwas funktioniert und woran es scheitert, statt nur Funktionen aufzuzählen.</span>
-          <span class="entry-meta">Seit Juli 2026 · Drei Kurse, mehrere Sprachen</span>
-        </a>
-      </li>
-      <li>
-        <a class="entry" href="https://dev.to/nsachok/i-asked-a-frontier-llm-to-recover-secrets-from-my-decompiled-build-1ojb">
-          <span class="entry-title">I Asked a Frontier LLM to Recover Secrets from My Decompiled Build</span>
-          <span class="entry-desc">Die eigene Verschleierung wirkt überzeugend, doch das sagt wenig über ihre Widerstandsfähigkeit aus, wenn man bereits alle Verstecke kennt. Ich ließ ein führendes LLM ohne Vorwissen nach Geheimnissen in einem dekompilierten Programm suchen und organisierte die Untersuchung als Gerichtsverfahren mit Anklage und Verteidigung, um das Ergebnis abzusichern.</span>
-          <span class="entry-meta">11. September 2026 · dev.to · auch auf Medium und LinkedIn</span>
-        </a>
-      </li>
-      <li>
-        <a class="entry" href="https://dev.to/nsachok/eval-first-rag-use-separate-scores-to-triage-failures-33ed">
-          <span class="entry-title">Eval-First RAG: Use Separate Scores to Triage Failures</span>
-          <span class="entry-desc">Ein einziger End-to-End-Score zeigt zwar einen Qualitätsverlust, aber nicht dessen Ursache. Getrennte Bewertungen von Retrieval und Generierung zeigen, ob falsche Belege abgerufen oder gute Belege bei der Antwort nicht eingehalten wurden.</span>
-          <span class="entry-meta">3. September 2026 · dev.to · auch auf Medium und LinkedIn</span>
-        </a>
-      </li>
-    </ul>
+    <section aria-labelledby="h-process">
+      <h2 id="h-process">Wie ich arbeite</h2>
+      <ol class="steps">
+        <li><h3>Beim wirtschaftlichen Nutzen ansetzen</h3><p>Was ist es wert, wenn es funktioniert — und was kostet ein Fehler? Davon hängen Architektur und Budget ab, einschließlich der Frage, wo ein LLM das falsche Werkzeug ist.</p></li>
+        <li><h3>Die Evaluation zuerst bauen</h3><p>Golden set und Bewertungsmatrix stehen vor dem Feature. So wird „besser“ zu einer Zahl statt zu einer Meinung.</p></li>
+        <li><h3>Unabhängig verifizieren</h3><p>Generierung ist günstig; Verifikation ist der Engpass. Jeder Output durchläuft Checks, die der erzeugende Agent nicht kontrolliert.</p></li>
+        <li><h3>Etwas übergeben, das Sie beherrschen</h3><p>Code, Evaluations-Harness und Dokumentation bleiben bei Ihnen — ebenso das Wissen darüber, wie alles funktioniert.</p></li>
+      </ol>
+    </section>
 
-    <h2 class="section-head">Projekte</h2>
-    <ul class="entries">
-      <li>
-        <a class="entry" href="https://nikolaisachok.com/Strata-RAG/">
-          <span class="entry-title">Strata-RAG</span>
-          <span class="entry-desc">Eine RAG-Engine für heterogene Korpora, die als Lehrmaterial geschrieben ist und bei der die Evaluation an erster Stelle steht — Qdrant + HNSW, hybrides Retrieval mit RRF, Re-Ranking mit einem Cross-Encoder, ein Metadaten-Sidecar für Aggregationen und eine Evaluationsumgebung (Recall@K / nDCG / MRR + Prüfung der Faktentreue nach dem LLM-as-judge-Verfahren), dazu mehrschichtige Schutzmechanismen gegen Injection und die Preisgabe von PII.</span>
-          <span class="entry-meta">GitHub · Python</span>
-        </a>
-      </li>
-      <li>
-        <a class="entry" href="https://github.com/NikolaiSachok/redmine">
-          <span class="entry-title">Personal Access Tokens in Redmine: eine AI-⁠SDLC-Fallstudie</span>
-          <span class="entry-desc">Personal Access Tokens für die REST API von Redmine 6.1.2, einer Rails-Anwendung mit zwanzig Jahren Geschichte, umgesetzt auf einem Stack, mit dem ich zuvor nie gearbeitet hatte. Zuerst von Read-only-Agents erstellte Code-Maps, dann AI-Subagents für die Implementierung und ein Verifikations-Gate mit fünf Prüfdimensionen, das nach jedem Fix erneut durchlaufen wurde: 39 Issues, 75 protokollierte Angriffsversuche, 4.674 Zeilen Tests. Die vollständige Aufzeichnung des Prozesses ist neben dem Code veröffentlicht.</span>
-          <span class="entry-meta">GitHub · Ruby on Rails · Claude Code</span>
-        </a>
-      </li>
-      <li>
-        <a class="entry" href="https://github.com/NikolaiSachok/strata-insurance-corpus">
-          <span class="entry-title">strata-insurance-corpus</span>
-          <span class="entry-desc">Ein reproduzierbares, synthetisches Korpus aus Versicherungsdokumenten in mehreren Formaten — digital erzeugte und gescannte PDF-Dateien, Word-Dokumente, Tabellendokumente und Fotos. Dazu gehört ein Evaluationsdatensatz mit Goldstandard, der sich unmittelbar aus dem Aufbau des Korpus ergibt. Es dient dazu, RAG-Systeme für Dokumente an Daten zu messen, die wie Unternehmensdaten strukturiert sind.</span>
-          <span class="entry-meta">GitHub · Python</span>
-        </a>
-      </li>
-      <li>
-        <a class="entry" href="https://nikolaisachok.com/DC-plugins/">
-          <span class="entry-title">DC-plugins</span>
-          <span class="entry-desc">Native macOS-Plugins für Double Commander (Objective-C, Universal Binaries, Headless-Tests, CI) — ein kleines natives Tool, vollständig umgesetzt und bis zur Veröffentlichungsreife gebracht.</span>
-          <span class="entry-meta">GitHub · Objective-C</span>
-        </a>
-      </li>
-    </ul>
+    <section aria-labelledby="h-public">
+      <h2 id="h-public">Open Source und Texte</h2>
+      <ul class="entries">
+        <li>
+          <a class="entry" href="https://nikolaisachok.com/ai-engineering-handbook/">
+            <span class="entry-title">Enterprise RAG &amp; Agents Handbook</span>
+            <span class="entry-desc">Ein praxisnahes Handbuch zu produktiven RAG- und agentischen Systemen. Es erklärt ausgehend von den Grundprinzipien, warum etwas funktioniert und woran es scheitert — nicht nur, welche Funktionen es gibt.</span>
+            <span class="entry-meta">Handbuch · seit Juli 2026 · 3 Kurse, mehrere Sprachen</span>
+          </a>
+        </li>
+        <li>
+          <a class="entry" href="https://nikolaisachok.com/Strata-RAG/">
+            <span class="entry-title">Strata-RAG</span>
+            <span class="entry-desc">Eine Open-Source-RAG-Engine, bei der die Evaluation an erster Stelle steht: hybrides Retrieval mit Rank Fusion, Cross-Encoder-Re-Ranking, ein Metadaten-Store für Zähl- und Auflistungsfragen, ein Evaluations-Harness mit Retrieval-Metriken und Faithfulness-Prüfung per LLM-judge sowie mehrschichtige Abwehr gegen prompt injection und PII-Leaks.</span>
+            <span class="entry-meta">GitHub · Python</span>
+          </a>
+        </li>
+        <li>
+          <a class="entry" href="https://github.com/NikolaiSachok/strata-insurance-corpus">
+            <span class="entry-title">strata-insurance-corpus</span>
+            <span class="entry-desc">Ein reproduzierbares, synthetisches Versicherungskorpus in mehreren Formaten (digital erzeugte und gescannte PDFs, Word-Dokumente, Tabellen und Fotos) mit einem konstruktionsbedingt goldstandardbasierten Evaluationsdatensatz. Entwickelt, um Dokumenten-RAG mit Daten in Unternehmensform zu benchmarken.</span>
+            <span class="entry-meta">GitHub · Hugging Face · Python</span>
+          </a>
+        </li>
+        <li>
+          <a class="entry" href="https://dev.to/nsachok/i-asked-a-frontier-llm-to-recover-secrets-from-my-decompiled-build-1ojb">
+            <span class="entry-title">I Asked a Frontier LLM to Recover Secrets from My Decompiled Build</span>
+            <span class="entry-desc">Die eigene Obfuskation lässt sich nicht zuverlässig beurteilen, weil man bereits weiß, wo alles liegt. Ich gab einem Frontier-LLM den dekompilierten Build, ließ es blind versuchen, die Geheimnisse wiederherzustellen, und führte die Untersuchung als adversariales Gerichtsverfahren durch, damit das Ergebnis belastbar ist.</span>
+            <span class="entry-meta">Artikel · 11. September 2026 · dev.to</span>
+          </a>
+        </li>
+        <li>
+          <a class="entry" href="https://dev.to/nsachok/eval-first-rag-use-separate-scores-to-triage-failures-33ed">
+            <span class="entry-title">Eval-First RAG: Use Separate Scores to Triage Failures</span>
+            <span class="entry-desc">Ein einziger End-to-End-Score zeigt, dass sich die Antwortqualität verändert hat — aber nicht, wodurch. Getrennte Scores für Retrieval und Generierung machen aus einer unklaren Regression eine Entscheidung darüber, wo zuerst gesucht werden sollte.</span>
+            <span class="entry-meta">Artikel · 3. September 2026 · dev.to</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="h-about" class="about">
+      <h2 id="h-about">Über mich</h2>
+      <p>Ich bin ausgebildeter Physiker. Angefangen habe ich mit C++-Simulationen für die LHC-Experimente des CERN; danach habe ich mehr als 20 Jahre Software entwickelt und Engineering-Teams geführt.</p>
+      <p>Ich gründete ein Mobile-Games-Studio und baute es zu einem 7-köpfigen Team auf: Als Lead Engineer habe ich 200+ Spiele ausgeliefert, Partnerschaften mit Publishern und Werbenetzwerken verhandelt und Recruiting, Finanzen und KPIs verantwortet. Als Interim-COO wurde ich in ein Startup geholt, um es zu stabilisieren, seine Profitabilität zu analysieren und einen Pivot zu begleiten. Sechs Jahre lang war ich Lead Engineer eines Mobile-App-Unternehmens; dort arbeitete ich mit den Geschäftsverantwortlichen an Budgets und ROI sowie mit dem Executive Team an der Strategie.</p>
+      <p>2025 habe ich meine eigene Delivery rund um AI neu aufgebaut. Die wichtigste Erkenntnis daraus: <em>Nicht die Generierung ist der Engpass, sondern die Verifikation.</em></p>
+      <h3>Kernkompetenzen</h3>
+      <ul class="chips">
+        <li>Agentische Systeme</li>
+        <li>Multi-Agent-Orchestrierung</li>
+        <li>RAG &amp; Retrieval</li>
+        <li>Evaluation &amp; LLM-as-judge</li>
+        <li>Guardrails</li>
+        <li>MCP-Tooling</li>
+        <li>AI-gestützter SDLC</li>
+        <li>Python</li>
+        <li>FastAPI</li>
+        <li>Qdrant</li>
+        <li>Google Cloud</li>
+        <li>Claude-, Gemini- und OpenAI-APIs</li>
+      </ul>
+    </section>
+
+    <section class="cta" aria-labelledby="h-cta">
+      <h2 id="h-cta">Sie möchten ein AI-Produkt bauen oder ein LLM-System reparieren?</h2>
+      <p>Schreiben Sie mir ein paar Zeilen zum Problem und zum gewünschten Ergebnis. Wenn AI dafür das falsche Werkzeug ist, sage ich es Ihnen.</p>
+      <div class="actions">
+        <a class="btn btn-invert" data-mail href="https://www.linkedin.com/in/nikolai-sachok/">E-Mail schreiben</a>
+        <a class="btn btn-invert-ghost" href="https://www.linkedin.com/in/nikolai-sachok/">Nachricht auf LinkedIn</a>
+      </div>
+      <p class="mail-addr cta-addr" hidden></p>
+    </section>
 
     <footer>
-      <a href="https://github.com/NikolaiSachok">GitHub</a>
-      <a href="https://www.linkedin.com/in/nikolai-sachok/">LinkedIn</a>
-      <a href="https://x.com/nsachok">X</a>
+      <span>© 2026 Nikolai Sachok</span>
+      <span class="footer-links">
+        <a href="https://www.linkedin.com/in/nikolai-sachok/">LinkedIn</a>
+        <a href="https://github.com/NikolaiSachok">GitHub</a>
+        <a href="https://x.com/nsachok">X</a>
+      </span>
     </footer>
   </div>
 
+  <dialog class="video-dialog" aria-label="Wer ich bin — 5-Minuten-Intro">
+    <div class="video-frame" data-embed="https://www.youtube-nocookie.com/embed/G0wu4CbFEvU?autoplay=1&amp;rel=0" data-title="Wer ich bin — Video-Intro"></div>
+    <form method="dialog"><button class="video-close" aria-label="Schließen">&times;</button></form>
+  </dialog>
+
   <script>
-    document.querySelectorAll('.video-facade').forEach(function (a) {
-      a.addEventListener('click', function (e) {
-        e.preventDefault();
-        var frame = a.parentNode;
-        var iframe = document.createElement('iframe');
-        iframe.src = a.dataset.embed;
-        iframe.title = a.dataset.title;
-        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-        iframe.setAttribute('allowfullscreen', '');
-        frame.innerHTML = '';
-        frame.appendChild(iframe);
+    /* Email. Stored reversed and split so the address never appears in the HTML;
+       a scraper that does not run JavaScript only sees the LinkedIn fallback. */
+    (function () {
+      var addr = ['moc.kohcasialokin', 'ssenisub'].map(function (s) {
+        return s.split('').reverse().join('');
+      }).reverse().join('@');
+      document.querySelectorAll('[data-mail]').forEach(function (a) {
+        a.href = 'mailto:' + addr;
       });
-    });
+      document.querySelectorAll('.mail-addr').forEach(function (el) {
+        el.textContent = addr;
+        el.hidden = false;
+      });
+    })();
+
+    /* Intro video in a native <dialog>. The iframe is created on open and
+       destroyed on close, so nothing loads from YouTube until it is asked for
+       and closing really stops playback. Without <dialog> support, the button
+       falls back to opening YouTube. */
+    (function () {
+      var dialog = document.querySelector('.video-dialog');
+      var frame = dialog && dialog.querySelector('.video-frame');
+      document.querySelectorAll('[data-open-video]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          if (!dialog || typeof dialog.showModal !== 'function') {
+            location.href = 'https://www.youtube.com/watch?v=G0wu4CbFEvU';
+            return;
+          }
+          var iframe = document.createElement('iframe');
+          iframe.src = frame.dataset.embed;
+          iframe.title = frame.dataset.title;
+          iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+          iframe.setAttribute('allowfullscreen', '');
+          frame.appendChild(iframe);
+          dialog.showModal();
+        });
+      });
+      if (dialog) {
+        dialog.addEventListener('close', function () { frame.innerHTML = ''; });
+        dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+      }
+    })();
 
     /* A language chosen by hand is remembered and never auto-overridden again. */
     document.querySelectorAll('[data-setlang]').forEach(function (a) {
@@ -265,15 +380,9 @@
       });
     });
 
-    /* Theme. One button cycling auto -> light -> dark -> auto.
-
-       "auto" is the ABSENCE of a choice, not a third stored value: it clears the
-       key and the attribute, so the stylesheet goes back to following
-       prefers-color-scheme. The head script has already applied any stored
-       choice before paint, and CSS picks the matching glyph off the same
-       attribute, so this only records the change and keeps the label honest
-       about which state you are now in — the thing a cycling control otherwise
-       leaves you guessing at. */
+    /* Theme. One button cycling auto -> light -> dark -> auto. "auto" is the
+       ABSENCE of a choice: it clears the key and the attribute, so the
+       stylesheet goes back to following prefers-color-scheme. */
     (function () {
       var button = document.getElementById('theme-toggle');
       if (!button) return;
