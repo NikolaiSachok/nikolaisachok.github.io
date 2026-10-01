@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Nikolai Sachok — Lead AI Engineer",
-    "description": "Lead AI engineer for production LLM systems: multi-agent orchestration, RAG, evaluation and guardrails. More than 20 years building software and leading teams. Available for contract work.",
+    "description": "Lead AI engineer: I build AI products, make LLM systems reliable, lead AI engineering in teams and take over legacy code. More than 20 years building software and leading teams. Available for contract work.",
     "og_title": "Nikolai Sachok — Lead AI Engineer",
     "og_description": "I build AI systems that do measurable work in production, and I own them end to end. Available for contract work."
   },
@@ -33,7 +33,7 @@
     "role": "Lead AI Engineer · production LLM systems",
     "photo_alt": "Nikolai Sachok",
     "headline": "I build AI systems that do measurable work in production, and I own them end to end.",
-    "lead": "I've spent more than 20 years building software and leading teams, as a founder, an interim COO and a lead engineer. Most recently I built a multi-agent LLM pipeline that replaced the output of a 12-person team. I work with the people who own the business problem, not just the ticket.",
+    "lead": "More than 20 years of building software and leading teams, as a founder, an interim COO and a lead engineer. I work with the people who own the business problem, not just the ticket.",
     "cta_email": "Email me",
     "cta_video": "Watch a 5-min intro",
     "location": "Bratislava, Slovakia (CET) · working remotely"
@@ -45,22 +45,23 @@
   },
   "proof": [
     {
-      "num": "20+",
-      "label": "years building software and leading teams"
+      "num": "20+ years",
+      "label": "building software and leading teams"
     },
     {
-      "num": "500+",
-      "label": "apps shipped, 10M+ downloads"
+      "num": "10M+",
+      "label": "downloads across 500+ apps I built and shipped"
     },
     {
-      "num": "10 in 3–4 days",
-      "label": "production apps shipped solo, where a 12-person team had plateaued at about 8 a week"
+      "num": "Teams of up to 12",
+      "label": "engineers and designers led; also founder and interim COO"
     },
     {
-      "num": "~$6",
-      "label": "average AI-model cost per shipped app"
+      "num": "AI software factory",
+      "label": "that replaced the output of a 12-person team"
     }
   ],
+  "help_intro": "Your stack will never match anyone's CV exactly, so I don't sell a particular technology; I sell a solved business problem. My core is production LLM systems. Around it I rely on a method rather than a claim: map the code first, pin down what it does today with tests, then change it, with every change checked by a reviewer that did not write it. That is how I added a security feature to a 20-year-old Rails application on a stack I had never used.",
   "sections": {
     "help": "How I can help",
     "cases": "Selected work",
@@ -72,47 +73,56 @@
   "help": [
     {
       "title": "Build an AI product or feature",
-      "desc": "From a business goal to a feature in production: scoping, architecture, the build and an evaluation baseline, so you know it works before your users depend on it. Fixed scope, priced per deliverable.",
+      "desc": "From a business goal to a feature in production, with an evaluation baseline so you know it works before your users depend on it. Fixed scope, priced per deliverable.",
       "fit": "For founders and product teams"
     },
     {
       "title": "Make an LLM system reliable",
-      "desc": "Your RAG or agent works in the demo but behaves differently in production. I find out why: separate retrieval and generation scores, a golden set, LLM-as-judge against a rubric, and checks for prompt injection and PII leaks. You get a ranked failure report and the fixes.",
+      "desc": "Your RAG or agent works in the demo and fails in production. I find out why and fix it. You get a ranked failure report and the fixes.",
       "fit": "For teams already shipping AI"
     },
     {
-      "title": "Lead AI engineering with your team",
-      "desc": "A lead or staff-level engineer working inside your team on a long-term contract: architecture, delivery, a practical way to use AI in development, and direct work with product and leadership on what to build and why.",
+      "title": "Lead AI engineering in your team",
+      "desc": "A lead or staff-level engineer inside your team on a long-term contract: architecture, delivery, a practical way to use AI in development, and direct work with product and leadership on what to build and why.",
       "fit": "For companies building an AI capability"
+    },
+    {
+      "title": "Take over legacy code",
+      "desc": "Old, critical code that nobody on the team wrote and nobody dares to touch. I map it, pin down what it does today with tests, then change it safely.",
+      "fit": "For teams with code older than the team"
     }
   ],
   "labels": {
     "problem": "The situation",
     "did": "What I did",
     "result": "The result",
+    "details": "Technical details",
     "read": "Read the case study"
   },
   "cases": [
     {
-      "kicker": "Mobile-app business · 2025–2026",
-      "title": "An LLM delivery pipeline that outshipped a 12-person team",
-      "problem": "The business grew by launching new apps. The team I led, 9 engineers and 3 designers, had plateaued at about 8 apps a week, and adding people added coordination rather than output.",
-      "did": "I designed and ran a multi-agent pipeline that covers design, code, store assets and promo websites, with model routing by task across Claude, Gemini and OpenAI, independent verification agents, LLM-as-judge audits on a severity rubric, and cost limits per session. I also architected its Google Cloud platform (Gemini and Claude on Vertex AI, Cloud Run, IAP, Secret Manager, Cloud Logging) and multimodal text-and-image search over the company's catalogue of 2,000+ apps, and replaced a paid low-code admin platform with an in-house dashboard, a build-vs-buy call that AI-assisted development made practical.",
-      "result": "In my last week I shipped 10 production apps in 3–4 days, solo, with one QA engineer checking the builds, at about $6 per app in model APIs."
+      "kicker": "Mobile-app company · 2025–2026",
+      "title": "When hiring stopped adding output",
+      "problem": "The business grew by launching new apps, and the 12-person team I led had hit a ceiling: every new hire added coordination rather than output.",
+      "did": "I built and ran an automated software factory: AI agents that design and code the apps, each output checked by an independent verifier, with a cost limit on every run.",
+      "result": "One engineer and one QA engineer outshipped the whole team.",
+      "details": "Multi-agent pipeline covering design, code, store assets and promo websites; model routing by task across Claude, Gemini and OpenAI; LLM-as-judge audits on a severity rubric. Architected its Google Cloud platform (Gemini and Claude on Vertex AI, Cloud Run, IAP, Secret Manager, Cloud Logging) and multimodal text-and-image search over the company's catalogue of 2,000+ apps. Replaced a paid low-code admin platform with an in-house dashboard. In my last week: 10 production apps in 3–4 days against the team's plateau of about 8 a week, at about $6 per app in model APIs."
     },
     {
-      "kicker": "Same business · 2020–2024",
-      "title": "New distribution channels for a portfolio of 200 apps",
-      "problem": "I owned a portfolio of about 200 mobile apps end to end, from the idea through release to live operations, working with the business owners on budgets and ROI to keep it profitable.",
-      "did": "On my own initiative I researched Huawei AppGallery and Samsung Galaxy Store, shipped test apps, measured the results and, once the business approved, ran full releases there. I proposed in-app user-acquisition campaigns in Samsung Galaxy Store and owned their technical side: attribution with Adjust and AppsFlyer, ad SDKs and campaign data.",
-      "result": "Five app stores supplied from one Android codebase with per-store builds. A shared app template made each new app mostly configuration and assets, with 80–90% of the code reused."
+      "kicker": "Same company · 2020–2024",
+      "title": "New distribution for a 200-app portfolio",
+      "problem": "I owned a portfolio of about 200 mobile apps end to end and worked with the business owners on budgets and ROI to keep it profitable.",
+      "did": "On my own initiative I tested two additional app stores, brought the numbers to the business and, once it approved, ran the full launch.",
+      "result": "Two new distribution channels, released from the same codebase as everything else.",
+      "details": "Huawei AppGallery and Samsung Galaxy Store, next to Google Play, Amazon and Xiaomi: five stores from one Android codebase with per-store builds. A shared app template reused 80–90% of the code."
     },
     {
-      "kicker": "Open-source case study · 2026",
-      "title": "A security feature in a 20-year-old codebase, on a stack I had never used",
-      "problem": "Personal access tokens for the REST API of Redmine 6.1.2, a Ruby on Rails application with twenty years of history.",
-      "did": "I started with code maps, had subagents implement the changes, and re-ran a five-axis verification gate after every fix. No agent graded its own work.",
-      "result": "39 issues, 75 recorded attacks and 4,674 lines of tests. The full process record is published next to the code."
+      "kicker": "Enterprise and open source",
+      "title": "Changing old, critical code safely",
+      "problem": "Large codebases that nobody on the current team wrote, running in production.",
+      "did": "Four years of third-line support on enterprise systems, and recently a security feature in a 20-year-old Rails application on a stack I had never used.",
+      "result": "On the Rails application, existing behaviour was pinned by tests before the first change, and every change was checked by a reviewer that did not write it.",
+      "details": "2006–2010 at EPAM: on the maintenance team of a large Thomson Reuters programme I diagnosed production failures with the client's engineers, migrated a live database while changing its schema, and coordinated deployments. 2026: personal access tokens for Redmine 6.1.2 (Ruby on Rails), built with code maps, implementing subagents and a five-axis verification gate: 39 issues, 75 recorded attacks, 4,674 lines of tests, with the full process record published next to the code."
     }
   ],
   "process": [
@@ -122,7 +132,7 @@
     },
     {
       "title": "Build the evaluation first",
-      "desc": "A golden set and a scoring rubric come before the feature, so that \"better\" is a number rather than an opinion."
+      "desc": "A test set and a scoring rubric come before the feature, so that \"better\" is a number rather than an opinion."
     },
     {
       "title": "Verify independently",
@@ -136,33 +146,33 @@
   "public": [
     {
       "title": "Enterprise RAG & Agents Handbook",
-      "desc": "A practical, first-principles handbook on production RAG and agentic systems, teaching the why and the failure modes rather than the features.",
-      "meta": "Handbook · since July 2026 · three courses, several languages"
+      "desc": "A free, practical handbook on building RAG and AI agents for production, and on how they fail.",
+      "meta": "Handbook · three courses, several languages"
     },
     {
       "title": "Strata-RAG",
-      "desc": "An open-source RAG engine built evaluation-first: hybrid retrieval with rank fusion, cross-encoder re-ranking, a metadata store for counting and listing questions, an evaluation harness with retrieval metrics and LLM-judge faithfulness, and layered defences against prompt injection and PII leaks.",
+      "desc": "An open-source RAG engine built evaluation-first, with defences against prompt injection and data leaks.",
       "meta": "GitHub · Python"
     },
     {
       "title": "strata-insurance-corpus",
-      "desc": "A reproducible, synthetic, multi-format insurance document corpus (born-digital and scanned PDFs, Word, spreadsheets, photos) with a golden evaluation set by construction. Built to benchmark document RAG on enterprise-shaped data.",
+      "desc": "A synthetic insurance document set with known answers, for measuring how well a RAG system finds them.",
       "meta": "GitHub · Hugging Face · Python"
     },
     {
-      "title": "I Asked a Frontier LLM to Recover Secrets from My Decompiled Build",
-      "desc": "You cannot judge your own obfuscation, because you already know where everything is. I gave a frontier LLM the decompiled build, had it try to recover the secrets blind, and ran the investigation as an adversarial court so the result could be trusted.",
-      "meta": "Article · September 11, 2026 · dev.to"
+      "title": "Eval-First RAG: Use Separate Scores to Triage Failures",
+      "desc": "Why one quality score hides where a RAG system broke, and how two scores show where to look.",
+      "meta": "Article · September 3, 2026 · dev.to"
     },
     {
-      "title": "Eval-First RAG: Use Separate Scores to Triage Failures",
-      "desc": "One end-to-end score shows that answer quality moved, but not what moved it. Scoring retrieval and generation separately turns an unclear regression into a decision about where to look first.",
-      "meta": "Article · September 3, 2026 · dev.to"
+      "title": "I Asked a Frontier LLM to Recover Secrets from My Decompiled Build",
+      "desc": "Testing my own app's protection by having an AI attack it, with other agents judging the evidence.",
+      "meta": "Article · September 11, 2026 · dev.to"
     }
   ],
   "about": [
     "I'm a physicist by training. I started out writing C++ simulations for CERN's LHC experiments, then spent more than 20 years building software and leading engineering teams.",
-    "I founded a mobile games studio and grew it to a team of seven: I shipped 200+ games as lead engineer, negotiated partnerships with publishers and ad networks, and ran hiring, finances and KPIs. I was brought in as interim COO to stabilise a startup, analysing its profitability and guiding a pivot. For six years I was the lead engineer at a mobile-app company, working with the business owners on budgets and ROI and with the executive team on strategy.",
+    "I founded a mobile games studio and grew it to a team of seven, negotiating partnerships with publishers and ad networks and running hiring, finances and KPIs. I was brought in as interim COO to stabilise a startup, analysing its profitability and guiding a pivot. For six years I was the lead engineer at a mobile-app company, working with the business owners on budgets and ROI and with the executive team on strategy. I have worked remotely since 2010.",
     "In 2025 I rebuilt my own delivery around AI. The lesson I took from it: <em>generation isn't the bottleneck, verification is.</em>"
   ],
   "skills": [
@@ -173,6 +183,7 @@
     "Guardrails",
     "MCP tooling",
     "AI-assisted SDLC",
+    "Legacy code",
     "Python",
     "FastAPI",
     "Qdrant",

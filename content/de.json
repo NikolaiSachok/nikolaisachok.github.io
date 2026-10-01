@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Nikolai Sachok — Lead AI Engineer",
-    "description": "Lead AI Engineer für produktive LLM-Systeme: Multi-Agent-Orchestrierung, RAG, Evaluation und Guardrails. Mehr als 20 Jahre Softwareentwicklung und Teamführung. Verfügbar für freiberufliche Projekte.",
+    "description": "Lead AI Engineer: Ich entwickle AI-Produkte, mache LLM-Systeme zuverlässig, führe AI Engineering in Teams und übernehme Legacy-Code. Mehr als 20 Jahre Softwareentwicklung und Teamführung. Verfügbar für freiberufliche Projekte.",
     "og_title": "Nikolai Sachok — Lead AI Engineer",
     "og_description": "Ich entwickle AI-Systeme, die im Produktivbetrieb messbare Ergebnisse liefern, und verantworte sie durchgängig. Verfügbar für freiberufliche Projekte."
   },
@@ -33,7 +33,7 @@
     "role": "Lead AI Engineer · produktive LLM-Systeme",
     "photo_alt": "Nikolai Sachok",
     "headline": "Ich entwickle AI-Systeme, die im Produktivbetrieb messbare Ergebnisse liefern, und verantworte sie durchgängig.",
-    "lead": "Seit mehr als 20 Jahren entwickle ich Software und führe Teams — als Gründer, Interim-COO und Lead Engineer. Zuletzt habe ich eine Multi-Agent-LLM-Pipeline gebaut, die den Output eines 12-köpfigen Teams ersetzt hat. Ich arbeite mit den Menschen, die das Geschäftsproblem verantworten, nicht nur mit dem Ticket.",
+    "lead": "Seit mehr als 20 Jahren entwickle ich Software und führe Teams — als Gründer, Interim-COO und Lead Engineer. Ich arbeite mit den Menschen, die das Geschäftsproblem verantworten, nicht nur mit dem Ticket.",
     "cta_email": "E-Mail schreiben",
     "cta_video": "5-Minuten-Intro ansehen",
     "location": "Bratislava, Slowakei (CET) · remote"
@@ -45,22 +45,23 @@
   },
   "proof": [
     {
-      "num": "20+",
-      "label": "Jahre Softwareentwicklung und Teamführung"
+      "num": "20+ Jahre",
+      "label": "Softwareentwicklung und Teamführung"
     },
     {
-      "num": "500+",
-      "label": "ausgelieferte Apps, 10M+ Downloads"
+      "num": "10M+",
+      "label": "Downloads aus 500+ von mir gebauten und ausgelieferten Apps"
     },
     {
-      "num": "10 in 3–4 Tagen",
-      "label": "Produktiv-Apps allein ausgeliefert, nachdem ein 12-köpfiges Team bei etwa 8 pro Woche stagnierte"
+      "num": "Teams bis 12",
+      "label": "geführte Engineers und Designer; außerdem Gründer und Interim-COO"
     },
     {
-      "num": "~$6",
-      "label": "durchschnittliche AI-Modellkosten je ausgelieferter App"
+      "num": "AI‑Software­fabrik",
+      "label": "die den Output eines 12-köpfigen Teams ersetzt hat"
     }
   ],
+  "help_intro": "Ihr Tech-Stack wird nie exakt dem Lebenslauf irgendeines Engineers entsprechen; deshalb verkaufe ich keine Technologie, sondern die Lösung eines Geschäftsproblems. Mein Schwerpunkt sind LLM-Systeme im Produktivbetrieb. Darauf aufbauend setze ich auf eine Methode statt auf eine Behauptung: Zuerst erfasse ich den Code, halte dann mit Tests genau fest, wie er sich aktuell verhält, und ändere ihn anschließend; jede Änderung wird von einem Reviewer geprüft, der sie nicht selbst geschrieben hat. So habe ich ein Security-Feature in einer 20 Jahre alten Rails-Anwendung auf einem Stack implementiert, den ich noch nie verwendet hatte.",
   "sections": {
     "help": "Wobei ich helfe",
     "cases": "Ausgewählte Projekte",
@@ -72,47 +73,56 @@
   "help": [
     {
       "title": "Ein AI-Produkt oder Feature bauen",
-      "desc": "Vom Geschäftsziel bis zum Feature im Produktivbetrieb: Scoping, Architektur, Umsetzung und eine Evaluations-Baseline — damit Sie wissen, dass es funktioniert, bevor Ihre Nutzer darauf angewiesen sind. Fest definierter Umfang, Preis pro Deliverable.",
+      "desc": "Vom Geschäftsziel bis zum Feature im Produktivbetrieb, mit einer Evaluations-Baseline, damit Sie wissen, dass es funktioniert, bevor Ihre Nutzer darauf angewiesen sind. Fest definierter Umfang, Preis pro Deliverable.",
       "fit": "Für Gründer und Produktteams"
     },
     {
       "title": "Ein LLM-System zuverlässig machen",
-      "desc": "Ihr RAG- oder Agentensystem funktioniert in der Demo, verhält sich im Produktivbetrieb aber anders. Ich finde heraus, warum: getrennte Scores für Retrieval und Generierung, ein golden set, LLM-as-judge anhand einer Bewertungsmatrix sowie Checks auf prompt injection und PII-Leaks. Sie erhalten einen priorisierten Fehlerbericht und die passenden Fixes.",
+      "desc": "Ihr RAG- oder Agentensystem funktioniert in der Demo und scheitert im Produktivbetrieb. Ich finde heraus, warum, und behebe es. Sie erhalten einen priorisierten Fehlerbericht und die passenden Fixes.",
       "fit": "Für Teams, die bereits AI ausliefern"
     },
     {
-      "title": "AI Engineering mit Ihrem Team führen",
-      "desc": "Ein Engineer auf Lead- oder Staff-Level arbeitet langfristig in Ihrem Team: an Architektur und Delivery, an einem praktikablen Einsatz von AI in der Entwicklung sowie direkt mit Produktverantwortlichen und Führungskräften an der Frage, was gebaut werden soll und warum.",
+      "title": "AI Engineering in Ihrem Team führen",
+      "desc": "Ein Engineer auf Lead- oder Staff-Level arbeitet langfristig in Ihrem Team: an Architektur und Delivery, an einem praktikablen Einsatz von AI in der Entwicklung sowie direkt mit Produktverantwortlichen und Führungskräften daran, was gebaut werden soll und warum.",
       "fit": "Für Unternehmen im Aufbau einer AI-Kompetenz"
+    },
+    {
+      "title": "Legacy-Code übernehmen",
+      "desc": "Alter, kritischer Code, den niemand im Team geschrieben hat und den niemand anzufassen wagt. Ich erfasse ihn, halte mit Tests fest, was er heute tut, und ändere ihn anschließend sicher.",
+      "fit": "Für Teams, deren Code älter ist als das Team"
     }
   ],
   "labels": {
     "problem": "Die Ausgangslage",
     "did": "Mein Beitrag",
     "result": "Das Ergebnis",
+    "details": "Technische Details",
     "read": "Fallstudie lesen"
   },
   "cases": [
     {
-      "kicker": "Mobile-App-Geschäft · 2025–2026",
-      "title": "Eine LLM-Delivery-Pipeline, die ein 12-köpfiges Team überholte",
-      "problem": "Das Geschäft wuchs durch neue Apps. Das von mir geführte Team aus 9 Engineers und 3 Designern stagnierte bei etwa 8 Apps pro Woche; mehr Personal erhöhte vor allem den Abstimmungsaufwand, nicht den Output.",
-      "did": "Ich habe eine Multi-Agent-Pipeline entworfen und betrieben, die Design, Code, Store-Assets und Promo-Websites abdeckt, mit aufgabenabhängigem Routing über Claude, Gemini und OpenAI, unabhängigen Verifikationsagenten, LLM-as-judge-Prüfungen anhand einer Schweregrad-Matrix und Kostenlimits pro Session. Außerdem habe ich die Google-Cloud-Plattform der Pipeline (Gemini und Claude auf Vertex AI, Cloud Run, IAP, Secret Manager, Cloud Logging) sowie eine multimodale Text- und Bildsuche über den Katalog des Unternehmens mit 2.000+ Apps konzipiert und eine kostenpflichtige Low-Code-Admin-Plattform durch ein internes Dashboard ersetzt — eine Build-vs-Buy-Entscheidung, die AI-gestützte Entwicklung praktikabel machte.",
-      "result": "In meiner letzten Woche habe ich allein in 3–4 Tagen 10 Produktiv-Apps ausgeliefert; ein QA Engineer prüfte die Builds. Die Modell-APIs kosteten ~$6 pro App."
+      "kicker": "Mobile-App-Unternehmen · 2025–2026",
+      "title": "Als mehr Personal keinen zusätzlichen Output mehr brachte",
+      "problem": "Das Unternehmen wuchs durch neue Apps, und das von mir geführte 12-köpfige Team war an eine Grenze gestoßen: Jede neue Einstellung erhöhte den Abstimmungsaufwand, nicht den Output.",
+      "did": "Ich habe eine automatisierte Softwarefabrik gebaut und betrieben: AI-Agenten, die Apps gestalten und programmieren; jeder Output wurde von einem unabhängigen Verifizierer geprüft, mit einem Kostenlimit für jeden Lauf.",
+      "result": "Ein Engineer und ein QA Engineer lieferten mehr aus als das gesamte Team.",
+      "details": "Multi-Agent-Pipeline für Design, Code, Store-Assets und Promo-Websites; aufgabenabhängiges Model-Routing über Claude, Gemini und OpenAI; LLM-as-judge-Prüfungen anhand einer Schweregrad-Matrix. Die Google-Cloud-Plattform (Gemini und Claude auf Vertex AI, Cloud Run, IAP, Secret Manager, Cloud Logging) sowie eine multimodale Text- und Bildsuche über den Katalog des Unternehmens mit 2.000+ Apps wurden von mir konzipiert. Eine kostenpflichtige Low-Code-Admin-Plattform habe ich durch ein internes Dashboard ersetzt. In meiner letzten Woche: 10 Produktiv-Apps in 3–4 Tagen gegenüber dem Plateau des Teams von etwa 8 pro Woche, zu etwa 6 $ Modell-API-Kosten pro App."
     },
     {
       "kicker": "Dasselbe Unternehmen · 2020–2024",
-      "title": "Neue Vertriebskanäle für ein Portfolio aus 200 Apps",
+      "title": "Neue Distribution für ein Portfolio aus 200 Apps",
       "problem": "Ich verantwortete ein Portfolio von etwa 200 Mobile Apps durchgängig — von der Idee über den Release bis zum laufenden Betrieb. Mit den Geschäftsverantwortlichen arbeitete ich an Budgets und ROI, damit das Portfolio profitabel blieb.",
-      "did": "Aus eigener Initiative untersuchte ich Huawei AppGallery und Samsung Galaxy Store, veröffentlichte Test-Apps, maß die Ergebnisse und führte nach der Freigabe durch das Unternehmen vollständige Releases dort durch. Für den Samsung Galaxy Store schlug ich In-App-Kampagnen zur Nutzergewinnung vor und verantwortete deren technische Umsetzung: Attribution mit Adjust und AppsFlyer, Ad-SDKs und Kampagnendaten.",
-      "result": "Fünf App Stores wurden aus einer Android-Codebasis mit Store-spezifischen Builds beliefert. Ein gemeinsames App-Template machte jede neue App weitgehend zu einer Frage von Konfiguration und Assets; 80–90 % des Codes konnten wiederverwendet werden."
+      "did": "Aus eigener Initiative testete ich zwei weitere App Stores, legte die Zahlen dem Unternehmen vor und führte nach dessen Zustimmung den vollständigen Launch durch.",
+      "result": "Zwei neue Distributionskanäle, veröffentlicht aus derselben Codebasis wie alles andere.",
+      "details": "Huawei AppGallery und Samsung Galaxy Store neben Google Play, Amazon und Xiaomi: fünf Stores aus einer Android-Codebasis mit Store-spezifischen Builds. Ein gemeinsames App-Template verwendete 80–90 % des Codes wieder."
     },
     {
-      "kicker": "Open-Source-Fallstudie · 2026",
-      "title": "Ein Security-Feature in einer 20 Jahre alten Codebasis — mit einem unbekannten Stack",
-      "problem": "Personal Access Tokens für die REST API von Redmine 6.1.2, einer Ruby-on-Rails-Anwendung mit zwanzig Jahren Geschichte.",
-      "did": "Ich begann mit Code-Maps, ließ Subagents die Änderungen implementieren und führte nach jedem Fix erneut ein Verifikations-Gate mit fünf Prüfachsen durch. Kein Agent bewertete seine eigene Arbeit.",
-      "result": "39 Issues, 75 protokollierte Angriffe und 4.674 Zeilen Tests. Die vollständige Aufzeichnung des Prozesses ist neben dem Code veröffentlicht."
+      "kicker": "Enterprise und Open Source",
+      "title": "Alten, kritischen Code sicher ändern",
+      "problem": "Große Codebasen, die niemand im aktuellen Team geschrieben hat und die im Produktivbetrieb laufen.",
+      "did": "Vier Jahre Third-Level-Support für Enterprise-Systeme und zuletzt ein Security-Feature in einer 20 Jahre alten Rails-Anwendung auf einem Stack, den ich noch nie verwendet hatte.",
+      "result": "In der Rails-Anwendung wurde das bestehende Verhalten vor der ersten Änderung durch Tests festgehalten, und jede Änderung wurde von einem Reviewer geprüft, der sie nicht geschrieben hatte.",
+      "details": "2006–2010 bei EPAM: ein großes Thomson-Reuters-Programm, in dem ich Teil des Maintenance-Teams war — Produktionsfehler diagnostiziert mit den Engineers des Kunden, eine laufende Datenbank bei gleichzeitiger Änderung ihres Schemas migriert und Deployments koordiniert. 2026: Personal Access Tokens für Redmine 6.1.2 (Ruby on Rails), mit Code-Maps und implementierenden Subagents erstellt, plus ein Verifikations-Gate mit fünf Prüfachsen: 39 Issues, 75 protokollierte Angriffe, 4.674 Zeilen Tests; die vollständige Aufzeichnung des Prozesses ist neben dem Code veröffentlicht."
     }
   ],
   "process": [
@@ -122,7 +132,7 @@
     },
     {
       "title": "Die Evaluation zuerst bauen",
-      "desc": "Golden set und Bewertungsmatrix stehen vor dem Feature. So wird „besser“ zu einer Zahl statt zu einer Meinung."
+      "desc": "Ein Testsatz und eine Bewertungsmatrix stehen vor dem Feature. So wird „besser“ zu einer Zahl statt zu einer Meinung."
     },
     {
       "title": "Unabhängig verifizieren",
@@ -136,33 +146,33 @@
   "public": [
     {
       "title": "Enterprise RAG & Agents Handbook",
-      "desc": "Ein praxisnahes Handbuch zu produktiven RAG- und agentischen Systemen. Es erklärt ausgehend von den Grundprinzipien, warum etwas funktioniert und woran es scheitert — nicht nur, welche Funktionen es gibt.",
-      "meta": "Handbuch · seit Juli 2026 · 3 Kurse, mehrere Sprachen"
+      "desc": "Ein kostenloses, praxisnahes Handbuch zum Aufbau produktiver RAG- und AI-Agenten-Systeme und zu ihren typischen Fehlern.",
+      "meta": "Handbuch · drei Kurse, mehrere Sprachen"
     },
     {
       "title": "Strata-RAG",
-      "desc": "Eine Open-Source-RAG-Engine, bei der die Evaluation an erster Stelle steht: hybrides Retrieval mit Rank Fusion, Cross-Encoder-Re-Ranking, ein Metadaten-Store für Zähl- und Auflistungsfragen, ein Evaluations-Harness mit Retrieval-Metriken und Faithfulness-Prüfung per LLM-judge sowie mehrschichtige Abwehr gegen prompt injection und PII-Leaks.",
+      "desc": "Eine Open-Source-RAG-Engine, bei der die Evaluation an erster Stelle steht, mit Schutzmaßnahmen gegen Prompt Injection und Datenleaks.",
       "meta": "GitHub · Python"
     },
     {
       "title": "strata-insurance-corpus",
-      "desc": "Ein reproduzierbares, synthetisches Versicherungskorpus in mehreren Formaten (digital erzeugte und gescannte PDFs, Word-Dokumente, Tabellen und Fotos) mit einem konstruktionsbedingt goldstandardbasierten Evaluationsdatensatz. Entwickelt, um Dokumenten-RAG mit Daten in Unternehmensform zu benchmarken.",
+      "desc": "Ein synthetischer Bestand an Versicherungsdokumenten mit bekannten Antworten, um zu messen, wie gut ein RAG-System sie findet.",
       "meta": "GitHub · Hugging Face · Python"
     },
     {
-      "title": "I Asked a Frontier LLM to Recover Secrets from My Decompiled Build",
-      "desc": "Die eigene Obfuskation lässt sich nicht zuverlässig beurteilen, weil man bereits weiß, wo alles liegt. Ich gab einem Frontier-LLM den dekompilierten Build, ließ es blind versuchen, die Geheimnisse wiederherzustellen, und führte die Untersuchung als adversariales Gerichtsverfahren durch, damit das Ergebnis belastbar ist.",
-      "meta": "Artikel · 11. September 2026 · dev.to"
+      "title": "Eval-First RAG: Use Separate Scores to Triage Failures",
+      "desc": "Warum ein einziger Qualitäts-Score nicht zeigt, wo ein RAG-System gescheitert ist — und wie zwei Scores zeigen, wo gesucht werden sollte.",
+      "meta": "Artikel · 3. September 2026 · dev.to"
     },
     {
-      "title": "Eval-First RAG: Use Separate Scores to Triage Failures",
-      "desc": "Ein einziger End-to-End-Score zeigt, dass sich die Antwortqualität verändert hat — aber nicht, wodurch. Getrennte Scores für Retrieval und Generierung machen aus einer unklaren Regression eine Entscheidung darüber, wo zuerst gesucht werden sollte.",
-      "meta": "Artikel · 3. September 2026 · dev.to"
+      "title": "I Asked a Frontier LLM to Recover Secrets from My Decompiled Build",
+      "desc": "Ich habe den Schutz meiner eigenen App getestet, indem ich sie von einer AI angreifen ließ und andere Agenten die Belege bewerten ließ.",
+      "meta": "Artikel · 11. September 2026 · dev.to"
     }
   ],
   "about": [
     "Ich bin ausgebildeter Physiker. Angefangen habe ich mit C++-Simulationen für die LHC-Experimente des CERN; danach habe ich mehr als 20 Jahre Software entwickelt und Engineering-Teams geführt.",
-    "Ich gründete ein Mobile-Games-Studio und baute es zu einem 7-köpfigen Team auf: Als Lead Engineer habe ich 200+ Spiele ausgeliefert, Partnerschaften mit Publishern und Werbenetzwerken verhandelt und Recruiting, Finanzen und KPIs verantwortet. Als Interim-COO wurde ich in ein Startup geholt, um es zu stabilisieren, seine Profitabilität zu analysieren und einen Pivot zu begleiten. Sechs Jahre lang war ich Lead Engineer eines Mobile-App-Unternehmens; dort arbeitete ich mit den Geschäftsverantwortlichen an Budgets und ROI sowie mit dem Executive Team an der Strategie.",
+    "Ich gründete ein Mobile-Games-Studio und baute es zu einem Team von sieben auf, verhandelte Partnerschaften mit Publishern und Werbenetzwerken und verantwortete Recruiting, Finanzen und KPIs. Als Interim-COO wurde ich in ein Startup geholt, um es zu stabilisieren, seine Profitabilität zu analysieren und einen Pivot zu begleiten. Sechs Jahre lang war ich Lead Engineer eines Mobile-App-Unternehmens; dort arbeitete ich mit den Geschäftsverantwortlichen an Budgets und ROI sowie mit dem Executive Team an der Strategie. Seit 2010 arbeite ich remote.",
     "2025 habe ich meine eigene Delivery rund um AI neu aufgebaut. Die wichtigste Erkenntnis daraus: <em>Nicht die Generierung ist der Engpass, sondern die Verifikation.</em>"
   ],
   "skills": [
@@ -173,6 +183,7 @@
     "Guardrails",
     "MCP-Tooling",
     "AI-gestützter SDLC",
+    "Legacy-Code",
     "Python",
     "FastAPI",
     "Qdrant",

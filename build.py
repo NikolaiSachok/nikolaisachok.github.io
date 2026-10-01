@@ -38,15 +38,15 @@ SOURCE_LOCALE = "en"  # English is the source of truth; x-default points at it
 # a link change is a one-line edit in one place. Each list matches its array in
 # every content/<lang>.json positionally.
 #
-# Open source and writing share one list: standing work first, dated articles
-# after, newest-first. Articles always link to the canonical address, never a
-# syndicated copy.
+# Open source and writing share one list: standing work first, then articles in
+# order of relevance to a buyer (the RAG piece before the niche security one).
+# Articles always link to the canonical address, never a syndicated copy.
 PUBLIC_LINKS = [
     "https://nikolaisachok.com/ai-engineering-handbook/",
     "https://nikolaisachok.com/Strata-RAG/",
     "https://github.com/NikolaiSachok/strata-insurance-corpus",
-    "https://dev.to/nsachok/i-asked-a-frontier-llm-to-recover-secrets-from-my-decompiled-build-1ojb",
     "https://dev.to/nsachok/eval-first-rag-use-separate-scores-to-triage-failures-33ed",
+    "https://dev.to/nsachok/i-asked-a-frontier-llm-to-recover-secrets-from-my-decompiled-build-1ojb",
 ]
 
 # One per case study, positionally; None means the case has no public page
@@ -59,7 +59,7 @@ CASE_LINKS = [
 
 # Fixed shape of the page: the layout is designed around these counts, so a
 # locale that drifts from them fails the build instead of rendering lopsided.
-COUNTS = {"proof": 4, "help": 3, "cases": len(CASE_LINKS), "process": 4, "public": len(PUBLIC_LINKS)}
+COUNTS = {"proof": 4, "help": 4, "cases": len(CASE_LINKS), "process": 4, "public": len(PUBLIC_LINKS)}
 
 REQUIRED_KEYS = {
     "meta": ["title", "description", "og_title", "og_description"],
@@ -70,7 +70,7 @@ REQUIRED_KEYS = {
              "cta_email", "cta_video", "location"],
     "video": ["dialog_label", "iframe_title", "close"],
     "sections": ["help", "cases", "process", "public", "about", "skills"],
-    "labels": ["problem", "did", "result", "read"],
+    "labels": ["problem", "did", "result", "details", "read"],
     "cta": ["title", "text", "email", "linkedin"],
     "footer": ["copy"],
 }
@@ -237,9 +237,19 @@ def help_block(items: list, indent: str = "        ") -> str:
 
 def cases_block(items: list, labels: dict, indent: str = "      ") -> str:
     """Each case reads problem -> what I did -> result: the shape a buyer scans
-    for, with the result row set apart so it can be found without reading."""
+    for, with the result row set apart so it can be found without reading.
+
+    The engineering specifics (services, vendors, counts) live in a collapsed
+    <details> under the case: there for the reader who wants them, out of the
+    way of the one who is deciding whether this person can help."""
     out = []
     for case, href in zip(items, CASE_LINKS):
+        more = (
+            f'{indent}  <details class="case-more">\n'
+            f'{indent}    <summary>{html(labels["details"])}</summary>\n'
+            f'{indent}    <p>{html(case["details"])}</p>\n'
+            f"{indent}  </details>\n"
+        )
         link = (
             f'{indent}  <a class="case-link" href="{href}">{html(labels["read"])} '
             f'<span aria-hidden="true">→</span></a>\n'
@@ -255,6 +265,7 @@ def cases_block(items: list, labels: dict, indent: str = "      ") -> str:
             f'{indent}    <div><dt>{html(labels["did"])}</dt><dd>{html(case["did"])}</dd></div>\n'
             f'{indent}    <div class="result"><dt>{html(labels["result"])}</dt><dd>{html(case["result"])}</dd></div>\n'
             f"{indent}  </dl>\n"
+            f"{more}"
             f"{link}"
             f"{indent}</article>"
         )
@@ -395,14 +406,15 @@ def validate(code: str, data: dict) -> None:
         got = len(data.get(name, []))
         if got != expect:
             raise SystemExit(f"content/{code}.json: '{name}' has {got} items, expected {expect}")
-    if not data.get("about") or not data.get("skills"):
-        raise SystemExit(f"content/{code}.json: 'about' and 'skills' must be non-empty")
+    for key in ("about", "skills", "help_intro"):
+        if not data.get(key):
+            raise SystemExit(f"content/{code}.json: '{key}' must be non-empty")
     # A date lives in an entry's meta line as a locale-formatted string rather
     # than being computed: only the translator knows how a date is written.
     item_keys = {
         "proof": ("num", "label"),
         "help": ("title", "desc", "fit"),
-        "cases": ("kicker", "title", "problem", "did", "result"),
+        "cases": ("kicker", "title", "problem", "did", "result", "details"),
         "process": ("title", "desc"),
         "public": ("title", "desc", "meta"),
     }
@@ -451,6 +463,7 @@ def render(code: str, lang: str, og: str, path: str, template: str) -> str:
         "VIDEO_CLOSE": attr(video["close"]),
         "PROOF": proof_block(data["proof"]),
         "H2_HELP": html(sections["help"]),
+        "HELP_INTRO": html(data["help_intro"]),
         "HELP": help_block(data["help"]),
         "H2_CASES": html(sections["cases"]),
         "CASES": cases_block(data["cases"], data["labels"]),
