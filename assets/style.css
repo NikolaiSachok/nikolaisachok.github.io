@@ -205,8 +205,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .btn svg .fill { fill: currentColor; stroke: none; }
 .btn-primary { background: var(--accent); color: var(--bg); }
 .btn-primary:hover { background: var(--accent-strong); }
-.btn-ghost { background: var(--surface); color: var(--fg); border-color: var(--rule); }
-.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
 .meta-line, .social {
   display: flex;
@@ -440,34 +438,6 @@ footer {
 .footer-links { display: flex; gap: 1.25rem; }
 footer a { color: var(--chrome); font-weight: 600; }
 footer a:hover { color: var(--accent); }
-
-/* --------------------------------------------------------------------------
-   Intro video dialog
-   -------------------------------------------------------------------------- */
-.video-dialog {
-  width: min(960px, 94vw);
-  padding: 0;
-  border: 0;
-  border-radius: var(--radius);
-  background: #000;
-  overflow: visible;
-}
-.video-dialog::backdrop { background: rgba(8, 10, 14, .78); }
-.video-frame { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; }
-.video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-.video-dialog form { position: absolute; top: -2.75rem; right: 0; margin: 0; }
-.video-close {
-  appearance: none;
-  border: 0;
-  background: rgba(255, 255, 255, .14);
-  color: #fff;
-  width: 2.25rem; height: 2.25rem;
-  border-radius: 50%;
-  font-size: 1.4rem;
-  line-height: 1;
-  cursor: pointer;
-}
-.video-close:hover { background: rgba(255, 255, 255, .26); }
 
 /* --------------------------------------------------------------------------
    Responsive

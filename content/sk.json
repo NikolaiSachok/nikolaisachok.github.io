@@ -1,9 +1,9 @@
 {
   "meta": {
-    "title": "Nikolai Sachok — Lead AI Engineer",
-    "description": "Lead AI Engineer: vyvíjam AI produkty, robím LLM systémy spoľahlivými, vediem AI engineering v tímoch a preberám starý kód. Viac než 20 rokov vyvíjam softvér a vediem tímy. Som k dispozícii na projektovú spoluprácu.",
-    "og_title": "Nikolai Sachok — Lead AI Engineer",
-    "og_description": "Vyvíjam AI systémy, ktoré v produkcii prinášajú merateľné výsledky, a preberám za ne zodpovednosť od začiatku do konca. Som k dispozícii na projektovú spoluprácu."
+    "title": "Nikolai Sachok — Konzultant pre vývoj softvéru a bezpečnosť",
+    "description": "Konzultant pre vývoj softvéru a bezpečnosť: vyvíjam AI produkty, robím LLM systémy spoľahlivými, kontrolujem bezpečnosť kódu a infraštruktúry, pripravujem tímy na SOC 2 a ISO 27001 a preberám starý kód. Viac než 20 rokov vyvíjam softvér a vediem tímy. Som k dispozícii na projektovú spoluprácu.",
+    "og_title": "Nikolai Sachok — Konzultant pre vývoj softvéru a bezpečnosť",
+    "og_description": "Vyvíjam AI systémy, ktoré v produkcii prinášajú merateľné výsledky, a kontrolujem bezpečnosť kódu a infraštruktúry. Som k dispozícii na projektovú spoluprácu."
   },
   "switcher": {
     "label": "Jazyk",
@@ -30,18 +30,12 @@
   "hero": {
     "availability": "K dispozícii na projektovú spoluprácu",
     "name": "Nikolai Sachok",
-    "role": "Lead AI Engineer · produkčné LLM systémy",
+    "role": "Konzultant pre vývoj softvéru a bezpečnosť · produkčné AI systémy",
     "photo_alt": "Nikolai Sachok",
     "headline": "Vyvíjam AI systémy, ktoré v produkcii prinášajú merateľné výsledky, a preberám za ne zodpovednosť od začiatku do konca.",
-    "lead": "Viac než 20 rokov vyvíjam softvér a vediem tímy — ako zakladateľ, interim COO aj lead engineer. Spolupracujem s ľuďmi, ktorí zodpovedajú za obchodný problém, nie iba za ticket.",
+    "lead": "Viac než 20 rokov vyvíjam softvér a vediem tímy — ako zakladateľ, interim COO aj lead engineer. Kontrolujem aj bezpečnosť kódu a infraštruktúry a pomáham tímom pripraviť sa na SOC 2 a ISO 27001. Spolupracujem s ľuďmi, ktorí zodpovedajú za obchodný problém, nie iba za ticket.",
     "cta_email": "Napíšte mi",
-    "cta_video": "Pozrite si 5-minútové predstavenie",
     "location": "Bratislava, Slovensko (CET) · pracujem na diaľku"
-  },
-  "video": {
-    "dialog_label": "Kto som — 5-minútové predstavenie",
-    "iframe_title": "Kto som — úvodné video",
-    "close": "Zavrieť"
   },
   "proof": [
     {
@@ -82,9 +76,9 @@
       "fit": "Pre tímy, ktoré už dodávajú AI"
     },
     {
-      "title": "Vedenie AI engineeringu vo vašom tíme",
-      "desc": "Lead alebo staff engineer priamo vo vašom tíme na dlhodobom kontrakte: architektúra, delivery, praktické využitie AI pri vývoji a priama spolupráca s produktom a vedením na tom, čo vyvíjať a prečo.",
-      "fit": "Pre firmy budujúce AI kompetenciu"
+      "title": "Príprava na SOC 2 alebo ISO 27001",
+      "desc": "Skontrolujem bezpečnosť vášho kódu a infraštruktúry, posilním riadenie prístupu a zlepším správu tajných údajov, nastavím monitoring a reakciu na incidenty a pripravím kontrolné mechanizmy a dokumentáciu, ktoré sa od vás budú pri audite vyžadovať.",
+      "fit": "Pre tímy, ktoré čaká bezpečnostná kontrola alebo certifikácia"
     },
     {
       "title": "Prevzatie starého kódu",
@@ -109,20 +103,20 @@
       "details": "Multi-agent pipeline pokrývajúca dizajn, kód, materiály do storeov a promo weby; routovanie modelov podľa úlohy medzi Claude, Gemini a OpenAI; audity LLM-as-judge podľa rubriky závažnosti. Navrhol som jej platformu v Google Cloud (Gemini a Claude na Vertex AI, Cloud Run, IAP, Secret Manager, Cloud Logging) a multimodálne textové a obrazové vyhľadávanie v katalógu firmy s 2 000+ aplikáciami. Platenú low-code administrátorskú platformu som nahradil interným dashboardom. Počas posledného týždňa: 10 produkčných aplikácií za 3–4 dni oproti stagnácii tímu na približne 8 aplikáciách týždenne, pri nákladoch na modelové API približne $6 na aplikáciu."
     },
     {
+      "kicker": "Enterprise a open source",
+      "title": "Bezpečná zmena starého, kritického kódu",
+      "problem": "Rozsiahle systémy v produkcii, ktorých kód nenapísal nikto zo súčasného tímu.",
+      "did": "Štyri roky podpory enterprise systémov tretej úrovne a naposledy bezpečnostná funkcia v 20-ročnej Rails aplikácii na stacku, ktorý som nikdy nepoužil.",
+      "result": "Testy prešli. Red-team agenti potom pri útokoch na bežiacu inštanciu našli regresiu v autentifikácii, možnosť zvýšenia oprávnení a spôsob, ako obísť jednu z opráv. Každý problém bol opravený a pokrytý regresným testom.",
+      "details": "2006–2010 v EPAM: rozsiahly program Thomson Reuters, kde som bol v tíme údržby; s inžiniermi klienta som diagnostikoval produkčné zlyhania, počas zmeny schémy migroval živú databázu a koordinoval nasadenia. 2026: personal access tokens pre Redmine 6.1.2 (Ruby on Rails), funkcia vytvorená pomocou code maps, subagentov na implementáciu zmien a päťosového verifikačného gate: 39 problémov, 75 zaznamenaných útokov, 4 674 riadkov testov a úplný záznam procesu zverejnený pri kóde."
+    },
+    {
       "kicker": "Vlastný výskum a vývoj · 2026",
       "title": "Štyri neznáme problémy, štyri fungujúce systémy",
       "problem": "Tvorba videí bola pre mňa novou oblasťou: animácia, spracovanie zvuku, renderovanie a práca s hlasom.",
       "did": "Každý problém som najprv zmeral a až potom som nasmeroval AI agentov, aby vytvorili systémy opreté o testy a kontrolné body pri revízii.",
       "result": "Štyri fungujúce produkčné systémy, každý vytvorený za deväť dní až dva mesiace, s epizódami publikovanými na dvoch YouTube kanáloch.",
       "details": "Desktopová aplikácia, ktorá zo zvukovej nahrávky vytvorí animované video reagujúce na zvuk (analýza zvuku, GLSL shadery, deterministický export cez ffmpeg). Kreslená spravodajská relácia, v ktorej sa každá snímka vykresľuje z kódu: vektorová grafika v Pythone, kostrová animácia generovaná kódom a fakticky overené scenáre; 6-minútová epizóda sa vykreslí za menej než 8 minút. Séria cvičení s komentárom: paralelné vykresľovanie po snímkach je približne 3,5× rýchlejšie než sériové a komentár je zosúladený so scenárom bez naťahovania hlasu. Pipeline od scenára po video s animovaným 3D moderátorom vykresleným v Unity, ktorého pohyb bol kalibrovaný podľa nahratých záberov. Tri zo štyroch projektov mali záznamy architektonických rozhodnutí (ADR), v každom 70 až 200+."
-    },
-    {
-      "kicker": "Enterprise a open source",
-      "title": "Bezpečná zmena starého, kritického kódu",
-      "problem": "Rozsiahle systémy v produkcii, ktorých kód nenapísal nikto zo súčasného tímu.",
-      "did": "Štyri roky podpory enterprise systémov tretej úrovne a naposledy bezpečnostná funkcia v 20-ročnej Rails aplikácii na stacku, ktorý som nikdy nepoužil.",
-      "result": "V Rails aplikácii bolo existujúce správanie pokryté testami ešte pred prvou zmenou a každú zmenu skontroloval reviewer, ktorý ju nenapísal.",
-      "details": "2006–2010 v EPAM: rozsiahly program Thomson Reuters, kde som bol v tíme údržby; s inžiniermi klienta som diagnostikoval produkčné zlyhania, počas zmeny schémy migroval živú databázu a koordinoval nasadenia. 2026: personal access tokens pre Redmine 6.1.2 (Ruby on Rails), funkcia vytvorená pomocou code maps, subagentov na implementáciu zmien a päťosového verifikačného gate: 39 problémov, 75 zaznamenaných útokov, 4 674 riadkov testov a úplný záznam procesu zverejnený pri kóde."
     },
     {
       "kicker": "Spoločnosť s mobilnými aplikáciami · 2020–2024",
@@ -185,21 +179,24 @@
   ],
   "skills": [
     "Agentické systémy",
-    "Multi-agent orchestration",
     "RAG a retrieval",
     "Vyhodnocovanie a LLM-as-judge",
     "Guardrails",
-    "MCP tooling",
+    "Bezpečnosť AI",
+    "Bezpečnosť aplikácií",
+    "Bezpečnostná kontrola kódu",
+    "Riadenie prístupu a správa tajných údajov",
+    "Reakcia na incidenty",
+    "Príprava na SOC 2 / ISO 27001",
     "AI-assisted SDLC",
     "Starý kód",
     "Python",
     "FastAPI",
-    "Qdrant",
     "Google Cloud",
     "Claude, Gemini a OpenAI APIs"
   ],
   "cta": {
-    "title": "Máte AI produkt na vytvorenie alebo LLM systém na opravu?",
+    "title": "Potrebujete vytvoriť AI produkt, opraviť LLM systém alebo sa pripraviť na bezpečnostnú kontrolu?",
     "text": "Napíšte mi pár riadkov o probléme a výsledku, ktorý chcete dosiahnuť. Ak je naň AI nesprávny nástroj, poviem vám to.",
     "email": "Napíšte mi",
     "linkedin": "Napíšte mi na LinkedIn"

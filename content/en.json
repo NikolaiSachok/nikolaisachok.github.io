@@ -1,9 +1,9 @@
 {
   "meta": {
-    "title": "Nikolai Sachok — Lead AI Engineer",
-    "description": "Lead AI engineer: I build AI products, make LLM systems reliable, lead AI engineering in teams and take over legacy code. More than 20 years building software and leading teams. Available for contract work.",
-    "og_title": "Nikolai Sachok — Lead AI Engineer",
-    "og_description": "I build AI systems that do measurable work in production, and I own them end to end. Available for contract work."
+    "title": "Nikolai Sachok — Software Engineering and Security Consultant",
+    "description": "Software engineering and security consultant: I build AI products, make LLM systems reliable, review code and infrastructure for security, prepare teams for SOC 2 and ISO 27001, and take over legacy code. More than 20 years building software and leading teams. Available for contract work.",
+    "og_title": "Nikolai Sachok — Software Engineering and Security Consultant",
+    "og_description": "I build AI systems that do measurable work in production, and I review code and infrastructure for security. Available for contract work."
   },
   "switcher": {
     "label": "Language",
@@ -30,18 +30,12 @@
   "hero": {
     "availability": "Available for contract work",
     "name": "Nikolai Sachok",
-    "role": "Lead AI Engineer · production LLM systems",
+    "role": "Software engineering and security consultant · production AI systems",
     "photo_alt": "Nikolai Sachok",
     "headline": "I build AI systems that do measurable work in production, and I own them end to end.",
-    "lead": "More than 20 years of building software and leading teams, as a founder, an interim COO and a lead engineer. I work with the people who own the business problem, not just the ticket.",
+    "lead": "More than 20 years of building software and leading teams, as a founder, an interim COO and a lead engineer. I also review code and infrastructure for security and help teams prepare for SOC 2 and ISO 27001. I work with the people who own the business problem, not just the ticket.",
     "cta_email": "Email me",
-    "cta_video": "Watch a 5-min intro",
     "location": "Bratislava, Slovakia (CET) · working remotely"
-  },
-  "video": {
-    "dialog_label": "Who I am — a 5-minute intro",
-    "iframe_title": "Who I am — video intro",
-    "close": "Close"
   },
   "proof": [
     {
@@ -82,9 +76,9 @@
       "fit": "For teams already shipping AI"
     },
     {
-      "title": "Lead AI engineering in your team",
-      "desc": "A lead or staff-level engineer inside your team on a long-term contract: architecture, delivery, a practical way to use AI in development, and direct work with product and leadership on what to build and why.",
-      "fit": "For companies building an AI capability"
+      "title": "Get ready for SOC 2 or ISO 27001",
+      "desc": "I review your code and infrastructure for security, tighten access control and secrets handling, set up monitoring and incident response, and prepare the controls and documentation your audit will ask for.",
+      "fit": "For teams facing a security review or certification"
     },
     {
       "title": "Take over legacy code",
@@ -109,20 +103,20 @@
       "details": "Multi-agent pipeline covering design, code, store assets and promo websites; model routing by task across Claude, Gemini and OpenAI; LLM-as-judge audits on a severity rubric. Architected its Google Cloud platform (Gemini and Claude on Vertex AI, Cloud Run, IAP, Secret Manager, Cloud Logging) and multimodal text-and-image search over the company's catalogue of 2,000+ apps. Replaced a paid low-code admin platform with an in-house dashboard. In my last week: 10 production apps in 3–4 days against the team's plateau of about 8 a week, at about $6 per app in model APIs."
     },
     {
+      "kicker": "Enterprise and open source",
+      "title": "Changing old, critical code safely",
+      "problem": "Large codebases that nobody on the current team wrote, running in production.",
+      "did": "Four years of third-line support on enterprise systems, and recently a security feature in a 20-year-old Rails application on a stack I had never used.",
+      "result": "After the tests passed, red-team agents attacking a running instance found an authentication regression, a privilege escalation and a way around one of the fixes. Each was fixed and pinned by a regression test.",
+      "details": "2006–2010 at EPAM: on the maintenance team of a large Thomson Reuters programme I diagnosed production failures with the client's engineers, migrated a live database while changing its schema, and coordinated deployments. 2026: personal access tokens for Redmine 6.1.2 (Ruby on Rails), built with code maps, implementing subagents and a five-axis verification gate: 39 issues, 75 recorded attacks, 4,674 lines of tests, with the full process record published next to the code."
+    },
+    {
       "kicker": "Personal R&D · 2026",
       "title": "Four unfamiliar problems, four working systems",
       "problem": "Video production was new territory for me: animation, audio processing, rendering and voice.",
       "did": "I measured each problem before building anything, then directed AI coding agents to build the systems behind tests and review gates.",
       "result": "Four working production systems, built in nine days to two months each, with episodes published on two YouTube channels.",
       "details": "A desktop app that turns a sound recording into an audio-reactive animated video (audio analysis, GLSL shaders, a deterministic export through ffmpeg). A cartoon news show where every frame is rendered from code: Python vector art, code-generated skeletal animation and fact-checked scripts; a 6-minute episode renders in under 8 minutes. A narrated exercise series: parallel frame-by-frame rendering about 3.5× faster than serial, and narration aligned to the script without stretching the voice. A script-to-video pipeline with an animated 3D presenter rendered in Unity, its motion calibrated against recorded footage. Three of the four projects kept architecture decision records (ADRs), 70 to 200+ each."
-    },
-    {
-      "kicker": "Enterprise and open source",
-      "title": "Changing old, critical code safely",
-      "problem": "Large codebases that nobody on the current team wrote, running in production.",
-      "did": "Four years of third-line support on enterprise systems, and recently a security feature in a 20-year-old Rails application on a stack I had never used.",
-      "result": "On the Rails application, existing behaviour was pinned by tests before the first change, and every change was checked by a reviewer that did not write it.",
-      "details": "2006–2010 at EPAM: on the maintenance team of a large Thomson Reuters programme I diagnosed production failures with the client's engineers, migrated a live database while changing its schema, and coordinated deployments. 2026: personal access tokens for Redmine 6.1.2 (Ruby on Rails), built with code maps, implementing subagents and a five-axis verification gate: 39 issues, 75 recorded attacks, 4,674 lines of tests, with the full process record published next to the code."
     },
     {
       "kicker": "Mobile-app company · 2020–2024",
@@ -185,21 +179,24 @@
   ],
   "skills": [
     "Agentic systems",
-    "Multi-agent orchestration",
     "RAG & retrieval",
     "Evaluation & LLM-as-judge",
     "Guardrails",
-    "MCP tooling",
+    "AI security",
+    "Application security",
+    "Secure code review",
+    "Access control & secrets management",
+    "Incident response",
+    "SOC 2 / ISO 27001 readiness",
     "AI-assisted SDLC",
     "Legacy code",
     "Python",
     "FastAPI",
-    "Qdrant",
     "Google Cloud",
     "Claude, Gemini & OpenAI APIs"
   ],
   "cta": {
-    "title": "Have an AI product to build or an LLM system to fix?",
+    "title": "Have an AI product to build, an LLM system to fix or a security review to get ready for?",
     "text": "Send me a few lines about the problem and the outcome you want. If AI is the wrong tool for it, I'll tell you.",
     "email": "Email me",
     "linkedin": "Message me on LinkedIn"

@@ -3,9 +3,8 @@
 Personal landing page — served at **https://nikolaisachok.com** (GitHub Pages user site).
 
 Four locales: **English (source, at `/`)**, German `/de/`, Slovak `/sk/`, Russian `/ru/`.
-No framework, no dependencies — the pages are self-contained apart from Google Fonts and the intro
-video, which loads from YouTube only when a visitor opens it. The only tool is a stdlib-only Python 3
-script.
+No framework, no dependencies — the pages are self-contained apart from Google Fonts. The only tool is a
+stdlib-only Python 3 script.
 
 ## Layout
 
