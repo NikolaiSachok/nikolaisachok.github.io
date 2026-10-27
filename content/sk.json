@@ -55,7 +55,7 @@
       "label": "ktorá nahradila výstup 12-členného tímu"
     }
   ],
-  "help_intro": "Váš technologický stack sa nikdy nebude presne zhodovať so životopisom žiadneho človeka; preto nepredávam technológiu, ale vyriešený obchodný problém. Jadrom mojej práce sú produkčné LLM systémy. Staviam na metóde, nie na tvrdení: najprv zmapujem kód, testami presne určím, ako sa správa dnes, a až potom ho zmením; každú zmenu skontroluje reviewer, ktorý ju nenapísal. Takto som implementoval bezpečnostnú funkciu v 20-ročnej Rails aplikácii na stacku, ktorý som nikdy nepoužil.",
+  "help_intro": "Váš technologický stack sa nikdy nebude presne zhodovať so životopisom žiadneho človeka; preto nepredávam technológiu, ale vyriešený obchodný problém. Jadrom mojej práce sú produkčné LLM systémy a bezpečnosť softvéru okolo nich. V oboch oblastiach staviam na metóde, nie na tvrdení: najprv zmapujem kód, testami presne určím, ako sa správa dnes, a až potom ho zmením; každú zmenu skontroluje reviewer, ktorý ju nenapísal. Pred vydaním sa každá zmena preverí aj útokmi na bežiacej inštancii aplikácie. Takto som implementoval bezpečnostnú funkciu v 20-ročnej Rails aplikácii na stacku, ktorý som nikdy predtým nepoužil.",
   "sections": {
     "help": "S čím vám pomôžem",
     "cases": "Vybrané projekty",
