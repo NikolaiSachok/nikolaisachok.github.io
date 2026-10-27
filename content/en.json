@@ -55,7 +55,7 @@
       "label": "that replaced the output of a 12-person team"
     }
   ],
-  "help_intro": "Your stack will never match anyone's CV exactly, so I don't sell a particular technology; I sell a solved business problem. My core is production LLM systems. Around it I rely on a method rather than a claim: map the code first, pin down what it does today with tests, then change it, with every change checked by a reviewer that did not write it. That is how I added a security feature to a 20-year-old Rails application on a stack I had never used.",
+  "help_intro": "Your stack will never match anyone's CV exactly, so I don't sell a particular technology; I sell a solved business problem. My core is production LLM systems and the security of the software around them. For both I rely on a method rather than a claim: map the code first, pin down what it does today with tests, then change it, with every change checked by a reviewer that did not write it and attacked on a running instance before it ships. That is how I added a security feature to a 20-year-old Rails application on a stack I had never used.",
   "sections": {
     "help": "How I can help",
     "cases": "Selected work",
