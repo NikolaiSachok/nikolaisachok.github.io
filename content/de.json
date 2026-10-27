@@ -1,9 +1,9 @@
 {
   "meta": {
-    "title": "Nikolai Sachok — Lead AI Engineer",
-    "description": "Lead AI Engineer: Ich entwickle AI-Produkte, mache LLM-Systeme zuverlässig, führe AI Engineering in Teams und übernehme Legacy-Code. Mehr als 20 Jahre Softwareentwicklung und Teamführung. Verfügbar für freiberufliche Projekte.",
-    "og_title": "Nikolai Sachok — Lead AI Engineer",
-    "og_description": "Ich entwickle AI-Systeme, die im Produktivbetrieb messbare Ergebnisse liefern, und verantworte sie durchgängig. Verfügbar für freiberufliche Projekte."
+    "title": "Nikolai Sachok — Berater für Software Engineering und Security",
+    "description": "Berater für Software Engineering und Security: Ich entwickle AI-Produkte, mache LLM-Systeme zuverlässig, prüfe Code und Infrastruktur auf Sicherheitsrisiken, bereite Teams auf SOC 2 und ISO 27001 vor und übernehme Legacy-Code. Mehr als 20 Jahre Softwareentwicklung und Teamführung. Verfügbar für freiberufliche Projekte.",
+    "og_title": "Nikolai Sachok — Berater für Software Engineering und Security",
+    "og_description": "Ich entwickle AI-Systeme, die im Produktivbetrieb messbare Ergebnisse liefern, und prüfe Code und Infrastruktur auf Sicherheitsrisiken. Verfügbar für freiberufliche Projekte."
   },
   "switcher": {
     "label": "Sprache",
@@ -30,18 +30,12 @@
   "hero": {
     "availability": "Verfügbar für freiberufliche Projekte",
     "name": "Nikolai Sachok",
-    "role": "Lead AI Engineer · produktive LLM-Systeme",
+    "role": "Berater für Software Engineering und Security · AI-Systeme im Produktivbetrieb",
     "photo_alt": "Nikolai Sachok",
     "headline": "Ich entwickle AI-Systeme, die im Produktivbetrieb messbare Ergebnisse liefern, und verantworte sie durchgängig.",
-    "lead": "Seit mehr als 20 Jahren entwickle ich Software und führe Teams — als Gründer, Interim-COO und Lead Engineer. Ich arbeite mit den Menschen, die das Geschäftsproblem verantworten, nicht nur mit dem Ticket.",
+    "lead": "Seit mehr als 20 Jahren entwickle ich Software und führe Teams — als Gründer, Interim-COO und Lead Engineer. Außerdem prüfe ich Code und Infrastruktur auf Sicherheitsrisiken und unterstütze Teams bei der Vorbereitung auf SOC 2 und ISO 27001. Ich arbeite mit den Menschen, die das Geschäftsproblem verantworten, nicht nur mit dem Ticket.",
     "cta_email": "E-Mail schreiben",
-    "cta_video": "5-Minuten-Intro ansehen",
     "location": "Bratislava, Slowakei (CET) · remote"
-  },
-  "video": {
-    "dialog_label": "Wer ich bin — 5-Minuten-Intro",
-    "iframe_title": "Wer ich bin — Video-Intro",
-    "close": "Schließen"
   },
   "proof": [
     {
@@ -82,9 +76,9 @@
       "fit": "Für Teams, die bereits AI ausliefern"
     },
     {
-      "title": "AI Engineering in Ihrem Team führen",
-      "desc": "Ein Engineer auf Lead- oder Staff-Level arbeitet langfristig in Ihrem Team: an Architektur und Delivery, an einem praktikablen Einsatz von AI in der Entwicklung sowie direkt mit Produktverantwortlichen und Führungskräften daran, was gebaut werden soll und warum.",
-      "fit": "Für Unternehmen im Aufbau einer AI-Kompetenz"
+      "title": "Ihr Team auf SOC 2 oder ISO 27001 vorbereiten",
+      "desc": "Ich prüfe Ihren Code und Ihre Infrastruktur auf Sicherheitsrisiken, mache Zugriffskontrollen und den Umgang mit Secrets sicherer, richte Monitoring und Incident Response ein und bereite die Kontrollen und die Dokumentation vor, die für Ihr Audit verlangt werden.",
+      "fit": "Für Teams, denen eine Sicherheitsprüfung oder Zertifizierung bevorsteht"
     },
     {
       "title": "Legacy-Code übernehmen",
@@ -109,20 +103,20 @@
       "details": "Multi-Agent-Pipeline für Design, Code, Store-Assets und Promo-Websites; aufgabenabhängiges Model-Routing über Claude, Gemini und OpenAI; LLM-as-judge-Prüfungen anhand einer Schweregrad-Matrix. Die Google-Cloud-Plattform (Gemini und Claude auf Vertex AI, Cloud Run, IAP, Secret Manager, Cloud Logging) sowie eine multimodale Text- und Bildsuche über den Katalog des Unternehmens mit 2.000+ Apps wurden von mir konzipiert. Eine kostenpflichtige Low-Code-Admin-Plattform habe ich durch ein internes Dashboard ersetzt. In meiner letzten Woche: 10 Produktiv-Apps in 3–4 Tagen gegenüber dem Plateau des Teams von etwa 8 pro Woche, zu etwa 6 $ Modell-API-Kosten pro App."
     },
     {
+      "kicker": "Enterprise und Open Source",
+      "title": "Alten, kritischen Code sicher ändern",
+      "problem": "Große Codebasen, die niemand im aktuellen Team geschrieben hat und die im Produktivbetrieb laufen.",
+      "did": "Vier Jahre Third-Level-Support für Enterprise-Systeme und zuletzt ein Security-Feature in einer 20 Jahre alten Rails-Anwendung auf einem Stack, den ich noch nie verwendet hatte.",
+      "result": "Die Tests liefen erfolgreich durch. Anschließend fanden Red-Team-Agenten bei Angriffen auf eine laufende Instanz eine Regression in der Authentifizierung, eine Möglichkeit zur Rechteausweitung und einen Weg, einen der Fixes zu umgehen. Alle drei Probleme wurden behoben und jeweils durch einen Regressionstest abgesichert.",
+      "details": "2006–2010 bei EPAM: ein großes Thomson-Reuters-Programm, in dem ich Teil des Maintenance-Teams war — Produktionsfehler diagnostiziert mit den Engineers des Kunden, eine laufende Datenbank bei gleichzeitiger Änderung ihres Schemas migriert und Deployments koordiniert. 2026: Personal Access Tokens für Redmine 6.1.2 (Ruby on Rails), mit Code-Maps und implementierenden Subagents erstellt, plus ein Verifikations-Gate mit fünf Prüfachsen: 39 Issues, 75 protokollierte Angriffe, 4.674 Zeilen Tests; die vollständige Aufzeichnung des Prozesses ist neben dem Code veröffentlicht."
+    },
+    {
       "kicker": "Eigene F&E-Projekte · 2026",
       "title": "Vier ungewohnte Probleme, vier funktionierende Systeme",
       "problem": "Videoproduktion war für mich Neuland: Animation, Audiobearbeitung, Rendering und Stimme.",
       "did": "Ich habe jedes Problem gemessen, bevor ich etwas gebaut habe, und dann AI-Coding-Agenten angewiesen, die Systeme auf Grundlage von Tests und Review-Gates zu bauen.",
       "result": "Vier funktionierende Produktionssysteme, jeweils in einem Zeitraum von neun Tagen bis zwei Monaten gebaut, mit Episoden, die auf zwei YouTube-Kanälen veröffentlicht wurden.",
       "details": "Eine Desktop-App, die eine Tonaufnahme in ein audioreaktives animiertes Video verwandelt (Audioanalyse, GLSL-Shader, deterministischer Export mit ffmpeg). Eine Cartoon-Nachrichtensendung, in der jedes Bild aus Code gerendert wird: Vektorgrafik mit Python, per Code erzeugte Skelettanimation und faktengeprüfte Skripte; eine 6-minütige Episode wird in unter 8 Minuten gerendert. Eine moderierte Übungsserie: paralleles Rendering Bild für Bild, etwa 3,5× schneller als die serielle Variante, und eine an das Skript angepasste Moderation, ohne die Stimme zu dehnen. Eine Script-to-Video-Pipeline mit einem animierten 3D-Moderator, der in Unity gerendert wird; seine Bewegungen wurden an aufgezeichnetem Videomaterial kalibriert. In drei der vier Projekte wurden Architecture Decision Records (ADRs) geführt, jeweils 70 bis 200+."
-    },
-    {
-      "kicker": "Enterprise und Open Source",
-      "title": "Alten, kritischen Code sicher ändern",
-      "problem": "Große Codebasen, die niemand im aktuellen Team geschrieben hat und die im Produktivbetrieb laufen.",
-      "did": "Vier Jahre Third-Level-Support für Enterprise-Systeme und zuletzt ein Security-Feature in einer 20 Jahre alten Rails-Anwendung auf einem Stack, den ich noch nie verwendet hatte.",
-      "result": "In der Rails-Anwendung wurde das bestehende Verhalten vor der ersten Änderung durch Tests festgehalten, und jede Änderung wurde von einem Reviewer geprüft, der sie nicht geschrieben hatte.",
-      "details": "2006–2010 bei EPAM: ein großes Thomson-Reuters-Programm, in dem ich Teil des Maintenance-Teams war — Produktionsfehler diagnostiziert mit den Engineers des Kunden, eine laufende Datenbank bei gleichzeitiger Änderung ihres Schemas migriert und Deployments koordiniert. 2026: Personal Access Tokens für Redmine 6.1.2 (Ruby on Rails), mit Code-Maps und implementierenden Subagents erstellt, plus ein Verifikations-Gate mit fünf Prüfachsen: 39 Issues, 75 protokollierte Angriffe, 4.674 Zeilen Tests; die vollständige Aufzeichnung des Prozesses ist neben dem Code veröffentlicht."
     },
     {
       "kicker": "Mobile-App-Unternehmen · 2020–2024",
@@ -185,21 +179,24 @@
   ],
   "skills": [
     "Agentische Systeme",
-    "Multi-Agent-Orchestrierung",
     "RAG & Retrieval",
     "Evaluation & LLM-as-judge",
     "Guardrails",
-    "MCP-Tooling",
+    "AI-Sicherheit",
+    "Anwendungssicherheit",
+    "Sicherheitsprüfung von Code",
+    "Zugriffskontrolle & Secrets-Management",
+    "Incident Response",
+    "Vorbereitung auf SOC 2 / ISO 27001",
     "AI-gestützter SDLC",
     "Legacy-Code",
     "Python",
     "FastAPI",
-    "Qdrant",
     "Google Cloud",
     "Claude-, Gemini- und OpenAI-APIs"
   ],
   "cta": {
-    "title": "Sie möchten ein AI-Produkt bauen oder ein LLM-System reparieren?",
+    "title": "Sie möchten ein AI-Produkt bauen, ein LLM-System reparieren oder sich auf eine Sicherheitsprüfung vorbereiten?",
     "text": "Schreiben Sie mir ein paar Zeilen zum Problem und zum gewünschten Ergebnis. Wenn AI dafür das falsche Werkzeug ist, sage ich es Ihnen.",
     "email": "E-Mail schreiben",
     "linkedin": "Nachricht auf LinkedIn"

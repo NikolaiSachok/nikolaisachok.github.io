@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nikolai Sachok — Lead AI Engineer</title>
-  <meta name="description" content="Lead AI engineer: I build AI products, make LLM systems reliable, lead AI engineering in teams and take over legacy code. More than 20 years building software and leading teams. Available for contract work." />
+  <title>Nikolai Sachok — Software Engineering and Security Consultant</title>
+  <meta name="description" content="Software engineering and security consultant: I build AI products, make LLM systems reliable, review code and infrastructure for security, prepare teams for SOC 2 and ISO 27001, and take over legacy code. More than 20 years building software and leading teams. Available for contract work." />
   <meta name="author" content="Nikolai Sachok" />
 
   <link rel="canonical" href="https://nikolaisachok.com/" />
@@ -17,8 +17,8 @@
 
   <!-- Open Graph / social preview -->
   <meta property="og:type" content="profile" />
-  <meta property="og:title" content="Nikolai Sachok — Lead AI Engineer" />
-  <meta property="og:description" content="I build AI systems that do measurable work in production, and I own them end to end. Available for contract work." />
+  <meta property="og:title" content="Nikolai Sachok — Software Engineering and Security Consultant" />
+  <meta property="og:description" content="I build AI systems that do measurable work in production, and I review code and infrastructure for security. Available for contract work." />
   <meta property="og:url" content="https://nikolaisachok.com/" />
   <meta property="og:image" content="https://nikolaisachok.com/assets/img/og.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -40,7 +40,7 @@
   <!-- Content-hashed by build.py: the domain is behind Cloudflare, which holds
        stylesheets at the edge for four hours. A changing URL is the only thing
        a visitor's hard refresh can actually get past. -->
-  <link rel="stylesheet" href="/assets/style.css?v=3124ca726538" />
+  <link rel="stylesheet" href="/assets/style.css?v=fad087c63c90" />
   <script>
   (function () {
     var HERE = 'en';
@@ -142,18 +142,16 @@
       <div class="hero-id">
         <p class="availability"><span class="dot" aria-hidden="true"></span>Available for contract work</p>
         <h1 class="name">Nikolai Sachok</h1>
-        <p class="role">Lead AI Engineer · production LLM systems</p>
+        <p class="role">Software engineering and security consultant · production AI systems</p>
       </div>
       <div class="hero-body">
         <p class="headline">I build AI systems that do measurable work in production, and I own them end to end.</p>
-        <p class="lead">More than 20 years of building software and leading teams, as a founder, an interim COO and a lead engineer. I work with the people who own the business problem, not just the ticket.</p>
+        <p class="lead">More than 20 years of building software and leading teams, as a founder, an interim COO and a lead engineer. I also review code and infrastructure for security and help teams prepare for SOC 2 and ISO 27001. I work with the people who own the business problem, not just the ticket.</p>
         <div class="actions">
           <!-- The address is never in the markup: the script assembles it on load,
                so a scraper reading HTML finds only the LinkedIn fallback. -->
           <a class="btn btn-primary" data-mail href="https://www.linkedin.com/in/nikolai-sachok/">
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>Email me</a>
-          <button type="button" class="btn btn-ghost" data-open-video>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path class="fill" d="M8 5v14l11-7z" /></svg>Watch a 5-min intro</button>
         </div>
         <p class="meta-line">
           <span>Bratislava, Slovakia (CET) · working remotely</span>
@@ -189,9 +187,9 @@
           <p class="fit">For teams already shipping AI</p>
         </li>
         <li>
-          <h3>Lead AI engineering in your team</h3>
-          <p>A lead or staff-level engineer inside your team on a long-term contract: architecture, delivery, a practical way to use AI in development, and direct work with product and leadership on what to build and why.</p>
-          <p class="fit">For companies building an AI capability</p>
+          <h3>Get ready for SOC 2 or ISO 27001</h3>
+          <p>I review your code and infrastructure for security, tighten access control and secrets handling, set up monitoring and incident response, and prepare the controls and documentation your audit will ask for.</p>
+          <p class="fit">For teams facing a security review or certification</p>
         </li>
         <li>
           <h3>Take over legacy code</h3>
@@ -227,6 +225,20 @@
         </details>
       </article>
       <article class="case">
+        <p class="kicker">Enterprise and open source</p>
+        <h3>Changing old, critical code safely</h3>
+        <dl>
+          <div><dt>The situation</dt><dd>Large codebases that nobody on the current team wrote, running in production.</dd></div>
+          <div><dt>What I did</dt><dd>Four years of third-line support on enterprise systems, and recently a security feature in a 20-year-old Rails application on a stack I had never used.</dd></div>
+          <div class="result"><dt>The result</dt><dd>After the tests passed, red-team agents attacking a running instance found an authentication regression, a privilege escalation and a way around one of the fixes. Each was fixed and pinned by a regression test.</dd></div>
+        </dl>
+        <details class="case-more">
+          <summary>Technical details</summary>
+          <p>2006–2010 at EPAM: on the maintenance team of a large Thomson Reuters programme I diagnosed production failures with the client's engineers, migrated a live database while changing its schema, and coordinated deployments. 2026: personal access tokens for Redmine 6.1.2 (Ruby on Rails), built with code maps, implementing subagents and a five-axis verification gate: 39 issues, 75 recorded attacks, 4,674 lines of tests, with the full process record published next to the code.</p>
+        </details>
+        <a class="case-link" href="https://github.com/NikolaiSachok/redmine">Read the case study <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="case">
         <p class="kicker">Personal R&amp;D · 2026</p>
         <h3>Four unfamiliar problems, four working systems</h3>
         <dl>
@@ -238,20 +250,6 @@
           <summary>Technical details</summary>
           <p>A desktop app that turns a sound recording into an audio-reactive animated video (audio analysis, GLSL shaders, a deterministic export through ffmpeg). A cartoon news show where every frame is rendered from code: Python vector art, code-generated skeletal animation and fact-checked scripts; a 6-minute episode renders in under 8 minutes. A narrated exercise series: parallel frame-by-frame rendering about 3.5× faster than serial, and narration aligned to the script without stretching the voice. A script-to-video pipeline with an animated 3D presenter rendered in Unity, its motion calibrated against recorded footage. Three of the four projects kept architecture decision records (ADRs), 70 to 200+ each.</p>
         </details>
-      </article>
-      <article class="case">
-        <p class="kicker">Enterprise and open source</p>
-        <h3>Changing old, critical code safely</h3>
-        <dl>
-          <div><dt>The situation</dt><dd>Large codebases that nobody on the current team wrote, running in production.</dd></div>
-          <div><dt>What I did</dt><dd>Four years of third-line support on enterprise systems, and recently a security feature in a 20-year-old Rails application on a stack I had never used.</dd></div>
-          <div class="result"><dt>The result</dt><dd>On the Rails application, existing behaviour was pinned by tests before the first change, and every change was checked by a reviewer that did not write it.</dd></div>
-        </dl>
-        <details class="case-more">
-          <summary>Technical details</summary>
-          <p>2006–2010 at EPAM: on the maintenance team of a large Thomson Reuters programme I diagnosed production failures with the client's engineers, migrated a live database while changing its schema, and coordinated deployments. 2026: personal access tokens for Redmine 6.1.2 (Ruby on Rails), built with code maps, implementing subagents and a five-axis verification gate: 39 issues, 75 recorded attacks, 4,674 lines of tests, with the full process record published next to the code.</p>
-        </details>
-        <a class="case-link" href="https://github.com/NikolaiSachok/redmine">Read the case study <span aria-hidden="true">→</span></a>
       </article>
       <article class="case">
         <p class="kicker">Mobile-app company · 2020–2024</p>
@@ -317,23 +315,26 @@
       <h3>Core skills</h3>
       <ul class="chips">
         <li>Agentic systems</li>
-        <li>Multi-agent orchestration</li>
         <li>RAG &amp; retrieval</li>
         <li>Evaluation &amp; LLM-as-judge</li>
         <li>Guardrails</li>
-        <li>MCP tooling</li>
+        <li>AI security</li>
+        <li>Application security</li>
+        <li>Secure code review</li>
+        <li>Access control &amp; secrets management</li>
+        <li>Incident response</li>
+        <li>SOC 2 / ISO 27001 readiness</li>
         <li>AI-assisted SDLC</li>
         <li>Legacy code</li>
         <li>Python</li>
         <li>FastAPI</li>
-        <li>Qdrant</li>
         <li>Google Cloud</li>
         <li>Claude, Gemini &amp; OpenAI APIs</li>
       </ul>
     </section>
 
     <section class="cta" aria-labelledby="h-cta">
-      <h2 id="h-cta">Have an AI product to build or an LLM system to fix?</h2>
+      <h2 id="h-cta">Have an AI product to build, an LLM system to fix or a security review to get ready for?</h2>
       <p>Send me a few lines about the problem and the outcome you want. If AI is the wrong tool for it, I'll tell you.</p>
       <div class="actions">
         <a class="btn btn-invert" data-mail href="https://www.linkedin.com/in/nikolai-sachok/">Email me</a>
@@ -352,11 +353,6 @@
     </footer>
   </div>
 
-  <dialog class="video-dialog" aria-label="Who I am — a 5-minute intro">
-    <div class="video-frame" data-embed="https://www.youtube-nocookie.com/embed/G0wu4CbFEvU?autoplay=1&amp;rel=0" data-title="Who I am — video intro"></div>
-    <form method="dialog"><button class="video-close" aria-label="Close">&times;</button></form>
-  </dialog>
-
   <script>
     /* Email. Stored reversed and split so the address never appears in the HTML;
        a scraper that does not run JavaScript only sees the LinkedIn fallback. */
@@ -371,34 +367,6 @@
         el.textContent = addr;
         el.hidden = false;
       });
-    })();
-
-    /* Intro video in a native <dialog>. The iframe is created on open and
-       destroyed on close, so nothing loads from YouTube until it is asked for
-       and closing really stops playback. Without <dialog> support, the button
-       falls back to opening YouTube. */
-    (function () {
-      var dialog = document.querySelector('.video-dialog');
-      var frame = dialog && dialog.querySelector('.video-frame');
-      document.querySelectorAll('[data-open-video]').forEach(function (b) {
-        b.addEventListener('click', function () {
-          if (!dialog || typeof dialog.showModal !== 'function') {
-            location.href = 'https://www.youtube.com/watch?v=G0wu4CbFEvU';
-            return;
-          }
-          var iframe = document.createElement('iframe');
-          iframe.src = frame.dataset.embed;
-          iframe.title = frame.dataset.title;
-          iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-          iframe.setAttribute('allowfullscreen', '');
-          frame.appendChild(iframe);
-          dialog.showModal();
-        });
-      });
-      if (dialog) {
-        dialog.addEventListener('close', function () { frame.innerHTML = ''; });
-        dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
-      }
     })();
 
     /* A language chosen by hand is remembered and never auto-overridden again. */

@@ -53,8 +53,8 @@ PUBLIC_LINKS = [
 # (client work stays unlinked by design).
 CASE_LINKS = [
     None,
-    None,
     "https://github.com/NikolaiSachok/redmine",
+    None,
     None,
 ]
 
@@ -68,8 +68,7 @@ REQUIRED_KEYS = {
     "theme": ["label", "names"],
     "notice": ["text", "english_link", "dismiss"],
     "hero": ["availability", "name", "role", "photo_alt", "headline", "lead",
-             "cta_email", "cta_video", "location"],
-    "video": ["dialog_label", "iframe_title", "close"],
+             "cta_email", "location"],
     "sections": ["help", "cases", "process", "public", "about", "skills"],
     "labels": ["problem", "did", "result", "details", "read"],
     "cta": ["title", "text", "email", "linkedin"],
@@ -429,8 +428,8 @@ def validate(code: str, data: dict) -> None:
 def render(code: str, lang: str, og: str, path: str, template: str) -> str:
     data = json.loads((ROOT / "content" / f"{code}.json").read_text(encoding="utf-8"))
     validate(code, data)
-    meta, video, sections, hero, cta = (
-        data["meta"], data["video"], data["sections"], data["hero"], data["cta"]
+    meta, sections, hero, cta = (
+        data["meta"], data["sections"], data["hero"], data["cta"]
     )
 
     subs = {
@@ -457,11 +456,7 @@ def render(code: str, lang: str, og: str, path: str, template: str) -> str:
         "HEADLINE": html(hero["headline"]),
         "LEAD": html(hero["lead"]),
         "CTA_EMAIL": html(hero["cta_email"]),
-        "CTA_VIDEO": html(hero["cta_video"]),
         "LOCATION": html(hero["location"]),
-        "VIDEO_DIALOG_LABEL": attr(video["dialog_label"]),
-        "VIDEO_IFRAME_TITLE": attr(video["iframe_title"]),
-        "VIDEO_CLOSE": attr(video["close"]),
         "PROOF": proof_block(data["proof"]),
         "H2_HELP": html(sections["help"]),
         "HELP_INTRO": html(data["help_intro"]),

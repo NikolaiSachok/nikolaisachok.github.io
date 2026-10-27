@@ -66,8 +66,6 @@
                so a scraper reading HTML finds only the LinkedIn fallback. -->
           <a class="btn btn-primary" data-mail href="https://www.linkedin.com/in/nikolai-sachok/">
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>{{CTA_EMAIL}}</a>
-          <button type="button" class="btn btn-ghost" data-open-video>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path class="fill" d="M8 5v14l11-7z" /></svg>{{CTA_VIDEO}}</button>
         </div>
         <p class="meta-line">
           <span>{{LOCATION}}</span>
@@ -141,11 +139,6 @@
     </footer>
   </div>
 
-  <dialog class="video-dialog" aria-label="{{VIDEO_DIALOG_LABEL}}">
-    <div class="video-frame" data-embed="https://www.youtube-nocookie.com/embed/G0wu4CbFEvU?autoplay=1&amp;rel=0" data-title="{{VIDEO_IFRAME_TITLE}}"></div>
-    <form method="dialog"><button class="video-close" aria-label="{{VIDEO_CLOSE}}">&times;</button></form>
-  </dialog>
-
   <script>
     /* Email. Stored reversed and split so the address never appears in the HTML;
        a scraper that does not run JavaScript only sees the LinkedIn fallback. */
@@ -160,34 +153,6 @@
         el.textContent = addr;
         el.hidden = false;
       });
-    })();
-
-    /* Intro video in a native <dialog>. The iframe is created on open and
-       destroyed on close, so nothing loads from YouTube until it is asked for
-       and closing really stops playback. Without <dialog> support, the button
-       falls back to opening YouTube. */
-    (function () {
-      var dialog = document.querySelector('.video-dialog');
-      var frame = dialog && dialog.querySelector('.video-frame');
-      document.querySelectorAll('[data-open-video]').forEach(function (b) {
-        b.addEventListener('click', function () {
-          if (!dialog || typeof dialog.showModal !== 'function') {
-            location.href = 'https://www.youtube.com/watch?v=G0wu4CbFEvU';
-            return;
-          }
-          var iframe = document.createElement('iframe');
-          iframe.src = frame.dataset.embed;
-          iframe.title = frame.dataset.title;
-          iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-          iframe.setAttribute('allowfullscreen', '');
-          frame.appendChild(iframe);
-          dialog.showModal();
-        });
-      });
-      if (dialog) {
-        dialog.addEventListener('close', function () { frame.innerHTML = ''; });
-        dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
-      }
     })();
 
     /* A language chosen by hand is remembered and never auto-overridden again. */
